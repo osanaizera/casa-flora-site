@@ -1,36 +1,115 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Casa Flora - Site Institucional
 
-## Getting Started
+Site moderno e elegante para a Casa Flora, uma agência de branding especializada em criar marcas sensoriais, autorais e humanas.
 
-First, run the development server:
+## 🌸 Sobre o Projeto
 
+Este é o site institucional da Casa Flora, desenvolvido com as mais modernas tecnologias web para proporcionar uma experiência única e memorável aos visitantes. O design reflete a identidade da marca: sofisticada, orgânica e centrada no ser humano.
+
+## 🚀 Tecnologias Utilizadas
+
+- **Next.js 14** - Framework React com App Router
+- **TypeScript** - Type safety e melhor DX
+- **Framer Motion** - Animações suaves e interativas
+- **CSS Modules** - Estilos modulares e performáticos
+- **React Hooks** - Estado e efeitos modernos
+
+## ✨ Funcionalidades
+
+### Hero Section
+- Background animado com vídeo
+- Tipografia impactante
+- Call-to-action estratégico
+- Design responsivo
+
+### Seção de Serviços
+- Cards interativos com hover effects
+- Sistema de tags categorizadas
+- Animações stagger elegantes
+- Layout adaptativo
+
+### Showcase de Cases
+- Grid premium de projetos
+- Efeitos visuais sofisticados
+- Informações detalhadas por projeto
+- Indicadores visuais de categoria
+
+## 🛠️ Instalação e Uso
+
+1. Clone o repositório:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/osanaizera/casa-flora-site.git
+cd casa-flora-site
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Instale as dependências:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Execute o servidor de desenvolvimento:
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Abra [http://localhost:3000](http://localhost:3000) no navegador.
 
-## Learn More
+## 📁 Estrutura do Projeto
 
-To learn more about Next.js, take a look at the following resources:
+```
+casa-flora-site/
+├── src/
+│   ├── app/              # Páginas e rotas (App Router)
+│   ├── components/       # Componentes React
+│   │   ├── layout/      # Header, Footer
+│   │   ├── sections/    # Seções da página
+│   │   └── shared/      # Componentes compartilhados
+│   └── assets/          # Imagens e recursos
+├── public/              # Arquivos estáticos
+└── package.json         # Dependências
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🎨 Design System
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+O projeto utiliza um sistema de design consistente com:
 
-## Deploy on Vercel
+- **Cores**: Paleta inspirada na natureza
+- **Tipografia**: Combinação de fontes display e texto
+- **Espaçamento**: Sistema de grid responsivo
+- **Componentes**: Biblioteca de UI reutilizável
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📱 Responsividade
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+O site é totalmente responsivo e otimizado para:
+- Desktop (1920px+)
+- Laptop (1024px - 1919px)
+- Tablet (768px - 1023px)
+- Mobile (320px - 767px)
+
+## 🚀 Deploy
+
+O projeto está pronto para deploy em plataformas como:
+- Vercel (recomendado para Next.js)
+- Netlify
+- Railway
+- Qualquer servidor Node.js
+
+## 📄 Licença
+
+Este projeto é propriedade da Casa Flora. Todos os direitos reservados.
+
+## 👥 Contribuindo
+
+Para contribuir com o projeto:
+
+1. Faça um fork
+2. Crie uma branch (`git checkout -b feature/nova-funcionalidade`)
+3. Commit suas mudanças (`git commit -m 'Adiciona nova funcionalidade'`)
+4. Push para a branch (`git push origin feature/nova-funcionalidade`)
+5. Abra um Pull Request
+
+## 📞 Contato
+
+Casa Flora - [Website](https://casaflora.com.br)
+
+Link do Projeto: [https://github.com/osanaizera/casa-flora-site](https://github.com/osanaizera/casa-flora-site)
