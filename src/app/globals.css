@@ -6,6 +6,8 @@
   box-sizing: border-box;
 }
 
+html { scroll-behavior: smooth; }
+
 :root {
   /* Colors */
   --color-ink: #0A0A0A;
@@ -850,6 +852,79 @@ body {
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
+
+/* Logo no hero do case */
+.case-hero__logo {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  z-index: 2;
+  display: block;
+  opacity: 0.95;
+}
+
+/* Artigo editorial (magazine roll) */
+.case-article {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+}
+
+.case-section {
+  margin: 56px 0;
+}
+
+.case-section__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3.2vw, 2rem);
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.case-columns2 {
+  column-count: 2;
+  column-gap: 40px;
+  line-height: 1.8;
+}
+
+@media (max-width: 900px) { .case-columns2 { column-count: 1; } }
+
+.dropcap p:first-child::first-letter {
+  font-family: var(--font-display);
+  float: left;
+  font-size: 4.2rem;
+  line-height: 0.9;
+  padding: 6px 10px 0 0;
+  font-weight: 300;
+}
+
+/* Menu discreto de sessões */
+.case-menu {
+  position: fixed;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: grid;
+  gap: 8px;
+  z-index: 40;
+}
+
+.case-menu a {
+  display: block;
+  padding: 6px 10px;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #9a9a9a;
+  text-decoration: none;
+  border: 1px solid #e9e9e9;
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(6px);
+}
+
+.case-menu a:hover { color: #111; border-color: #cfcfcf; }
+
+@media (max-width: 860px) { .case-menu { display: none; } }
 
 /* Remove old styles - already redefined above */
 

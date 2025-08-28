@@ -33,9 +33,14 @@ export default async function CaseDetail({ params }: Props) {
 
   return (
     <>
-      {/* Hero overlay editorial */}
+      {/* Hero overlay editorial com logo */}
       <section className="case-hero-wrap">
         <div className="case-hero">
+          {item.logo && (
+            <div className="case-hero__logo" aria-hidden>
+              <Image src={item.logo} alt="Logo do projeto" width={140} height={60} style={{ height: 'auto', width: 'auto' }} />
+            </div>
+          )}
           <div className="case-hero__media">
             <Image src={item.heroImage} alt={item.title} fill className="object-cover" priority sizes="100vw" />
           </div>
@@ -47,106 +52,87 @@ export default async function CaseDetail({ params }: Props) {
         </div>
       </section>
 
-      <article className="min-h-screen case-modern" aria-labelledby="case-title">
-      <div className="grid lg:grid-cols-[460px_1fr] xl:grid-cols-[520px_1fr] 2xl:grid-cols-[600px_1fr] min-h-screen">
-        {/* Coluna esquerda (sticky) — composição artística */}
-        <aside className="case-modern__aside relative border-r border-[var(--color-gray-200)]">
-          <div className="sticky top-0 h-screen flex flex-col">
-            {/* Fundo com acento sutil */}
-            <div className="absolute inset-0 pointer-events-none">
-              <div className="absolute -top-20 -left-20 w-80 h-80 rounded-full bg-[rgba(225,29,72,0.06)] blur-3xl" />
-              <div className="absolute bottom-10 -right-10 w-64 h-64 rounded-full bg-[rgba(20,83,45,0.06)] blur-3xl" />
-            </div>
+      {/* Menu discreto fixo para sessões */}
+      <nav className="case-menu" aria-label="Sessões do case">
+        <a href="#sobre">Sobre</a>
+        <a href="#desafio">Desafio</a>
+        <a href="#abordagem">Abordagem</a>
+        <a href="#solucao">Solução</a>
+        <a href="#manifesto">Manifesto</a>
+        <a href="#galeria">Galeria</a>
+      </nav>
 
-            <div className="case-modern__aside-inner px-8 pt-28 pb-6">
-              <div className="case-modern__meta">
-                <span>{item.location}</span>
-                {item.segment && (<><span>•</span><span>{item.segment}</span></>)}
-                {(item.tagline || item.servicePack) && (<><span>•</span><span>{item.tagline || item.servicePack}</span></>)}
-                <span>•</span>
-                <span>{item.year}</span>
-              </div>
-              <h1 id="case-title" className="case-modern__title">{item.title}</h1>
-              {item.client && (
-                <p className="case-modern__client">Cliente: {item.client}</p>
-              )}
-              <p className="case-modern__lead">{item.summary}</p>
-
-              <nav className="case-modern__toc" aria-label="Sumário do case">
-                <a href="#sobre">Sobre</a>
-                <a href="#desafio">Desafio</a>
-                <a href="#abordagem">Abordagem</a>
-                <a href="#solucao">Solução</a>
-                <a href="#galeria">Galeria</a>
-              </nav>
-            </div>
-
-            <div className="mt-auto px-8 pb-8">
-              <h3 className="case-modern__aside-sub">Resultados</h3>
-              <ul className="case-modern__aside-list">
-                {item.results.map((r, i) => (
-                  <li key={i}>• {r}</li>
-                ))}
-              </ul>
-              {item.notionUrl && (
-                <p className="case-modern__notion">
-                  <Link className="underline" href={item.notionUrl} target="_blank" rel="noopener noreferrer">Referência do projeto no Notion</Link>
-                </p>
-              )}
-            </div>
+      {/* Artigo vertical (magazine roll) */}
+      <article className="case-article" aria-labelledby="case-title">
+        <header className="case-section">
+          <div className="body-small" style={{ color: 'var(--color-gray-700)' }}>
+            {item.location} • {item.segment || item.category} • {item.year}
           </div>
-        </aside>
+          <h1 id="case-title" className="h1" style={{ marginTop: 8 }}>{item.title}</h1>
+          {item.client && (<p className="case-modern__client">Cliente: {item.client}</p>)}
+          <p className="body-large" style={{ marginTop: 10, maxWidth: '68ch' }}>{item.summary}</p>
+        </header>
 
-        {/* Coluna direita (conteúdo visual) */}
-        <main className="bg-[var(--color-paper)]">
+        <section id="sobre" className="case-section dropcap">
+          <h2 className="case-section__title">Sobre</h2>
+          <div className="case-columns2">
+            <p>{item.aboutHotel || item.description}</p>
+          </div>
+        </section>
 
-          <section id="sobre" className="case-modern__section">
-            <h2 className="case-modern__section-title">Sobre o hotel</h2>
-            <p className="case-modern__body">{item.aboutHotel || item.description}</p>
-          </section>
+        <section id="desafio" className="case-section">
+          <h2 className="case-section__title">Desafio</h2>
+          <div className="case-modern__callout">
+            <p>{item.challenge}</p>
+          </div>
+        </section>
 
-          <section id="desafio" className="case-modern__section">
-            <h2 className="case-modern__section-title">O desafio</h2>
-            <div className="case-modern__callout">
-              <p>{item.challenge}</p>
-            </div>
-          </section>
+        <section id="abordagem" className="case-section">
+          <h2 className="case-section__title">Abordagem</h2>
+          <div className="case-columns2">
+            {(item.approach || []).map((p, i) => (<p key={i}>{p}</p>))}
+          </div>
+        </section>
 
-          <section id="abordagem" className="case-modern__section">
-            <h2 className="case-modern__section-title">Nossa abordagem</h2>
-            <div className="case-modern__list">
-              {(item.approach || []).map((p, i) => (<p key={i}>{p}</p>))}
-            </div>
-          </section>
+        <section id="solucao" className="case-section">
+          <h2 className="case-section__title">Solução</h2>
+          <ul className="case-modern__bullets">
+            {(item.solution || []).map((s, i) => (<li key={i}>{s}</li>))}
+          </ul>
+          {item.resultsText && (
+            <p className="case-modern__body mt-4">{item.resultsText}</p>
+          )}
+        </section>
 
-          <section id="solucao" className="case-modern__section">
-            <h2 className="case-modern__section-title">A solução</h2>
-            <ul className="case-modern__bullets">
-              {(item.solution || []).map((s, i) => (<li key={i}>{s}</li>))}
-            </ul>
-            {item.resultsText && (
-              <p className="case-modern__body mt-4">{item.resultsText}</p>
-            )}
-          </section>
+        <section id="manifesto" className="case-section">
+          <h2 className="case-section__title">Manifesto</h2>
+          <p className="case-modern__body" style={{ maxWidth: '68ch' }}>{item.description}</p>
+        </section>
 
-          <section id="galeria" className="case-modern__section pb-16">
-            <h2 className="case-modern__section-title">Galeria Visual</h2>
-            <div className="case-modern__gallery">
-              {item.gallery.map((g, i) => {
-                const obj = typeof g === 'string' ? { src: g } : g;
-                const span = obj.span || 'normal';
-                const cls = span === 'wide' ? 'case-modern__tile case-modern__tile--wide' : span === 'tall' ? 'case-modern__tile case-modern__tile--tall' : 'case-modern__tile';
-                return (
-                  <div key={i} className={cls}>
-                    <Image src={obj.src} alt={obj.alt || `${item.title} ${i + 1}`} fill className="object-cover" sizes="(min-width:1280px) 33vw, (min-width:640px) 50vw, 100vw" />
-                  </div>
-                );
-              })}
-            </div>
-          </section>
-        </main>
-      </div>
-    </article>
+        <section id="galeria" className="case-section">
+          <h2 className="case-section__title">Galeria</h2>
+          <div className="case-modern__gallery">
+            {item.gallery.map((g, i) => {
+              const obj = typeof g === 'string' ? { src: g } : g;
+              const span = obj.span || 'normal';
+              const cls = span === 'wide' ? 'case-modern__tile case-modern__tile--wide' : span === 'tall' ? 'case-modern__tile case-modern__tile--tall' : 'case-modern__tile';
+              return (
+                <div key={i} className={cls}>
+                  <Image src={obj.src} alt={obj.alt || `${item.title} ${i + 1}`} fill className="object-cover" sizes="(min-width:1280px) 33vw, (min-width:640px) 50vw, 100vw" />
+                </div>
+              );
+            })}
+          </div>
+        </section>
+
+        <footer className="case-section">
+          <div className="case-modern__notion">
+            {item.notionUrl ? (
+              <Link className="underline" href={item.notionUrl} target="_blank" rel="noopener noreferrer">Referência no Notion</Link>
+            ) : null}
+          </div>
+        </footer>
+      </article>
     </>
   );
 }
