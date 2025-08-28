@@ -4,8 +4,9 @@ import Image from "next/image";
 import { useState, useCallback, useEffect } from "react";
 
 type Slide = { src: string; alt?: string };
+type Props = { slides: Slide[]; height?: string; border?: boolean };
 
-export default function Carousel({ slides }: { slides: Slide[] }) {
+export default function Carousel({ slides, height = 'min(70vh, 680px)', border = true }: Props) {
   const [index, setIndex] = useState(0);
   const count = slides.length;
 
@@ -48,7 +49,7 @@ export default function Carousel({ slides }: { slides: Slide[] }) {
   const dragOffsetPercent = dragActive ? (delta / Math.max(1, (typeof window !== 'undefined' ? window.innerWidth : 1))) * 100 : 0;
 
   return (
-    <div className="cf-carousel" role="region" aria-label="Galeria de imagens">
+    <div className="cf-carousel" role="region" aria-label="Galeria de imagens" style={{ ['--cfH' as any]: height, ['--cfB' as any]: border ? '1px' : '0px' }}>
       <div
         className="cf-carousel__viewport"
         onPointerDown={onPointerDown}
@@ -80,7 +81,7 @@ export default function Carousel({ slides }: { slides: Slide[] }) {
       )}
 
       <style jsx>{`
-        .cf-carousel { position: relative; width: 100%; height: min(70vh, 680px); border: 1px solid #eee; background: #fff; user-select: none; }
+        .cf-carousel { position: relative; width: 100%; height: var(--cfH, min(70vh, 680px)); border: var(--cfB, 1px) solid #eee; background: #fff; user-select: none; }
         .cf-carousel__viewport { position: relative; width: 100%; height: 100%; overflow: hidden; touch-action: pan-y; cursor: grab; }
         .cf-carousel__viewport:active { cursor: grabbing; }
         .cf-carousel__slide { position: absolute; inset: 0; transition: transform 420ms cubic-bezier(.25,.46,.45,.94); will-change: transform; }

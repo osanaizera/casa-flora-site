@@ -79,21 +79,19 @@ export default async function CaseDetail({ params }: Props) {
             <h2 className="h2" style={{ marginTop: 10 }}>Da arte da essência à experiência da hospitalidade</h2>
           </header>
 
-          {/* Bloco de imagens iniciais (5) */}
+          {/* Carrossel inicial com 5 imagens */}
           <section className="case-section" aria-label="Imagens de abertura">
-            <div className="case-modern__gallery">
-              {[
-                { src: '/images/cases/insolito/Captura de Tela 2025-08-13 às 09.48.54.png' },
-                { src: '/images/cases/insolito/Captura de Tela 2025-08-13 às 09.49.03.png' },
-                { src: '/images/cases/insolito/Captura de Tela 2025-08-13 às 09.49.14.png' },
-                { src: '/images/cases/insolito/Captura de Tela 2025-08-13 às 09.49.51.png' },
-                { src: '/images/cases/insolito/Captura de Tela 2025-08-13 às 09.50.00.png' },
-              ].map((g, i) => (
-                <div key={i} className="case-modern__tile">
-                  <Image src={g.src} alt={`Abertura ${i + 1}`} fill className="object-cover" sizes="(min-width:1280px) 33vw, (min-width:640px) 50vw, 100vw" />
-                </div>
-              ))}
-            </div>
+            <Carousel
+              height="min(80vh, 720px)"
+              border={false}
+              slides={[
+                { src: '/images/cases/insolito/image.png', alt: 'Insólito 1' },
+                { src: '/images/cases/insolito/image (1).png', alt: 'Insólito 2' },
+                { src: '/images/cases/insolito/image (2).png', alt: 'Insólito 3' },
+                { src: '/images/cases/insolito/image (3).png', alt: 'Insólito 4' },
+                { src: '/images/cases/insolito/image (4).png', alt: 'Insólito 5' },
+              ]}
+            />
           </section>
 
           {/* Texto introdutório exato (coluna única) */}
