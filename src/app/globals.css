@@ -833,6 +833,13 @@ body {
   padding: 0 24px;
 }
 
+.case-hero__content-inner {
+  display: grid;
+  gap: 16px;
+  align-items: center;
+  justify-items: center;
+}
+
 .case-hero__title {
   font-family: var(--font-display);
   font-weight: 300;
@@ -851,6 +858,29 @@ body {
   font-size: 12px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
+}
+
+.case-hero__brand-logo {
+  display: block;
+  width: min(38vw, 320px);
+  height: auto;
+  opacity: 1;
+}
+
+.case-hero__arrow {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 24px;
+  height: 24px;
+  opacity: 0.9;
+  animation: scroll-bounce 1.6s infinite;
+}
+
+@keyframes scroll-bounce {
+  0%, 100% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, 8px); }
 }
 
 /* Logo no hero do case */

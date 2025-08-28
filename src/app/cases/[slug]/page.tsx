@@ -36,18 +36,27 @@ export default async function CaseDetail({ params }: Props) {
       {/* Hero overlay editorial com logo */}
       <section className="case-hero-wrap">
         <div className="case-hero">
-          {item.logo && (
-            <div className="case-hero__logo" aria-hidden>
-              <Image src={item.logo} alt="Logo do projeto" width={140} height={60} style={{ height: 'auto', width: 'auto' }} />
-            </div>
-          )}
           <div className="case-hero__media">
             <Image src={item.heroImage} alt={item.title} fill className="object-cover" priority sizes="100vw" />
           </div>
           <div className="case-hero__overlay" />
           <div className="case-hero__content">
-            <h1 className="case-hero__title">{item.tagline || item.title}</h1>
-            <div className="case-hero__scroll">rolar</div>
+            <div className="case-hero__content-inner">
+              {item.logo && (
+                <Image
+                  src={item.logo}
+                  alt={`${item.title} logo`}
+                  width={320}
+                  height={140}
+                  className="case-hero__brand-logo"
+                  priority
+                />
+              )}
+              <h1 className="case-hero__title">{item.tagline || item.title}</h1>
+            </div>
+            <svg className="case-hero__arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+              <path d="M12 5v14M12 19l-6-6M12 19l6-6" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
           </div>
         </div>
       </section>
