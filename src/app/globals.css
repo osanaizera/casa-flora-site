@@ -905,6 +905,10 @@ body {
   max-width: 1000px;
   margin: 0 auto;
   padding: 40px 24px 80px;
+  text-rendering: optimizeLegibility;
+  font-kerning: normal;
+  font-feature-settings: "liga" 1, "kern" 1;
+  font-optical-sizing: auto;
 }
 
 .case-section {
@@ -916,12 +920,14 @@ body {
   font-size: clamp(1.5rem, 3.2vw, 2rem);
   font-weight: 500;
   margin-bottom: 16px;
+  letter-spacing: -0.005em;
 }
 
 .case-columns2 {
   column-count: 2;
   column-gap: 40px;
   line-height: 1.8;
+  max-width: 72ch;
 }
 
 @media (max-width: 900px) { .case-columns2 { column-count: 1; } }
@@ -945,7 +951,15 @@ body {
   -ms-hyphens: auto;
   orphans: 2;
   widows: 2;
+  letter-spacing: 0.002em;
+  word-spacing: 0.02em;
+  line-height: 1.75;
 }
+
+/* Media helpers to preserve image ratio without over-cropping */
+.case-media { position: relative; width: 100%; background: #fff; border: 1px solid #eee; }
+.case-media--landscape { height: min(60vh, 640px); }
+.case-media--tall { height: min(80vh, 820px); }
 
 /* Menu discreto de sessões */
 .case-menu {

@@ -96,16 +96,16 @@ export default async function CaseDetail({ params }: Props) {
             </div>
           </section>
 
-          {/* Texto introdutório exato */}
+          {/* Texto introdutório exato (coluna única) */}
           <section id="sobre" className="case-section dropcap">
-            <div className="case-columns2">
+            <div style={{ maxWidth: '72ch' }}>
               <p>O Insólito é um hotel boutique e spa visualmente vibrante, com alma e estética profundamente brasileiras. Localizado à beira-mar, na praia da Ferradura, em Búzios (RJ), ele é reconhecido por sua curadoria artística: cada quarto é inspirado em uma obra de arte, transformando o espaço em uma galeria viva que celebra artistas nacionais.</p>
               <p>É um lugar onde a hospitalidade encontra cultura, e onde cada detalhe tem um significado.</p>
               <p>Como a própria fundadora e criadora da marca resume:</p>
             </div>
             <figure style={{ marginTop: 16 }}>
-              <div className="case-modern__tile" style={{ aspectRatio: '4/3' }}>
-                <Image src={'/images/cases/insolito/Captura de Tela 2025-08-13 às 09.49.14.png'} alt="Citação da fundadora" fill className="object-cover" />
+              <div className="case-media case-media--landscape">
+                <Image src={'/images/cases/insolito/Captura de Tela 2025-08-13 às 09.49.14.png'} alt="Citação da fundadora" fill style={{ objectFit: 'contain' }} />
               </div>
             </figure>
           </section>
