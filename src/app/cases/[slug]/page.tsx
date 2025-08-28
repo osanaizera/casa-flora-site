@@ -98,13 +98,13 @@ export default async function CaseDetail({ params }: Props) {
 
           {/* Texto introdutório exato (coluna única) */}
           <section id="sobre" className="case-section dropcap">
-            <div style={{ maxWidth: '72ch' }}>
+            <div className="case-text--narrow">
               <p>O Insólito é um hotel boutique e spa visualmente vibrante, com alma e estética profundamente brasileiras. Localizado à beira-mar, na praia da Ferradura, em Búzios (RJ), ele é reconhecido por sua curadoria artística: cada quarto é inspirado em uma obra de arte, transformando o espaço em uma galeria viva que celebra artistas nacionais.</p>
               <p>É um lugar onde a hospitalidade encontra cultura, e onde cada detalhe tem um significado.</p>
               <p>Como a própria fundadora e criadora da marca resume:</p>
             </div>
             <figure style={{ marginTop: 16 }}>
-              <div className="case-media case-media--landscape">
+              <div className="case-media case-media--landscape case-media--narrow">
                 <Image src={'/images/cases/insolito/Captura de Tela 2025-08-13 às 09.49.14.png'} alt="Citação da fundadora" fill style={{ objectFit: 'contain' }} />
               </div>
             </figure>
@@ -115,7 +115,7 @@ export default async function CaseDetail({ params }: Props) {
           {/* O desafio */}
           <section id="desafio" className="case-section">
             <h2 className="case-section__title">O desafio</h2>
-            <div className="case-columns2">
+            <div className="case-text--narrow">
               <p>Apesar do potencial único e da força sensorial do espaço, a marca não traduzia, nem no digital nem na experiência do hóspede, toda essa atmosfera rica. A identidade visual carecia de unidade e sofisticação, e o posicionamento não comunicava de forma estratégica o valor do hotel como destino de imersão cultural.</p>
               <p>Havia, também, a necessidade de <strong>resgatar a essência da marca</strong> e traduzir no design o novo conceito, reforçando sua brasilidade e sua singularidade artística.</p>
             </div>
@@ -136,7 +136,7 @@ export default async function CaseDetail({ params }: Props) {
           {/* Nossa abordagem */}
           <section id="abordagem" className="case-section">
             <h2 className="case-section__title">Nossa abordagem</h2>
-            <div className="case-columns2">
+            <div className="case-text--narrow">
               <p>A Casa Flora mergulhou no universo do Insólito, explorando sua história, curadoria artística e experiência sensorial. Nosso trabalho incluiu:</p>
               <ul className="case-modern__bullets">
                 <li>Avaliação do <strong>brand awareness</strong>, analisando comentários e notas de hóspedes em OTAs;</li>
@@ -156,7 +156,7 @@ export default async function CaseDetail({ params }: Props) {
           <section id="solucao" className="case-section">
             <h2 className="case-section__title">A solução</h2>
             <h3 className="h3" style={{ marginBottom: 10 }}>Arquétipos da marca</h3>
-            <div className="case-columns2">
+            <div className="case-text--narrow">
               <p>Para traduzir a essência do Insólito, definimos dois arquétipos centrais: <strong>o Mago e o Criativo</strong>. A escolha desses arquétipos reflete diretamente o propósito do hotel e a experiência que ele oferece aos hóspedes.</p>
               <p>O <strong>Mago</strong> representa transformação, inspiração e descoberta. Ele traduz a capacidade do Insólito de encantar e surpreender.</p>
             </div>
@@ -165,7 +165,7 @@ export default async function CaseDetail({ params }: Props) {
                 <Image src={'/images/cases/insolito/Captura de Tela 2025-08-13 às 09.48.54.png'} alt="Arquétipo Mago" fill className="object-cover" />
               </div>
             </figure>
-            <div className="case-columns2" style={{ marginTop: 12 }}>
+            <div className="case-text--narrow" style={{ marginTop: 12 }}>
               <p>O <strong>Criativo</strong>, por sua vez, expressa originalidade, inventividade e inovação. Ele reflete a estética singular do hotel, a curadoria artística e a brasilidade presente em cada detalhe.</p>
             </div>
             <figure style={{ marginTop: 12 }}>
@@ -173,7 +173,7 @@ export default async function CaseDetail({ params }: Props) {
                 <Image src={'/images/cases/insolito/Captura de Tela 2025-08-13 às 09.49.03.png'} alt="Arquétipo Criativo" fill className="object-cover" />
               </div>
             </figure>
-            <div className="case-columns2" style={{ marginTop: 12 }}>
+            <div className="case-text--narrow" style={{ marginTop: 12 }}>
               <p>A combinação do <strong>Mago e do Criativo</strong> posiciona o Insólito como um destino transformador e inspirador, que une estética, brasilidade e inovação. Esses arquétipos guiam toda a estratégia da marca, desde o redesign da identidade visual até a construção da jornada do hóspede, garantindo coerência entre propósito, experiência e comunicação.</p>
             </div>
           </section>
@@ -183,7 +183,7 @@ export default async function CaseDetail({ params }: Props) {
           {/* Manifesto e conceito da marca */}
           <section id="manifesto" className="case-section">
             <h2 className="case-section__title">Manifesto e conceito da marca</h2>
-            <div className="case-columns2">
+            <div className="case-text--narrow">
               <p>O manifesto do Insólito traduz o propósito, a essência e a personalidade da marca, reforçando que o hotel vai além de hospedagem: é um lugar de <strong>descoberta, arte e conexão com a brasilidade</strong>. Cada detalhe — da curadoria artística à experiência sensorial — reflete o compromisso do hotel em criar <strong>experiências únicas</strong>.</p>
             </div>
             <div className="case-modern__gallery" style={{ marginTop: 16 }}>
@@ -196,7 +196,7 @@ export default async function CaseDetail({ params }: Props) {
                 </div>
               ))}
             </div>
-            <div className="case-columns2" style={{ marginTop: 12 }}>
+            <div className="case-text--narrow" style={{ marginTop: 12 }}>
               <p>Ao final, o manifesto convida o hóspede a vivenciar essa experiência de forma ativa. Esse <strong>convite</strong> conecta diretamente ao conceito central da marca, <strong>“Descubra Arte em sua Natureza”</strong>, que guia todas as experiências, comunicações e ativações do hotel, orientando o hóspede a explorar a brasilidade, a arte e a criatividade de cada espaço de forma integrada e inspiradora.</p>
             </div>
             <div className="case-modern__gallery" style={{ marginTop: 16 }}>
@@ -208,7 +208,7 @@ export default async function CaseDetail({ params }: Props) {
                 </div>
               ))}
             </div>
-            <div className="case-columns2" style={{ marginTop: 12 }}>
+            <div className="case-text--narrow" style={{ marginTop: 12 }}>
               <p>O <strong>conceito central</strong>, <strong>“Descubra Arte em sua Natureza”</strong>, sintetiza a proposta do Insólito de maneira clara e inspiradora. Ele une dois pilares fundamentais da marca:</p>
               <ul className="case-modern__bullets">
                 <li><strong>Arte:</strong> cada espaço, cada quarto e cada experiência são cuidadosamente curados para revelar a criatividade e a cultura brasileiras;</li>
@@ -222,7 +222,7 @@ export default async function CaseDetail({ params }: Props) {
           {/* Redesign da identidade visual */}
           <section className="case-section">
             <h2 className="case-section__title">Redesign da identidade visual</h2>
-            <div className="case-columns2">
+            <div className="case-text--narrow">
               <p>O redesign da identidade visual do Insólito teve como objetivo <strong>resgatar a essência da marca e marcar o novo conceito</strong>, traduzindo em elementos visuais sua brasilidade, criatividade e espírito transformador.</p>
               <p>O <strong>logo foi redesenhado</strong> para transmitir organicidade, fluidez e singularidade:</p>
               <ul className="case-modern__bullets">
@@ -250,7 +250,7 @@ export default async function CaseDetail({ params }: Props) {
           {/* Resultados do Rebranding */}
           <section className="case-section">
             <h2 className="case-section__title">Resultados do Rebranding</h2>
-            <div className="case-columns2">
+            <div className="case-text--narrow">
               <h3 className="h3">Reconhecimento e Avaliação Positiva</h3>
               <p>O Insólito recebe elogios em plataformas de avaliação, como Booking.com e Expedia, destacando-se pela qualidade do atendimento, conforto das acomodações e o ambiente artístico. Os hóspedes frequentemente mencionam a experiência sensorial proporcionada pelo hotel, alinhada ao conceito de "Descubra Arte em sua Natureza".</p>
               <h3 className="h3" style={{ marginTop: 16 }}>Coerência Visual e Identidade Fortalecida</h3>

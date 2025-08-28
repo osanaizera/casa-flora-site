@@ -909,6 +909,7 @@ body {
   font-kerning: normal;
   font-feature-settings: "liga" 1, "kern" 1;
   font-optical-sizing: auto;
+  --case-content-width: 72ch;
 }
 
 .case-section {
@@ -3169,3 +3170,5 @@ body {
   .about-mosaic__future-title { font-size: 0.85rem; }
   .about-mosaic__future-text { font-size: 0.7rem; }
 }
+.case-text--narrow { max-width: var(--case-content-width); margin-inline: auto; }
+.case-media--narrow { max-width: var(--case-content-width); margin-inline: auto; }
