@@ -872,17 +872,17 @@ body {
   bottom: 18px;
   left: 50%;
   transform: translateX(-50%);
-  width: 16px;
-  height: 16px;
-  max-width: 16px;
-  max-height: 16px;
+  width: 18px;
+  height: 18px;
+  max-width: 18px;
+  max-height: 18px;
   opacity: 0.85;
   animation: scroll-bounce 1.6s infinite;
   pointer-events: none;
 }
 
 @media (min-width: 768px) {
-  .case-hero__arrow { width: 18px; height: 18px; max-width: 18px; max-height: 18px; }
+  .case-hero__arrow { width: 22px; height: 22px; max-width: 22px; max-height: 22px; }
 }
 
 @keyframes scroll-bounce {
@@ -933,6 +933,18 @@ body {
   line-height: 0.9;
   padding: 6px 10px 0 0;
   font-weight: 300;
+}
+
+/* Justificação clássica de revista */
+.case-columns2 p,
+.case-article p {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  orphans: 2;
+  widows: 2;
 }
 
 /* Menu discreto de sessões */
