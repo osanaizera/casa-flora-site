@@ -872,10 +872,17 @@ body {
   bottom: 18px;
   left: 50%;
   transform: translateX(-50%);
-  width: 24px;
-  height: 24px;
-  opacity: 0.9;
+  width: 16px;
+  height: 16px;
+  max-width: 16px;
+  max-height: 16px;
+  opacity: 0.85;
   animation: scroll-bounce 1.6s infinite;
+  pointer-events: none;
+}
+
+@media (min-width: 768px) {
+  .case-hero__arrow { width: 18px; height: 18px; max-width: 18px; max-height: 18px; }
 }
 
 @keyframes scroll-bounce {
