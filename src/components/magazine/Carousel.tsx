@@ -4,9 +4,16 @@ import Image from "next/image";
 import { useState, useCallback, useEffect } from "react";
 
 type Slide = { src: string; alt?: string };
-type Props = { slides: Slide[]; height?: string; border?: boolean };
+type Props = {
+  slides: Slide[];
+  height?: string; // if provided, overrides aspect
+  aspect?: string; // e.g. "16/9"; used when height is not set
+  border?: boolean;
+  sizes?: string; // next/image sizes
+  fit?: 'cover' | 'contain';
+};
 
-export default function Carousel({ slides, height = 'min(70vh, 680px)', border = true }: Props) {
+export default function Carousel({ slides, height, aspect = '16/9', border = true, sizes = '(min-width: 1024px) 720px, 92vw', fit = 'cover' }: Props) {
   const [index, setIndex] = useState(0);
   const count = slides.length;
 
@@ -48,8 +55,12 @@ export default function Carousel({ slides, height = 'min(70vh, 680px)', border =
 
   const dragOffsetPercent = dragActive ? (delta / Math.max(1, (typeof window !== 'undefined' ? window.innerWidth : 1))) * 100 : 0;
 
+  const styleVars: any = { ['--cfB' as any]: border ? '1px' : '0px' };
+  if (height) styleVars['--cfH' as any] = height;
+  else styleVars['--cfAspect' as any] = aspect;
+
   return (
-    <div className="cf-carousel" role="region" aria-label="Galeria de imagens" style={{ ['--cfH' as any]: height, ['--cfB' as any]: border ? '1px' : '0px' }}>
+    <div className="cf-carousel" role="region" aria-label="Galeria de imagens" style={styleVars}>
       <div
         className="cf-carousel__viewport"
         onPointerDown={onPointerDown}
@@ -64,7 +75,7 @@ export default function Carousel({ slides, height = 'min(70vh, 680px)', border =
             aria-hidden={i !== index}
             style={{ transform: `translateX(${(i - index) * 100 + dragOffsetPercent}%)` }}
           >
-            <Image src={s.src} alt={s.alt || `Slide ${i + 1}`} fill className="object-cover" sizes="(min-width:1024px) 1000px, 100vw" />
+            <Image src={s.src} alt={s.alt || `Slide ${i + 1}`} fill style={{ objectFit: fit }} sizes={sizes} />
           </div>
         ))}
       </div>
@@ -81,7 +92,15 @@ export default function Carousel({ slides, height = 'min(70vh, 680px)', border =
       )}
 
       <style jsx>{`
-        .cf-carousel { position: relative; width: 100%; height: var(--cfH, min(70vh, 680px)); border: var(--cfB, 1px) solid #eee; background: #fff; user-select: none; }
+        .cf-carousel {
+          position: relative;
+          width: 100%;
+          height: var(--cfH, auto);
+          aspect-ratio: var(--cfAspect, 16/9);
+          border: var(--cfB, 1px) solid #eee;
+          background: #fff;
+          user-select: none;
+        }
         .cf-carousel__viewport { position: relative; width: 100%; height: 100%; overflow: hidden; touch-action: pan-y; cursor: grab; }
         .cf-carousel__viewport:active { cursor: grabbing; }
         .cf-carousel__slide { position: absolute; inset: 0; transition: transform 420ms cubic-bezier(.25,.46,.45,.94); will-change: transform; }

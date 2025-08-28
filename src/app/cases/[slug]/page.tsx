@@ -79,19 +79,23 @@ export default async function CaseDetail({ params }: Props) {
             <h2 className="h2" style={{ marginTop: 10 }}>Da arte da essência à experiência da hospitalidade</h2>
           </header>
 
-          {/* Carrossel inicial com 5 imagens */}
+          {/* Carrossel inicial com 5 imagens - alinhado à largura do texto */}
           <section className="case-section" aria-label="Imagens de abertura">
-            <Carousel
-              height="min(80vh, 720px)"
-              border={false}
-              slides={[
-                { src: '/images/cases/insolito/image.png', alt: 'Insólito 1' },
-                { src: '/images/cases/insolito/image (1).png', alt: 'Insólito 2' },
-                { src: '/images/cases/insolito/image (2).png', alt: 'Insólito 3' },
-                { src: '/images/cases/insolito/image (3).png', alt: 'Insólito 4' },
-                { src: '/images/cases/insolito/image (4).png', alt: 'Insólito 5' },
-              ]}
-            />
+            <div className="case-media--narrow">
+              <Carousel
+                aspect="16/10"
+                border={false}
+                sizes="(min-width: 1024px) 720px, 92vw"
+                fit="cover"
+                slides={[
+                  { src: '/images/cases/insolito/image.png', alt: 'Insólito 1' },
+                  { src: '/images/cases/insolito/image (1).png', alt: 'Insólito 2' },
+                  { src: '/images/cases/insolito/image (2).png', alt: 'Insólito 3' },
+                  { src: '/images/cases/insolito/image (3).png', alt: 'Insólito 4' },
+                  { src: '/images/cases/insolito/image (4).png', alt: 'Insólito 5' },
+                ]}
+              />
+            </div>
           </section>
 
           {/* Texto introdutório exato (coluna única) */}
@@ -117,15 +121,17 @@ export default async function CaseDetail({ params }: Props) {
               <p>Apesar do potencial único e da força sensorial do espaço, a marca não traduzia, nem no digital nem na experiência do hóspede, toda essa atmosfera rica. A identidade visual carecia de unidade e sofisticação, e o posicionamento não comunicava de forma estratégica o valor do hotel como destino de imersão cultural.</p>
               <p>Havia, também, a necessidade de <strong>resgatar a essência da marca</strong> e traduzir no design o novo conceito, reforçando sua brasilidade e sua singularidade artística.</p>
             </div>
-            <div className="case-modern__gallery" style={{ marginTop: 16 }}>
-              {[
-                { src: '/images/cases/insolito/Captura de Tela 2025-08-13 às 09.49.51.png' },
-                { src: '/images/cases/insolito/Captura de Tela 2025-08-13 às 09.50.00.png' },
-              ].map((g, i) => (
+            <div className="case-media--narrow" style={{ marginTop: 16 }}>
+              <div className="case-modern__gallery">
+                {[
+                  { src: '/images/cases/insolito/Captura de Tela 2025-08-13 às 09.49.51.png' },
+                  { src: '/images/cases/insolito/Captura de Tela 2025-08-13 às 09.50.00.png' },
+                ].map((g, i) => (
                 <div key={i} className="case-modern__tile">
                   <Image src={g.src} alt={`Desafio ${i + 1}`} fill className="object-cover" />
                 </div>
-              ))}
+                ))}
+              </div>
             </div>
           </section>
 
@@ -134,7 +140,7 @@ export default async function CaseDetail({ params }: Props) {
           {/* Nossa abordagem */}
           <section id="abordagem" className="case-section">
             <h2 className="case-section__title">Nossa abordagem</h2>
-            <div className="case-text--narrow">
+            <div className="case-columns2">
               <p>A Casa Flora mergulhou no universo do Insólito, explorando sua história, curadoria artística e experiência sensorial. Nosso trabalho incluiu:</p>
               <ul className="case-modern__bullets">
                 <li>Avaliação do <strong>brand awareness</strong>, analisando comentários e notas de hóspedes em OTAs;</li>
@@ -159,7 +165,7 @@ export default async function CaseDetail({ params }: Props) {
               <p>O <strong>Mago</strong> representa transformação, inspiração e descoberta. Ele traduz a capacidade do Insólito de encantar e surpreender.</p>
             </div>
             <figure style={{ marginTop: 12 }}>
-              <div className="case-modern__tile" style={{ aspectRatio: '4/3' }}>
+              <div className="case-media case-media--narrow case-media--landscape">
                 <Image src={'/images/cases/insolito/Captura de Tela 2025-08-13 às 09.48.54.png'} alt="Arquétipo Mago" fill className="object-cover" />
               </div>
             </figure>
@@ -167,7 +173,7 @@ export default async function CaseDetail({ params }: Props) {
               <p>O <strong>Criativo</strong>, por sua vez, expressa originalidade, inventividade e inovação. Ele reflete a estética singular do hotel, a curadoria artística e a brasilidade presente em cada detalhe.</p>
             </div>
             <figure style={{ marginTop: 12 }}>
-              <div className="case-modern__tile" style={{ aspectRatio: '4/3' }}>
+              <div className="case-media case-media--narrow case-media--landscape">
                 <Image src={'/images/cases/insolito/Captura de Tela 2025-08-13 às 09.49.03.png'} alt="Arquétipo Criativo" fill className="object-cover" />
               </div>
             </figure>
@@ -184,15 +190,17 @@ export default async function CaseDetail({ params }: Props) {
             <div className="case-text--narrow">
               <p>O manifesto do Insólito traduz o propósito, a essência e a personalidade da marca, reforçando que o hotel vai além de hospedagem: é um lugar de <strong>descoberta, arte e conexão com a brasilidade</strong>. Cada detalhe — da curadoria artística à experiência sensorial — reflete o compromisso do hotel em criar <strong>experiências únicas</strong>.</p>
             </div>
-            <div className="case-modern__gallery" style={{ marginTop: 16 }}>
-              {[
-                { src: '/images/experiencia.jpg' },
-                { src: '/images/hospitalidade.jpg' },
-              ].map((g, i) => (
+            <div className="case-media--narrow" style={{ marginTop: 16 }}>
+              <div className="case-modern__gallery">
+                {[
+                  { src: '/images/experiencia.jpg' },
+                  { src: '/images/hospitalidade.jpg' },
+                ].map((g, i) => (
                 <div key={i} className="case-modern__tile">
                   <Image src={g.src} alt={`Manifesto ${i + 1}`} fill className="object-cover" />
                 </div>
-              ))}
+                ))}
+              </div>
             </div>
             <div className="case-text--narrow" style={{ marginTop: 12 }}>
               <p>Ao final, o manifesto convida o hóspede a vivenciar essa experiência de forma ativa. Esse <strong>convite</strong> conecta diretamente ao conceito central da marca, <strong>“Descubra Arte em sua Natureza”</strong>, que guia todas as experiências, comunicações e ativações do hotel, orientando o hóspede a explorar a brasilidade, a arte e a criatividade de cada espaço de forma integrada e inspiradora.</p>
@@ -230,16 +238,17 @@ export default async function CaseDetail({ params }: Props) {
                 <li>Uma forma que dialoga com arte e natureza, reforçando a conexão do hotel com experiências sensoriais e culturais.</li>
               </ul>
             </div>
-            <div className="case-modern__gallery" style={{ marginTop: 16 }}>
-              {[
-                // Imagens específicas desta etapa: substituí 09:50:20 e 09:50:30 por 09:50:16 e 09:51:01 (disponíveis)
-                { src: '/images/cases/insolito/Captura de Tela 2025-08-13 às 09.50.16.png' },
-                { src: '/images/cases/insolito/Captura de Tela 2025-08-13 às 09.51.01.png' },
-              ].map((g, i) => (
-                <div key={i} className="case-modern__tile">
-                  <Image src={g.src} alt={`Redesign ${i + 1}`} fill className="object-cover" />
-                </div>
-              ))}
+            <div className="case-media--narrow" style={{ marginTop: 16 }}>
+              <div className="case-modern__gallery">
+                {[
+                  { src: '/images/cases/insolito/Captura de Tela 2025-08-13 às 09.50.16.png' },
+                  { src: '/images/cases/insolito/Captura de Tela 2025-08-13 às 09.51.01.png' },
+                ].map((g, i) => (
+                  <div key={i} className="case-modern__tile">
+                    <Image src={g.src} alt={`Redesign ${i + 1}`} fill className="object-cover" />
+                  </div>
+                ))}
+              </div>
             </div>
           </section>
 
@@ -248,7 +257,7 @@ export default async function CaseDetail({ params }: Props) {
           {/* Resultados do Rebranding */}
           <section className="case-section">
             <h2 className="case-section__title">Resultados do Rebranding</h2>
-            <div className="case-text--narrow">
+            <div className="case-columns2">
               <h3 className="h3">Reconhecimento e Avaliação Positiva</h3>
               <p>O Insólito recebe elogios em plataformas de avaliação, como Booking.com e Expedia, destacando-se pela qualidade do atendimento, conforto das acomodações e o ambiente artístico. Os hóspedes frequentemente mencionam a experiência sensorial proporcionada pelo hotel, alinhada ao conceito de "Descubra Arte em sua Natureza".</p>
               <h3 className="h3" style={{ marginTop: 16 }}>Coerência Visual e Identidade Fortalecida</h3>
@@ -257,7 +266,7 @@ export default async function CaseDetail({ params }: Props) {
               <p>O perfil do Instagram do Insólito (@insolitohotel) é vibrante! A curadoria de conteúdo, incluindo imagens de obras de arte, detalhes da arquitetura e experiências sensoriais, tem gerado engajamento significativo.</p>
             </div>
             <figure style={{ marginTop: 16 }}>
-              <div className="case-modern__tile" style={{ aspectRatio: '4/3' }}>
+              <div className="case-media case-media--narrow case-media--landscape">
                 <Image src={'/images/cases/insolito/Captura de Tela 2025-08-13 às 09.55.19.png'} alt="Resultados" fill className="object-cover" />
               </div>
             </figure>
