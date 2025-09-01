@@ -798,8 +798,8 @@ body {
 
 /* Case Hero Overlay (editorial) */
 .case-hero-wrap {
-  height: 140vh; /* cria espaço para o sticky “sumir” ao rolar */
-  background: var(--color-paper);
+  height: 140vh; /* cria espaço para o sticky/fixed “sumir” ao rolar */
+  background: #ffffff; /* fundo branco conforme pedido */
 }
 
 .case-hero {
@@ -809,6 +809,16 @@ body {
   width: 100%;
   overflow: hidden;
 }
+
+/* Variante com hero fixo que desaparece (sumidouro) */
+.case-hero--fixed { position: fixed; inset: 0; width: 100vw; height: 100vh; z-index: 10; pointer-events: none; --heroFade: 0; }
+/* Efeito cortina horizontal (fecha top/bottom) + opacidade */
+.case-hero--fixed .case-hero__media,
+.case-hero--fixed .case-hero__overlay {
+  opacity: calc(1 - var(--heroFade));
+  clip-path: inset(calc(var(--heroFade) * 30%) 0 calc(var(--heroFade) * 30%) 0 round 0);
+}
+.case-hero--fixed .case-hero__content { opacity: calc(1 - var(--heroFade)); }
 
 .case-hero__media {
   position: absolute;
@@ -904,12 +914,19 @@ body {
 .case-article {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 40px 24px 80px;
+  padding: 64px 40px 96px; /* mais respiro em volta do conteúdo */
   text-rendering: optimizeLegibility;
   font-kerning: normal;
   font-feature-settings: "liga" 1, "kern" 1;
   font-optical-sizing: auto;
   --case-content-width: 72ch;
+  background: #ffffff; /* destaca a área de rolagem do fundo */
+  border-radius: 14px; /* cantos suaves para sensação editorial */
+  box-shadow: 0 30px 80px rgba(0,0,0,0.18); /* sombra mais forte */
+}
+
+@media (max-width: 768px) {
+  .case-article { padding: 48px 20px 72px; }
 }
 
 .case-section {
@@ -920,8 +937,21 @@ body {
   font-family: var(--font-display);
   font-size: clamp(1.5rem, 3.2vw, 2rem);
   font-weight: 500;
-  margin-bottom: 16px;
+  margin-bottom: 24px; /* mais respiro entre título e texto */
   letter-spacing: -0.005em;
+  max-width: var(--case-content-width); /* alinhar com corpo do texto */
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0; /* garante zero padding no título */
+}
+
+/* Subtítulos h3 alinhados ao grid de conteúdo */
+.case-section .h3 {
+  max-width: var(--case-content-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .case-columns2 {
@@ -929,6 +959,8 @@ body {
   column-gap: 40px;
   line-height: 1.8;
   max-width: 72ch;
+  margin-left: auto; /* centraliza bloco de colunas */
+  margin-right: auto;
 }
 
 @media (max-width: 900px) { .case-columns2 { column-count: 1; } }
@@ -957,6 +989,42 @@ body {
   line-height: 1.75;
 }
 
+/* Parágrafos e listas diretas dentro da seção alinhados com o texto */
+.case-section > p,
+.case-section > ul,
+.case-section > ol {
+  max-width: var(--case-content-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Alinha também blocos comuns ao grid de conteúdo */
+.case-section .case-modern__body,
+.case-section .case-modern__list,
+.case-section .case-modern__bullets,
+.case-section .case-modern__gallery,
+.case-section .case-modern__callout {
+  max-width: var(--case-content-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Quando a seção contém callout (com borda/padding à esquerda), compensa no título para alinhar com o texto do bloco */
+/* Removida compensação específica: títulos agora herdam o mesmo container do texto */
+
+/* Garante que o bloco textual estreito (onde ficam os parágrafos) use o mesmo container e padding do título */
+.case-text--narrow { max-width: var(--case-content-width); margin-inline: auto; padding-left: 0; padding-right: 0; }
+/* Quando o container estreito é usado apenas para o título/subtítulo, não aplicar padding lateral */
+.case-section .case-text--narrow:has(> .case-section__title),
+.case-section .case-text--narrow:has(> .h3) {
+  padding-left: 0;
+  padding-right: 0;
+}
+
 /* Media helpers to preserve image ratio without over-cropping */
 .case-media { position: relative; width: 100%; background: #fff; border: 1px solid #eee; }
 .case-media--landscape { height: min(60vh, 640px); }
@@ -979,14 +1047,15 @@ body {
   font-size: 10px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #9a9a9a;
+  color: #111; /* texto mais forte para leitura no hero */
   text-decoration: none;
-  border: 1px solid #e9e9e9;
-  background: rgba(255,255,255,0.6);
+  border: 1px solid #dedede;
+  background: rgba(255,255,255,0.9); /* fundo mais sólido */
   backdrop-filter: blur(6px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
 }
 
-.case-menu a:hover { color: #111; border-color: #cfcfcf; }
+.case-menu a:hover { color: #000; border-color: #c7c7c7; }
 
 @media (max-width: 860px) { .case-menu { display: none; } }
 

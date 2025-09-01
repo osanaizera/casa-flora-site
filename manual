@@ -1,0 +1,109 @@
+Casa Flora — Manual do Projeto (Raiz de Memória)
+
+Objetivo
+- Consolidar entendimento do projeto, arquitetura, estética e lógica de componentes.
+- Servir de índice/guia para futurs manuais descritivos em formato de árvore.
+
+Estado Atual (Resumo)
+- Projeto: Site institucional Casa Flora com forte foco em branding, experiências e hospitalidade.
+- Stack: Next.js 15 (App Router) + React 19 + TypeScript + Tailwind CSS v4 (via @tailwindcss/postcss) + Framer Motion.
+- Estilos: CSS global único em `src/app/globals.css` com tokens (CSS vars) e classes BEM específicas (hero, services-modern, cases-showcase, about-mosaic). Tailwind v4 habilitado via `@import "tailwindcss";`.
+- Conteúdo: Páginas base com placeholders; Home composta por seções hero/serviços/cases/sobre. CMS ainda não integrado.
+
+Como Rodar
+- Desenvolvimento: `npm run dev` (porta 3005)
+- Build: `npm run build` | Produção: `npm run start -p 3005`
+
+Arquitetura de Pastas (Essencial)
+- `src/app/`
+  - `layout.tsx`: define `<html>`/`<body>`, carrega Inter (next/font), Archivo via CDN, e `globals.css`.
+  - `page.tsx`: Home. Composição de seções: `HeaderModern`, `HeroModern`, `ServicesModern`, `CasesShowcase`, `AboutSection`, `ScrollScript`.
+  - Rotas placeholder: `blog/`, `cases/`, `servicos/`, `produtos/`, `contato/`, `downloads/`, `sobre/` (conteúdo mínimo com classes não definidas ainda: `.h1`, `.body-large`).
+- `src/components/`
+  - `layout/`: `HeaderModern` (em uso). `Header.tsx` (alternativo, não usado; usa utilities Tailwind custom não configuradas). `Footer.tsx` (não usado).
+  - `sections/` (blocos de página): Em uso: `HeroModern`, `ServicesModern`, `CasesShowcase`, `AboutSection`. Demais arquivos são variantes/experimentos não usados no momento.
+  - `shared/`: `ScrollScript` (em uso: IntersectionObserver + smooth scroll). `CustomCursor`, `FloralElements`, `SectionFloralAccents` (não usados).
+- `src/app/globals.css`: tokens, reset, navegação (.nav__), hero, services-modern (floral sidebar, glass cards), cases-showcase (cards animados), about-mosaic (grade modular), responsividade e animações utilitárias.
+- Pastas vazias/placeholder: `src/lib/`, `src/styles/`, `src/types/`, `src/data/` (sem arquivos). `content/` e `docs/` vazias.
+- `public/`: imagens e vídeos usados na Home (logos, fotos hero/serviços, retratos).
+
+Fluxo de Renderização (Home)
+1) `app/layout.tsx` define HTML, fontes e aplica `globals.css`.
+2) `app/page.tsx` instancia:
+   - `ScrollScript`: registra IntersectionObserver para `.service-card` e smooth scroll para âncoras.
+   - `HeaderModern`: navegação sticky com estado `isScrolled` (>50px aplica fundo/blend/box-shadow).
+   - `HeroModern`: título animável + 2 cartões (Experiências/Hospitalidade) com overlay/gradiente e hover parallax.
+   - `ServicesModern`: layout two-panel; sidebar com tabs; grid de “glass cards”; elementos florais decorativos; estado `activeTab` (branding vs extensions).
+   - `CasesShowcase`: grid de cards com gradients/glow/shimmer e animações framer-motion; CTA inferior.
+   - `AboutSection`: mosaico responsivo com `motion` e `Image` para retratos de fundadores.
+
+Estética e Diretrizes
+- Tipografia: `--font-body` (Inter) e `--font-display` (Archivo). Arquitetura editorial com títulos leves/finos e corpo legível.
+- Cores: tokens em `:root` (ink/paper/accent + cinzas). Seções possuem paletas próprias via classes BEM e gradientes.
+- Layout: grid denso e responsivo; muito uso de hover states, glassmorphism e acentos “orgânicos” (petals/orbs) discretos.
+- Animações: framer-motion para in-view; CSS transitions transform/opacity; IntersectionObserver para visibilidade de cards.
+
+Módulos e Lógica (em uso)
+- `HeaderModern`: hook de scroll, classes `.nav__*`. Sem menu mobile dedicado neste header; a variante `Header.tsx` possui menu mobile, mas está fora de uso.
+- `HeroModern`: marcadores `.hero__*` definidos em CSS global; links para rotas internas.
+- `ServicesModern`: estado local para tabs; arrays locais descrevem serviços (branding, extensões, estrutura, performance). Sem fetch externo.
+- `CasesShowcase`: estado `activeCase` (não acoplado a URL ainda); variações de gradient por case; animações declarativas.
+- `AboutSection`: usa grid manual (rows/columns), framer-motion e `next/image` em retratos.
+- `ScrollScript`: IO + smooth scroll; adiciona classe `.visible` a `.service-card` quando entra em viewport.
+
+Itens Potencialmente Obsoletos/Descartáveis (candidatos)
+- `src/app/globals-backup.css`: backup não referenciado por `layout.tsx`.
+- `src/components/layout/Header.tsx`: alternativa rica em Tailwind, mas exige tema Tailwind custom (cores como `text-charcoal`, `warm-brown` não existem). Não usado na Home.
+- `src/components/layout/Footer.tsx`: não referenciado.
+- `src/components/shared/CustomCursor.tsx`, `FloralElements.tsx`, `SectionFloralAccents.tsx`: não referenciados.
+- `src/components/sections/*` não usados: `About.tsx`, `AboutEditorial.tsx`, `Manifesto.tsx`, `Portfolio.tsx`, `PortfolioEditorial.tsx`, `Services.tsx`, `ServicesSection.tsx`, `ServicosInteligente.tsx`, `Hero.tsx`, `Contact.tsx`, `CasesDestaque.tsx` etc.
+- `src/assets/` (imagens/ícones/vídeos): sem referências nos componentes atuais (usar `public/` simplifica import). Há um arquivo isolado: `src/assets/images/Casa Flora - cartão.png` não utilizado.
+- Pastas vazias: `src/lib/`, `src/styles/`, `src/types/`, `src/data/`. Manter se planeja uso; remover se objetivo é enxugar.
+
+Lacunas/Riscos Observados
+- Estilos `.h1`, `.body-large`, etc. usados em páginas internas não existem em `globals.css` (aparecerão sem estilização). Decidir: criar utilitários tipográficos globais ou migrar para utilities Tailwind.
+- `Header` vs `HeaderModern`: duplicidade de navegação; escolher 1 padrão e excluir o outro para evitar drift.
+- Dependência Tailwind v4 sem `@theme` custom: componentes Tailwind (em `Header.tsx`) referenciam cores não definidas; hoje só `globals.css` sustenta a estética.
+- `globals.css` concentra muito escopo (BEM de múltiplas seções). Avaliar dividir por seção ou CSS Modules para reduzir risco de colisões.
+- Conteúdo/CMS inexistente; arrays locais representam serviços/cases; sem persistência.
+
+Recomendações (próximos passos)
+1) Tipografia utilitária: definir escala (`.h1`, `.h2`, `.body-*`) no `globals.css` ou via `@theme` do Tailwind v4.
+2) Unificar Header: manter `HeaderModern` e remover `Header.tsx` OU portar features mobile do `Header.tsx` para `HeaderModern` e então remover o antigo.
+3) Enxugar componentes: mover “variantes experimentais” para `components/experiments/` ou remover; manter só o que entra no roadmap imediato.
+4) Padronizar cores: materializar tokens do DESIGN_SYSTEM.md como CSS vars ou `@theme` Tailwind; evitar nomes “soltos” não suportados.
+5) Quebrar CSS: modularizar `globals.css` por seção, se for crescer (ou adotar CSS Modules por seção).
+6) Conteúdo: decidir por CMS (Sanity/MDX) ou JSON/YAML local; modelar dados para serviços/cases/blog.
+7) Layout global: mover Header/Footer para `app/layout.tsx` se forem comuns a todas as páginas.
+
+Índice de Memória (Árvore de Manuais)
+- 1. Arquitetura
+  - 1.1 Rotas e Navegação
+  - 1.2 Componentes de Seção
+  - 1.3 Padrões de Estado e Animação
+- 2. Estilos
+  - 2.1 Tokens (cores, tipografia)
+  - 2.2 Padrões BEM e utilitários
+  - 2.3 Diretrizes de Responsividade
+- 3. Conteúdo
+  - 3.1 Blog/MDX
+  - 3.2 Cases/Produtos
+  - 3.3 Downloads/Leads
+- 4. Build & Deploy
+  - 4.1 Scripts e Env
+  - 4.2 Otimização/SEO
+- 5. Backlog de Decisões
+  - 5.1 Itens a remover
+  - 5.2 Migrações Planejadas
+- 6. Perguntas Abertas
+  - 6.1 Diretrizes de Header/Footer
+  - 6.2 Tema Tailwind vs CSS vars
+
+Documentos Relacionados
+- Plano Detalhado (Guia Mestre): manual-plano-detalhado.md
+
+Anexos Úteis
+- `ARCHITECTURE.md`: visão macro da estrutura e razões de stack.
+- `DESIGN_SYSTEM.md`: filosofia visual, paleta, tipografia e princípios.
+
+Data da revisão: automática na criação deste arquivo. Atualize conforme evoluções.
