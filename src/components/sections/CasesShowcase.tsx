@@ -268,7 +268,7 @@ export default function CasesShowcase() {
                 transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
               >
                 <div className="about-brief__media">
-                  <Image src="/images/anabossardi.jpeg" alt="Ana Bossardi" fill className="about-brief__img" />
+                  <Image src="/images/anabossardi.jpeg" alt="Ana Bossardi" width={1200} height={1500} sizes="(min-width: 1024px) 560px, 92vw" className="about-brief__photo" />
                 </div>
                 <div className="about-brief__content">
                   <h4 className="about-brief__name">Ana — Sócia Fundadora e Diretora Criativa</h4>
@@ -286,7 +286,7 @@ export default function CasesShowcase() {
                 transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
               >
                 <div className="about-brief__media">
-                  <Image src="/images/pedrozanin.jpeg" alt="Pedro Zanin" fill className="about-brief__img" />
+                  <Image src="/images/pedrozanin.jpeg" alt="Pedro Zanin" width={1200} height={1500} sizes="(min-width: 1024px) 560px, 92vw" className="about-brief__photo" />
                 </div>
                 <div className="about-brief__content">
                   <h4 className="about-brief__name">Pedro — Sócio e Diretor Estratégico</h4>

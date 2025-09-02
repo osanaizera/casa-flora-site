@@ -3322,11 +3322,9 @@ body {
 
 .about-brief__media {
   position: relative;
-  overflow: hidden;
-  min-height: 420px; /* imagem mais alta para evitar cortes no rosto */
 }
 
-.about-brief__img { object-fit: cover; object-position: center top; }
+.about-brief__photo { width: 100%; height: auto; display: block; }
 
 .about-brief__content {
   display: flex;
