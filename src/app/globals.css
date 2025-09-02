@@ -3202,6 +3202,11 @@ body {
 .topic-split__header { margin-bottom: 24px; }
 .topic-split__title { color: var(--color-ink); }
 .topic-split__subtitle { color: var(--color-ink); }
+/* Force dark text for right-column headers regardless of hero defaults */
+.topic-split__content .topic-hero__title,
+.topic-split__content .topic-hero__subtitle {
+  color: var(--color-ink);
+}
 .topic-section--narrow { max-width: 800px; font-size: 1.05rem; line-height: 1.8; color: var(--color-ink); margin: 20px 0 36px; }
 .topic-chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
 .topic-chip { border: 1px solid #E5E7EB; padding: 8px 12px; border-radius: 999px; background: #fff; font-size: 0.9rem; }

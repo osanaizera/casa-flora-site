@@ -367,47 +367,45 @@ export default async function CaseDetail({ params }: Props) {
               </div>
               
               <div className="grid md:grid-cols-2 gap-8 mb-12">
-                {/* Placeholder para outros cases - você pode buscar do cases.ts */}
-                <div className="group cursor-pointer">
-                  <div className="relative h-64 overflow-hidden rounded-lg bg-gray-200 mb-4">
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                    <div className="absolute bottom-4 left-4 text-white">
-                      <h3 className="text-xl font-medium">Próximo Case</h3>
-                      <p className="text-sm opacity-90">Em breve</p>
+                {cases.filter(c => c.slug !== slug).slice(0, 2).map((caseItem, i) => (
+                  <Link key={i} href={`/cases/${caseItem.slug}`} className="group cursor-pointer">
+                    <div className="relative h-64 overflow-hidden rounded-lg bg-gray-200 mb-4">
+                      {caseItem.heroImage && (
+                        <Image 
+                          src={caseItem.heroImage} 
+                          alt={caseItem.title} 
+                          fill 
+                          className="object-cover group-hover:scale-105 transition-transform duration-300"
+                          sizes="(min-width: 768px) 50vw, 100vw"
+                        />
+                      )}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                      <div className="absolute bottom-4 left-4 text-white">
+                        <h3 className="text-xl font-medium">{caseItem.title}</h3>
+                        <p className="text-sm opacity-90">{caseItem.segment || caseItem.category}</p>
+                      </div>
                     </div>
-                  </div>
-                </div>
-                <div className="group cursor-pointer">
-                  <div className="relative h-64 overflow-hidden rounded-lg bg-gray-200 mb-4">
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                    <div className="absolute bottom-4 left-4 text-white">
-                      <h3 className="text-xl font-medium">Próximo Case</h3>
-                      <p className="text-sm opacity-90">Em breve</p>
-                    </div>
-                  </div>
-                </div>
+                  </Link>
+                ))}
               </div>
 
-              <div className="text-center">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <Link 
                   href="/" 
                   className="inline-flex items-center px-6 py-3 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 transition-colors"
                 >
                   ← Voltar para Home
                 </Link>
+                <Link 
+                  href="/contato" 
+                  className="inline-flex items-center px-6 py-3 bg-gray-900 text-white rounded-lg text-sm font-medium hover:bg-gray-800 transition-colors"
+                >
+                  Quero um projeto assim para o meu negócio →
+                </Link>
               </div>
             </div>
           </section>
 
-          <footer className="bg-white">
-            <div className="max-w-4xl mx-auto px-6 py-8">
-              {item.notionUrl && (
-                <Link className="text-sm text-gray-500 hover:text-gray-700" href={item.notionUrl} target="_blank" rel="noopener noreferrer">
-                  Referência completa no Notion →
-                </Link>
-              )}
-            </div>
-          </footer>
         </article>
       </>
     );
