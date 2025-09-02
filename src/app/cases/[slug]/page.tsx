@@ -112,7 +112,7 @@ export default async function CaseDetail({ params }: Props) {
               <p>Como a própria fundadora e criadora da marca resume:</p>
             </div>
             <figure className="mt-8">
-              <div className="relative h-[min(60vh,640px)] overflow-hidden rounded-lg border border-gray-200 bg-white max-w-6xl mx-auto px-6">
+              <div className="relative h-[min(60vh,640px)] overflow-hidden rounded-lg border border-gray-200 bg-white max-w-4xl mx-auto px-6">
                 <Image src={'/images/cases/insolito/Captura de Tela 2025-08-13 às 09.49.14.png'} alt="Citação da fundadora" fill style={{ objectFit: 'contain' }} />
               </div>
             </figure>
@@ -136,7 +136,7 @@ export default async function CaseDetail({ params }: Props) {
                   { src: '/images/cases/insolito/Captura de Tela 2025-08-13 às 09.50.00.png' },
                 ].map((g, i) => (
                 <div key={i} className="relative w-full h-[min(50vh,400px)] overflow-hidden rounded-lg border border-gray-200 bg-white">
-                  <Image src={g.src} alt={`Desafio ${i + 1}`} fill className="object-contain" />
+                  <Image src={g.src} alt={`Desafio ${i + 1}`} fill className="object-cover" />
                 </div>
                 ))}
               </div>
@@ -181,7 +181,7 @@ export default async function CaseDetail({ params }: Props) {
               <p>O <strong>Mago</strong> representa transformação, inspiração e descoberta. Ele traduz a capacidade do Insólito de encantar e surpreender.</p>
             </div>
             <figure className="mt-8">
-              <div className="relative h-[min(60vh,640px)] overflow-hidden rounded-lg border border-gray-200 bg-white max-w-6xl mx-auto px-6">
+              <div className="relative h-[min(60vh,640px)] overflow-hidden rounded-lg border border-gray-200 bg-white max-w-4xl mx-auto px-6">
                 <Image src={'/images/cases/insolito/Captura de Tela 2025-08-13 às 09.48.54.png'} alt="Arquétipo Mago" fill className="object-cover" />
               </div>
             </figure>
@@ -189,7 +189,7 @@ export default async function CaseDetail({ params }: Props) {
               <p>O <strong>Criativo</strong>, por sua vez, expressa originalidade, inventividade e inovação. Ele reflete a estética singular do hotel, a curadoria artística e a brasilidade presente em cada detalhe.</p>
             </div>
             <figure className="mt-8">
-              <div className="relative h-[min(60vh,640px)] overflow-hidden rounded-lg border border-gray-200 bg-white max-w-6xl mx-auto px-6">
+              <div className="relative h-[min(60vh,640px)] overflow-hidden rounded-lg border border-gray-200 bg-white max-w-4xl mx-auto px-6">
                 <Image src={'/images/cases/insolito/Captura de Tela 2025-08-13 às 09.49.03.png'} alt="Arquétipo Criativo" fill className="object-cover" />
               </div>
             </figure>
@@ -211,7 +211,7 @@ export default async function CaseDetail({ params }: Props) {
             <div className="max-w-4xl mx-auto px-6 space-y-6 text-gray-700 leading-relaxed">
               <p>O manifesto do Insólito traduz o propósito, a essência e a personalidade da marca, reforçando que o hotel vai além de hospedagem: é um lugar de <strong>descoberta, arte e conexão com a brasilidade</strong>. Cada detalhe — da curadoria artística à experiência sensorial — reflete o compromisso do hotel em criar <strong>experiências únicas</strong>.</p>
             </div>
-            <div className="max-w-6xl mx-auto px-6 mt-10">
+            <div className="max-w-4xl mx-auto px-6 mt-10">
               <div className="case-modern__gallery">
                 {[
                   { src: '/images/experiencia.jpg' },
@@ -226,7 +226,7 @@ export default async function CaseDetail({ params }: Props) {
             <div className="max-w-4xl mx-auto px-6 space-y-6 text-gray-700 leading-relaxed mt-8">
               <p>Ao final, o manifesto convida o hóspede a vivenciar essa experiência de forma ativa. Esse <strong>convite</strong> conecta diretamente ao conceito central da marca, <strong>“Descubra Arte em sua Natureza”</strong>, que guia todas as experiências, comunicações e ativações do hotel, orientando o hóspede a explorar a brasilidade, a arte e a criatividade de cada espaço de forma integrada e inspiradora.</p>
             </div>
-            <div className="max-w-6xl mx-auto px-6 mt-10">
+            <div className="max-w-4xl mx-auto px-6 mt-10">
               <div className="case-modern__gallery">
                 {[
                   { src: '/images/garden.jpg' },
@@ -263,7 +263,7 @@ export default async function CaseDetail({ params }: Props) {
               </ul>
               </div>
             </div>
-            <div className="max-w-6xl mx-auto px-6 mt-4">
+            <div className="max-w-4xl mx-auto px-6 mt-4">
               <div className="case-modern__gallery">
                 {[
                   { src: '/images/cases/insolito/Captura de Tela 2025-08-13 às 09.50.16.png' },
@@ -302,7 +302,7 @@ export default async function CaseDetail({ params }: Props) {
               </div>
             </div>
             <figure className="mt-8">
-              <div className="relative h-[min(60vh,640px)] overflow-hidden rounded-lg border border-gray-200 bg-white max-w-6xl mx-auto px-6">
+              <div className="relative h-[min(60vh,640px)] overflow-hidden rounded-lg border border-gray-200 bg-white max-w-4xl mx-auto px-6">
                 <Image src={'/images/cases/insolito/Captura de Tela 2025-08-13 às 09.55.19.png'} alt="Resultados" fill className="object-cover" />
               </div>
             </figure>
@@ -315,7 +315,7 @@ export default async function CaseDetail({ params }: Props) {
             <div className="max-w-4xl mx-auto px-6">
               <h2 className="text-3xl md:text-4xl font-light mb-8 text-gray-900 uppercase tracking-[0.12em]">Galeria</h2>
             </div>
-            <div className="max-w-6xl mx-auto px-6 mt-4">
+            <div className="max-w-4xl mx-auto px-6 mt-4">
               <Carousel slides={(item.gallery || []).map((g, i) => (typeof g === 'string' ? { src: g } : { src: g.src, alt: g.alt }))} />
             </div>
           </section>

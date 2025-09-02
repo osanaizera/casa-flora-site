@@ -21,10 +21,11 @@ export default function HeaderModern() {
   }, []);
 
   const navItems = [
+    { href: '/', label: 'Home' },
     { href: '/experiencias', label: 'Experiências' },
     { href: '/hospitalidade', label: 'Hospitalidade' },
-    { href: '/cases', label: 'Cases' },
-    { href: '/sobre', label: 'Sobre' },
+    { href: '/#cases', label: 'Cases' },
+    { href: '/#sobre', label: 'Sobre' },
   ];
 
   return (

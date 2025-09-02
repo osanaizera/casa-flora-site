@@ -15,6 +15,11 @@ export default function ExperienciasPage() {
         <div className="topic-split__media-card">
           <Image src="/images/experiencia.jpg" alt="Experiências" fill className="object-cover" priority sizes="50vw" />
           <div className="topic-split__media-overlay" />
+          {/* Título e subtítulo sobre a imagem */}
+          <div className="topic-split__legend">
+            <h1 className="topic-hero__title">Experiências</h1>
+            <p className="topic-hero__subtitle">Marcas que transformam interações em memórias vivas.</p>
+          </div>
         </div>
       </aside>
 

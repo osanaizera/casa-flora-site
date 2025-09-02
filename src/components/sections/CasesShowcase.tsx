@@ -103,7 +103,7 @@ export default function CasesShowcase() {
   };
 
   return (
-    <section className="cases-showcase" ref={sectionRef}>
+    <section className="cases-showcase" id="cases" ref={sectionRef}>
       {/* Background Elements */}
       <div className="cases-showcase__background">
         <div className="cases-showcase__gradient-orb cases-showcase__gradient-orb--1"></div>
@@ -230,7 +230,7 @@ export default function CasesShowcase() {
         </div>
 
         {/* Sessão Sobre (substitui o CTA final) */}
-        <section className="about-brief">
+        <section className="about-brief" id="sobre">
           <div className="about-brief__container">
             <motion.div
               className="about-brief__intro"
