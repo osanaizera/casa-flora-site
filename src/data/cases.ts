@@ -144,6 +144,78 @@ export const cases: CaseItem[] = [
       "Material de apresentação impecável",
     ],
   },
+  {
+    slug: "buzios-mar",
+    title: "Búzios Mar",
+    client: "Búzios Mar Hotel",
+    location: "Búzios (RJ)",
+    year: "2024",
+    service: "Identidade Visual",
+    category: "Hospitalidade",
+    summary:
+      "Criação de identidade visual para hotel boutique em Búzios, capturando a essência do mar e a sofisticação local.",
+    description:
+      "Desenvolvimento de marca que conecta o charme de Búzios com experiências únicas à beira-mar.",
+    heroImage: "/images/hospitalidade.jpg",
+    gallery: [
+      "/images/hospitalidade.jpg",
+      "/images/experiencia.jpg",
+      "/images/garden.jpg",
+    ],
+    results: [
+      "Identidade visual consistente",
+      "Posicionamento claro no mercado",
+      "Material de comunicação alinhado",
+    ],
+  },
+  {
+    slug: "greco-hotel",
+    title: "Greco Hotel",
+    client: "Greco Hotel",
+    location: "Santorini",
+    year: "2023",
+    service: "Rebranding",
+    category: "Hospitalidade",
+    summary:
+      "Rebranding completo para hotel greco, unindo tradição mediterrânea com hospitalidade contemporânea.",
+    description:
+      "Revitalização da marca com inspiração na arquitetura e cultura grega para uma experiência autêntica.",
+    heroImage: "/images/experiencia.jpg",
+    gallery: [
+      "/images/experiencia.jpg",
+      "/images/hospitalidade.jpg",
+      "/images/garden.jpg",
+    ],
+    results: [
+      "Marca autêntica e memorável",
+      "Conexão emocional com hóspedes",
+      "Diferenciação no mercado greco",
+    ],
+  },
+  {
+    slug: "le-village",
+    title: "Le Village",
+    client: "Le Village Resort",
+    location: "Vale dos Vinhedos (RS)",
+    year: "2024",
+    service: "Branding Completo",
+    category: "Resort",
+    summary:
+      "Branding completo para resort na região vinícola, celebrando a cultura do vinho e experiências gastronômicas.",
+    description:
+      "Criação de marca que expressa sofisticação, tradição vinícola e experiências únicas no Vale dos Vinhedos.",
+    heroImage: "/images/garden.jpg",
+    gallery: [
+      "/images/garden.jpg",
+      "/images/experiencia.jpg",
+      "/images/hospitalidade.jpg",
+    ],
+    results: [
+      "Posicionamento premium estabelecido",
+      "Identidade alinhada à região",
+      "Material promocional sofisticado",
+    ],
+  },
 ];
 
 export function getCaseBySlug(slug: string): CaseItem | undefined {

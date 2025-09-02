@@ -418,12 +418,21 @@ export default async function CaseDetail({ params }: Props) {
     );
   }
 
-  // Fallback para demais cases: estrutura anterior
+  // Fallback para demais cases: estrutura editorial genérica
+  const sections = [
+    { href: '#sobre', label: 'Sobre', enabled: !!(item.description || item.aboutHotel) },
+    { href: '#desafio', label: 'Desafio', enabled: !!item.challenge },
+    { href: '#abordagem', label: 'Abordagem', enabled: (item.approach || []).length > 0 },
+    { href: '#solucao', label: 'Solução', enabled: (item.solution || []).length > 0 },
+    { href: '#resultados', label: 'Resultados', enabled: !!(item.resultsText || (item.results || []).length) },
+    { href: '#galeria', label: 'Galeria', enabled: (item.gallery || []).length > 0 },
+  ].filter(s => s.enabled);
+
   return (
     <>
       {/* Hero overlay editorial com logo */}
       <section className="case-hero-wrap">
-        <div className="case-hero">
+        <div className="case-hero case-hero--fixed">
           <div className="case-hero__media">
             <Image src={item.heroImage} alt={item.title} fill className="object-cover" priority sizes="100vw" />
           </div>
@@ -431,14 +440,7 @@ export default async function CaseDetail({ params }: Props) {
           <div className="case-hero__content">
             <div className="case-hero__content-inner">
               {item.logo && (
-                <Image
-                  src={item.logo}
-                  alt={`${item.title} logo`}
-                  width={320}
-                  height={140}
-                  className="case-hero__brand-logo"
-                  priority
-                />
+                <Image src={item.logo} alt={`${item.title} logo`} width={280} height={120} className="case-hero__brand-logo" priority />
               )}
               <h1 className="case-hero__title">{item.tagline || item.title}</h1>
             </div>
@@ -448,87 +450,108 @@ export default async function CaseDetail({ params }: Props) {
           </div>
         </div>
       </section>
+      <HeroFade />
 
       {/* Menu discreto fixo para sessões */}
-      <nav className="case-menu" aria-label="Sessões do case">
-        <a href="#sobre">Sobre</a>
-        <a href="#desafio">Desafio</a>
-        <a href="#abordagem">Abordagem</a>
-        <a href="#solucao">Solução</a>
-        <a href="#manifesto">Manifesto</a>
-        <a href="#galeria">Galeria</a>
-      </nav>
+      <ActiveSectionNav sections={sections} />
 
-      {/* Artigo vertical (magazine roll) */}
-      <article className="case-article" aria-labelledby="case-title">
-        <header className="case-section">
-          <div className="body-small" style={{ color: 'var(--color-gray-700)' }}>
-            {item.location} • {item.segment || item.category} • {item.year}
+      <article className="case-article max-w-6xl mx-auto px-6 md:px-12 py-24 bg-white" aria-labelledby="case-title">
+        <header className="py-14">
+          <div className="max-w-4xl mx-auto px-6">
+            <h1 id="case-title" className="text-4xl md:text-5xl font-light tracking-tight">{item.client || item.title}</h1>
+            <p className="text-sm text-gray-600 mt-3 uppercase tracking-[0.12em]">
+              {item.location} • {item.segment || item.category} • {item.year}
+            </p>
+            {item.summary && <p className="mt-6 text-gray-700 leading-relaxed">{item.summary}</p>}
           </div>
-          <h1 id="case-title" className="h1" style={{ marginTop: 8 }}>{item.title}</h1>
-          {item.client && (<p className="case-modern__client">Cliente: {item.client}</p>)}
-          <p className="body-large" style={{ marginTop: 10, maxWidth: '68ch' }}>{item.summary}</p>
         </header>
 
-        <section id="sobre" className="case-section dropcap">
-          <h2 className="case-section__title">Sobre</h2>
-          <div className="case-columns2">
-            <p>{item.aboutHotel || item.description}</p>
-          </div>
-        </section>
+        {(item.description || item.aboutHotel) && (
+          <section id="sobre" className="py-12">
+            <div className="max-w-4xl mx-auto px-6 space-y-6 text-gray-700 leading-relaxed">
+              <h2 className="text-3xl md:text-4xl font-light mb-2 text-gray-900 uppercase tracking-[0.12em]">Sobre</h2>
+              <p>{item.aboutHotel || item.description}</p>
+            </div>
+          </section>
+        )}
 
-        <section id="desafio" className="case-section">
-          <h2 className="case-section__title">Desafio</h2>
-          <div className="case-modern__callout">
-            <p>{item.challenge}</p>
-          </div>
-        </section>
+        {item.challenge && (
+          <>
+          <hr className="rule" />
+          <section id="desafio" className="py-12">
+            <div className="max-w-4xl mx-auto px-6 space-y-6 text-gray-700 leading-relaxed">
+              <h2 className="text-3xl md:text-4xl font-light mb-2 text-gray-900 uppercase tracking-[0.12em]">O desafio</h2>
+              <p>{item.challenge}</p>
+            </div>
+          </section>
+          </>
+        )}
 
-        <section id="abordagem" className="case-section">
-          <h2 className="case-section__title">Abordagem</h2>
-          <div className="case-columns2">
-            {(item.approach || []).map((p, i) => (<p key={i}>{p}</p>))}
-          </div>
-        </section>
+        {(item.approach || []).length > 0 && (
+          <>
+          <hr className="rule" />
+          <section id="abordagem" className="py-12">
+            <div className="max-w-4xl mx-auto px-6 space-y-6 text-gray-700 leading-relaxed">
+              <h2 className="text-3xl md:text-4xl font-light mb-2 text-gray-900 uppercase tracking-[0.12em]">Nossa abordagem</h2>
+              <ul className="list-disc pl-6 space-y-2">
+                {item.approach!.map((a, i) => (<li key={i}>{a}</li>))}
+              </ul>
+            </div>
+          </section>
+          </>
+        )}
 
-        <section id="solucao" className="case-section">
-          <h2 className="case-section__title">Solução</h2>
-          <ul className="case-modern__bullets">
-            {(item.solution || []).map((s, i) => (<li key={i}>{s}</li>))}
-          </ul>
-          {item.resultsText && (
-            <p className="case-modern__body mt-4">{item.resultsText}</p>
-          )}
-        </section>
+        {(item.solution || []).length > 0 && (
+          <>
+          <hr className="rule" />
+          <section id="solucao" className="py-12">
+            <div className="max-w-4xl mx-auto px-6 space-y-6 text-gray-700 leading-relaxed">
+              <h2 className="text-3xl md:text-4xl font-light mb-2 text-gray-900 uppercase tracking-[0.12em]">A solução</h2>
+              <ul className="list-disc pl-6 space-y-2">
+                {item.solution!.map((s, i) => (<li key={i}>{s}</li>))}
+              </ul>
+            </div>
+          </section>
+          </>
+        )}
 
-        <section id="manifesto" className="case-section">
-          <h2 className="case-section__title">Manifesto</h2>
-          <p className="case-modern__body" style={{ maxWidth: '68ch' }}>{item.description}</p>
-        </section>
+        {(item.resultsText || (item.results || []).length) && (
+          <>
+          <hr className="rule" />
+          <section id="resultados" className="py-12">
+            <div className="max-w-4xl mx-auto px-6 space-y-6 text-gray-700 leading-relaxed">
+              <h2 className="text-3xl md:text-4xl font-light mb-2 text-gray-900 uppercase tracking-[0.12em]">Resultados</h2>
+              {item.resultsText && <p>{item.resultsText}</p>}
+              {(item.results || []).length > 0 && (
+                <ul className="list-disc pl-6 space-y-2">
+                  {item.results!.map((r, i) => (<li key={i}>{r}</li>))}
+                </ul>
+              )}
+            </div>
+          </section>
+          </>
+        )}
 
-        <section id="galeria" className="case-section">
-          <h2 className="case-section__title">Galeria</h2>
-          <div className="case-modern__gallery">
-            {item.gallery.map((g, i) => {
-              const obj = typeof g === 'string' ? { src: g } : g;
-              const span = obj.span || 'normal';
-              const cls = span === 'wide' ? 'case-modern__tile case-modern__tile--wide' : span === 'tall' ? 'case-modern__tile case-modern__tile--tall' : 'case-modern__tile';
-              return (
-                <div key={i} className={cls}>
-                  <Image src={obj.src} alt={obj.alt || `${item.title} ${i + 1}`} fill className="object-cover" sizes="(min-width:1280px) 33vw, (min-width:640px) 50vw, 100vw" />
-                </div>
-              );
-            })}
-          </div>
-        </section>
-
-        <footer className="case-section">
-          <div className="case-modern__notion">
-            {item.notionUrl ? (
-              <Link className="underline" href={item.notionUrl} target="_blank" rel="noopener noreferrer">Referência no Notion</Link>
-            ) : null}
-          </div>
-        </footer>
+        {(item.gallery || []).length > 0 && (
+          <>
+          <hr className="rule" />
+          <section id="galeria" className="py-12">
+            <div className="grid md:grid-cols-3 gap-4">
+              {item.gallery!.map((g: any, i: number) => {
+                const src = typeof g === 'string' ? g : g.src;
+                const alt = typeof g === 'string' ? `${item.title} ${i+1}` : (g.alt || `${item.title} ${i+1}`);
+                const span = typeof g === 'string' ? 'normal' : g.span;
+                const cls = span === 'wide' ? 'md:col-span-2' : span === 'tall' ? 'row-span-2' : '';
+                return (
+                  <div key={i} className={`relative h-64 md:h-72 lg:h-80 overflow-hidden rounded-lg border border-gray-200 bg-white ${cls}`}>
+                    <Image src={src} alt={alt} fill className="object-cover" />
+                  </div>
+                );
+              })}
+            </div>
+          </section>
+          </>
+        )}
       </article>
     </>
   );
