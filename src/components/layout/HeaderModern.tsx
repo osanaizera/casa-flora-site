@@ -39,8 +39,8 @@ export default function HeaderModern() {
         <Image
           src="/images/casa-flora-logo.png"
           alt="Casa Flora"
-          width={156}
-          height={52}
+          width={120}
+          height={40}
           className="object-contain"
           priority
         />

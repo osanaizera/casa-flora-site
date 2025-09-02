@@ -79,29 +79,7 @@ export default function ServicesModern() {
 
   return (
     <section className="services-modern">
-      {/* Floral Sidebar - Organized Vertical Bar */}
-      <div className="services-modern__floral-sidebar">
-        {/* Top Cluster */}
-        <div className="services-modern__floral--top">
-          <div className="services-modern__floral services-modern__petal--1"></div>
-          <div className="services-modern__floral services-modern__petal--2"></div>
-          <div className="services-modern__floral services-modern__petal--3"></div>
-        </div>
-        
-        {/* Middle Cluster */}
-        <div className="services-modern__floral--middle">
-          <div className="services-modern__floral services-modern__petal--4"></div>
-          <div className="services-modern__floral services-modern__petal--5"></div>
-          <div className="services-modern__floral services-modern__petal--6"></div>
-        </div>
-        
-        {/* Bottom Cluster */}
-        <div className="services-modern__floral--bottom">
-          <div className="services-modern__floral services-modern__petal--7"></div>
-          <div className="services-modern__floral services-modern__petal--8"></div>
-          <div className="services-modern__floral services-modern__petal--9"></div>
-        </div>
-      </div>
+      {/* Sidebar floral removido para fundo sólido e limpo */}
       
       <div className="services-modern__container">
         <div className="services-modern__layout">
@@ -414,22 +392,7 @@ export default function ServicesModern() {
           </div>
         </div>
 
-        {/* Services Footer CTA */}
-        <div className="services-modern__footer">
-          <h3 className="services-modern__cta-title">
-            Pronto para elevar sua marca?
-          </h3>
-          <p className="services-modern__cta-description">
-            Cada projeto é único e merece uma abordagem personalizada. 
-            Vamos conversar sobre como a Casa Flora pode transformar sua marca em algo verdadeiramente memorável.
-          </p>
-          <a href="/contato" className="services-modern__cta-button">
-            <span>Iniciar conversa</span>
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-              <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </a>
-        </div>
+        {/* CTA do serviços removido — CTA global fica no final da home */}
 
         {/* Remove floating accents - too much visual noise */}
       </div>
