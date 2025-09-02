@@ -3,6 +3,7 @@
 import { useState, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function CasesShowcase() {
   const [activeCase, setActiveCase] = useState(0);
@@ -143,13 +144,21 @@ export default function CasesShowcase() {
             onPointerUp={() => { dragRef.current.down = false; }}
             onPointerCancel={() => { dragRef.current.down = false; }}
           >
-          {cases.map((caseItem, index) => (
+          {cases.map((caseItem, index) => {
+            const href =
+              caseItem.id === 'insolito' ? '/cases/insolito' :
+              caseItem.id === 'parador-lumiar' ? '/cases/parador-lumiar' :
+              caseItem.id === 'zendaya' ? '/cases/zendaya-resort' : undefined;
+            return (
             <motion.div
               key={caseItem.id}
               className={`cases-showcase__card cases-showcase__card--${caseItem.service.toLowerCase()}`}
               variants={cardVariants}
               onHoverStart={() => setActiveCase(index)}
             >
+              {href && (
+                <Link href={href} className="cases-showcase__card-overlay" aria-label={`Abrir case ${caseItem.title}`}></Link>
+              )}
               {/* Card Content */}
               <div className="cases-showcase__card-content">
                 {/* Header */}
@@ -183,12 +192,18 @@ export default function CasesShowcase() {
 
                 {/* Footer */}
                 <div className="cases-showcase__card-footer">
-                  <button className="cases-showcase__card-cta">
-                    <span>Ver projeto</span>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                      <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  </button>
+                  {href ? (
+                    <Link href={href} className="cases-showcase__card-cta">
+                      <span>Ver projeto</span>
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </Link>
+                  ) : (
+                    <button className="cases-showcase__card-cta" disabled>
+                      <span>Em breve</span>
+                    </button>
+                  )}
                   
                   <div className="cases-showcase__card-indicator">
                     <div className="cases-showcase__card-dot"></div>
@@ -205,7 +220,8 @@ export default function CasesShowcase() {
                 </div>
               </div>
             </motion.div>
-          ))}
+            );
+          })}
           </div>
           <div className="cases-showcase__nav">
             <button

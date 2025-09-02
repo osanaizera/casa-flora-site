@@ -366,24 +366,31 @@ export default async function CaseDetail({ params }: Props) {
                 <p className="text-gray-600 mt-4">Explore mais projetos da Casa Flora</p>
               </div>
               
-              <div className="grid md:grid-cols-2 gap-8 mb-12">
-                {cases.filter(c => c.slug !== slug).slice(0, 2).map((caseItem, i) => (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                {cases.filter(c => c.slug !== slug).map((caseItem, i) => (
                   <Link key={i} href={`/cases/${caseItem.slug}`} className="group cursor-pointer">
-                    <div className="relative h-64 overflow-hidden rounded-lg bg-gray-200 mb-4">
+                    <div className="relative h-56 overflow-hidden rounded-lg bg-gray-200 mb-3">
                       {caseItem.heroImage && (
                         <Image 
                           src={caseItem.heroImage} 
                           alt={caseItem.title} 
                           fill 
                           className="object-cover group-hover:scale-105 transition-transform duration-300"
-                          sizes="(min-width: 768px) 50vw, 100vw"
+                          sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
                         />
                       )}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                      <div className="absolute bottom-4 left-4 text-white">
-                        <h3 className="text-xl font-medium">{caseItem.title}</h3>
-                        <p className="text-sm opacity-90">{caseItem.segment || caseItem.category}</p>
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                      <div className="absolute bottom-3 left-3 right-3 text-white">
+                        <h3 className="text-lg font-medium mb-1">{caseItem.title}</h3>
+                        <p className="text-xs opacity-90 mb-1">{caseItem.segment || caseItem.category}</p>
+                        {caseItem.year && (
+                          <p className="text-xs opacity-75">{caseItem.year}</p>
+                        )}
                       </div>
+                    </div>
+                    <div className="px-1">
+                      <h4 className="text-sm font-medium text-gray-900 mb-1">{caseItem.title}</h4>
+                      <p className="text-xs text-gray-600 line-clamp-2">{caseItem.summary}</p>
                     </div>
                   </Link>
                 ))}

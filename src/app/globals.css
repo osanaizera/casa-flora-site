@@ -2301,6 +2301,7 @@ body {
   box-shadow: 0 2px 10px rgba(0,0,0,0.04);
   scroll-snap-align: start;
 }
+.cases-showcase__card-overlay { position: absolute; inset: 0; z-index: 6; text-indent: -9999px; }
 .cases-showcase__card:hover {
   border-color: #CBD5E1;
   box-shadow: 0 10px 24px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.06);
