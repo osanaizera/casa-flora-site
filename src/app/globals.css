@@ -3288,9 +3288,10 @@ body {
 .about-brief__title {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: clamp(1.75rem, 3.2vw, 2.25rem);
+  font-size: clamp(2.25rem, 4.8vw, 3.25rem);
   color: var(--color-ink);
-  line-height: 1.1;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
   margin-bottom: 12px;
 }
 
@@ -3310,20 +3311,19 @@ body {
 
 .about-brief__card {
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 18px;
+  grid-template-columns: 1fr; /* foto em cima, texto abaixo */
+  grid-template-rows: auto 1fr;
+  gap: 0;
   background: #fff;
   border: 1px solid #E5E7EB;
   border-radius: 16px;
-  padding: 18px;
-  align-items: stretch;
+  overflow: hidden;
 }
 
 .about-brief__media {
   position: relative;
-  border-radius: 12px;
   overflow: hidden;
-  min-height: 220px;
+  min-height: 300px;
 }
 
 .about-brief__img { object-fit: cover; }
@@ -3331,7 +3331,8 @@ body {
 .about-brief__content {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+  padding: 18px 18px 20px;
 }
 
 .about-brief__name {
@@ -3357,5 +3358,5 @@ body {
 
 @media (max-width: 1024px) {
   .about-brief__grid { grid-template-columns: 1fr; }
-  .about-brief__card { grid-template-columns: 1fr; }
+  .about-brief__media { min-height: 240px; }
 }

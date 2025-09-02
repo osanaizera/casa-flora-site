@@ -255,11 +255,12 @@ export default function CasesShowcase() {
             >
               <h3 className="about-brief__title">Sobre a Casa Flora</h3>
               <p className="about-brief__description">
-                Criamos marcas memoráveis unindo estratégia e sensibilidade estética. Nosso trabalho nasce do encontro entre pesquisa, conceito e direção criativa, para construir identidades que vivem com coerência em cada ponto de contato.
+                A Casa Flora é a expressão da parceria entre Ana Bossardi e Pedro Zanin — um espaço onde estratégia, branding e design se encontram para cultivar marcas com alma, verdade e propósito.
               </p>
             </motion.div>
 
             <div className="about-brief__grid">
+              {/* Ana */}
               <motion.article
                 className="about-brief__card"
                 initial={{ opacity: 0, y: 24 }}
@@ -267,17 +268,17 @@ export default function CasesShowcase() {
                 transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
               >
                 <div className="about-brief__media">
-                  <Image src="/images/experiencia.jpg" alt="Retrato do criador 1" fill className="about-brief__img" />
+                  <Image src="/images/anabossardi.jpeg" alt="Ana Bossardi" fill className="about-brief__img" />
                 </div>
                 <div className="about-brief__content">
-                  <h4 className="about-brief__name">Criador(a) 1</h4>
-                  <p className="about-brief__role">Direção Estratégica & Branding</p>
+                  <h4 className="about-brief__name">Ana — Sócia Fundadora e Diretora Criativa</h4>
                   <p className="about-brief__text">
-                    Pesquisa, posicionamento e arquitetura de marca. Conecta visão de negócio à expressão da marca, garantindo clareza estratégica e consistência.
+                    Designer de formação e empreendedora desde 2017, Ana sempre teve um olhar sensível para estética e narrativa. Com seu primeiro projeto autoral, o Bossarts Design, transformou intuição em identidade, dando vida a histórias por meio da imagem. Desde então, dedica-se a criar marcas que respiram autenticidade e emoção.
                   </p>
                 </div>
               </motion.article>
 
+              {/* Pedro */}
               <motion.article
                 className="about-brief__card"
                 initial={{ opacity: 0, y: 24 }}
@@ -285,17 +286,29 @@ export default function CasesShowcase() {
                 transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
               >
                 <div className="about-brief__media">
-                  <Image src="/images/hospitalidade.jpg" alt="Retrato do criador 2" fill className="about-brief__img" />
+                  <Image src="/images/pedrozanin.jpeg" alt="Pedro Zanin" fill className="about-brief__img" />
                 </div>
                 <div className="about-brief__content">
-                  <h4 className="about-brief__name">Criador(a) 2</h4>
-                  <p className="about-brief__role">Direção Criativa & Experiência</p>
+                  <h4 className="about-brief__name">Pedro — Sócio e Diretor Estratégico</h4>
                   <p className="about-brief__text">
-                    Direção de arte, universo visual e desdobramentos. Dá forma e ritmo às ideias, criando identidade viva e experiências coerentes.
+                    Publicitário de formação, Pedro atua há mais de oito anos em comunicação e marketing. Especializado em branding, negócios e neuromarketing, constrói estratégias que unem visão de mercado e resultados sustentáveis. Para ele, uma marca só ganha força quando conecta propósito e impacto real.
                   </p>
                 </div>
               </motion.article>
             </div>
+
+            {/* Juntos */}
+            <motion.div
+              className="about-brief__intro"
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
+            >
+              <h4 className="topic-title" style={{ marginTop: 8 }}>Juntos</h4>
+              <p className="about-brief__description">
+                Foi dessa soma de olhares — o criativo e o estratégico — que nasceu a Casa Flora. Há mais de cinco anos, Ana e Pedro caminham lado a lado, desenvolvendo marcas de experiência e hospitalidade, com mais de 20 projetos já assinados.
+              </p>
+            </motion.div>
           </div>
         </section>
       </div>
