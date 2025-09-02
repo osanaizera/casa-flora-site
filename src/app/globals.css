@@ -3326,7 +3326,7 @@ body {
   min-height: 300px;
 }
 
-.about-brief__img { object-fit: cover; }
+.about-brief__img { object-fit: contain; background: #fff; }
 
 .about-brief__content {
   display: flex;
