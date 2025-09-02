@@ -3323,10 +3323,10 @@ body {
 .about-brief__media {
   position: relative;
   overflow: hidden;
-  min-height: 300px;
+  min-height: 420px; /* imagem mais alta para evitar cortes no rosto */
 }
 
-.about-brief__img { object-fit: contain; background: #fff; }
+.about-brief__img { object-fit: cover; object-position: center top; }
 
 .about-brief__content {
   display: flex;
@@ -3358,5 +3358,5 @@ body {
 
 @media (max-width: 1024px) {
   .about-brief__grid { grid-template-columns: 1fr; }
-  .about-brief__media { min-height: 240px; }
+  .about-brief__media { min-height: 320px; }
 }
