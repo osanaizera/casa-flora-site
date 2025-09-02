@@ -146,9 +146,8 @@ export default function CasesShowcase() {
           >
           {cases.map((caseItem, index) => {
             const href =
-              caseItem.id === 'insolito' ? '/cases/insolito' :
-              caseItem.id === 'parador-lumiar' ? '/cases/parador-lumiar' :
-              caseItem.id === 'zendaya' ? '/cases/zendaya-resort' : undefined;
+              caseItem.id === 'zendaya' ? '/cases/zendaya-resort' :
+              `/cases/${caseItem.id}`;
             return (
             <motion.div
               key={caseItem.id}

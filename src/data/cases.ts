@@ -96,6 +96,87 @@ export const cases: CaseItem[] = [
     notionUrl:
       "https://brief-key-ebd.notion.site/Ins-lito-24efc4073fad80609415c29c713a8577",
   },
+  // Placeholder — Búzios Mar
+  {
+    slug: "buzios-mar",
+    title: "Búzios Mar",
+    client: "Búzios Mar",
+    location: "Búzios (RJ)",
+    segment: "Hospitalidade",
+    tagline: "Identidade e experiência com alma praiana",
+    year: "2024",
+    service: "Raiz",
+    category: "Hospitalidade",
+    summary:
+      "Identidade e presença alinhadas ao espírito praiano e sofisticado de Búzios.",
+    description:
+      "Projeto de base para estruturar linguagem visual, narrativa e pontos de contato essenciais de uma marca com vocação solar e acolhedora.",
+    heroImage: "/images/experiencia.jpg",
+    gallery: [
+      "/images/experiencia.jpg",
+      "/images/hospitalidade.jpg",
+      "/images/garden.jpg",
+    ],
+    results: [
+      "Base sólida de identidade",
+      "Coerência nos pontos de contato",
+      "Prontidão para ativações",
+    ],
+  },
+  // Placeholder — Greco Hotel
+  {
+    slug: "greco-hotel",
+    title: "Greco Hotel",
+    client: "Greco Hotel",
+    location: "Ilhabela (SP)",
+    segment: "Hotel Boutique",
+    tagline: "Mediterrâneo encontra brasilidade",
+    year: "2024",
+    service: "Raiz",
+    category: "Hospitalidade",
+    summary:
+      "Marca com autenticidade mediterrânea e brasilidade na experiência.",
+    description:
+      "Essência, linguagem e estética que traduzem hospitalidade calorosa com referências mediterrâneas e alma brasileira.",
+    heroImage: "/images/raiz.jpg",
+    gallery: [
+      "/images/raiz.jpg",
+      "/images/hospitalidade.jpg",
+      "/images/experiencia.jpg",
+    ],
+    results: [
+      "Direção clara de identidade",
+      "Expressão visual consistente",
+      "Experiência mais memorável",
+    ],
+  },
+  // Placeholder — Le Village
+  {
+    slug: "le-village",
+    title: "Le Village",
+    client: "Le Village",
+    location: "Paraty (RJ)",
+    segment: "Pousada",
+    tagline: "Charme histórico que acolhe",
+    year: "2023",
+    service: "Raiz",
+    category: "Hospitalidade",
+    summary:
+      "Charme histórico traduzido em identidade e jornada de encantamento.",
+    description:
+      "Linguagem autoral que respeita o patrimônio e potencializa a experiência com sutileza e afeto.",
+    heroImage: "/images/hospitalidade.jpg",
+    gallery: [
+      "/images/hospitalidade.jpg",
+      "/images/experiencia.jpg",
+      "/images/garden.jpg",
+    ],
+    results: [
+      "Presença mais alinhada ao lugar",
+      "Toques de encantamento na jornada",
+      "Identidade fácil de aplicar",
+    ],
+  },
   {
     slug: "parador-lumiar",
     title: "Parador Lumiar",
