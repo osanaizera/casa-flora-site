@@ -28,7 +28,7 @@ export default function HospitalidadePage() {
         {/* Header também no conteúdo (UX/SEO) */}
         <header className="topic-split__header">
           <h1 className="topic-hero__title topic-split__title">Hospitalidade</h1>
-          <p className="topic-hero__subtitle" style={{ color: 'var(--color-ink)' }}>Marcas que dominam a arte de bem-receber.</p>
+          <p className="topic-hero__subtitle topic-split__subtitle">Marcas que dominam a arte de bem-receber.</p>
         </header>
 
         <section className="topic-section--narrow">

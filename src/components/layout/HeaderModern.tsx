@@ -22,6 +22,7 @@ export default function HeaderModern() {
 
   const navItems = [
     { href: '/', label: 'Home' },
+    { href: '/#servicos', label: 'Serviços' },
     { href: '/experiencias', label: 'Experiências' },
     { href: '/hospitalidade', label: 'Hospitalidade' },
     { href: '/#cases', label: 'Cases' },

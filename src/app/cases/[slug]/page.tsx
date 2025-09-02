@@ -112,8 +112,10 @@ export default async function CaseDetail({ params }: Props) {
               <p>Como a própria fundadora e criadora da marca resume:</p>
             </div>
             <figure className="mt-8">
-              <div className="relative h-[min(60vh,640px)] overflow-hidden rounded-lg border border-gray-200 bg-white max-w-4xl mx-auto px-6">
+              <div className="max-w-4xl mx-auto px-6">
+                <div className="relative h-[min(50vh,480px)] overflow-hidden rounded-lg border border-gray-200 bg-white">
                 <Image src={'/images/cases/insolito/Captura de Tela 2025-08-13 às 09.49.14.png'} alt="Citação da fundadora" fill style={{ objectFit: 'contain' }} />
+                </div>
               </div>
             </figure>
           </section>
@@ -181,16 +183,20 @@ export default async function CaseDetail({ params }: Props) {
               <p>O <strong>Mago</strong> representa transformação, inspiração e descoberta. Ele traduz a capacidade do Insólito de encantar e surpreender.</p>
             </div>
             <figure className="mt-8">
-              <div className="relative h-[min(60vh,640px)] overflow-hidden rounded-lg border border-gray-200 bg-white max-w-4xl mx-auto px-6">
+              <div className="max-w-4xl mx-auto px-6">
+                <div className="relative h-[min(50vh,480px)] overflow-hidden rounded-lg border border-gray-200 bg-white">
                 <Image src={'/images/cases/insolito/Captura de Tela 2025-08-13 às 09.48.54.png'} alt="Arquétipo Mago" fill className="object-cover" />
+                </div>
               </div>
             </figure>
             <div className="max-w-4xl mx-auto px-6 space-y-6 text-gray-700 leading-relaxed mt-8">
               <p>O <strong>Criativo</strong>, por sua vez, expressa originalidade, inventividade e inovação. Ele reflete a estética singular do hotel, a curadoria artística e a brasilidade presente em cada detalhe.</p>
             </div>
             <figure className="mt-8">
-              <div className="relative h-[min(60vh,640px)] overflow-hidden rounded-lg border border-gray-200 bg-white max-w-4xl mx-auto px-6">
+              <div className="max-w-4xl mx-auto px-6">
+                <div className="relative h-[min(50vh,480px)] overflow-hidden rounded-lg border border-gray-200 bg-white">
                 <Image src={'/images/cases/insolito/Captura de Tela 2025-08-13 às 09.49.03.png'} alt="Arquétipo Criativo" fill className="object-cover" />
+                </div>
               </div>
             </figure>
             <div className="max-w-4xl mx-auto px-6 space-y-6 text-gray-700 leading-relaxed mt-8">
@@ -302,8 +308,10 @@ export default async function CaseDetail({ params }: Props) {
               </div>
             </div>
             <figure className="mt-8">
-              <div className="relative h-[min(60vh,640px)] overflow-hidden rounded-lg border border-gray-200 bg-white max-w-4xl mx-auto px-6">
+              <div className="max-w-4xl mx-auto px-6">
+                <div className="relative h-[min(50vh,480px)] overflow-hidden rounded-lg border border-gray-200 bg-white">
                 <Image src={'/images/cases/insolito/Captura de Tela 2025-08-13 às 09.55.19.png'} alt="Resultados" fill className="object-cover" />
+                </div>
               </div>
             </figure>
           </section>
@@ -320,28 +328,84 @@ export default async function CaseDetail({ params }: Props) {
             </div>
           </section>
 
-          {/* Aside de tags/serviços */}
-          <aside className="case-section" aria-label="Meta">
-            <div className="body-small">👉</div>
-            <p className="body-regular" style={{ marginTop: 8 }}>
-              Tags de serviços realizados:<br />
-              <strong>#Garden #Ativação Âmbar</strong>
-            </p>
-            <p className="body-regular" style={{ marginTop: 8 }}>
-              <strong>Serviços:</strong><br />
-              #Garden #AtivaçãoÂmbar
-            </p>
-            <p className="body-regular" style={{ marginTop: 8 }}>
-              <strong>Tags:</strong><br />
-              #Rebranding #IdentidadeVisual #BrandAwareness #PesquisaDeMercado #Tendências&Comportamento #PesquisaStakehoulders #Benchmarking #ConceitoDeMarca #PosicionamentoEstratégico #JornadaDoHóspede #ExperiênciaSensorial #PlanejamentoDeCampanhas #AtivaçãoÂmbar #HospitalidadeComArte
-            </p>
-          </aside>
+          {/* Meta informações */}
+          <section className="py-16 border-t border-gray-200">
+            <div className="max-w-4xl mx-auto px-6">
+              <div className="grid md:grid-cols-2 gap-12">
+                <div>
+                  <h3 className="text-sm font-medium text-gray-900 uppercase tracking-wider mb-4">Serviços Realizados</h3>
+                  <div className="flex flex-wrap gap-3">
+                    <span className="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium bg-gray-900 text-white">
+                      Garden
+                    </span>
+                    <span className="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium bg-gray-900 text-white">
+                      Ativação Âmbar
+                    </span>
+                  </div>
+                </div>
+                
+                <div>
+                  <h3 className="text-sm font-medium text-gray-900 uppercase tracking-wider mb-4">Áreas de Atuação</h3>
+                  <div className="flex flex-wrap gap-2">
+                    {['Rebranding', 'Identidade Visual', 'Brand Awareness', 'Pesquisa de Mercado', 'Benchmarking', 'Conceito de Marca', 'Posicionamento Estratégico', 'Jornada do Hóspede', 'Experiência Sensorial', 'Planejamento de Campanhas'].map((tag, i) => (
+                      <span key={i} className="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-medium bg-gray-100 text-gray-700 border">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
 
-          <footer className="case-section">
-            <div className="case-modern__notion">
-              {item.notionUrl ? (
-                <Link className="underline" href={item.notionUrl} target="_blank" rel="noopener noreferrer">Referência no Notion</Link>
-              ) : null}
+          {/* Outros Cases */}
+          <section className="py-20 bg-gray-50">
+            <div className="max-w-6xl mx-auto px-6">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl md:text-4xl font-light text-gray-900 uppercase tracking-[0.12em]">Outros Cases</h2>
+                <p className="text-gray-600 mt-4">Explore mais projetos da Casa Flora</p>
+              </div>
+              
+              <div className="grid md:grid-cols-2 gap-8 mb-12">
+                {/* Placeholder para outros cases - você pode buscar do cases.ts */}
+                <div className="group cursor-pointer">
+                  <div className="relative h-64 overflow-hidden rounded-lg bg-gray-200 mb-4">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                    <div className="absolute bottom-4 left-4 text-white">
+                      <h3 className="text-xl font-medium">Próximo Case</h3>
+                      <p className="text-sm opacity-90">Em breve</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="group cursor-pointer">
+                  <div className="relative h-64 overflow-hidden rounded-lg bg-gray-200 mb-4">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                    <div className="absolute bottom-4 left-4 text-white">
+                      <h3 className="text-xl font-medium">Próximo Case</h3>
+                      <p className="text-sm opacity-90">Em breve</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="text-center">
+                <Link 
+                  href="/" 
+                  className="inline-flex items-center px-6 py-3 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 transition-colors"
+                >
+                  ← Voltar para Home
+                </Link>
+              </div>
+            </div>
+          </section>
+
+          <footer className="bg-white">
+            <div className="max-w-4xl mx-auto px-6 py-8">
+              {item.notionUrl && (
+                <Link className="text-sm text-gray-500 hover:text-gray-700" href={item.notionUrl} target="_blank" rel="noopener noreferrer">
+                  Referência completa no Notion →
+                </Link>
+              )}
             </div>
           </footer>
         </article>

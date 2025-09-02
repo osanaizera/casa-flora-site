@@ -27,7 +27,7 @@ export default function ExperienciasPage() {
       <main className="topic-split__content">
         <header className="topic-split__header">
           <h1 className="topic-hero__title topic-split__title">Experiências</h1>
-          <p className="topic-hero__subtitle">Marcas que transformam interações em memórias vivas.</p>
+          <p className="topic-hero__subtitle topic-split__subtitle">Marcas que transformam interações em memórias vivas.</p>
         </header>
 
         <section className="topic-section--narrow">

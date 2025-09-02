@@ -78,7 +78,7 @@ export default function ServicesModern() {
   ];
 
   return (
-    <section className="services-modern">
+    <section className="services-modern" id="servicos">
       {/* Sidebar floral removido para fundo sólido e limpo */}
       
       <div className="services-modern__container">
