@@ -1720,7 +1720,7 @@ body {
 
 /* Diminuir o tamanho do carrossel (coluna direita) e centralizar */
 .case-grid--solution .case-grid__right .case-frame {
-  max-width: clamp(420px, 70%, 640px);
+  max-width: clamp(560px, 90%, 880px);
   margin-inline: auto;
 }
 .case-grid__left { grid-column: 1 / span 6; }
@@ -1735,6 +1735,11 @@ body {
 
 /* Sessões com mais respiro vertical */
 .case-screen--spacious { padding-top: clamp(72px, 10vh, 140px); padding-bottom: clamp(72px, 10vh, 140px); }
+.case-screen--compact .case-screen__title { font-size: clamp(1.8rem, 4.5vw, 2.6rem); letter-spacing: -0.01em; }
+.case-screen--compact .case-screen__subtitle { font-size: clamp(0.95rem, 2vw, 1.2rem); margin-top: 2px; margin-bottom: 6px; }
+.case-screen--compact .case-screen__subtitle--caps { letter-spacing: 0.24em; }
+.case-screen--compact .case-screen__lead { font-size: clamp(1rem, 1.7vw, 1.15rem); line-height: 1.85; }
+.case-screen--compact .case-screen__body { font-size: clamp(0.98rem, 1.6vw, 1.12rem); line-height: 1.85; }
 .case-frame::after { content: ''; position: absolute; inset: 0; background: radial-gradient(60% 50% at 20% 0%, rgba(255,255,255,0.15), transparent 60%); pointer-events: none; }
 .case-frame--landscape { aspect-ratio: 16/10; }
 .case-frame--portrait { aspect-ratio: 3/4; }

@@ -176,7 +176,7 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
         </section>
 
         {/* Solução */}
-        <section id="solucao" className="case-screen case-screen--spacious">
+        <section id="solucao" className="case-screen case-screen--spacious case-screen--compact">
           <div className="case-screen__container">
             {/* Cabeçalho da sessão ocupando 100% */}
             <div className="case-screen__content" style={{ marginBottom: 24 }}>
