@@ -157,12 +157,8 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
             <div className="case-grid case-grid--divided case-grid--left7">
               <div className="case-grid__left">
                 <div className="case-screen__content">
-                  <div className="case-eyebrow">ABORDAGEM</div>
-                  <h2 className="case-screen__title">Nossa abordagem</h2>
-                  <div className="case-screen__badges">
-                    <div className="services-modern__glass-badge">Metodologia</div>
-                    <div className="services-modern__glass-badge">Pesquisa & Estratégia</div>
-                  </div>
+                  <div className="case-eyebrow" style={{ color: '#fff' }}>ABORDAGEM</div>
+                  <h2 className="case-screen__title" style={{ color: '#fff' }}>Nossa abordagem</h2>
                   <p className="case-screen__body" style={{ color: '#fff' }}>A Casa Flora mergulhou no universo do Insólito, explorando sua história, curadoria artística e experiência sensorial. Nosso trabalho incluiu:</p>
                   <ul className="approach-plates">
                     <li>Avaliação do <strong>brand awareness</strong>, analisando comentários e notas de hóspedes em OTAs;</li>
