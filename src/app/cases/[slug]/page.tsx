@@ -95,18 +95,22 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
         {/* Sobre */}
         <section id="sobre" className="case-screen">
           <div className="case-screen__container">
-            <div className="case-screen__content">
-              <h2 className="case-screen__title">Sobre</h2>
-              <div className="case-screen__badges">
-                {item.category && (<div className="services-modern__glass-badge">{item.category}</div>)}
-                {item.service && (<div className="services-modern__glass-badge">{item.service}</div>)}
-                {item.year && (<div className="services-modern__glass-badge">{item.year}</div>)}
+            <div className="case-grid">
+              <div className="case-grid__left">
+                <div className="case-screen__content">
+                  <h2 className="case-screen__title">Sobre</h2>
+                  <div className="case-screen__badges">
+                    {item.category && (<div className="services-modern__glass-badge">{item.category}</div>)}
+                    {item.service && (<div className="services-modern__glass-badge">{item.service}</div>)}
+                    {item.year && (<div className="services-modern__glass-badge">{item.year}</div>)}
+                  </div>
+                  <p className="case-screen__lead">O Insólito é um hotel boutique e spa visualmente vibrante, com alma e estética profundamente brasileiras. Localizado à beira-mar, na praia da Ferradura, em Búzios (RJ), ele é reconhecido por sua curadoria artística: cada quarto é inspirado em uma obra de arte, transformando o espaço em uma galeria viva que celebra artistas nacionais.</p>
+                  <p className="case-screen__body">É um lugar onde a hospitalidade encontra cultura, e onde cada detalhe tem um significado. Como a própria fundadora e criadora da marca resume:</p>
+                </div>
               </div>
-              <p className="case-screen__lead">O Insólito é um hotel boutique e spa visualmente vibrante, com alma e estética profundamente brasileiras. Localizado à beira-mar, na praia da Ferradura, em Búzios (RJ), ele é reconhecido por sua curadoria artística: cada quarto é inspirado em uma obra de arte, transformando o espaço em uma galeria viva que celebra artistas nacionais.</p>
-              <p className="case-screen__body">É um lugar onde a hospitalidade encontra cultura, e onde cada detalhe tem um significado. Como a própria fundadora e criadora da marca resume:</p>
-              <div className="case-screen__figure">
-                <div className="case-media case-media--landscape">
-                  <Image src={'/images/cases/insolito/Captura de Tela 2025-08-13 às 09.49.14.png'} alt="Citação da fundadora" fill style={{ objectFit: 'contain' }} />
+              <div className="case-grid__right">
+                <div className="case-frame case-frame--landscape case-elevate">
+                  <Image src={'/images/cases/insolito/Captura de Tela 2025-08-13 às 09.49.14.png'} alt="Citação da fundadora" fill />
                 </div>
               </div>
             </div>
@@ -116,21 +120,25 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
         {/* Desafio */}
         <section id="desafio" className="case-screen">
           <div className="case-screen__container">
-            <div className="case-screen__grid">
-              <div className="case-screen__content">
-                <h2 className="case-screen__title">O desafio</h2>
-                <p className="case-screen__body">Apesar do potencial único e da força sensorial do espaço, a marca não traduzia, nem no digital nem na experiência do hóspede, toda essa atmosfera rica. A identidade visual carecia de unidade e sofisticação, e o posicionamento não comunicava de forma estratégica o valor do hotel como destino de imersão cultural.</p>
-                <p className="case-screen__body">Havia, também, a necessidade de <strong>resgatar a essência da marca</strong> e traduzir no design o novo conceito, reforçando sua brasilidade e sua singularidade artística.</p>
+            <div className="case-grid">
+              <div className="case-grid__left">
+                <div className="case-screen__content">
+                  <h2 className="case-screen__title">O desafio</h2>
+                  <p className="case-screen__body">Apesar do potencial único e da força sensorial do espaço, a marca não traduzia, nem no digital nem na experiência do hóspede, toda essa atmosfera rica. A identidade visual carecia de unidade e sofisticação, e o posicionamento não comunicava de forma estratégica o valor do hotel como destino de imersão cultural.</p>
+                  <p className="case-screen__body">Havia, também, a necessidade de <strong>resgatar a essência da marca</strong> e traduzir no design o novo conceito, reforçando sua brasilidade e sua singularidade artística.</p>
+                </div>
               </div>
-              <div className="case-screen__media-grid case-modern__gallery">
-                {[
-                  { src: '/images/cases/insolito/Captura de Tela 2025-08-13 às 09.49.51.png' },
-                  { src: '/images/cases/insolito/Captura de Tela 2025-08-13 às 09.50.00.png' },
-                ].map((g, idx) => (
-                  <div key={idx} className="case-modern__tile">
-                    <Image src={g.src} alt={`Desafio ${idx + 1}`} fill className="object-cover" />
-                  </div>
-                ))}
+              <div className="case-grid__right">
+                <div className="case-stack">
+                  {[
+                    { src: '/images/cases/insolito/Captura de Tela 2025-08-13 às 09.49.51.png', alt: 'Desafio 1' },
+                    { src: '/images/cases/insolito/Captura de Tela 2025-08-13 às 09.50.00.png', alt: 'Desafio 2' },
+                  ].map((g, idx) => (
+                    <div key={idx} className="case-frame case-frame--landscape case-elevate">
+                      <Image src={g.src} alt={g.alt} fill />
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
@@ -139,22 +147,30 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
         {/* Abordagem */}
         <section id="abordagem" className="case-screen">
           <div className="case-screen__container">
-            <div className="case-screen__content">
-              <h2 className="case-screen__title">Nossa abordagem</h2>
-              <div className="case-screen__badges">
-                <div className="services-modern__glass-badge">Metodologia</div>
-                <div className="services-modern__glass-badge">Pesquisa & Estratégia</div>
+            <div className="case-grid">
+              <div className="case-grid__left">
+                <div className="case-screen__content">
+                  <h2 className="case-screen__title">Nossa abordagem</h2>
+                  <div className="case-screen__badges">
+                    <div className="services-modern__glass-badge">Metodologia</div>
+                    <div className="services-modern__glass-badge">Pesquisa & Estratégia</div>
+                  </div>
+                  <p className="case-screen__body">A Casa Flora mergulhou no universo do Insólito, explorando sua história, curadoria artística e experiência sensorial. Nosso trabalho incluiu:</p>
+                  <ul className="case-screen__list">
+                    <li>Avaliação do <strong>brand awareness</strong>, analisando comentários e notas de hóspedes em OTAs;</li>
+                    <li>Pesquisa qualitativa com stakeholders para entender a visão interna da marca;</li>
+                    <li><strong>Análise da concorrência e benchmarking</strong>, levantando rankings de audiência em redes sociais e em OTAs;</li>
+                    <li><strong>Análise de tendências em hotelaria e turismo</strong>, combinada com <strong>SWOT</strong> e estudo do comportamento do consumidor pós-pandemia.</li>
+                  </ul>
+                </div>
               </div>
-              <p className="case-screen__body">A Casa Flora mergulhou no universo do Insólito, explorando sua história, curadoria artística e experiência sensorial. Nosso trabalho incluiu:</p>
-              <ul className="case-screen__list">
-                <li>Avaliação do <strong>brand awareness</strong>, analisando comentários e notas de hóspedes em OTAs;</li>
-                <li>Pesquisa qualitativa com stakeholders para entender a visão interna da marca;</li>
-                <li><strong>Análise da concorrência e benchmarking</strong>, levantando rankings de audiência em redes sociais e em OTAs;</li>
-                <li><strong>Análise de tendências em hotelaria e turismo</strong>, combinada com <strong>SWOT</strong> e estudo do comportamento do consumidor pós-pandemia.</li>
-              </ul>
-              <p className="case-screen__body">A partir desses insights, desenvolvemos o <strong>universo da marca</strong>, com definição de arquétipos, conceito, manifesto, posicionamento de mercado e <strong>redesign completo da identidade visual</strong>.</p>
-              <p className="case-screen__body">Na etapa da ativação, definimos tom de voz, editorias de conteúdo, personas, canais de comunicação online e offline, e mapeamos a <strong>jornada do hóspede</strong> do pré-reserva ao pós-estadia.</p>
-              <p className="case-screen__body">Com a <strong>Ativação Âmbar</strong>, estruturamos a consolidação da nova marca, seguindo o funil estratégico: <strong>conectar, conversar, encantar e rentabilizar</strong>, apoiado por um calendário anual de campanhas e ativações on e off-line.</p>
+              <div className="case-grid__right">
+                <div className="case-screen__content">
+                  <p className="case-screen__body">A partir desses insights, desenvolvemos o <strong>universo da marca</strong>, com definição de arquétipos, conceito, manifesto, posicionamento de mercado e <strong>redesign completo da identidade visual</strong>.</p>
+                  <p className="case-screen__body">Na etapa da ativação, definimos tom de voz, editorias de conteúdo, personas, canais de comunicação online e offline, e mapeamos a <strong>jornada do hóspede</strong> do pré-reserva ao pós-estadia.</p>
+                  <p className="case-screen__body">Com a <strong>Ativação Âmbar</strong>, estruturamos a consolidação da nova marca, seguindo o funil estratégico: <strong>conectar, conversar, encantar e rentabilizar</strong>, apoiado por um calendário anual de campanhas e ativações on e off-line.</p>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -167,17 +183,20 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
               <h3 className="case-screen__subtitle">Arquétipos da marca</h3>
               <p className="case-screen__lead">Para traduzir a essência do Insólito, definimos dois arquétipos centrais: <strong>o Mago e o Criativo</strong>. A escolha desses arquétipos reflete diretamente o propósito do hotel e a experiência que ele oferece aos hóspedes.</p>
               <p className="case-screen__body"><strong>O Mago</strong> representa transformação, inspiração e descoberta. Ele traduz a capacidade do Insólito de encantar e surpreender.</p>
-              <div className="case-screen__figure" style={{ marginTop: 12 }}>
-                <div className="case-media case-media--landscape">
-                  <Image src={'/images/cases/insolito/Captura de Tela 2025-08-13 às 09.48.54.png'} alt="Arquétipo Mago" fill className="object-cover" />
+              <div className="case-grid" style={{ marginTop: 12 }}>
+                <div className="case-grid__left">
+                  <div className="case-frame case-frame--landscape case-elevate">
+                    <Image src={'/images/cases/insolito/Captura de Tela 2025-08-13 às 09.48.54.png'} alt="Arquétipo Mago" fill />
+                  </div>
+                </div>
+                <div className="case-grid__right">
+                  <div className="case-frame case-frame--landscape case-elevate">
+                    <Image src={'/images/cases/insolito/Captura de Tela 2025-08-13 às 09.49.03.png'} alt="Arquétipo Criativo" fill />
+                  </div>
                 </div>
               </div>
               <p className="case-screen__body" style={{ marginTop: 12 }}><strong>O Criativo</strong>, por sua vez, expressa originalidade, inventividade e inovação. Ele reflete a estética singular do hotel, a curadoria artística e a brasilidade presente em cada detalhe.</p>
-              <div className="case-screen__figure" style={{ marginTop: 12 }}>
-                <div className="case-media case-media--landscape">
-                  <Image src={'/images/cases/insolito/Captura de Tela 2025-08-13 às 09.49.03.png'} alt="Arquétipo Criativo" fill className="object-cover" />
-                </div>
-              </div>
+              
 
               {/* Cards inspirados nos glass-cards da home */}
               <div className="services-modern__branding-grid" style={{ marginTop: 18 }}>

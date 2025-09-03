@@ -1626,6 +1626,26 @@ body {
 /* Badges within case sections */
 .case-screen__badges { display: flex; gap: 8px; margin-bottom: 8px; }
 
+/* Professional grid layout across full width */
+.case-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: clamp(16px, 2.5vw, 32px); align-items: start; }
+.case-grid__left { grid-column: 1 / span 6; }
+.case-grid__right { grid-column: 7 / span 6; }
+@media (max-width: 1024px) {
+  .case-grid__left, .case-grid__right { grid-column: 1 / -1; }
+}
+
+/* Framed media: preserves proportion, looks like book pages */
+.case-frame { position: relative; background: #fff; border: 1px solid #E5E7EB; border-radius: 14px; box-shadow: 0 22px 60px rgba(0,0,0,0.14), 0 6px 22px rgba(0,0,0,0.08); overflow: hidden; }
+.case-frame::after { content: ''; position: absolute; inset: 0; background: radial-gradient(60% 50% at 20% 0%, rgba(255,255,255,0.15), transparent 60%); pointer-events: none; }
+.case-frame--landscape { aspect-ratio: 16/10; }
+.case-frame--portrait { aspect-ratio: 3/4; }
+.case-frame--wide { aspect-ratio: 21/9; }
+.case-frame > img, .case-frame > span > img { object-fit: contain !important; }
+.case-frame .next-image, .case-frame [data-nextjs-scroll-focus-boundary] { position: static; }
+
+/* Stack for multiple framed media */
+.case-stack { display: grid; gap: clamp(12px, 2vw, 24px); }
+
 .services-modern__glass-card:hover .services-modern__glass-bg {
   transform: scale(1.05);
 }
