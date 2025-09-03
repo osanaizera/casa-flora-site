@@ -184,14 +184,14 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
               <h3 className="case-screen__subtitle">Arquétipos da marca</h3>
             </div>
 
-            {/* Duas colunas: esquerda texto + cards; direita carrossel 2 imagens */}
+            {/* Duas colunas: esquerda texto + cards (triptych), direita carrossel 2 imagens */}
             <div className="case-grid">
               <div className="case-grid__left">
                 <div className="case-screen__content">
                   <p className="case-screen__lead">Para traduzir a essência do Insólito, definimos dois arquétipos centrais: <strong>o Mago e o Criativo</strong>. A escolha desses arquétipos reflete diretamente o propósito do hotel e a experiência que ele oferece aos hóspedes.</p>
 
-                  {/* Dois cards no padrão da home (duas colunas), dentro da metade esquerda */}
-                  <div className="hero__cards" style={{ marginTop: '14px' }}>
+                  {/* Dois cards no padrão da home + resumo como terceira coluna */}
+                  <div className="archetype-grid" style={{ marginTop: '14px' }}>
                     {/* Mago */}
                     <div className="hero__card hero__card--tall hero__card--archetype">
                       <div className="hero__card-bg hero__card-bg--mago"></div>
@@ -224,20 +224,24 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
                         </div>
                       </div>
                     </div>
+                    {/* Resumo ao lado direito dos cards */}
+                    <div className="archetype-summary">
+                      <p className="case-screen__body">A combinação do <strong>Mago</strong> e do <strong>Criativo</strong> posiciona o Insólito como um destino transformador e inspirador, que une estética, brasilidade e inovação. Esses arquétipos guiam toda a estratégia da marca — do redesign da identidade visual à jornada do hóspede — garantindo coerência entre propósito, experiência e comunicação.</p>
+                    </div>
                   </div>
                 </div>
               </div>
 
               <div className="case-grid__right">
-                <div className="case-frame case-frame--landscape case-elevate">
+                <div className="case-frame case-frame--landscape case-frame--centered case-elevate">
                   <Carousel
                     aspect="16/10"
                     border={false}
                     sizes="(min-width: 1024px) 48vw, 92vw"
                     fit="contain"
                     slides={[
-                      { src: '/images/cases/insolito/Captura de Tela 2025-08-13 às 09.48.54.png', alt: 'Arquétipo Mago' },
-                      { src: '/images/cases/insolito/Captura de Tela 2025-08-13 às 09.49.03.png', alt: 'Arquétipo Criativo' },
+                      { src: '/images/cases/insolito/Captura de Tela 2025-08-13 às 09.48.54.png', alt: 'Arquétipo Mago' },
+                      { src: '/images/cases/insolito/Captura de Tela 2025-08-13 às 09.49.03.png', alt: 'Arquétipo Criativo' },
                     ]}
                   />
                 </div>
