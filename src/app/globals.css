@@ -933,13 +933,13 @@ body {
 /* Artigo editorial (magazine roll) */
 /* Conteúdo editorial antigo removido do fluxo: usamos seções em tela cheia */
 /* Full-screen case sections (home-like) */
-.case-screen { min-height: 100vh; display: flex; align-items: center; padding: clamp(56px, 8vh, 120px) 24px; background: #fff; }
-.case-screen__container { width: 100%; max-width: 1600px; margin: 0 auto; }
-.case-screen__content { max-width: 1200px; }
+.case-screen { min-height: 100vh; display: flex; align-items: center; padding: clamp(56px, 8vh, 120px) clamp(20px, 5vw, 64px); background: #fff; }
+.case-screen__container { width: 100%; max-width: none; margin: 0; padding: 0; }
+.case-screen__content { width: 100%; max-width: none; }
 .case-screen__title { font-family: var(--font-display); font-size: clamp(2.4rem, 6vw, 4rem); font-weight: 500; letter-spacing: -0.015em; margin-bottom: 12px; }
 .case-screen__subtitle { font-family: var(--font-display); font-size: clamp(1.125rem, 2.6vw, 1.6rem); font-weight: 500; letter-spacing: 0.01em; margin-top: 6px; margin-bottom: 12px; }
-.case-screen__lead { font-size: clamp(1.125rem, 2.2vw, 1.35rem); line-height: 1.9; color: var(--color-gray-700); margin-top: 12px; max-width: 90ch; }
-.case-screen__body { font-size: clamp(1.0625rem, 2vw, 1.25rem); line-height: 1.95; color: var(--color-gray-700); margin-top: 12px; max-width: 90ch; }
+.case-screen__lead { font-size: clamp(1.125rem, 2.2vw, 1.35rem); line-height: 1.9; color: var(--color-gray-700); margin-top: 12px; }
+.case-screen__body { font-size: clamp(1.0625rem, 2vw, 1.25rem); line-height: 1.95; color: var(--color-gray-700); margin-top: 12px; }
 .case-screen__list { display: grid; gap: 8px; padding-left: 1.25rem; list-style: disc; max-width: 78ch; color: var(--color-gray-700); margin-top: 12px; }
 .case-screen__media { width: 100%; }
 .case-screen__figure { margin-top: 14px; }

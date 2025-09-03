@@ -173,6 +173,11 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
                 </div>
               </div>
               <p className="case-screen__body" style={{ marginTop: 12 }}><strong>O Criativo</strong>, por sua vez, expressa originalidade, inventividade e inovação. Ele reflete a estética singular do hotel, a curadoria artística e a brasilidade presente em cada detalhe.</p>
+              <div className="case-screen__figure" style={{ marginTop: 12 }}>
+                <div className="case-media case-media--landscape">
+                  <Image src={'/images/cases/insolito/Captura de Tela 2025-08-13 às 09.49.03.png'} alt="Arquétipo Criativo" fill className="object-cover" />
+                </div>
+              </div>
 
               {/* Cards inspirados nos glass-cards da home */}
               <div className="services-modern__branding-grid" style={{ marginTop: 18 }}>
