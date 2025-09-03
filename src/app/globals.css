@@ -366,12 +366,14 @@ body {
 }
 
 .hero__card-subtitle {
-  font-size: 0.875rem;
-  opacity: 0.8;
+  font-size: 0.9rem;
+  opacity: 0.9;
   margin-bottom: 1rem;
-  line-height: 1.5;
+  line-height: 1.6;
   max-width: 200px;
 }
+/* Para os cards altos de arquétipos, permitir subtítulo mais longo */
+.hero__card--tall .hero__card-subtitle { max-width: 34ch; }
 
 .hero__card-arrow {
   width: 32px;
