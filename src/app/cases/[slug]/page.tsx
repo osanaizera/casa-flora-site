@@ -83,7 +83,7 @@ export default async function CaseDetail({ params }: Props) {
 
           {/* Faixa contínua de imagens - largura do conteúdo */}
           <section className="pb-8 -mx-6 md:-mx-12" aria-label="Imagens de abertura">
-            <div className="flex h-80 border-y border-gray-200">
+            <div className="flex h-80 border-y border-gray-200 px-2 md:px-3">
               {[
                 { src: '/images/cases/insolito/image.png', alt: 'Insólito 1' },
                 { src: '/images/cases/insolito/image (1).png', alt: 'Insólito 2' },
@@ -91,7 +91,7 @@ export default async function CaseDetail({ params }: Props) {
                 { src: '/images/cases/insolito/image (3).png', alt: 'Insólito 4' },
                 { src: '/images/cases/insolito/image (4).png', alt: 'Insólito 5' },
               ].map((img, i) => (
-                <div key={i} className="relative flex-1 border-r border-gray-200 last:border-r-0 overflow-hidden">
+                <div key={i} className="relative flex-1 overflow-hidden rounded-lg mx-2 case-elevate">
                   <Image 
                     src={img.src} 
                     alt={img.alt} 
@@ -113,7 +113,7 @@ export default async function CaseDetail({ params }: Props) {
             </div>
             <figure className="mt-8">
               <div className="max-w-4xl mx-auto px-6">
-                <div className="relative h-[min(50vh,480px)] overflow-hidden rounded-lg border border-gray-200 bg-white">
+                <div className="relative h-[min(50vh,480px)] overflow-hidden rounded-lg case-elevate">
                 <Image src={'/images/cases/insolito/Captura de Tela 2025-08-13 às 09.49.14.png'} alt="Citação da fundadora" fill style={{ objectFit: 'contain' }} />
                 </div>
               </div>
@@ -137,7 +137,7 @@ export default async function CaseDetail({ params }: Props) {
                   { src: '/images/cases/insolito/Captura de Tela 2025-08-13 às 09.49.51.png' },
                   { src: '/images/cases/insolito/Captura de Tela 2025-08-13 às 09.50.00.png' },
                 ].map((g, i) => (
-                <div key={i} className="relative w-full h-[min(50vh,400px)] overflow-hidden rounded-lg border border-gray-200 bg-white">
+                <div key={i} className="relative w-full h-[min(50vh,400px)] overflow-hidden rounded-lg case-elevate">
                   <Image src={g.src} alt={`Desafio ${i + 1}`} fill className="object-cover" />
                 </div>
                 ))}
@@ -324,7 +324,9 @@ export default async function CaseDetail({ params }: Props) {
               <h2 className="text-3xl md:text-4xl font-light mb-8 text-gray-900 uppercase tracking-[0.12em]">Galeria</h2>
             </div>
             <div className="max-w-4xl mx-auto px-6 mt-4">
-              <Carousel slides={(item.gallery || []).map((g, i) => (typeof g === 'string' ? { src: g } : { src: g.src, alt: g.alt }))} />
+              <div className="rounded-lg overflow-hidden case-elevate">
+                <Carousel slides={(item.gallery || []).map((g, i) => (typeof g === 'string' ? { src: g } : { src: g.src, alt: g.alt }))} />
+              </div>
             </div>
           </section>
 
