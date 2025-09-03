@@ -256,6 +256,14 @@ body {
   text-justify: inter-word; 
   hyphens: auto;
 }
+
+/* Justificar todos os parágrafos das sessões do case */
+.case-screen__lead,
+.case-screen__body {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+}
 .archetype-grid .hero__card { width: 100%; }
 
 .hero__card {
@@ -1695,9 +1703,26 @@ body {
 
 /* Professional grid layout across full width */
 .case-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: clamp(16px, 2.5vw, 32px); align-items: start; }
-.case-grid--solution { gap: clamp(28px, 4vw, 56px); }
+.case-grid--solution { position: relative; gap: clamp(28px, 4vw, 56px); }
+.case-grid--solution::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background: #E5E7EB;
+  transform: translateX(-0.5px);
+  pointer-events: none;
+}
 .case-grid__right--bottom { align-self: end; }
 .case-grid__right--center { align-self: center; }
+
+/* Diminuir o tamanho do carrossel (coluna direita) e centralizar */
+.case-grid--solution .case-grid__right .case-frame {
+  max-width: clamp(420px, 70%, 640px);
+  margin-inline: auto;
+}
 .case-grid__left { grid-column: 1 / span 6; }
 .case-grid__right { grid-column: 7 / span 6; }
 @media (max-width: 1024px) {
