@@ -1146,6 +1146,9 @@ body {
 .archetype-grid-right { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
 @media (max-width: 860px) { .archetype-grid-right { grid-template-columns: 1fr; } }
 
+/* Texto mais estreito para arquétipos (≈ -20%) */
+.archetype-text { max-width: 50ch; }
+
 /* Alinha também blocos comuns ao grid de conteúdo */
 .case-section .case-modern__body,
 .case-section .case-modern__list,
@@ -3696,4 +3699,28 @@ body {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+}
+
+
+/* Case screen list styling */
+.case-screen__list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+}
+
+.case-screen__list li {
+  padding: 0.75rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+  line-height: 1.6;
+}
+
+.case-screen__list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--color-accent, #E11D48);
+  font-weight: bold;
+  font-size: 1.2em;
 }

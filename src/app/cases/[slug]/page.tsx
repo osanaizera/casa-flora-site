@@ -216,19 +216,16 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
         {/* Solução */}
         <section id="solucao" className="case-screen case-screen--spacious case-screen--compact">
           <div className="case-screen__container">
-            {/* Cabeçalho da sessão ocupando 100% */}
-            <div className="case-screen__content" style={{ marginBottom: 24 }}>
-              <h2 className="case-screen__title">Personalidade da Marca</h2>
-              <h3 className="case-screen__subtitle case-screen__subtitle--caps">ARQUÉTIPOS</h3>
-            </div>
-
-            {/* Nova estrutura: texto à esquerda, cards à direita */}
+            {/* Nova estrutura: título/subtítulo e texto à esquerda, cards à direita */}
             <div className="case-grid case-grid--solution">
               <div className="case-grid__left">
                 <div className="case-screen__content">
-                  <p className="case-screen__lead">Para traduzir a essência do Insólito, definimos dois arquétipos centrais: <strong>o Mago e o Criativo</strong>. A escolha desses arquétipos reflete diretamente o propósito do hotel e a experiência que ele oferece aos hóspedes.</p>
-                  
-                  <p className="case-screen__body">A combinação do <strong>Mago</strong> e do <strong>Criativo</strong> posiciona o Insólito como um destino transformador e inspirador, que une estética, brasilidade e inovação. Esses arquétipos guiam toda a estratégia da marca — do redesign da identidade visual à jornada do hóspede — garantindo coerência entre propósito, experiência e comunicação.</p>
+                  <h2 className="case-screen__title">Personalidade da Marca</h2>
+                  <h3 className="case-screen__subtitle case-screen__subtitle--caps">ARQUÉTIPOS</h3>
+                  <div className="archetype-text">
+                    <p className="case-screen__lead">Para traduzir a essência do Insólito, definimos dois arquétipos centrais: <strong>o Mago e o Criativo</strong>. A escolha desses arquétipos reflete diretamente o propósito do hotel e a experiência que ele oferece aos hóspedes.</p>
+                    <p className="case-screen__body">A combinação do <strong>Mago</strong> e do <strong>Criativo</strong> posiciona o Insólito como um destino transformador e inspirador, que une estética, brasilidade e inovação. Esses arquétipos guiam toda a estratégia da marca — do redesign da identidade visual à jornada do hóspede — garantindo coerência entre propósito, experiência e comunicação.</p>
+                  </div>
                 </div>
               </div>
 
@@ -307,6 +304,13 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
                   <p className="case-screen__body">Ao final, o manifesto convida o hóspede a vivenciar essa experiência de forma ativa.</p>
                   
                   <p className="case-screen__body">Esse convite conecta diretamente ao conceito central da marca, <strong>"Descubra Arte em sua Natureza"</strong>, que guia todas as experiências, comunicações e ativações do hotel, orientando o hóspede a explorar a brasilidade, a arte e a criatividade de cada espaço de forma integrada e inspiradora.</p>
+                  
+                  <p className="case-screen__body">O <strong>conceito central</strong>, <strong>"Descubra Arte em sua Natureza"</strong>, sintetiza a proposta do Insólito de maneira clara e inspiradora. Ele une dois pilares fundamentais da marca:</p>
+                  
+                  <ul className="case-screen__list">
+                    <li><strong>Arte:</strong> cada espaço, cada quarto e cada experiência são cuidadosamente curados para revelar a criatividade e a cultura brasileiras;</li>
+                    <li><strong>Natureza:</strong> a brasilidade e a conexão com o ambiente natural são evidentes em cada detalhe do design, identidade visual e experiências oferecidas.</li>
+                  </ul>
                   
                   <div className="case-frame case-frame--compact case-elevate" style={{ marginTop: '2rem' }}>
                     <Image 
