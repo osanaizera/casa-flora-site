@@ -1,12 +1,11 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 
 export default function CasesShowcase() {
-  const [activeCase, setActiveCase] = useState(0);
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
   const carouselRef = useRef<HTMLDivElement | null>(null);
@@ -153,7 +152,6 @@ export default function CasesShowcase() {
               key={caseItem.id}
               className={`cases-showcase__card cases-showcase__card--${caseItem.service.toLowerCase()}`}
               variants={cardVariants}
-              onHoverStart={() => setActiveCase(index)}
             >
               {href && (
                 <Link href={href} className="cases-showcase__card-overlay" aria-label={`Abrir case ${caseItem.title}`}></Link>

@@ -293,7 +293,7 @@ export default async function CaseDetail({ params }: Props) {
               <div className="grid md:grid-cols-3 gap-8">
                 <div className="space-y-4">
                   <h3 className="text-xl font-normal text-gray-900 uppercase tracking-[0.08em]">Reconhecimento e Avaliação Positiva</h3>
-                  <p className="text-gray-700 leading-relaxed">O Insólito recebe elogios em plataformas de avaliação, como Booking.com e Expedia, destacando-se pela qualidade do atendimento, conforto das acomodações e o ambiente artístico. Os hóspedes frequentemente mencionam a experiência sensorial proporcionada pelo hotel, alinhada ao conceito de "Descubra Arte em sua Natureza".</p>
+                  <p className="text-gray-700 leading-relaxed">O Insólito recebe elogios em plataformas de avaliação, como Booking.com e Expedia, destacando-se pela qualidade do atendimento, conforto das acomodações e o ambiente artístico. Os hóspedes frequentemente mencionam a experiência sensorial proporcionada pelo hotel, alinhada ao conceito de &quot;Descubra Arte em sua Natureza&quot;.</p>
                 </div>
                 
                 <div className="space-y-4">
@@ -539,7 +539,7 @@ export default async function CaseDetail({ params }: Props) {
           <hr className="rule" />
           <section id="galeria" className="py-12">
             <div className="grid md:grid-cols-3 gap-4">
-              {item.gallery!.map((g: any, i: number) => {
+              {item.gallery!.map((g: string | { src: string; alt?: string; span?: 'wide' | 'tall' | 'normal' }, i: number) => {
                 const src = typeof g === 'string' ? g : g.src;
                 const alt = typeof g === 'string' ? `${item.title} ${i+1}` : (g.alt || `${item.title} ${i+1}`);
                 const span = typeof g === 'string' ? 'normal' : g.span;

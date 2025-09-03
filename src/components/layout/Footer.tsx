@@ -31,7 +31,7 @@ export default function Footer() {
             {/* Quote Editorial */}
             <div className="sophisticated-card organic-border border-l-4 border-sage-green max-w-lg">
               <p className="quote text-sage-green">
-                "Quebramos o óbvio criando identidades elegantes, tecnológicas e humanas."
+                &quot;Quebramos o óbvio criando identidades elegantes, tecnológicas e humanas.&quot;
               </p>
             </div>
           </div>

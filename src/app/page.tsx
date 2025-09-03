@@ -3,6 +3,7 @@ import HeroModern from '@/components/sections/HeroModern';
 import ServicesModern from '@/components/sections/ServicesModern';
 import CasesShowcase from '@/components/sections/CasesShowcase';
 import ScrollScript from '@/components/shared/ScrollScript';
+import Link from 'next/link';
 
 export default function Home() {
   return (
@@ -36,10 +37,10 @@ export default function Home() {
               <div className="site-footer__row">
                 <div className="site-footer__brand">Casa Flora</div>
                 <nav className="site-footer__nav">
-                  <a href="/" className="site-footer__link">Home</a>
-                  <a href="/#servicos" className="site-footer__link">Serviços</a>
-                  <a href="/#cases" className="site-footer__link">Cases</a>
-                  <a href="/#sobre" className="site-footer__link">Sobre</a>
+                  <Link href="/" className="site-footer__link">Home</Link>
+                  <Link href="/#servicos" className="site-footer__link">Serviços</Link>
+                  <Link href="/#cases" className="site-footer__link">Cases</Link>
+                  <Link href="/#sobre" className="site-footer__link">Sobre</Link>
                 </nav>
               </div>
               <div className="site-footer__row site-footer__meta">

@@ -55,12 +55,12 @@ export default function Carousel({ slides, height, aspect = '16/9', border = tru
 
   const dragOffsetPercent = dragActive ? (delta / Math.max(1, (typeof window !== 'undefined' ? window.innerWidth : 1))) * 100 : 0;
 
-  const styleVars: any = { ['--cfB' as any]: border ? '1px' : '0px' };
-  if (height) styleVars['--cfH' as any] = height;
-  else styleVars['--cfAspect' as any] = aspect;
+  const styleVars: Record<string, string> = { '--cfB': border ? '1px' : '0px' };
+  if (height) styleVars['--cfH'] = height;
+  else styleVars['--cfAspect'] = aspect;
 
   return (
-    <div className="cf-carousel" role="region" aria-label="Galeria de imagens" style={styleVars}>
+    <div className="cf-carousel" role="region" aria-label="Galeria de imagens" style={styleVars as React.CSSProperties}>
       <div
         className="cf-carousel__viewport"
         onPointerDown={onPointerDown}
