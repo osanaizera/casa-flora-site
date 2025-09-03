@@ -245,8 +245,8 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
                     sizes="(min-width: 1024px) 48vw, 92vw"
                     fit="contain"
                     slides={[
-                      { src: '/images/cases/insolito/Captura de Tela 2025-08-13 às 09.48.54.png', alt: 'Arquétipo Mago' },
-                      { src: '/images/cases/insolito/Captura de Tela 2025-08-13 às 09.49.03.png', alt: 'Arquétipo Criativo' },
+                      { src: '/images/cases/insolito/desafio1.png', alt: 'Arquétipo Mago' },
+                      { src: '/images/cases/insolito/desafio2.png', alt: 'Arquétipo Criativo' },
                     ]}
                   />
                 </div>
