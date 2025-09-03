@@ -237,7 +237,7 @@ body {
   padding: 1rem;
 }
 .hero__cards--single { grid-template-columns: 1fr; }
-.hero__card--tall { height: 560px; }
+.hero__card--tall { height: 520px; }
 
 /* Triptych grid for archetype cards + summary */
 .archetype-grid { 
@@ -380,7 +380,7 @@ body {
 }
 
 .hero__card-subtitle {
-  font-size: 0.9rem;
+  font-size: 0.92rem;
   opacity: 0.9;
   margin-bottom: 1rem;
   line-height: 1.6;
@@ -388,6 +388,17 @@ body {
 }
 /* Para os cards altos de arquétipos, permitir subtítulo mais longo */
 .hero__card--tall .hero__card-subtitle { max-width: 34ch; }
+/* Eyebrow (label) acima de subtítulos de sessão */
+.case-eyebrow { 
+  font-size: 0.8rem; 
+  letter-spacing: 0.18em; 
+  text-transform: uppercase; 
+  color: var(--color-gray-700);
+  margin-bottom: 6px;
+}
+/* Microinteração discreta nas molduras */
+.case-frame { transition: transform 0.35s ease, box-shadow 0.35s ease; }
+.case-frame:hover { transform: translateY(-6px); box-shadow: 0 28px 70px rgba(0,0,0,0.16), 0 8px 26px rgba(0,0,0,0.10); }
 
 .hero__card-arrow {
   width: 32px;

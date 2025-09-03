@@ -180,6 +180,7 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
           <div className="case-screen__container">
             {/* Cabeçalho da sessão ocupando 100% */}
             <div className="case-screen__content" style={{ marginBottom: 24 }}>
+              <div className="case-eyebrow">Arquétipos</div>
               <h2 className="case-screen__title">A solução</h2>
               <h3 className="case-screen__subtitle">Arquétipos da marca</h3>
             </div>

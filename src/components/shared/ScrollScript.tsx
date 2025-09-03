@@ -25,16 +25,14 @@ export default function ScrollScript() {
     });
 
     // Smooth scroll for anchor links
-    const anchorLinks = document.querySelectorAll('a[href^="#"]');
-    anchorLinks.forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
+    const anchorLinks = document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]');
+    anchorLinks.forEach((anchor) => {
+      anchor.addEventListener('click', (e) => {
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href') || '');
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth'
-          });
-        }
+        const href = (e.currentTarget as HTMLAnchorElement | null)?.getAttribute('href');
+        if (!href) return;
+        const target = document.querySelector<HTMLElement>(href);
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
       });
     });
 
