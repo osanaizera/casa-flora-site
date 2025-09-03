@@ -1100,6 +1100,33 @@ body {
   margin-right: auto;
 }
 
+/* Nossa Abordagem – fundo em tela cheia com overlay */
+#abordagem.approach-section { position: relative; background: url('/images/cases/insolito/nossaabordagemfundo.png') center/cover no-repeat; }
+#abordagem.approach-section::before { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.35); }
+#abordagem.approach-section > .case-screen__container { position: relative; z-index: 1; }
+
+/* Placas de itens (bullets) da abordagem */
+.approach-plates { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(12px, 2vw, 20px); margin-top: 14px; list-style: none; padding: 0; }
+@media (max-width: 860px) { .approach-plates { grid-template-columns: 1fr; } }
+.approach-plates li { 
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.22);
+  backdrop-filter: blur(6px);
+  border-radius: 14px;
+  padding: clamp(14px, 2vw, 18px);
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.35);
+}
+
+/* Card grande para o texto da coluna direita */
+.approach-card {
+  background: rgba(255,255,255,0.92);
+  border: 1px solid #E5E7EB;
+  border-radius: 16px;
+  padding: clamp(18px, 3vw, 28px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.18);
+}
+
 /* Alinha também blocos comuns ao grid de conteúdo */
 .case-section .case-modern__body,
 .case-section .case-modern__list,

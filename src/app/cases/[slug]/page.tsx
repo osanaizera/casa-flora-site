@@ -152,7 +152,7 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
         </section>
 
         {/* Abordagem */}
-        <section id="abordagem" className="case-screen case-screen--spacious case-screen--compact">
+        <section id="abordagem" className="case-screen case-screen--spacious case-screen--compact approach-section">
           <div className="case-screen__container">
             <div className="case-grid case-grid--divided case-grid--left7">
               <div className="case-grid__left">
@@ -163,8 +163,8 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
                     <div className="services-modern__glass-badge">Metodologia</div>
                     <div className="services-modern__glass-badge">Pesquisa & Estratégia</div>
                   </div>
-                  <p className="case-screen__body">A Casa Flora mergulhou no universo do Insólito, explorando sua história, curadoria artística e experiência sensorial. Nosso trabalho incluiu:</p>
-                  <ul className="case-screen__list">
+                  <p className="case-screen__body" style={{ color: '#fff' }}>A Casa Flora mergulhou no universo do Insólito, explorando sua história, curadoria artística e experiência sensorial. Nosso trabalho incluiu:</p>
+                  <ul className="approach-plates">
                     <li>Avaliação do <strong>brand awareness</strong>, analisando comentários e notas de hóspedes em OTAs;</li>
                     <li>Pesquisa qualitativa com stakeholders para entender a visão interna da marca;</li>
                     <li><strong>Análise da concorrência e benchmarking</strong>, levantando rankings de audiência em redes sociais e em OTAs;</li>
@@ -174,9 +174,11 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
               </div>
               <div className="case-grid__right">
                 <div className="case-screen__content">
+                  <div className="approach-card">
                   <p className="case-screen__body">A partir desses insights, desenvolvemos o <strong>universo da marca</strong>, com definição de arquétipos, conceito, manifesto, posicionamento de mercado e <strong>redesign completo da identidade visual</strong>.</p>
                   <p className="case-screen__body">Na etapa da ativação, definimos tom de voz, editorias de conteúdo, personas, canais de comunicação online e offline, e mapeamos a <strong>jornada do hóspede</strong> do pré-reserva ao pós-estadia.</p>
                   <p className="case-screen__body">Com a <strong>Ativação Âmbar</strong>, estruturamos a consolidação da nova marca, seguindo o funil estratégico: <strong>conectar, conversar, encantar e rentabilizar</strong>, apoiado por um calendário anual de campanhas e ativações on e off-line.</p>
+                  </div>
                 </div>
               </div>
             </div>
