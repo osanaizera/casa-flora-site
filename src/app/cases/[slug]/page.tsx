@@ -92,18 +92,13 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
                 </div>
               </div>
               <div className="case-grid__right">
-                <div className="services-modern__glass-card">
+                <div className="services-modern__glass-card services-modern__glass-card--taller">
                   <div className="services-modern__glass-bg services-modern__glass-bg--insolito-quote"></div>
                   <div className="services-modern__glass-content">
-                    <div className="services-modern__glass-header">
-                      <div className="services-modern__glass-badge">Depoimento</div>
-                      <h3 className="services-modern__glass-title">Insólito</h3>
-                      <p className="services-modern__glass-subtitle">Citação</p>
+                    <div className="quote-card">
+                      <p className="quote-card__text">“Eu queria que as pessoas, os hóspedes estrangeiros que recebo, pudessem, descobrir o país como eu, com o melhor de sua arte”</p>
+                      <p className="quote-card__author">— Emamnuelle Meeus.</p>
                     </div>
-                    <p className="services-modern__glass-description" style={{ marginTop: 8 }}>
-                      “Eu queria que as pessoas, os hóspedes estrangeiros que recebo, pudessem, descobrir o país como eu, com o melhor de sua arte”<br />
-                      — Emamnuelle Meeus.
-                    </p>
                   </div>
                 </div>
               </div>
