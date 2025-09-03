@@ -1684,7 +1684,7 @@ body {
 /* Fundo para card de citação do Insólito */
 .services-modern__glass-bg--insolito-quote {
   background:
-    linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.25) 60%, rgba(0,0,0,0.65)),
+    linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.12) 60%, rgba(0,0,0,0.45)),
     url('/images/cases/insolito/image%20(2).png');
   background-size: cover;
   background-position: center;
@@ -1693,6 +1693,11 @@ body {
 
 /* Card de citação mais alto */
 .services-modern__glass-card--taller { height: 576px; }
+.services-modern__glass-card--taller .services-modern__glass-content {
+  justify-content: flex-end;
+  padding-top: 56px;
+  padding-bottom: 56px;
+}
 
 /* Estilo tipográfico elegante para citação */
 .quote-card { color: #fff; text-shadow: 0 2px 8px rgba(0,0,0,0.35); }
