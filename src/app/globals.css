@@ -244,6 +244,7 @@ body {
 @media (max-width: 1024px) { .archetype-grid { grid-template-columns: 1fr; } }
 .archetype-summary { display: flex; align-items: flex-start; }
 .archetype-summary .case-screen__body { margin: 0; }
+.archetype-grid .hero__card { width: 100%; }
 
 .hero__card {
   position: relative;
