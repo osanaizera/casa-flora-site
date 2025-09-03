@@ -240,8 +240,15 @@ body {
 .hero__card--tall { height: 560px; }
 
 /* Triptych grid for archetype cards + summary */
-.archetype-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(12px, 2vw, 24px); align-items: start; }
-@media (max-width: 1024px) { .archetype-grid { grid-template-columns: 1fr; } }
+.archetype-grid { 
+  display: grid; 
+  grid-template-columns: minmax(220px, 0.9fr) minmax(220px, 0.9fr) minmax(280px, 1.2fr);
+  gap: clamp(20px, 3vw, 36px); 
+  align-items: start; 
+}
+@media (max-width: 1024px) { 
+  .archetype-grid { grid-template-columns: 1fr; }
+}
 .archetype-summary { display: flex; align-items: flex-start; }
 .archetype-summary .case-screen__body { margin: 0; }
 .archetype-grid .hero__card { width: 100%; }
@@ -1662,6 +1669,9 @@ body {
 /* Framed media: preserves proportion, looks like book pages */
 .case-frame { position: relative; width: 100%; background: #fff; border: 1px solid #E5E7EB; border-radius: 14px; box-shadow: 0 22px 60px rgba(0,0,0,0.14), 0 6px 22px rgba(0,0,0,0.08); overflow: hidden; }
 .case-frame--centered { margin-inline: auto; }
+
+/* Sessões com mais respiro vertical */
+.case-screen--spacious { padding-top: clamp(72px, 10vh, 140px); padding-bottom: clamp(72px, 10vh, 140px); }
 .case-frame::after { content: ''; position: absolute; inset: 0; background: radial-gradient(60% 50% at 20% 0%, rgba(255,255,255,0.15), transparent 60%); pointer-events: none; }
 .case-frame--landscape { aspect-ratio: 16/10; }
 .case-frame--portrait { aspect-ratio: 3/4; }

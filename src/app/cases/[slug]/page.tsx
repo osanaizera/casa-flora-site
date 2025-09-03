@@ -176,10 +176,10 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
         </section>
 
         {/* Solução */}
-        <section id="solucao" className="case-screen">
+        <section id="solucao" className="case-screen case-screen--spacious">
           <div className="case-screen__container">
             {/* Cabeçalho da sessão ocupando 100% */}
-            <div className="case-screen__content" style={{ marginBottom: 14 }}>
+            <div className="case-screen__content" style={{ marginBottom: 24 }}>
               <h2 className="case-screen__title">A solução</h2>
               <h3 className="case-screen__subtitle">Arquétipos da marca</h3>
             </div>
@@ -191,7 +191,7 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
                   <p className="case-screen__lead">Para traduzir a essência do Insólito, definimos dois arquétipos centrais: <strong>o Mago e o Criativo</strong>. A escolha desses arquétipos reflete diretamente o propósito do hotel e a experiência que ele oferece aos hóspedes.</p>
 
                   {/* Dois cards no padrão da home + resumo como terceira coluna */}
-                  <div className="archetype-grid" style={{ marginTop: '14px' }}>
+                  <div className="archetype-grid" style={{ marginTop: '22px' }}>
                     {/* Mago */}
                     <div className="hero__card hero__card--tall hero__card--archetype">
                       <div className="hero__card-bg hero__card-bg--mago"></div>
@@ -248,10 +248,7 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
               </div>
             </div>
 
-            {/* Resumo final da solução (opcional) */}
-            <div className="case-screen__content" style={{ marginTop: 18 }}>
-              <p className="case-screen__body">A combinação do <strong>Mago</strong> e do <strong>Criativo</strong> posiciona o Insólito como um destino transformador e inspirador, que une estética, brasilidade e inovação. Esses arquétipos guiam toda a estratégia da marca — do redesign da identidade visual à jornada do hóspede — garantindo coerência entre propósito, experiência e comunicação.</p>
-            </div>
+            {/* Removido resumo duplicado abaixo: já incluído na 3ª coluna do triptico */}
           </div>
         </section>
 
