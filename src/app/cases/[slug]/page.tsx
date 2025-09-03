@@ -79,7 +79,7 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
               <div className="case-grid__left">
                 <div className="case-screen__content">
                   <div className="case-eyebrow">SOBRE</div>
-                  <h2 className="case-screen__title">Sobre</h2>
+                  <h2 className="case-screen__title">Descubra o Insólito Boutique Hotel &amp; Spa</h2>
                   <div className="case-screen__badges">
                     {item.category && (<div className="services-modern__glass-badge">{item.category}</div>)}
                     {item.service && (<div className="services-modern__glass-badge">{item.service}</div>)}
