@@ -798,28 +798,17 @@ body {
 }
 
 /* Case Hero Overlay (editorial) */
-.case-hero-wrap {
-  height: 140vh; /* cria espaço para o sticky/fixed “sumir” ao rolar */
-  background: #ffffff; /* fundo branco conforme pedido */
-}
+.case-hero-wrap { height: 100vh; background: #ffffff; }
 
 .case-hero {
-  position: sticky;
-  top: 0;
+  position: relative; /* era sticky/fixed; agora estático */
   height: 100vh;
   width: 100%;
   overflow: hidden;
 }
 
 /* Variante com hero fixo que desaparece (sumidouro) */
-.case-hero--fixed { position: fixed; inset: 0; width: 100vw; height: 100vh; z-index: 10; pointer-events: none; --heroFade: 0; }
-/* Efeito cortina horizontal (fecha top/bottom) + opacidade */
-.case-hero--fixed .case-hero__media,
-.case-hero--fixed .case-hero__overlay {
-  opacity: calc(1 - var(--heroFade));
-  clip-path: inset(calc(var(--heroFade) * 30%) 0 calc(var(--heroFade) * 30%) 0 round 0);
-}
-.case-hero--fixed .case-hero__content { opacity: calc(1 - var(--heroFade)); }
+/* Removido o efeito de cortina (classe não usada) */
 
 .case-hero__media {
   position: absolute;
@@ -853,11 +842,13 @@ body {
 
 .case-hero__title {
   font-family: var(--font-display);
-  font-weight: 300;
-  letter-spacing: -0.01em;
-  font-size: clamp(2rem, 5vw, 3rem);
-  line-height: 1.2;
-  max-width: 18ch;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.24em; /* maior espaçamento entre letras */
+  font-size: clamp(0.6rem, 1.5vw, 0.9rem); /* ~30% do tamanho anterior */
+  line-height: 1;
+  white-space: nowrap; /* uma única linha */
+  max-width: none;
 }
 
 .case-hero__scroll {
@@ -873,9 +864,13 @@ body {
 
 .case-hero__brand-logo {
   display: block;
-  width: min(60vw, 640px);
+  width: auto;  /* evita upscaling forçado */
+  max-width: 320px; /* tamanho seguro para nitidez */
   height: auto;
   opacity: 1;
+}
+@media (min-width: 1024px) {
+  .case-hero__brand-logo { max-width: 360px; }
 }
 
 /* Tagline (e.g., Rebranding & Estratégia de Marca) */
@@ -933,29 +928,25 @@ body {
 }
 
 /* Logo no hero do case */
-.case-hero__logo {
-  position: absolute;
-  top: 24px;
-  left: 24px;
-  z-index: 2;
-  display: block;
-  opacity: 0.95;
-}
+/* Logo de canto removido do layout */
 
 /* Artigo editorial (magazine roll) */
-.case-article {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 64px 40px 96px; /* mais respiro em volta do conteúdo */
-  text-rendering: optimizeLegibility;
-  font-kerning: normal;
-  font-feature-settings: "liga" 1, "kern" 1;
-  font-optical-sizing: auto;
-  --case-content-width: 72ch;
-  background: #ffffff; /* destaca a área de rolagem do fundo */
-  border-radius: 14px; /* cantos suaves para sensação editorial */
-  box-shadow: 0 30px 80px rgba(0,0,0,0.18); /* sombra mais forte */
-}
+/* Conteúdo editorial antigo removido do fluxo: usamos seções em tela cheia */
+/* Full-screen case sections (home-like) */
+.case-screen { min-height: 100vh; display: flex; align-items: center; padding: 64px 20px; background: #fff; }
+.case-screen__container { width: 100%; max-width: 1400px; margin: 0 auto; }
+.case-screen__content { max-width: 960px; }
+.case-screen__title { font-family: var(--font-display); font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: 500; margin-bottom: 12px; }
+.case-screen__subtitle { font-family: var(--font-display); font-size: clamp(1.1rem, 2.4vw, 1.4rem); font-weight: 500; margin-top: 6px; margin-bottom: 12px; }
+.case-screen__lead { font-size: clamp(1rem, 1.8vw, 1.125rem); line-height: 1.75; color: var(--color-gray-700); margin-top: 8px; }
+.case-screen__body { font-size: 1rem; line-height: 1.8; color: var(--color-gray-700); margin-top: 8px; }
+.case-screen__list { display: grid; gap: 6px; padding-left: 1.25rem; list-style: disc; max-width: 72ch; color: var(--color-gray-700); margin-top: 10px; }
+.case-screen__media { width: 100%; }
+.case-screen__figure { margin-top: 14px; }
+.case-screen__grid { display: grid; gap: 24px; grid-template-columns: 1fr; }
+@media (min-width: 1024px) { .case-screen__grid { grid-template-columns: 1.1fr 1fr; align-items: start; } }
+.case-screen__media-grid { margin-top: 8px; }
+.case-screen__meta { margin-top: 16px; font-size: 12px; color: var(--color-gray-700); }
 
 @media (max-width: 768px) {
   .case-article { padding: 48px 20px 72px; }
