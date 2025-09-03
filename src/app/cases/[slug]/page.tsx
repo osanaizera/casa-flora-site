@@ -48,9 +48,9 @@ export default async function CaseDetail({ params }: Props) {
             <div className="case-hero__content">
               <div className="case-hero__content-inner">
                 {item.logo && (
-                  <Image src={item.logo} alt={`${item.title} logo`} width={360} height={160} className="case-hero__brand-logo" priority />
+                  <Image src={item.logo} alt={`${item.title} logo`} width={720} height={320} className="case-hero__brand-logo" priority />
                 )}
-                <h1 className="case-hero__title">{item.tagline || item.title}</h1>
+                <h1 className={`case-hero__title ${item.tagline ? 'case-hero__tagline' : ''}`}>{item.tagline || item.title}</h1>
               </div>
               <svg className="case-hero__arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
                 <path d="M12 5v14M12 19l-6-6M12 19l6-6" stroke="white" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round"/>
