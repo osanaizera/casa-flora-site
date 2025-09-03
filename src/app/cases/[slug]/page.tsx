@@ -49,7 +49,7 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
                 {item.logo && (
                   <Image src={item.logo} alt={`${item.title} logo`} width={320} height={140} className="case-hero__brand-logo" priority />
                 )}
-                <h1 className="case-hero__title">DA ARTE DA ESSÊNCIA À ESPERIÊNCIA DA HOSPITALIDADE</h1>
+                <h1 className="case-hero__title">DA ARTE DA ESSÊNCIA À EXPERIÊNCIA DA HOSPITALIDADE</h1>
               </div>
               <svg className="case-hero__arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
                 <path d="M12 5v14M12 19l-6-6M12 19l6-6" stroke="white" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round"/>
@@ -156,13 +156,52 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
             <div className="case-screen__content">
               <h2 className="case-screen__title">A solução</h2>
               <h3 className="case-screen__subtitle">Arquétipos da marca</h3>
-              <p className="case-screen__body">Para traduzir a essência do Insólito, definimos dois arquétipos centrais: <strong>o Mago e o Criativo</strong>. A escolha desses arquétipos reflete diretamente o propósito do hotel e a experiência que ele oferece aos hóspedes. O <strong>Mago</strong> representa transformação, inspiração e descoberta. Ele traduz a capacidade do Insólito de encantar e surpreender.</p>
-              <div className="case-screen__figure" style={{ marginTop: 12 }}>
-                <div className="case-media case-media--landscape">
-                  <Image src={'/images/cases/insolito/Captura de Tela 2025-08-13 às 09.48.54.png'} alt="Arquétipo Mago" fill className="object-cover" />
+              <p className="case-screen__lead">Para traduzir a essência do Insólito, dois arquétipos centrais estruturam a narrativa e a expressão: <strong>O MAGO</strong> e <strong>O CRIATIVO</strong>.</p>
+
+              {/* Cards inspirados nos glass-cards da home */}
+              <div className="services-modern__branding-grid" style={{ marginTop: 18 }}>
+                {/* O Mago */}
+                <div className="services-modern__glass-card">
+                  <div className="services-modern__glass-bg services-modern__glass-bg--garden"></div>
+                  <div className="services-modern__glass-content">
+                    <div className="services-modern__glass-header">
+                      <span className="services-modern__glass-number">01</span>
+                      <div className="services-modern__glass-badge">Arquétipo</div>
+                      <h3 className="services-modern__glass-title">O MAGO</h3>
+                      <p className="services-modern__glass-subtitle">Transformação, inspiração e descoberta</p>
+                    </div>
+                    <p className="services-modern__glass-description">Conduz a marca a experiências que encantam e surpreendem. Representa a capacidade de transmutar ambientes, rituais e símbolos em memórias vívidas — onde a arte encontra a hospitalidade.</p>
+                    <div className="services-modern__glass-footer">
+                      <div className="services-modern__glass-arrow">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                          <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* O Criativo */}
+                <div className="services-modern__glass-card">
+                  <div className="services-modern__glass-bg services-modern__glass-bg--raiz"></div>
+                  <div className="services-modern__glass-content">
+                    <div className="services-modern__glass-header">
+                      <span className="services-modern__glass-number">02</span>
+                      <div className="services-modern__glass-badge">Arquétipo</div>
+                      <h3 className="services-modern__glass-title">O CRIATIVO</h3>
+                      <p className="services-modern__glass-subtitle">Originalidade, inventividade e expressão</p>
+                    </div>
+                    <p className="services-modern__glass-description">Traduz a estética singular, a curadoria de arte e a liberdade autoral do Insólito — uma linguagem viva que se manifesta nos detalhes e no convite à experiência.</p>
+                    <div className="services-modern__glass-footer">
+                      <div className="services-modern__glass-arrow">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                          <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <p className="case-screen__body" style={{ marginTop: 12 }}>O <strong>Criativo</strong>, por sua vez, expressa originalidade, inventividade e inovação. Ele reflete a estética singular do hotel, a curadoria artística e a proposta de experiência que valoriza a cultura brasileira em sua pluralidade, com leveza e sofisticação.</p>
             </div>
           </div>
         </section>
