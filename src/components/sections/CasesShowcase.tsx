@@ -20,7 +20,7 @@ export default function CasesShowcase() {
       service: 'Raiz',
       category: 'Hospitalidade',
       year: '2024',
-      image: '/images/experiencia.jpg',
+      image: '/images/BUZIOS MAR CAPA.png',
       description: 'Identidade e presença alinhadas ao espírito praiano e sofisticado de Búzios.'
     },
     {
@@ -30,7 +30,7 @@ export default function CasesShowcase() {
       service: 'Raiz',
       category: 'Hotel Boutique',
       year: '2024',
-      image: '/images/raiz.jpg',
+      image: '/images/GRECO CAPA.jpg',
       description: 'Marca com autenticidade mediterrânea e brasilidade na experiência.'
     },
     {
@@ -40,7 +40,7 @@ export default function CasesShowcase() {
       service: 'Garden',
       category: 'Hotel & Spa',
       year: '2024',
-      image: '/images/cases/insolito/hero.jpg',
+      image: '/images/INSOLITO CAPA.jpg',
       description: 'Rebranding sensorial para um ícone boutique à beira-mar.'
     },
     {
@@ -50,7 +50,7 @@ export default function CasesShowcase() {
       service: 'Raiz',
       category: 'Pousada',
       year: '2023',
-      image: '/images/hospitalidade.jpg',
+      image: '/images/LE VILLAGE CAPA.jpg',
       description: 'Charme histórico traduzido em identidade e jornada de encantamento.'
     },
     {
@@ -60,7 +60,7 @@ export default function CasesShowcase() {
       service: 'Raiz',
       category: 'Hospedagem',
       year: '2024',
-      image: '/images/garden.jpg',
+      image: '/images/PARADOR LUMIAR CAPA.webp',
       description: 'Posicionamento estratégico e visual com natureza como protagonista.'
     },
     {
@@ -70,7 +70,7 @@ export default function CasesShowcase() {
       service: 'Garden',
       category: 'Resort',
       year: '2023',
-      image: '/images/experiencia.jpg',
+      image: '/images/ZENDAYA CAPA.png',
       description: 'Elegância contemporânea para um resort de destino.'
     }
   ];
