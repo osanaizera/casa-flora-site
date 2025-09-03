@@ -898,7 +898,7 @@ body {
   justify-content: center;
   text-align: center;
   color: #fff;
-  padding: 0 clamp(32px, 8vw, 120px);
+  padding: 0 clamp(24px, 6vw, 84px);
 }
 
 .case-hero__content-inner {
@@ -1704,29 +1704,9 @@ body {
 /* Professional grid layout across full width */
 .case-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: clamp(16px, 2.5vw, 32px); align-items: start; }
 .case-grid--solution { position: relative; gap: clamp(28px, 4vw, 56px); }
-.case-grid--solution::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  width: 1px;
-  background: #E5E7EB;
-  transform: translateX(-0.5px);
-  pointer-events: none;
-}
+.case-grid--solution::before { display: none; }
 .case-grid--divided { position: relative; gap: clamp(28px, 4vw, 56px); }
-.case-grid--divided::before {
-  content: '';
-  position: absolute;
-  top: 6%;
-  bottom: 6%;
-  left: 50%;
-  width: 1px;
-  background: #EEF2F7; /* mais sutil */
-  transform: translateX(-0.5px);
-  pointer-events: none;
-}
+.case-grid--divided::before { display: none; }
 
 /* Variante 7/5 para dar mais espaço ao texto */
 .case-grid--left7 .case-grid__left { grid-column: 1 / span 7; }
@@ -1740,7 +1720,7 @@ body {
 
 /* Diminuir o tamanho do carrossel (coluna direita) e centralizar */
 .case-grid--solution .case-grid__right .case-frame {
-  max-width: clamp(560px, 90%, 880px);
+  max-width: clamp(720px, 100%, 1100px);
   margin-inline: auto;
 }
 .case-grid__left { grid-column: 1 / span 6; }
@@ -2200,6 +2180,15 @@ body {
   cursor: pointer;
   text-decoration: none;
   display: block;
+}
+
+/* Case text formatting */
+.case-text-narrow {
+  width: 60%;
+}
+
+.case-text-narrow p {
+  text-align: justify;
 }
 
 @media (max-width: 768px) {
