@@ -1606,6 +1606,26 @@ body {
   background-blend-mode: overlay, soft-light, normal;
 }
 
+/* Archetypes gradients (no image, only refined color fields) */
+.services-modern__glass-bg--mago {
+  background:
+    radial-gradient(1200px 600px at 20% -10%, rgba(139, 92, 246, 0.28), transparent 60%),
+    radial-gradient(1000px 500px at 110% 100%, rgba(56, 189, 248, 0.25), transparent 60%),
+    linear-gradient(135deg, rgba(17, 24, 39, 0.65), rgba(2, 6, 23, 0.55));
+  background-blend-mode: screen, screen, multiply;
+}
+
+.services-modern__glass-bg--criativo {
+  background:
+    radial-gradient(1200px 600px at 0% 120%, rgba(244, 114, 182, 0.30), transparent 60%),
+    radial-gradient(1000px 500px at 100% -10%, rgba(251, 146, 60, 0.28), transparent 60%),
+    linear-gradient(135deg, rgba(24, 24, 27, 0.65), rgba(12, 10, 9, 0.55));
+  background-blend-mode: screen, screen, multiply;
+}
+
+/* Badges within case sections */
+.case-screen__badges { display: flex; gap: 8px; margin-bottom: 8px; }
+
 .services-modern__glass-card:hover .services-modern__glass-bg {
   transform: scale(1.05);
 }

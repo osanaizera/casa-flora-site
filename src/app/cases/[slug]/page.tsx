@@ -97,6 +97,11 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
           <div className="case-screen__container">
             <div className="case-screen__content">
               <h2 className="case-screen__title">Sobre</h2>
+              <div className="case-screen__badges">
+                {item.category && (<div className="services-modern__glass-badge">{item.category}</div>)}
+                {item.service && (<div className="services-modern__glass-badge">{item.service}</div>)}
+                {item.year && (<div className="services-modern__glass-badge">{item.year}</div>)}
+              </div>
               <p className="case-screen__lead">O Insólito é um hotel boutique e spa visualmente vibrante, com alma e estética profundamente brasileiras. Localizado à beira-mar, na praia da Ferradura, em Búzios (RJ), ele é reconhecido por sua curadoria artística: cada quarto é inspirado em uma obra de arte, transformando o espaço em uma galeria viva que celebra artistas nacionais.</p>
               <p className="case-screen__body">É um lugar onde a hospitalidade encontra cultura, e onde cada detalhe tem um significado. Como a própria fundadora e criadora da marca resume:</p>
               <div className="case-screen__figure">
@@ -136,6 +141,10 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
           <div className="case-screen__container">
             <div className="case-screen__content">
               <h2 className="case-screen__title">Nossa abordagem</h2>
+              <div className="case-screen__badges">
+                <div className="services-modern__glass-badge">Metodologia</div>
+                <div className="services-modern__glass-badge">Pesquisa & Estratégia</div>
+              </div>
               <p className="case-screen__body">A Casa Flora mergulhou no universo do Insólito, explorando sua história, curadoria artística e experiência sensorial. Nosso trabalho incluiu:</p>
               <ul className="case-screen__list">
                 <li>Avaliação do <strong>brand awareness</strong>, analisando comentários e notas de hóspedes em OTAs;</li>
@@ -156,13 +165,20 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
             <div className="case-screen__content">
               <h2 className="case-screen__title">A solução</h2>
               <h3 className="case-screen__subtitle">Arquétipos da marca</h3>
-              <p className="case-screen__lead">Para traduzir a essência do Insólito, dois arquétipos centrais estruturam a narrativa e a expressão: <strong>O MAGO</strong> e <strong>O CRIATIVO</strong>.</p>
+              <p className="case-screen__lead">Para traduzir a essência do Insólito, definimos dois arquétipos centrais: <strong>o Mago e o Criativo</strong>. A escolha desses arquétipos reflete diretamente o propósito do hotel e a experiência que ele oferece aos hóspedes.</p>
+              <p className="case-screen__body"><strong>O Mago</strong> representa transformação, inspiração e descoberta. Ele traduz a capacidade do Insólito de encantar e surpreender.</p>
+              <div className="case-screen__figure" style={{ marginTop: 12 }}>
+                <div className="case-media case-media--landscape">
+                  <Image src={'/images/cases/insolito/Captura de Tela 2025-08-13 às 09.48.54.png'} alt="Arquétipo Mago" fill className="object-cover" />
+                </div>
+              </div>
+              <p className="case-screen__body" style={{ marginTop: 12 }}><strong>O Criativo</strong>, por sua vez, expressa originalidade, inventividade e inovação. Ele reflete a estética singular do hotel, a curadoria artística e a brasilidade presente em cada detalhe.</p>
 
               {/* Cards inspirados nos glass-cards da home */}
               <div className="services-modern__branding-grid" style={{ marginTop: 18 }}>
                 {/* O Mago */}
                 <div className="services-modern__glass-card">
-                  <div className="services-modern__glass-bg services-modern__glass-bg--garden"></div>
+                  <div className="services-modern__glass-bg services-modern__glass-bg--mago"></div>
                   <div className="services-modern__glass-content">
                     <div className="services-modern__glass-header">
                       <span className="services-modern__glass-number">01</span>
@@ -170,7 +186,7 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
                       <h3 className="services-modern__glass-title">O MAGO</h3>
                       <p className="services-modern__glass-subtitle">Transformação, inspiração e descoberta</p>
                     </div>
-                    <p className="services-modern__glass-description">Conduz a marca a experiências que encantam e surpreendem. Representa a capacidade de transmutar ambientes, rituais e símbolos em memórias vívidas — onde a arte encontra a hospitalidade.</p>
+                    <p className="services-modern__glass-description">Encanta e transforma. Transmuta rituais e símbolos em memória viva — onde a arte encontra a hospitalidade para despertar o extraordinário.</p>
                     <div className="services-modern__glass-footer">
                       <div className="services-modern__glass-arrow">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -183,7 +199,7 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
 
                 {/* O Criativo */}
                 <div className="services-modern__glass-card">
-                  <div className="services-modern__glass-bg services-modern__glass-bg--raiz"></div>
+                  <div className="services-modern__glass-bg services-modern__glass-bg--criativo"></div>
                   <div className="services-modern__glass-content">
                     <div className="services-modern__glass-header">
                       <span className="services-modern__glass-number">02</span>
@@ -191,7 +207,7 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
                       <h3 className="services-modern__glass-title">O CRIATIVO</h3>
                       <p className="services-modern__glass-subtitle">Originalidade, inventividade e expressão</p>
                     </div>
-                    <p className="services-modern__glass-description">Traduz a estética singular, a curadoria de arte e a liberdade autoral do Insólito — uma linguagem viva que se manifesta nos detalhes e no convite à experiência.</p>
+                    <p className="services-modern__glass-description">Expande a linguagem autoral. Expressa estética singular, curadoria de arte e brasilidade nos detalhes — convidando o hóspede à invenção e à sensibilidade.</p>
                     <div className="services-modern__glass-footer">
                       <div className="services-modern__glass-arrow">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -202,6 +218,8 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
                   </div>
                 </div>
               </div>
+
+              <p className="case-screen__body" style={{ marginTop: 18 }}>A combinação do <strong>Mago</strong> e do <strong>Criativo</strong> posiciona o Insólito como um destino transformador e inspirador, que une estética, brasilidade e inovação. Esses arquétipos guiam toda a estratégia da marca — do redesign da identidade visual à jornada do hóspede — garantindo coerência entre propósito, experiência e comunicação.</p>
             </div>
           </div>
         </section>
