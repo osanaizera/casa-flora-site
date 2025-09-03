@@ -818,7 +818,7 @@ body {
 .case-hero__overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.45); /* 40–50% */
+  background: rgba(0,0,0,0.35); /* leve para maior legibilidade + estética clean */
 }
 
 .case-hero__content {
@@ -933,20 +933,23 @@ body {
 /* Artigo editorial (magazine roll) */
 /* Conteúdo editorial antigo removido do fluxo: usamos seções em tela cheia */
 /* Full-screen case sections (home-like) */
-.case-screen { min-height: 100vh; display: flex; align-items: center; padding: 64px 20px; background: #fff; }
-.case-screen__container { width: 100%; max-width: 1400px; margin: 0 auto; }
-.case-screen__content { max-width: 960px; }
-.case-screen__title { font-family: var(--font-display); font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: 500; margin-bottom: 12px; }
-.case-screen__subtitle { font-family: var(--font-display); font-size: clamp(1.1rem, 2.4vw, 1.4rem); font-weight: 500; margin-top: 6px; margin-bottom: 12px; }
-.case-screen__lead { font-size: clamp(1rem, 1.8vw, 1.125rem); line-height: 1.75; color: var(--color-gray-700); margin-top: 8px; }
-.case-screen__body { font-size: 1rem; line-height: 1.8; color: var(--color-gray-700); margin-top: 8px; }
-.case-screen__list { display: grid; gap: 6px; padding-left: 1.25rem; list-style: disc; max-width: 72ch; color: var(--color-gray-700); margin-top: 10px; }
+.case-screen { min-height: 100vh; display: flex; align-items: center; padding: clamp(56px, 8vh, 120px) 24px; background: #fff; }
+.case-screen__container { width: 100%; max-width: 1440px; margin: 0 auto; }
+.case-screen__content { max-width: 1080px; }
+.case-screen__title { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 3rem); font-weight: 500; letter-spacing: -0.01em; margin-bottom: 12px; }
+.case-screen__subtitle { font-family: var(--font-display); font-size: clamp(1.125rem, 2.6vw, 1.6rem); font-weight: 500; letter-spacing: 0.01em; margin-top: 6px; margin-bottom: 12px; }
+.case-screen__lead { font-size: clamp(1.0625rem, 2vw, 1.25rem); line-height: 1.85; color: var(--color-gray-700); margin-top: 10px; max-width: 80ch; }
+.case-screen__body { font-size: clamp(1rem, 1.8vw, 1.125rem); line-height: 1.9; color: var(--color-gray-700); margin-top: 10px; max-width: 78ch; }
+.case-screen__list { display: grid; gap: 8px; padding-left: 1.25rem; list-style: disc; max-width: 78ch; color: var(--color-gray-700); margin-top: 12px; }
 .case-screen__media { width: 100%; }
 .case-screen__figure { margin-top: 14px; }
 .case-screen__grid { display: grid; gap: 24px; grid-template-columns: 1fr; }
-@media (min-width: 1024px) { .case-screen__grid { grid-template-columns: 1.1fr 1fr; align-items: start; } }
+@media (min-width: 1024px) { .case-screen__grid { grid-template-columns: 1.15fr 1fr; align-items: start; gap: 40px; } }
 .case-screen__media-grid { margin-top: 8px; }
 .case-screen__meta { margin-top: 16px; font-size: 12px; color: var(--color-gray-700); }
+
+/* Remover borda padrão de media para estética clean do case */
+.case-screen .case-media { border: none; box-shadow: none; }
 
 @media (max-width: 768px) {
   .case-article { padding: 48px 20px 72px; }

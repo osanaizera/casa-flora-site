@@ -7,21 +7,13 @@ import Carousel from '@/components/magazine/Carousel';
 import ActiveSectionNav from '@/components/ui/ActiveSectionNav';
 
 type RouteParams = { slug: string };
-function isPromise<T>(v: unknown): v is Promise<T> {
-  return typeof v === 'object' && v !== null && 'then' in v;
-}
-async function resolveParams(input: RouteParams | Promise<RouteParams>): Promise<RouteParams> {
-  // Next.js 15 may pass params as a Promise; support both shapes
-  if (isPromise<RouteParams>(input)) return await input;
-  return input;
-}
 
 export function generateStaticParams() {
   return cases.map((c) => ({ slug: c.slug }));
 }
 
-export async function generateMetadata({ params }: { params: RouteParams | Promise<RouteParams> }): Promise<Metadata> {
-  const { slug } = await resolveParams(params);
+export async function generateMetadata({ params }: { params: Promise<RouteParams> }): Promise<Metadata> {
+  const { slug } = await params;
   const item = getCaseBySlug(slug);
   if (!item) return {};
   return {
@@ -36,8 +28,8 @@ export async function generateMetadata({ params }: { params: RouteParams | Promi
   };
 }
 
-export default async function CaseDetail({ params }: { params: RouteParams | Promise<RouteParams> }) {
-  const { slug } = await resolveParams(params);
+export default async function CaseDetail({ params }: { params: Promise<RouteParams> }) {
+  const { slug } = await params;
   const item = getCaseBySlug(slug);
   if (!item) return notFound();
 
