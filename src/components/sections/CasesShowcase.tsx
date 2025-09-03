@@ -244,70 +244,83 @@ export default function CasesShowcase() {
           </div>
         </div>
 
-        {/* Sessão Sobre (substitui o CTA final) */}
-        <section className="about-brief" id="sobre">
-          <div className="about-brief__container">
-            <motion.div
-              className="about-brief__intro"
-              initial={{ opacity: 0, y: 20 }}
+        {/* Sessão Sobre (refeita do zero) */}
+        <section className="about-clean" id="sobre">
+          <div className="about-clean__container">
+            <motion.header
+              className="about-clean__header"
+              initial={{ opacity: 0, y: 16 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, ease: 'easeOut' }}
+              transition={{ duration: 0.5, ease: 'easeOut' }}
             >
-              <h3 className="about-brief__title">Sobre a Casa Flora</h3>
-              <p className="about-brief__description">
-                A Casa Flora é a expressão da parceria entre Ana Bossardi e Pedro Zanin — um espaço onde estratégia, branding e design se encontram para cultivar marcas com alma, verdade e propósito.
+              <h3 className="about-clean__title">Sobre a Casa Flora</h3>
+              <p className="about-clean__lead">
+                A Casa Flora nasce do encontro entre criação e estratégia — de Ana Bossardi e Pedro Zanin — para cultivar marcas com alma, verdade e propósito.
               </p>
-            </motion.div>
+            </motion.header>
 
-            <div className="about-brief__grid">
-              {/* Ana */}
-              <motion.article
-                className="about-brief__card"
-                initial={{ opacity: 0, y: 24 }}
+            {/* Ana e Pedro lado a lado */}
+            <div className="about-clean__grid">
+              <motion.div
+                className="about-clean__card"
+                initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
+                transition={{ duration: 0.6, ease: 'easeOut' }}
               >
-                <div className="about-brief__media">
-                  <Image src="/images/anabossardi.jpeg" alt="Ana Bossardi" width={1200} height={1500} sizes="(min-width: 1024px) 560px, 92vw" className="about-brief__photo" />
-                </div>
-                <div className="about-brief__content">
-                  <h4 className="about-brief__name">Ana — Sócia Fundadora e Diretora Criativa</h4>
-                  <p className="about-brief__text">
+                <figure className="about-clean__media">
+                  <Image src="/images/anabossardi.jpeg" alt="Ana Bossardi" fill className="about-clean__img" sizes="(min-width: 1024px) 28vw, 92vw" />
+                </figure>
+                <div className="about-clean__copy">
+                  <div className="about-clean__head">
+                    <h4 className="about-clean__name">Ana Bossardi</h4>
+                    <p className="about-clean__role">Sócia Fundadora e Diretora Criativa</p>
+                  </div>
+                  <p className="about-clean__text">
                     Designer de formação e empreendedora desde 2017, Ana sempre teve um olhar sensível para estética e narrativa. Com seu primeiro projeto autoral, o Bossarts Design, transformou intuição em identidade, dando vida a histórias por meio da imagem. Desde então, dedica-se a criar marcas que respiram autenticidade e emoção.
                   </p>
                 </div>
-              </motion.article>
+              </motion.div>
 
-              {/* Pedro */}
-              <motion.article
-                className="about-brief__card"
-                initial={{ opacity: 0, y: 24 }}
+              <motion.div
+                className="about-clean__card"
+                initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
+                transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
               >
-                <div className="about-brief__media">
-                  <Image src="/images/pedrozanin.jpeg" alt="Pedro Zanin" width={1200} height={1500} sizes="(min-width: 1024px) 560px, 92vw" className="about-brief__photo" />
-                </div>
-                <div className="about-brief__content">
-                  <h4 className="about-brief__name">Pedro — Sócio e Diretor Estratégico</h4>
-                  <p className="about-brief__text">
+                <figure className="about-clean__media">
+                  <Image src="/images/pedrozanin.jpeg" alt="Pedro Zanin" fill className="about-clean__img" sizes="(min-width: 1024px) 28vw, 92vw" />
+                </figure>
+                <div className="about-clean__copy">
+                  <div className="about-clean__head">
+                    <h4 className="about-clean__name">Pedro Zanin</h4>
+                    <p className="about-clean__role">Sócio e Diretor Estratégico</p>
+                  </div>
+                  <p className="about-clean__text">
                     Publicitário de formação, Pedro atua há mais de oito anos em comunicação e marketing. Especializado em branding, negócios e neuromarketing, constrói estratégias que unem visão de mercado e resultados sustentáveis. Para ele, uma marca só ganha força quando conecta propósito e impacto real.
                   </p>
                 </div>
-              </motion.article>
+              </motion.div>
             </div>
 
-            {/* Juntos */}
+            {/* Juntos abaixo com design específico */}
             <motion.div
-              className="about-brief__intro"
+              className="about-clean__juntos"
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
             >
-              <h4 className="topic-title" style={{ marginTop: 8 }}>Juntos</h4>
-              <p className="about-brief__description">
-                Foi dessa soma de olhares — o criativo e o estratégico — que nasceu a Casa Flora. Há mais de cinco anos, Ana e Pedro caminham lado a lado, desenvolvendo marcas de experiência e hospitalidade, com mais de 20 projetos já assinados.
-              </p>
+              <figure className="about-clean__juntos-media">
+                <Image src="/images/juntos.jpeg" alt="Juntos" fill className="about-clean__img" sizes="(min-width: 1024px) 36vw, 92vw" />
+              </figure>
+              <div className="about-clean__juntos-copy">
+                <h4 className="about-clean__name">Juntos</h4>
+                <p className="about-clean__text">
+                  Foi dessa soma de olhares — o criativo e o estratégico — que nasceu a Casa Flora. Há mais de cinco anos, Ana e Pedro caminham lado a lado, desenvolvendo marcas de experiência e hospitalidade, com mais de 20 projetos já assinados.
+                </p>
+                <p className="about-clean__text">
+                  A Casa Flora é a expressão dessa parceria: um espaço onde estratégia, branding e design se encontram para cultivar marcas com alma, verdade e propósito.
+                </p>
+              </div>
             </motion.div>
           </div>
         </section>
