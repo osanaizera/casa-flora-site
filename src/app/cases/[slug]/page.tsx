@@ -67,6 +67,7 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
             { href: '#solucao', label: 'Solução' },
             { href: '#manifesto', label: 'Manifesto' },
             { href: '#redesign', label: 'Redesign' },
+            { href: '#resultados', label: 'Resultados' },
           ]}
         />
 
@@ -280,14 +281,13 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
                 <div className="case-screen__content">
                   <p className="case-screen__body">O manifesto do Insólito traduz o propósito, a essência e a personalidade da marca, reforçando que o hotel vai além de hospedagem: é um lugar de <strong>descoberta, arte e conexão com a brasilidade</strong>. Cada detalhe — da curadoria artística à experiência sensorial — reflete o compromisso do hotel em criar <strong>experiências únicas</strong>.</p>
                   
-                  <div className="case-frame case-frame--compact case-elevate" style={{ marginTop: '2rem' }}>
-                    <Image 
-                      src="/images/cases/insolito/manifesto.png" 
-                      alt="Manifesto do Insólito" 
-                      width={800}
-                      height={600}
-                      style={{ width: '100%', height: 'auto' }}
-                    />
+                  {/* Espaço para vídeo horizontal do manifesto */}
+                  <div className="case-frame case-frame--wide case-elevate manifesto-video" style={{ marginTop: '2rem' }}>
+                    <button className="manifesto-video__play" aria-label="Reproduzir vídeo">
+                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 5v14l10-7-10-7Z" fill="currentColor" />
+                      </svg>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -300,10 +300,16 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
                   
                   <p className="case-screen__body">O <strong>conceito central</strong>, <strong>"Descubra Arte em sua Natureza"</strong>, sintetiza a proposta do Insólito de maneira clara e inspiradora. Ele une dois pilares fundamentais da marca:</p>
                   
-                  <ul className="case-screen__list">
-                    <li><strong>Arte:</strong> cada espaço, cada quarto e cada experiência são cuidadosamente curados para revelar a criatividade e a cultura brasileiras;</li>
-                    <li><strong>Natureza:</strong> a brasilidade e a conexão com o ambiente natural são evidentes em cada detalhe do design, identidade visual e experiências oferecidas.</li>
-                  </ul>
+                  <div className="manifesto-cards">
+                    <div className="manifesto-card">
+                      <div className="manifesto-card__title">Arte</div>
+                      <div className="manifesto-card__text">Cada espaço, cada quarto e cada experiência são cuidadosamente curados para revelar a criatividade e a cultura brasileiras.</div>
+                    </div>
+                    <div className="manifesto-card">
+                      <div className="manifesto-card__title">Natureza</div>
+                      <div className="manifesto-card__text">A brasilidade e a conexão com o ambiente natural são evidentes no design, na identidade visual e nas experiências oferecidas.</div>
+                    </div>
+                  </div>
                   
                   <div className="case-frame case-frame--compact case-elevate" style={{ marginTop: '2rem' }}>
                     <Image 
@@ -374,6 +380,145 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
             </div>
           </div>
         </section>
+
+        {/* Resultados do Rebranding */}
+        <section id="resultados" className="case-screen case-screen--spacious case-screen--compact">
+          <div className="case-screen__container">
+            {/* Título centralizado */}
+            <div className="case-screen__content" style={{ textAlign: 'center', marginBottom: '4rem' }}>
+              <div className="case-eyebrow">RESULTADOS</div>
+              <h2 className="case-screen__title">Resultados do Rebranding</h2>
+            </div>
+            
+            {/* 3 Blocos de resultados */}
+            <div className="results-grid">
+              
+              {/* Bloco 1: Reconhecimento e Avaliação Positiva */}
+              <div className="results-block">
+                <div className="results-block__content">
+                  <h3 className="results-block__title">Reconhecimento e Avaliação Positiva</h3>
+                  <p className="results-block__text">O Insólito recebe elogios em plataformas de avaliação, como Booking.com e Expedia, destacando-se pela qualidade do atendimento, conforto das acomodações e o ambiente artístico. Os hóspedes frequentemente mencionam a experiência sensorial proporcionada pelo hotel, alinhada ao conceito de "Descubra Arte em sua Natureza".</p>
+                </div>
+                <div className="results-block__image">
+                  <div className="case-frame case-frame--compact case-elevate">
+                    <Image 
+                      src="/images/cases/insolito/resultado0.jpeg" 
+                      alt="Reconhecimento e avaliações positivas do Insólito" 
+                      width={600}
+                      height={400}
+                      style={{ width: '100%', height: 'auto' }}
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Bloco 2: Coerência Visual e Identidade Fortalecida */}
+              <div className="results-block">
+                <div className="results-block__content">
+                  <h3 className="results-block__title">Coerência Visual e Identidade Fortalecida</h3>
+                  <p className="results-block__text">O redesign da identidade visual, incluindo o novo logotipo, paleta de cores sóbria e elegante, e o manifesto da marca, trouxe uma coerência visual que reflete a brasilidade, criatividade e transformação.</p>
+                </div>
+                <div className="results-block__images">
+                  <div className="results-images-grid">
+                    <div className="case-frame case-frame--compact case-elevate">
+                      <Image 
+                        src="/images/cases/insolito/resultados1.jpeg" 
+                        alt="Coerência visual da nova identidade" 
+                        width={600}
+                        height={400}
+                        style={{ width: '100%', height: 'auto' }}
+                      />
+                    </div>
+                    <div className="case-frame case-frame--compact case-elevate">
+                      <Image 
+                        src="/images/cases/insolito/resultados2.jpeg" 
+                        alt="Identidade visual fortalecida" 
+                        width={600}
+                        height={400}
+                        style={{ width: '100%', height: 'auto' }}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Bloco 3: Posicionamento Aplicado em Diferentes Canais */}
+              <div className="results-block">
+                <div className="results-block__content">
+                  <h3 className="results-block__title">Posicionamento Aplicado em Diferentes Canais</h3>
+                  <p className="results-block__text">O perfil do Instagram do Insólito (@insolitohotel) é vibrante! A curadoria de conteúdo, incluindo imagens de obras de arte, detalhes da arquitetura e experiências sensoriais, tem gerado engajamento significativo em diferentes canais de comunicação.</p>
+                </div>
+                <div className="results-block__image">
+                  <div className="case-frame case-frame--compact case-elevate">
+                    <Image 
+                      src="/images/cases/insolito/resultado 3.jpeg" 
+                      alt="Posicionamento em diferentes canais de comunicação" 
+                      width={600}
+                      height={400}
+                      style={{ width: '100%', height: 'auto' }}
+                    />
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        {/* Outros Cases - Carrossel da Home */}
+        <section className="cases-showcase" id="outros-cases">
+          <div className="cases-showcase__container">
+            <h2 className="cases-showcase__title">Outros Cases</h2>
+            <div className="cases-showcase__grid">
+              {cases.filter(c => c.slug !== slug).slice(0, 2).map((caseItem) => (
+                <Link key={caseItem.slug} href={`/cases/${caseItem.slug}`} className="hero__card hero__card--case">
+                  <div className="hero__card-overlay">
+                    <div className="hero__card-content">
+                      <span className="hero__card-label">Case</span>
+                      <h3 className="hero__card-title">{caseItem.title}</h3>
+                      <p className="hero__card-subtitle">{caseItem.summary}</p>
+                    </div>
+                  </div>
+                  <div className="hero__card-bg" style={{backgroundImage: `url(${caseItem.heroImage})`}}></div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* CTA final no estilo da home */}
+        <section className="cta-final">
+          <div className="cases-showcase__container">
+            <div className="cases-showcase__bottom-cta">
+              <div className="cases-showcase__cta-content">
+                <h3 className="cases-showcase__cta-title">Gostou deste projeto?</h3>
+                <p className="cases-showcase__cta-description">Cada projeto é único e merece uma abordagem personalizada. Vamos conversar sobre como a Casa Flora pode transformar sua marca em algo verdadeiramente memorável.</p>
+                <Link href="/contato" className="cases-showcase__cta-button">
+                  <span>Iniciar conversa</span>
+                  <div className="cases-showcase__cta-button-glow"></div>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Rodapé preto minimalista */}
+        <footer className="site-footer">
+          <div className="site-footer__container">
+            <div className="site-footer__row">
+              <div className="site-footer__brand">Casa Flora</div>
+              <nav className="site-footer__nav">
+                <Link href="/" className="site-footer__link">Home</Link>
+                <Link href="/#servicos" className="site-footer__link">Serviços</Link>
+                <Link href="/#cases" className="site-footer__link">Cases</Link>
+                <Link href="/#sobre" className="site-footer__link">Sobre</Link>
+              </nav>
+            </div>
+            <div className="site-footer__row site-footer__meta">
+              <p>© {new Date().getFullYear()} Casa Flora — Todos os direitos reservados.</p>
+            </div>
+          </div>
+        </footer>
       </>
     );
   }
