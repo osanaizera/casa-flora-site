@@ -92,8 +92,19 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
                 </div>
               </div>
               <div className="case-grid__right">
-                <div className="case-frame case-frame--landscape case-frame--centered case-elevate">
-                  <Image src={'/images/cases/insolito/Captura de Tela 2025-08-13 às 09.49.14.png'} alt="Citação da fundadora" fill />
+                <div className="services-modern__glass-card">
+                  <div className="services-modern__glass-bg services-modern__glass-bg--insolito-quote"></div>
+                  <div className="services-modern__glass-content">
+                    <div className="services-modern__glass-header">
+                      <div className="services-modern__glass-badge">Depoimento</div>
+                      <h3 className="services-modern__glass-title">Insólito</h3>
+                      <p className="services-modern__glass-subtitle">Citação</p>
+                    </div>
+                    <p className="services-modern__glass-description" style={{ marginTop: 8 }}>
+                      “Eu queria que as pessoas, os hóspedes estrangeiros que recebo, pudessem, descobrir o país como eu, com o melhor de sua arte”<br />
+                      — Emamnuelle Meeus.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>

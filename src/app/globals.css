@@ -1681,6 +1681,16 @@ body {
   background-blend-mode: overlay, soft-light, normal;
 }
 
+/* Fundo para card de citação do Insólito */
+.services-modern__glass-bg--insolito-quote {
+  background:
+    linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.25) 60%, rgba(0,0,0,0.65)),
+    url('/images/cases/insolito/image (2).png');
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: normal;
+}
+
 /* Archetypes gradients (no image, only refined color fields) */
 .services-modern__glass-bg--mago {
   background:
@@ -2184,7 +2194,7 @@ body {
 
 /* Case text formatting */
 .case-text-narrow {
-  width: 60%;
+  width: 90%;
 }
 
 .case-text-narrow p {
