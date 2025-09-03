@@ -95,9 +95,10 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
         {/* Sobre */}
         <section id="sobre" className="case-screen case-screen--spacious case-screen--compact">
           <div className="case-screen__container">
-            <div className="case-grid case-grid--divided">
+            <div className="case-grid case-grid--divided case-grid--left7">
               <div className="case-grid__left">
                 <div className="case-screen__content">
+                  <div className="case-eyebrow">SOBRE</div>
                   <h2 className="case-screen__title">Sobre</h2>
                   <div className="case-screen__badges">
                     {item.category && (<div className="services-modern__glass-badge">{item.category}</div>)}
@@ -120,9 +121,10 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
         {/* Desafio */}
         <section id="desafio" className="case-screen case-screen--spacious case-screen--compact">
           <div className="case-screen__container">
-            <div className="case-grid case-grid--divided">
+            <div className="case-grid case-grid--divided case-grid--left7">
               <div className="case-grid__left">
                 <div className="case-screen__content">
+                  <div className="case-eyebrow">DESAFIO</div>
                   <h2 className="case-screen__title">O desafio</h2>
                   <p className="case-screen__body">Apesar do potencial único e da força sensorial do espaço, a marca não traduzia, nem no digital nem na experiência do hóspede, toda essa atmosfera rica. A identidade visual carecia de unidade e sofisticação, e o posicionamento não comunicava de forma estratégica o valor do hotel como destino de imersão cultural.</p>
                   <p className="case-screen__body">Havia, também, a necessidade de <strong>resgatar a essência da marca</strong> e traduzir no design o novo conceito, reforçando sua brasilidade e sua singularidade artística.</p>
@@ -147,9 +149,10 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
         {/* Abordagem */}
         <section id="abordagem" className="case-screen case-screen--spacious case-screen--compact">
           <div className="case-screen__container">
-            <div className="case-grid case-grid--divided">
+            <div className="case-grid case-grid--divided case-grid--left7">
               <div className="case-grid__left">
                 <div className="case-screen__content">
+                  <div className="case-eyebrow">ABORDAGEM</div>
                   <h2 className="case-screen__title">Nossa abordagem</h2>
                   <div className="case-screen__badges">
                     <div className="services-modern__glass-badge">Metodologia</div>

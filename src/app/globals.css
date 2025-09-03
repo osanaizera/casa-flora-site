@@ -1719,13 +1719,21 @@ body {
 .case-grid--divided::before {
   content: '';
   position: absolute;
-  top: 0;
-  bottom: 0;
+  top: 6%;
+  bottom: 6%;
   left: 50%;
   width: 1px;
-  background: #E5E7EB;
+  background: #EEF2F7; /* mais sutil */
   transform: translateX(-0.5px);
   pointer-events: none;
+}
+
+/* Variante 7/5 para dar mais espaço ao texto */
+.case-grid--left7 .case-grid__left { grid-column: 1 / span 7; }
+.case-grid--left7 .case-grid__right { grid-column: 8 / span 5; }
+@media (max-width: 1024px) {
+  .case-grid--left7 .case-grid__left, 
+  .case-grid--left7 .case-grid__right { grid-column: 1 / -1; }
 }
 .case-grid__right--bottom { align-self: end; }
 .case-grid__right--center { align-self: center; }
