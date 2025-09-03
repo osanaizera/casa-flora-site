@@ -7,14 +7,21 @@ import { notFound } from 'next/navigation';
 import Carousel from '@/components/magazine/Carousel';
 import ActiveSectionNav from '@/components/ui/ActiveSectionNav';
 
-type Props = { params: { slug: string } };
+type RouteParams = { slug: string };
+async function resolveParams(input: RouteParams | Promise<RouteParams>): Promise<RouteParams> {
+  // Next.js 15 may pass params as a Promise; support both shapes
+  if (typeof (input as any)?.then === 'function') {
+    return await (input as Promise<RouteParams>);
+  }
+  return input as RouteParams;
+}
 
 export function generateStaticParams() {
   return cases.map((c) => ({ slug: c.slug }));
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = params;
+export async function generateMetadata({ params }: { params: RouteParams | Promise<RouteParams> }): Promise<Metadata> {
+  const { slug } = await resolveParams(params);
   const item = getCaseBySlug(slug);
   if (!item) return {};
   return {
@@ -29,68 +36,108 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function CaseDetail({ params }: Props) {
-  const { slug } = params;
+export default async function CaseDetail({ params }: { params: RouteParams | Promise<RouteParams> }) {
+  const { slug } = await resolveParams(params);
   const item = getCaseBySlug(slug);
   if (!item) return notFound();
 
-  // Template editorial específico para o Insólito
+  // Template modernizado seguindo padrão da home
   if (slug === 'insolito' && item) {
     return (
       <>
-        {/* Hero overlay editorial com logo */}
-        <section className="case-hero-wrap">
-          <div className="case-hero case-hero--fixed">
-            <div className="case-hero__media">
-              <Image src={item.heroImage} alt={item.title} fill className="object-cover" priority sizes="100vw" />
+        <div className="main">
+          {/* Hero no mesmo estilo da home */}
+          <section className="hero">
+            <div className="hero__content">
+              <h1 className="hero__title">
+                <span className="fade-in">Insólito</span>
+                <span className="fade-in italic">Boutique</span>
+                <span className="fade-in">Hotel</span>
+                <span className="fade-in">&</span>
+                <span className="fade-in outline">Spa</span>
+              </h1>
+              <p className="hero__description fade-in">
+                Da arte da essência à experiência da hospitalidade
+              </p>
+              <Link href="/contato" className="btn fade-in">
+                <span>Começar projeto</span>
+                <svg className="btn__arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </Link>
             </div>
-            <div className="case-hero__overlay" />
-            <div className="case-hero__content">
-              <div className="case-hero__content-inner">
-                {item.logo && (
-                  <Image src={item.logo} alt={`${item.title} logo`} width={720} height={320} className="case-hero__brand-logo" priority />
-                )}
-                <h1 className={`case-hero__title ${item.tagline ? 'case-hero__tagline' : ''}`}>{item.tagline || item.title}</h1>
+            <div className="hero__visual">
+              <div className="hero__cards">
+                <div className="hero__card hero__card--case">
+                  <div className="hero__card-overlay">
+                    <div className="hero__card-content">
+                      <span className="hero__card-label">Case</span>
+                      <h3 className="hero__card-title">Hospitalidade</h3>
+                      <p className="hero__card-subtitle">Branding para hotel boutique que eleva a arte de bem receber</p>
+                    </div>
+                  </div>
+                  <div className="hero__card-bg" style={{backgroundImage: `url(${item.heroImage})`}}></div>
+                </div>
               </div>
-              <svg className="case-hero__arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-                <path d="M12 5v14M12 19l-6-6M12 19l6-6" stroke="white" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
             </div>
-          </div>
-        </section>
-        <HeroFade />
+          </section>
 
-        {/* Menu discreto fixo para sessões */}
-        <ActiveSectionNav sections={[
-          { href: '#sobre', label: 'Sobre' },
-          { href: '#desafio', label: 'Desafio' },
-          { href: '#abordagem', label: 'Abordagem' },
-          { href: '#solucao', label: 'Solução' },
-          { href: '#manifesto', label: 'Manifesto' },
-          { href: '#redesign', label: 'Redesign' },
-          { href: '#resultados', label: 'Resultados' },
-          { href: '#galeria', label: 'Galeria' }
-        ]} />
-
-        {/* Artigo vertical com estrutura e texto exatos */}
-        <article className="case-article max-w-6xl mx-auto px-6 md:px-12 py-24 bg-white" aria-labelledby="case-title">
-          <header className="py-20 pb-10">
-            <div className="max-w-4xl mx-auto px-6">
-              <h1 id="case-title" className="text-4xl md:text-5xl font-light tracking-tight">Insólito <strong>Boutique Hotel &amp; Spa</strong></h1>
-              <h2 className="text-lg md:text-xl text-gray-600 mt-6 uppercase tracking-[0.08em]">Da arte da essência à experiência da hospitalidade</h2>
+          {/* Seção de serviços no estilo da home */}
+          <section className="services-modern" id="detalhes">
+            <div className="services-modern__container">
+              <div className="services-modern__layout">
+                <div className="services-modern__sidebar">
+                  <h2 className="services-modern__title">Detalhes do Projeto</h2>
+                  <div className="services-modern__details">
+                    <div className="case-meta">
+                      <div className="case-meta__item">
+                        <span className="case-meta__label">Cliente</span>
+                        <span className="case-meta__value">{item.client}</span>
+                      </div>
+                      <div className="case-meta__item">
+                        <span className="case-meta__label">Segmento</span>
+                        <span className="case-meta__value">{item.segment}</span>
+                      </div>
+                      <div className="case-meta__item">
+                        <span className="case-meta__label">Ano</span>
+                        <span className="case-meta__value">{item.year}</span>
+                      </div>
+                      <div className="case-meta__item">
+                        <span className="case-meta__label">Localização</span>
+                        <span className="case-meta__value">{item.location}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="services-modern__content">
+                  <div className="case-overview">
+                    <h3 className="case-overview__title">Sobre o Projeto</h3>
+                    <p className="case-overview__description">{item.description}</p>
+                    <div className="case-services">
+                      {item.service.map((service, index) => (
+                        <div key={index} className="services-modern__glass-badge">{service}</div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-          </header>
+          </section>
 
-          {/* Faixa contínua de imagens - largura do conteúdo */}
-          <section className="pb-8 -mx-6 md:-mx-12" aria-label="Imagens de abertura">
-            <div className="flex h-80 border-y border-gray-200 px-2 md:px-3">
-              {[
-                { src: '/images/cases/insolito/image.png', alt: 'Insólito 1' },
-                { src: '/images/cases/insolito/image (1).png', alt: 'Insólito 2' },
-                { src: '/images/cases/insolito/image (2).png', alt: 'Insólito 3' },
-                { src: '/images/cases/insolito/image (3).png', alt: 'Insólito 4' },
-                { src: '/images/cases/insolito/image (4).png', alt: 'Insólito 5' },
-              ].map((img, i) => (
+          {/* Galeria no estilo cards da home */}
+          <section className="case-gallery">
+            <div className="case-gallery__container">
+              <h2 className="case-gallery__title">Galeria do Projeto</h2>
+
+              <div className="case-gallery__grid">
+                {[
+                  { src: '/images/cases/insolito/image.png', alt: 'Insólito 1' },
+                  { src: '/images/cases/insolito/image (1).png', alt: 'Insólito 2' },
+                  { src: '/images/cases/insolito/image (2).png', alt: 'Insólito 3' },
+                  { src: '/images/cases/insolito/image (3).png', alt: 'Insólito 4' },
+                  { src: '/images/cases/insolito/image (4).png', alt: 'Insólito 5' },
+                ].map((img, i) => (
                 <div key={i} className="relative flex-1 overflow-hidden rounded-lg mx-2 case-elevate">
                   <Image 
                     src={img.src} 
