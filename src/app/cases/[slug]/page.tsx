@@ -109,26 +109,40 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
         {/* Desafio */}
         <section id="desafio" className="case-screen case-screen--spacious case-screen--compact">
           <div className="case-screen__container">
-            <div className="case-grid case-grid--divided case-grid--left7">
-              <div className="case-grid__left">
-                <div className="case-screen__content">
-                  <div className="case-eyebrow">DESAFIO</div>
-                  <h2 className="case-screen__title">O desafio</h2>
-                  <p className="case-screen__body">Apesar do potencial único e da força sensorial do espaço, a marca não traduzia, nem no digital nem na experiência do hóspede, toda essa atmosfera rica. A identidade visual carecia de unidade e sofisticação, e o posicionamento não comunicava de forma estratégica o valor do hotel como destino de imersão cultural.</p>
-                  <p className="case-screen__body">Havia, também, a necessidade de <strong>resgatar a essência da marca</strong> e traduzir no design o novo conceito, reforçando sua brasilidade e sua singularidade artística.</p>
-                </div>
+            
+            {/* Título centralizado */}
+            <div className="case-screen__content" style={{ textAlign: 'center', marginBottom: '3rem' }}>
+              <div className="case-eyebrow">DESAFIO</div>
+              <h2 className="case-screen__title">O Resgate da Essência da Marca</h2>
+            </div>
+            
+            {/* Texto em duas colunas justificadas */}
+            <div className="case-text-columns" style={{ marginBottom: '4rem' }}>
+              <div className="case-text-column">
+                <p className="case-screen__body">Apesar do potencial único e da força sensorial do espaço, a marca não traduzia, nem no digital nem na experiência do hóspede, toda essa atmosfera rica. A identidade visual carecia de unidade e sofisticação, e o posicionamento não comunicava de forma estratégica o valor do hotel como destino de imersão cultural.</p>
               </div>
-              <div className="case-grid__right">
-                <div className="case-stack">
-                  {[
-                    { src: '/images/cases/insolito/Captura de Tela 2025-08-13 às 09.49.51.png', alt: 'Desafio 1' },
-                    { src: '/images/cases/insolito/Captura de Tela 2025-08-13 às 09.50.00.png', alt: 'Desafio 2' },
-                  ].map((g, idx) => (
-                    <div key={idx} className="case-frame case-frame--landscape case-frame--centered case-elevate">
-                      <Image src={g.src} alt={g.alt} fill />
-                    </div>
-                  ))}
-                </div>
+              <div className="case-text-column">
+                <p className="case-screen__body">Havia, também, a necessidade de <strong>resgatar a essência da marca</strong> e traduzir no design o novo conceito, reforçando sua brasilidade e sua singularidade artística.</p>
+              </div>
+            </div>
+            
+            {/* Imagens lado a lado */}
+            <div className="case-images-grid">
+              <div className="case-frame case-frame--compact case-frame--bleed-left case-elevate">
+                <Image 
+                  src="/images/cases/insolito/Captura de Tela 2025-08-13 às 09.49.51.png" 
+                  alt="O poder do ambiente mágico - Mago" 
+                  fill 
+                  style={{ objectFit: 'cover' }}
+                />
+              </div>
+              <div className="case-frame case-frame--compact case-frame--bleed-right case-elevate">
+                <Image 
+                  src="/images/cases/insolito/Captura de Tela 2025-08-13 às 09.50.00.png" 
+                  alt="Inspiração para se sentir mais criativo - Criativo" 
+                  fill 
+                  style={{ objectFit: 'cover' }}
+                />
               </div>
             </div>
           </div>

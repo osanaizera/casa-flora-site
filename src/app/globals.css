@@ -1781,6 +1781,8 @@ body {
 .case-frame::after { content: ''; position: absolute; inset: 0; background: radial-gradient(60% 50% at 20% 0%, rgba(255,255,255,0.15), transparent 60%); pointer-events: none; }
 .case-frame--landscape { aspect-ratio: 16/10; }
 .case-frame--portrait { aspect-ratio: 3/4; }
+.case-frame--bleed-left { width: 120%; margin-left: -10%; }
+.case-frame--bleed-right { width: 120%; margin-right: -10%; margin-left: auto; }
 .case-frame--wide { aspect-ratio: 21/9; }
 .case-frame > img, .case-frame > span > img { object-fit: contain !important; }
 
@@ -2227,6 +2229,41 @@ body {
 
 .case-text-narrow p {
   text-align: justify;
+}
+
+/* Case text columns for two-column layout */
+.case-text-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(24px, 3vw, 40px);
+}
+
+.case-text-column p {
+  text-align: justify;
+}
+
+/* Case images grid for side-by-side images */
+.case-images-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(24px, 3vw, 40px);
+  overflow: visible;
+}
+
+/* Case grid equal columns */
+.case-grid--equal {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+/* Compact frame for smaller image cards */
+.case-frame--compact {
+  aspect-ratio: 4/3;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
 }
 
 @media (max-width: 768px) {
