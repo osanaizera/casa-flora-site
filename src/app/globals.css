@@ -299,7 +299,8 @@ body {
     rgba(0, 0, 0, 0.4) 50%,
     rgba(0, 0, 0, 0.1) 100%
   );
-  backdrop-filter: blur(2px);
+  /* Remove blur to keep background image crisp */
+  backdrop-filter: none;
   border: 1px solid rgba(255, 255, 255, 0.1);
   transition: all 0.5s ease;
   display: flex;
@@ -314,7 +315,7 @@ body {
     rgba(0, 0, 0, 0.5) 50%,
     rgba(0, 0, 0, 0.2) 100%
   );
-  backdrop-filter: blur(4px);
+  backdrop-filter: none;
 }
 
 .hero__card-content {
