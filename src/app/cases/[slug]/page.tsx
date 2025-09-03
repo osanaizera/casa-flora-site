@@ -71,26 +71,6 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
         />
 
         {/* Seções em tela cheia no estilo da home */}
-        {/* Abertura com carrossel */}
-        <section className="case-screen" aria-label="Imagens de abertura">
-          <div className="case-screen__container">
-            <div className="case-screen__media">
-              <Carousel
-                aspect="16/9"
-                border={false}
-                sizes="(min-width: 1024px) 80vw, 92vw"
-                fit="cover"
-                slides={[
-                  { src: '/images/cases/insolito/image.png', alt: 'Insólito 1' },
-                  { src: '/images/cases/insolito/image (1).png', alt: 'Insólito 2' },
-                  { src: '/images/cases/insolito/image (2).png', alt: 'Insólito 3' },
-                  { src: '/images/cases/insolito/image (3).png', alt: 'Insólito 4' },
-                  { src: '/images/cases/insolito/image (4).png', alt: 'Insólito 5' },
-                ]}
-              />
-            </div>
-          </div>
-        </section>
 
         {/* Sobre */}
         <section id="sobre" className="case-screen case-screen--spacious case-screen--compact">
@@ -105,8 +85,10 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
                     {item.service && (<div className="services-modern__glass-badge">{item.service}</div>)}
                     {item.year && (<div className="services-modern__glass-badge">{item.year}</div>)}
                   </div>
-                  <p className="case-screen__lead">O Insólito é um hotel boutique e spa visualmente vibrante, com alma e estética profundamente brasileiras. Localizado à beira-mar, na praia da Ferradura, em Búzios (RJ), ele é reconhecido por sua curadoria artística: cada quarto é inspirado em uma obra de arte, transformando o espaço em uma galeria viva que celebra artistas nacionais.</p>
-                  <p className="case-screen__body">É um lugar onde a hospitalidade encontra cultura, e onde cada detalhe tem um significado. Como a própria fundadora e criadora da marca resume:</p>
+                  <div className="case-text-narrow">
+                    <p className="case-screen__lead">O Insólito é um hotel boutique e spa visualmente vibrante, com alma e estética profundamente brasileiras. Localizado à beira-mar, na praia da Ferradura, em Búzios (RJ), ele é reconhecido por sua curadoria artística: cada quarto é inspirado em uma obra de arte, transformando o espaço em uma galeria viva que celebra artistas nacionais.</p>
+                    <p className="case-screen__body">É um lugar onde a hospitalidade encontra cultura, e onde cada detalhe tem um significado. Como a própria fundadora e criadora da marca resume:</p>
+                  </div>
                 </div>
               </div>
               <div className="case-grid__right">
