@@ -186,7 +186,7 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
             </div>
 
             {/* Duas colunas: esquerda texto + cards (triptych), direita carrossel 2 imagens */}
-            <div className="case-grid">
+            <div className="case-grid case-grid--solution">
               <div className="case-grid__left">
                 <div className="case-screen__content">
                   <p className="case-screen__lead">Para traduzir a essência do Insólito, definimos dois arquétipos centrais: <strong>o Mago e o Criativo</strong>. A escolha desses arquétipos reflete diretamente o propósito do hotel e a experiência que ele oferece aos hóspedes.</p>
@@ -233,7 +233,7 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
                 </div>
               </div>
 
-              <div className="case-grid__right">
+              <div className="case-grid__right case-grid__right--bottom">
                 <div className="case-frame case-frame--landscape case-frame--centered case-elevate">
                   <Carousel
                     aspect="16/10"

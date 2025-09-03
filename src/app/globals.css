@@ -303,16 +303,24 @@ body {
 
 /* Archetype backgrounds reusing hero card visuals */
 .hero__card-bg--mago {
-  background: radial-gradient(800px 400px at 20% -20%, rgba(139, 92, 246, 0.35), transparent 60%),
-              radial-gradient(800px 400px at 120% 120%, rgba(56, 189, 248, 0.28), transparent 60%),
-              linear-gradient(135deg, rgba(17, 24, 39, 0.75), rgba(2, 6, 23, 0.55));
-  background-blend-mode: screen, screen, multiply;
+  background: 
+    linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.15) 60%, rgba(0,0,0,0.55)),
+    radial-gradient(800px 400px at 20% -20%, rgba(139, 92, 246, 0.30), transparent 60%),
+    radial-gradient(800px 400px at 120% 120%, rgba(56, 189, 248, 0.24), transparent 60%),
+    url('/images/cases/insolito/omago.png');
+  background-size: cover, cover, cover, cover;
+  background-position: center;
+  background-blend-mode: normal, screen, screen, normal;
 }
 .hero__card-bg--criativo {
-  background: radial-gradient(800px 400px at 0% 120%, rgba(244, 114, 182, 0.35), transparent 60%),
-              radial-gradient(800px 400px at 100% -20%, rgba(251, 146, 60, 0.3), transparent 60%),
-              linear-gradient(135deg, rgba(24, 24, 27, 0.75), rgba(12, 10, 9, 0.55));
-  background-blend-mode: screen, screen, multiply;
+  background: 
+    linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.15) 60%, rgba(0,0,0,0.55)),
+    radial-gradient(800px 400px at 0% 120%, rgba(244, 114, 182, 0.30), transparent 60%),
+    radial-gradient(800px 400px at 100% -20%, rgba(251, 146, 60, 0.28), transparent 60%),
+    url('/images/cases/insolito/ocriativo.png');
+  background-size: cover, cover, cover, cover;
+  background-position: center;
+  background-blend-mode: normal, screen, screen, normal;
 }
 
 .hero__card:hover .hero__card-bg {
@@ -347,6 +355,10 @@ body {
   );
   backdrop-filter: none;
 }
+
+/* Para os cards de arquétipos: texto começa no topo, baseline igual */
+.hero__card--archetype .hero__card-overlay { align-items: flex-start; padding-top: 2.5rem; padding-bottom: 1.5rem; }
+.hero__card--archetype .hero__card-content { transform: none; }
 
 .hero__card-content {
   width: 100%;
@@ -1671,6 +1683,8 @@ body {
 
 /* Professional grid layout across full width */
 .case-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: clamp(16px, 2.5vw, 32px); align-items: start; }
+.case-grid--solution { gap: clamp(28px, 4vw, 56px); }
+.case-grid__right--bottom { align-self: end; }
 .case-grid__left { grid-column: 1 / span 6; }
 .case-grid__right { grid-column: 7 / span 6; }
 @media (max-width: 1024px) {
