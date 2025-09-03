@@ -2260,11 +2260,14 @@ body {
 
 /* Compact frame for smaller image cards */
 .case-frame--compact {
-  aspect-ratio: 16/10;
+  aspect-ratio: 16/9;
   border-radius: 12px;
   overflow: hidden;
   position: relative;
 }
+/* Em "O DESAFIO" (case-images-grid), garantir que as imagens cubram o frame sem barras */
+.case-images-grid .case-frame > img,
+.case-images-grid .case-frame > span > img { object-fit: cover !important; }
 
 @media (max-width: 768px) {
   .services-modern {
