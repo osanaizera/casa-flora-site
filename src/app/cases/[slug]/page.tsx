@@ -128,20 +128,22 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
             
             {/* Imagens lado a lado */}
             <div className="case-images-grid">
-              <div className="case-frame case-frame--compact case-elevate">
+              <div className="case-frame case-elevate">
                 <Image 
                   src="/images/cases/insolito/desafio1.png" 
                   alt="O poder do ambiente mágico - Mago" 
-                  fill 
-                  style={{ objectFit: 'cover' }}
+                  width={1600}
+                  height={900}
+                  style={{ width: '100%', height: 'auto' }}
                 />
               </div>
-              <div className="case-frame case-frame--compact case-elevate">
+              <div className="case-frame case-elevate">
                 <Image 
                   src="/images/cases/insolito/desafio2.png" 
                   alt="Inspiração para se sentir mais criativo - Criativo" 
-                  fill 
-                  style={{ objectFit: 'cover' }}
+                  width={1600}
+                  height={900}
+                  style={{ width: '100%', height: 'auto' }}
                 />
               </div>
             </div>
