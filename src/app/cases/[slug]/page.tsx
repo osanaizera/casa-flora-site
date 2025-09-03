@@ -123,6 +123,7 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
               </div>
               <div className="case-text-column">
                 <p className="case-screen__body">Havia, também, a necessidade de <strong>resgatar a essência da marca</strong> e traduzir no design o novo conceito, reforçando sua brasilidade e sua singularidade artística.</p>
+                <p className="case-screen__body">Inspirados pela cultura, pela natureza e pela história do Brasil, traduzimos essa essência em formas orgânicas e vivas, profundamente conectadas às nossas raízes.</p>
               </div>
             </div>
             
