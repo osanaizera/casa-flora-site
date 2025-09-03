@@ -66,7 +66,6 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
             { href: '#abordagem', label: 'Abordagem' },
             { href: '#solucao', label: 'Solução' },
             { href: '#manifesto', label: 'Manifesto' },
-            { href: '#galeria', label: 'Galeria' },
           ]}
         />
 
@@ -219,7 +218,8 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
           <div className="case-screen__container">
             {/* Cabeçalho da sessão ocupando 100% */}
             <div className="case-screen__content" style={{ marginBottom: 24 }}>
-              <h2 className="case-screen__title">Personalidade da Marca / ARQUÉTIPOS</h2>
+              <h2 className="case-screen__title">Personalidade da Marca</h2>
+              <h3 className="case-screen__subtitle case-screen__subtitle--caps">ARQUÉTIPOS</h3>
             </div>
 
             {/* Nova estrutura: texto à esquerda, cards à direita */}
@@ -234,7 +234,7 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
 
               <div className="case-grid__right">
                 {/* Cards dos arquétipos movidos para a direita */}
-                <div className="archetype-grid-right">
+                <div className="hero__cards">
                   {/* Mago */}
                   <div className="hero__card hero__card--tall hero__card--archetype">
                     <div className="hero__card-bg hero__card-bg--mago"></div>
@@ -275,17 +275,50 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
           </div>
         </section>
 
-        {/* Galeria */}
-        <section id="galeria" className="case-screen">
+        {/* Manifesto e Conceito da Marca */}
+        <section id="manifesto" className="case-screen case-screen--spacious case-screen--compact">
           <div className="case-screen__container">
-            <div className="case-screen__content">
-              <h2 className="case-screen__title">Galeria</h2>
-              <div className="case-frame case-frame--wide case-elevate" style={{ marginTop: 16 }}>
-                <Carousel slides={(item.gallery || []).map((g) => (typeof g === 'string' ? { src: g } : { src: g.src, alt: g.alt }))} />
+            {/* Título centralizado */}
+            <div className="case-screen__content" style={{ textAlign: 'center', marginBottom: '3rem' }}>
+              <div className="case-eyebrow">MANIFESTO</div>
+              <h2 className="case-screen__title">Manifesto e conceito da marca</h2>
+            </div>
+            
+            {/* Layout em duas colunas */}
+            <div className="case-grid case-grid--equal">
+              <div className="case-grid__left">
+                <div className="case-screen__content">
+                  <p className="case-screen__body">O manifesto do Insólito traduz o propósito, a essência e a personalidade da marca, reforçando que o hotel vai além de hospedagem: é um lugar de <strong>descoberta, arte e conexão com a brasilidade</strong>. Cada detalhe — da curadoria artística à experiência sensorial — reflete o compromisso do hotel em criar <strong>experiências únicas</strong>.</p>
+                  
+                  <div className="case-frame case-frame--compact case-elevate" style={{ marginTop: '2rem' }}>
+                    <Image 
+                      src="/images/cases/insolito/manifesto.png" 
+                      alt="Manifesto do Insólito" 
+                      width={800}
+                      height={600}
+                      style={{ width: '100%', height: 'auto' }}
+                    />
+                  </div>
+                </div>
               </div>
-              {item.notionUrl ? (
-                <p className="case-screen__meta"><Link className="underline" href={item.notionUrl} target="_blank" rel="noopener noreferrer">Referência no Notion</Link></p>
-              ) : null}
+              
+              <div className="case-grid__right">
+                <div className="case-screen__content">
+                  <p className="case-screen__body">Ao final, o manifesto convida o hóspede a vivenciar essa experiência de forma ativa.</p>
+                  
+                  <p className="case-screen__body">Esse convite conecta diretamente ao conceito central da marca, <strong>"Descubra Arte em sua Natureza"</strong>, que guia todas as experiências, comunicações e ativações do hotel, orientando o hóspede a explorar a brasilidade, a arte e a criatividade de cada espaço de forma integrada e inspiradora.</p>
+                  
+                  <div className="case-frame case-frame--compact case-elevate" style={{ marginTop: '2rem' }}>
+                    <Image 
+                      src="/images/cases/insolito/convite.png" 
+                      alt="Convite - Descubra Arte em sua Natureza" 
+                      width={800}
+                      height={600}
+                      style={{ width: '100%', height: 'auto' }}
+                    />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
