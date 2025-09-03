@@ -30,6 +30,23 @@ export default function Home() {
               </div>
             </div>
           </section>
+          {/* Rodapé preto minimalista */}
+          <footer className="site-footer">
+            <div className="site-footer__container">
+              <div className="site-footer__row">
+                <div className="site-footer__brand">Casa Flora</div>
+                <nav className="site-footer__nav">
+                  <a href="/" className="site-footer__link">Home</a>
+                  <a href="/#servicos" className="site-footer__link">Serviços</a>
+                  <a href="/#cases" className="site-footer__link">Cases</a>
+                  <a href="/#sobre" className="site-footer__link">Sobre</a>
+                </nav>
+              </div>
+              <div className="site-footer__row site-footer__meta">
+                <p>© {new Date().getFullYear()} Casa Flora — Todos os direitos reservados.</p>
+              </div>
+            </div>
+          </footer>
         </main>
       </div>
     </>

@@ -254,9 +254,6 @@ export default function CasesShowcase() {
               transition={{ duration: 0.5, ease: 'easeOut' }}
             >
               <h3 className="about-clean__title">Sobre a Casa Flora</h3>
-              <p className="about-clean__lead">
-                A Casa Flora nasce do encontro entre criação e estratégia — de Ana Bossardi e Pedro Zanin — para cultivar marcas com alma, verdade e propósito.
-              </p>
             </motion.header>
 
             {/* Ana e Pedro lado a lado */}
@@ -313,7 +310,7 @@ export default function CasesShowcase() {
                 <Image src="/images/juntos.jpeg" alt="Juntos" fill className="about-clean__img" sizes="(min-width: 1024px) 36vw, 92vw" />
               </figure>
               <div className="about-clean__juntos-copy">
-                <h4 className="about-clean__name">Juntos</h4>
+                <h4 className="about-clean__name about-clean__name--juntos">Juntos</h4>
                 <p className="about-clean__text">
                   Foi dessa soma de olhares — o criativo e o estratégico — que nasceu a Casa Flora. Há mais de cinco anos, Ana e Pedro caminham lado a lado, desenvolvendo marcas de experiência e hospitalidade, com mais de 20 projetos já assinados.
                 </p>
