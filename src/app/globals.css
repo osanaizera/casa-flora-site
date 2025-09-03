@@ -1715,6 +1715,18 @@ body {
   transform: translateX(-0.5px);
   pointer-events: none;
 }
+.case-grid--divided { position: relative; gap: clamp(28px, 4vw, 56px); }
+.case-grid--divided::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background: #E5E7EB;
+  transform: translateX(-0.5px);
+  pointer-events: none;
+}
 .case-grid__right--bottom { align-self: end; }
 .case-grid__right--center { align-self: center; }
 

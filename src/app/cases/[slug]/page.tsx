@@ -93,9 +93,9 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
         </section>
 
         {/* Sobre */}
-        <section id="sobre" className="case-screen">
+        <section id="sobre" className="case-screen case-screen--spacious case-screen--compact">
           <div className="case-screen__container">
-            <div className="case-grid">
+            <div className="case-grid case-grid--divided">
               <div className="case-grid__left">
                 <div className="case-screen__content">
                   <h2 className="case-screen__title">Sobre</h2>
@@ -109,7 +109,7 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
                 </div>
               </div>
               <div className="case-grid__right">
-                <div className="case-frame case-frame--landscape case-elevate">
+                <div className="case-frame case-frame--landscape case-frame--centered case-elevate">
                   <Image src={'/images/cases/insolito/Captura de Tela 2025-08-13 às 09.49.14.png'} alt="Citação da fundadora" fill />
                 </div>
               </div>
@@ -118,9 +118,9 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
         </section>
 
         {/* Desafio */}
-        <section id="desafio" className="case-screen">
+        <section id="desafio" className="case-screen case-screen--spacious case-screen--compact">
           <div className="case-screen__container">
-            <div className="case-grid">
+            <div className="case-grid case-grid--divided">
               <div className="case-grid__left">
                 <div className="case-screen__content">
                   <h2 className="case-screen__title">O desafio</h2>
@@ -134,7 +134,7 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
                     { src: '/images/cases/insolito/Captura de Tela 2025-08-13 às 09.49.51.png', alt: 'Desafio 1' },
                     { src: '/images/cases/insolito/Captura de Tela 2025-08-13 às 09.50.00.png', alt: 'Desafio 2' },
                   ].map((g, idx) => (
-                    <div key={idx} className="case-frame case-frame--landscape case-elevate">
+                    <div key={idx} className="case-frame case-frame--landscape case-frame--centered case-elevate">
                       <Image src={g.src} alt={g.alt} fill />
                     </div>
                   ))}
@@ -145,9 +145,9 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
         </section>
 
         {/* Abordagem */}
-        <section id="abordagem" className="case-screen">
+        <section id="abordagem" className="case-screen case-screen--spacious case-screen--compact">
           <div className="case-screen__container">
-            <div className="case-grid">
+            <div className="case-grid case-grid--divided">
               <div className="case-grid__left">
                 <div className="case-screen__content">
                   <h2 className="case-screen__title">Nossa abordagem</h2>
