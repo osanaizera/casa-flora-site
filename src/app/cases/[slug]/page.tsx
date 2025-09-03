@@ -180,9 +180,8 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
           <div className="case-screen__container">
             {/* Cabeçalho da sessão ocupando 100% */}
             <div className="case-screen__content" style={{ marginBottom: 24 }}>
-              <div className="case-eyebrow">Arquétipos</div>
               <h2 className="case-screen__title">A solução</h2>
-              <h3 className="case-screen__subtitle">Arquétipos da marca</h3>
+              <h3 className="case-screen__subtitle case-screen__subtitle--caps">ARQUÉTIPOS DA MARCA</h3>
             </div>
 
             {/* Duas colunas: esquerda texto + cards (triptych), direita carrossel 2 imagens */}
@@ -233,7 +232,7 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
                 </div>
               </div>
 
-              <div className="case-grid__right case-grid__right--bottom">
+              <div className="case-grid__right case-grid__right--center">
                 <div className="case-frame case-frame--landscape case-frame--centered case-elevate">
                   <Carousel
                     aspect="16/10"
