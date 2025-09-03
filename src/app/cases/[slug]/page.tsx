@@ -161,10 +161,43 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
                   <h2 className="case-screen__title" style={{ color: '#fff' }}>Nossa abordagem</h2>
                   <p className="case-screen__body" style={{ color: '#fff' }}>A Casa Flora mergulhou no universo do Insólito, explorando sua história, curadoria artística e experiência sensorial. Nosso trabalho incluiu:</p>
                   <ul className="approach-plates">
-                    <li>Avaliação do <strong>brand awareness</strong>, analisando comentários e notas de hóspedes em OTAs;</li>
-                    <li>Pesquisa qualitativa com stakeholders para entender a visão interna da marca;</li>
-                    <li><strong>Análise da concorrência e benchmarking</strong>, levantando rankings de audiência em redes sociais e em OTAs;</li>
-                    <li><strong>Análise de tendências em hotelaria e turismo</strong>, combinada com <strong>SWOT</strong> e estudo do comportamento do consumidor pós-pandemia.</li>
+                    <li>
+                      <span className="approach-plates__icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12Z" stroke="currentColor" strokeWidth="1.6"/>
+                          <circle cx="12" cy="12" r="3" stroke="currentColor" strokeWidth="1.6"/>
+                        </svg>
+                      </span>
+                      <span className="approach-plates__text">Avaliação do <strong>brand awareness</strong>, analisando comentários e notas de hóspedes em OTAs;</span>
+                    </li>
+                    <li>
+                      <span className="approach-plates__icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M16 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke="currentColor" strokeWidth="1.6"/>
+                          <circle cx="10" cy="7" r="3" stroke="currentColor" strokeWidth="1.6"/>
+                          <path d="M22 21v-2c0-1.657-1.343-3-3-3h-1" stroke="currentColor" strokeWidth="1.6"/>
+                          <circle cx="18" cy="10" r="2" stroke="currentColor" strokeWidth="1.6"/>
+                        </svg>
+                      </span>
+                      <span className="approach-plates__text">Pesquisa qualitativa com stakeholders para entender a visão interna da marca;</span>
+                    </li>
+                    <li>
+                      <span className="approach-plates__icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M3 3v18h18" stroke="currentColor" strokeWidth="1.6"/>
+                          <path d="M7 16v-4m5 4v-8m5 8v-6" stroke="currentColor" strokeWidth="1.6"/>
+                        </svg>
+                      </span>
+                      <span className="approach-plates__text"><strong>Análise da concorrência e benchmarking</strong>, levantando rankings de audiência em redes sociais e em OTAs;</span>
+                    </li>
+                    <li>
+                      <span className="approach-plates__icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M3 12h6l3-8 3 16 3-8h3" stroke="currentColor" strokeWidth="1.6"/>
+                        </svg>
+                      </span>
+                      <span className="approach-plates__text"><strong>Análise de tendências em hotelaria e turismo</strong>, combinada com <strong>SWOT</strong> e estudo do comportamento do consumidor pós-pandemia.</span>
+                    </li>
                   </ul>
                 </div>
               </div>

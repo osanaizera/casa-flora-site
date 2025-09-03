@@ -1102,32 +1102,45 @@ body {
 
 /* Nossa Abordagem – fundo em tela cheia com overlay */
 #abordagem.approach-section { position: relative; background: url('/images/cases/insolito/nossaabordagemfundo.png') center/cover no-repeat; }
-#abordagem.approach-section::before { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.35); }
+#abordagem.approach-section::before { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.5); }
 #abordagem.approach-section > .case-screen__container { position: relative; z-index: 1; }
 
 /* Placas de itens (bullets) da abordagem */
 .approach-plates { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(12px, 2vw, 20px); margin-top: 14px; list-style: none; padding: 0; }
 @media (max-width: 860px) { .approach-plates { grid-template-columns: 1fr; } }
 .approach-plates li { 
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
   background: rgba(255,255,255,0.10);
-  border: 1px solid rgba(255,255,255,0.22);
+  border: 1px solid rgba(255,255,255,0.28);
   backdrop-filter: blur(6px);
   border-radius: 14px;
   padding: clamp(14px, 2vw, 18px);
   color: #fff;
   text-shadow: 0 2px 8px rgba(0,0,0,0.35);
 }
+.approach-plates__icon {
+  width: 28px; height: 28px;
+  border-radius: 8px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 1px solid rgba(255,255,255,0.34);
+  background: rgba(0,0,0,0.25);
+  flex: 0 0 auto;
+}
+.approach-plates__icon svg { width: 16px; height: 16px; color: #fff; opacity: 0.95; }
+.approach-plates__text { display: block; line-height: 1.6; }
 
 /* Card grande para o texto da coluna direita */
 .approach-card {
-  background: linear-gradient(180deg, rgba(255,255,255,0.14), rgba(255,255,255,0.08));
-  border: 1px solid rgba(255,255,255,0.22);
+  background: linear-gradient(180deg, rgba(0,0,0,0.20), rgba(0,0,0,0.10));
+  border: 1px solid rgba(255,255,255,0.34);
   border-radius: 16px;
   padding: clamp(18px, 3vw, 28px);
   box-shadow: 0 20px 50px rgba(0,0,0,0.18);
   backdrop-filter: blur(6px);
 }
-.approach-card .case-screen__body { color: #0f172a; }
+.approach-card .case-screen__body { color: #fff; text-shadow: 0 2px 8px rgba(0,0,0,0.35); }
 
 /* Alinha também blocos comuns ao grid de conteúdo */
 .case-section .case-modern__body,
