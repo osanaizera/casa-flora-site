@@ -66,6 +66,7 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
             { href: '#abordagem', label: 'Abordagem' },
             { href: '#solucao', label: 'Solução' },
             { href: '#manifesto', label: 'Manifesto' },
+            { href: '#redesign', label: 'Redesign' },
           ]}
         />
 
@@ -229,7 +230,7 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
                 </div>
               </div>
 
-              <div className="case-grid__right">
+              <div className="case-grid__right archetype-cards-wide">
                 {/* Cards dos arquétipos movidos para a direita */}
                 <div className="hero__cards">
                   {/* Mago */}
@@ -240,11 +241,7 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
                         <span className="hero__card-label">Arquétipo</span>
                         <h3 className="hero__card-title">O MAGO</h3>
                         <p className="hero__card-subtitle">O Mago representa transformação, inspiração e descoberta. Ele traduz a capacidade do Insólito de encantar e surpreender.</p>
-                        <div className="hero__card-arrow">
-                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                          </svg>
-                        </div>
+                        {/* seta removida */}
                       </div>
                     </div>
                   </div>
@@ -256,11 +253,7 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
                         <span className="hero__card-label">Arquétipo</span>
                         <h3 className="hero__card-title">O CRIATIVO</h3>
                         <p className="hero__card-subtitle">O Criativo, por sua vez, expressa originalidade, inventividade e inovação. Ele reflete a estética singular do hotel, a curadoria artística e a brasilidade presente em cada detalhe.</p>
-                        <div className="hero__card-arrow">
-                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                          </svg>
-                        </div>
+                        {/* seta removida */}
                       </div>
                     </div>
                   </div>
@@ -321,6 +314,61 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
                       style={{ width: '100%', height: 'auto' }}
                     />
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Redesign da identidade visual */}
+        <section id="redesign" className="case-screen case-screen--spacious case-screen--compact">
+          <div className="case-screen__container">
+            {/* Título centralizado */}
+            <div className="case-screen__content" style={{ textAlign: 'center', marginBottom: '3rem' }}>
+              <div className="case-eyebrow">REDESIGN</div>
+              <h2 className="case-screen__title">Redesign da identidade visual</h2>
+            </div>
+            
+            {/* Layout em duas colunas */}
+            <div className="case-grid case-grid--equal">
+              <div className="case-grid__left">
+                <div className="case-screen__content">
+                  <p className="case-screen__body">O redesign da identidade visual do Insólito teve como objetivo <strong>resgatar a essência da marca e marcar o novo conceito</strong>, traduzindo em elementos visuais sua brasilidade, criatividade e espírito transformador.</p>
+                  
+                  <p className="case-screen__body">O <strong>logo foi redesenhado</strong> para transmitir organicidade, fluidez e singularidade:</p>
+                  
+                  <ul className="case-screen__list">
+                    <li>Análise da <strong>essência da marca e da natureza brasileira;</strong></li>
+                    <li>Redefinição de tipografia, cores e logo;</li>
+                    <li>Mais <strong>curvas</strong>, mais <strong>orgânico</strong>, <strong>único</strong> e <strong>natural</strong>, refletindo a brasilidade;</li>
+                    <li>Uma forma que dialoga com arte e natureza, reforçando a conexão do hotel com experiências sensoriais e culturais.</li>
+                  </ul>
+                </div>
+              </div>
+              
+              <div className="case-grid__right">
+                <div className="case-screen__content">
+                  <div className="case-frame case-frame--compact case-elevate" style={{ marginBottom: '1.5rem' }}>
+                    <Image 
+                      src="/images/cases/insolito/Captura de Tela 2025-08-13 às 09.50.20.png" 
+                      alt="Redesign do logo do Insólito" 
+                      width={800}
+                      height={600}
+                      style={{ width: '100%', height: 'auto' }}
+                    />
+                  </div>
+                  
+                  <div className="case-frame case-frame--compact case-elevate" style={{ marginBottom: '2rem' }}>
+                    <Image 
+                      src="/images/cases/insolito/Captura de Tela 2025-08-13 às 09.50.30.png" 
+                      alt="Aplicação da nova identidade visual" 
+                      width={800}
+                      height={600}
+                      style={{ width: '100%', height: 'auto' }}
+                    />
+                  </div>
+                  
+                  <p className="case-screen__body">A <strong>paleta de cores</strong> foi atualizada, tornando-se mais <strong>sóbria e elegante</strong>, mantendo referências à brasilidade e à arte, equilibrando sofisticação e autenticidade.</p>
                 </div>
               </div>
             </div>

@@ -370,7 +370,7 @@ body {
 }
 
 /* Para os cards de arquétipos: texto começa no topo, baseline igual */
-.hero__card--archetype .hero__card-overlay { align-items: flex-start; padding-top: 2.5rem; padding-bottom: 1.5rem; }
+.hero__card--archetype .hero__card-overlay { align-items: flex-end; padding-top: 30%; padding-bottom: 1.5rem; }
 .hero__card--archetype .hero__card-content { transform: none; }
 
 .hero__card-content {
@@ -1145,6 +1145,9 @@ body {
 /* Grid para dois cards de arquétipos lado a lado na coluna direita */
 .archetype-grid-right { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
 @media (max-width: 860px) { .archetype-grid-right { grid-template-columns: 1fr; } }
+
+/* Expandir cards para a esquerda em ~20% */
+.archetype-cards-wide { margin-left: -20%; width: calc(100% + 20%); }
 
 /* Texto mais estreito para arquétipos (≈ -20%) */
 .archetype-text { max-width: 50ch; }
