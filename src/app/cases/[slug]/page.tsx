@@ -325,7 +325,13 @@ export default async function CaseDetail({ params }: Props) {
             </div>
             <div className="max-w-4xl mx-auto px-6 mt-4">
               <div className="rounded-lg overflow-hidden case-elevate">
-                <Carousel slides={(item.gallery || []).map((g, i) => (typeof g === 'string' ? { src: g } : { src: g.src, alt: g.alt }))} />
+                <Carousel
+                  slides={(item.gallery || []).map((g, i) => (
+                    typeof g === 'string'
+                      ? { src: g, alt: `${item.title} ${i + 1}` }
+                      : { src: g.src, alt: g.alt ?? `${item.title} ${i + 1}` }
+                  ))}
+                />
               </div>
             </div>
           </section>

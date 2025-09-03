@@ -74,16 +74,7 @@ export default function CasesShowcase() {
     }
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3
-      }
-    }
-  };
+  // animations handled per-card only; container variants removed
 
   const cardVariants = {
     hidden: { 
@@ -143,7 +134,7 @@ export default function CasesShowcase() {
             onPointerUp={() => { dragRef.current.down = false; }}
             onPointerCancel={() => { dragRef.current.down = false; }}
           >
-          {cases.map((caseItem, index) => {
+          {cases.map((caseItem) => {
             const href =
               caseItem.id === 'zendaya' ? '/cases/zendaya-resort' :
               `/cases/${caseItem.id}`;

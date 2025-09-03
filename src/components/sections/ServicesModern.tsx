@@ -27,55 +27,7 @@ export default function ServicesModern() {
     }
   ];
 
-  // Agrupamento estratégico dos serviços
-  const actionServices = [
-    {
-      id: 'ativacao',
-      number: '01',
-      title: 'Plano de Ativação na Prática',
-      description: 'Transforme estratégia em ação concreta com acompanhamento e suporte para garantir resultados.',
-      category: 'action'
-    },
-    {
-      id: 'colmeia',
-      number: '02',
-      title: 'Colméia — Cultura Organizacional',
-      description: 'Workshops e materiais para transformar seu time em embaixadores da marca.',
-      category: 'action'
-    },
-    {
-      id: 'polen',
-      number: '03',
-      title: 'Pólen — Jornada de Encantamento',
-      description: 'Mapeamento da experiência do cliente em todos os pontos de contato.',
-      category: 'action'
-    }
-  ];
-
-  const performanceService = {
-    id: 'performance',
-    number: '01',
-    title: 'Branding & Performance',
-    description: 'Acompanhamento estratégico contínuo garantindo que a marca permaneça viva e coerente. Nosso serviço mais completo de gestão e evolução contínua da marca.',
-    category: 'performance'
-  };
-
-  const structuralServices = [
-    {
-      id: 'arquitetura',
-      number: '01',
-      title: 'Arquitetura de Marca',
-      description: 'Organização estratégica de marcas e sub-marcas garantindo clareza e coerência.',
-      category: 'structural'
-    },
-    {
-      id: 'naming',
-      number: '02',
-      title: 'Naming — Criação de Nome',
-      description: 'Processo estratégico de criação de nomes memoráveis e disponíveis para uso.',
-      category: 'structural'
-    }
-  ];
+  // Removidos arrays não utilizados para build clean
 
   return (
     <section className="services-modern" id="servicos">
