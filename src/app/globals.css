@@ -1142,6 +1142,10 @@ body {
 }
 .approach-card .case-screen__body { color: #fff; text-shadow: 0 2px 8px rgba(0,0,0,0.35); }
 
+/* Grid para dois cards de arquétipos lado a lado na coluna direita */
+.archetype-grid-right { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+@media (max-width: 860px) { .archetype-grid-right { grid-template-columns: 1fr; } }
+
 /* Alinha também blocos comuns ao grid de conteúdo */
 .case-section .case-modern__body,
 .case-section .case-modern__list,
@@ -3685,3 +3689,11 @@ body {
 .site-footer__link:hover { color: #FFFFFF; }
 .site-footer__meta { margin-top: 16px; font-size: 0.85rem; color: #94A3B8; }
 @media (max-width: 768px) { .site-footer__row { flex-direction: column; align-items: flex-start; } }
+
+
+/* Archetype cards grid for right column */
+.archetype-grid-right {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
