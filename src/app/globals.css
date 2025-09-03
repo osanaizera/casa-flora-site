@@ -236,6 +236,8 @@ body {
   height: 100%;
   padding: 1rem;
 }
+.hero__cards--single { grid-template-columns: 1fr; }
+.hero__card--tall { height: 560px; }
 
 .hero__card {
   position: relative;
@@ -283,6 +285,20 @@ body {
   background-size: cover;
   background-position: center;
   background-blend-mode: overlay;
+}
+
+/* Archetype backgrounds reusing hero card visuals */
+.hero__card-bg--mago {
+  background: radial-gradient(800px 400px at 20% -20%, rgba(139, 92, 246, 0.35), transparent 60%),
+              radial-gradient(800px 400px at 120% 120%, rgba(56, 189, 248, 0.28), transparent 60%),
+              linear-gradient(135deg, rgba(17, 24, 39, 0.75), rgba(2, 6, 23, 0.55));
+  background-blend-mode: screen, screen, multiply;
+}
+.hero__card-bg--criativo {
+  background: radial-gradient(800px 400px at 0% 120%, rgba(244, 114, 182, 0.35), transparent 60%),
+              radial-gradient(800px 400px at 100% -20%, rgba(251, 146, 60, 0.3), transparent 60%),
+              linear-gradient(135deg, rgba(24, 24, 27, 0.75), rgba(12, 10, 9, 0.55));
+  background-blend-mode: screen, screen, multiply;
 }
 
 .hero__card:hover .hero__card-bg {
