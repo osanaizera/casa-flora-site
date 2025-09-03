@@ -253,7 +253,7 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
           <div className="case-screen__container">
             <div className="case-screen__content">
               <h2 className="case-screen__title">Galeria</h2>
-              <div className="case-screen__media" style={{ marginTop: 16 }}>
+              <div className="case-frame case-frame--wide case-elevate" style={{ marginTop: 16 }}>
                 <Carousel slides={(item.gallery || []).map((g) => (typeof g === 'string' ? { src: g } : { src: g.src, alt: g.alt }))} />
               </div>
               {item.notionUrl ? (

@@ -1635,13 +1635,12 @@ body {
 }
 
 /* Framed media: preserves proportion, looks like book pages */
-.case-frame { position: relative; background: #fff; border: 1px solid #E5E7EB; border-radius: 14px; box-shadow: 0 22px 60px rgba(0,0,0,0.14), 0 6px 22px rgba(0,0,0,0.08); overflow: hidden; }
+.case-frame { position: relative; width: 100%; background: #fff; border: 1px solid #E5E7EB; border-radius: 14px; box-shadow: 0 22px 60px rgba(0,0,0,0.14), 0 6px 22px rgba(0,0,0,0.08); overflow: hidden; }
 .case-frame::after { content: ''; position: absolute; inset: 0; background: radial-gradient(60% 50% at 20% 0%, rgba(255,255,255,0.15), transparent 60%); pointer-events: none; }
 .case-frame--landscape { aspect-ratio: 16/10; }
 .case-frame--portrait { aspect-ratio: 3/4; }
 .case-frame--wide { aspect-ratio: 21/9; }
 .case-frame > img, .case-frame > span > img { object-fit: contain !important; }
-.case-frame .next-image, .case-frame [data-nextjs-scroll-focus-boundary] { position: static; }
 
 /* Stack for multiple framed media */
 .case-stack { display: grid; gap: clamp(12px, 2vw, 24px); }
