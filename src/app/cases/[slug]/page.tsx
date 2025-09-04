@@ -292,7 +292,12 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
                 <div className="case-screen__content">
                   <p className="case-screen__body">O manifesto do Insólito traduz o propósito, a essência e a personalidade da marca, reforçando que o hotel vai além de hospedagem: é um lugar de <strong>descoberta, arte e conexão com a brasilidade</strong>. Cada detalhe — da curadoria artística à experiência sensorial — reflete o compromisso do hotel em criar <strong>experiências únicas</strong>.</p>
                   <p className="case-screen__body">Ao final, o manifesto convida o hóspede a vivenciar essa experiência de forma ativa.</p>
-                  {/* Cards Arte e Natureza na coluna esquerda */}
+                </div>
+              </div>
+              <div className="case-grid__right">
+                <div className="case-screen__content">
+                  <p className="case-screen__body">O <strong>conceito central</strong>, <strong>"Descubra Arte em sua Natureza"</strong>, sintetiza a proposta do Insólito de maneira clara e inspiradora. Ele une dois pilares fundamentais da marca:</p>
+                  {/* Cards Arte e Natureza na coluna direita */}
                   <div className="manifesto-cards" style={{ marginTop: '1rem' }}>
                     <div className="manifesto-card">
                       <div className="manifesto-card__header">
@@ -318,11 +323,6 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
                       <div className="manifesto-card__text">A brasilidade e a conexão com o ambiente natural são evidentes no design, na identidade visual e nas experiências oferecidas.</div>
                     </div>
                   </div>
-                </div>
-              </div>
-              <div className="case-grid__right">
-                <div className="case-screen__content">
-                  <p className="case-screen__body">O <strong>conceito central</strong>, <strong>"Descubra Arte em sua Natureza"</strong>, sintetiza a proposta do Insólito de maneira clara e inspiradora. Ele une dois pilares fundamentais da marca:</p>
                 </div>
               </div>
             </div>
