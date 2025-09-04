@@ -427,12 +427,14 @@ body {
 
 /* Manifesto - vídeo placeholder e cards */
 .manifesto-video { 
+  position: relative;
   display: flex; align-items: center; justify-content: center; 
-  background: radial-gradient(60% 60% at 50% 40%, rgba(255,255,255,0.06), transparent 60%),
-              linear-gradient(180deg, rgba(15,23,42,0.9), rgba(15,23,42,0.75));
-  color: #fff; position: relative;
+  background: #cc1751;
+  color: #fff;
 }
+.manifesto-video__embed { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 .manifesto-video__play { 
+  z-index: 1;
   width: 68px; height: 68px; border-radius: 50%; 
   background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.3);
   display: inline-flex; align-items: center; justify-content: center;
@@ -442,11 +444,19 @@ body {
 .manifesto-cards { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: clamp(16px, 2.5vw, 28px); margin-top: 16px; }
 @media (max-width: 860px) { .manifesto-cards { grid-template-columns: 1fr; } }
 .manifesto-card { 
-  background: #fff; border: 1px solid #E5E7EB; border-radius: 14px; 
-  padding: clamp(16px, 2.5vw, 22px); box-shadow: 0 16px 40px rgba(0,0,0,0.1);
+  position: relative;
+  background: linear-gradient(180deg, rgba(204,23,81,0.08), rgba(204,23,81,0.02));
+  border: 1px solid rgba(204,23,81,0.22);
+  border-radius: 14px; 
+  padding: clamp(16px, 2.5vw, 22px); box-shadow: 0 16px 40px rgba(0,0,0,0.08);
+  overflow: hidden;
 }
-.manifesto-card__title { font-family: var(--font-display); font-size: 1.1rem; margin-bottom: 6px; }
-.manifesto-card__text { color: var(--color-gray-700); line-height: 1.75; }
+.manifesto-card::before { content: ''; position: absolute; inset: -20%; background: radial-gradient(40% 40% at 20% 10%, rgba(204,23,81,0.12), transparent 60%); pointer-events: none; }
+.manifesto-card__header { display: flex; align-items: center; gap: 12px; margin-bottom: 6px; }
+.manifesto-card__icon { width: 28px; height: 28px; border-radius: 8px; display: inline-flex; align-items: center; justify-content: center; background: rgba(204,23,81,0.1); color: #cc1751; }
+.manifesto-card__icon svg { width: 16px; height: 16px; }
+.manifesto-card__title { font-family: var(--font-display); font-size: 1.05rem; }
+.manifesto-card__text { color: var(--color-gray-700); line-height: 1.75; margin-top: 6px; }
 
 .hero__card-arrow {
   width: 32px;
@@ -3817,4 +3827,47 @@ body {
   .results-images-grid {
     grid-template-columns: 1fr;
   }
+}
+
+
+/* Results section background */
+.results-section {
+  background-image: url('/images/cases/insolito/resultadosBG.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+}
+
+.results-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+.results-section .case-screen__container {
+  position: relative;
+  z-index: 2;
+}
+
+.results-section .case-eyebrow,
+.results-section .case-screen__title {
+  color: #fff;
+}
+
+.results-section .results-block {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+
+/* Results section - copy of approach section styling but with different background */
+#resultados.approach-section {
+  background-image: url('/images/cases/insolito/resultadosBG.jpg');
 }

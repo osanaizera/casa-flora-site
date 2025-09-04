@@ -275,13 +275,15 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
               <h2 className="case-screen__title">Manifesto e conceito da marca</h2>
             </div>
 
-            {/* Vídeo horizontal (placeholder) ocupando toda a largura do container */}
+            {/* Vídeo horizontal (YouTube) ocupando toda a largura do container */}
             <div className="case-frame case-frame--wide case-elevate manifesto-video" style={{ margin: '0 0 2rem 0' }}>
-              <button className="manifesto-video__play" aria-label="Reproduzir vídeo">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M8 5v14l10-7-10-7Z" fill="currentColor" />
-                </svg>
-              </button>
+              <iframe
+                className="manifesto-video__embed"
+                src="https://www.youtube.com/embed/VIDEO_ID?rel=0&modestbranding=1&playsinline=1"
+                title="Manifesto – Insólito"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
             </div>
 
             {/* Texto dos parágrafos abaixo do vídeo */}
@@ -295,11 +297,26 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
             {/* Cards Arte e Natureza */}
             <div className="manifesto-cards">
               <div className="manifesto-card">
-                <div className="manifesto-card__title">Arte</div>
+                <div className="manifesto-card__header">
+                  <span className="manifesto-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M3 4h6l3 6h6l-3 6H6l-3-6Z" stroke="currentColor" strokeWidth="1.6"/>
+                    </svg>
+                  </span>
+                  <div className="manifesto-card__title">Arte</div>
+                </div>
                 <div className="manifesto-card__text">Cada espaço, cada quarto e cada experiência são cuidadosamente curados para revelar a criatividade e a cultura brasileiras.</div>
               </div>
               <div className="manifesto-card">
-                <div className="manifesto-card__title">Natureza</div>
+                <div className="manifesto-card__header">
+                  <span className="manifesto-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M5 12c4-6 10-6 14 0-4 6-10 6-14 0Z" stroke="currentColor" strokeWidth="1.6"/>
+                      <path d="M12 7v10" stroke="currentColor" strokeWidth="1.6"/>
+                    </svg>
+                  </span>
+                  <div className="manifesto-card__title">Natureza</div>
+                </div>
                 <div className="manifesto-card__text">A brasilidade e a conexão com o ambiente natural são evidentes no design, na identidade visual e nas experiências oferecidas.</div>
               </div>
             </div>
@@ -362,85 +379,54 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
         </section>
 
         {/* Resultados do Rebranding */}
-        <section id="resultados" className="case-screen case-screen--spacious case-screen--compact">
+        <section id="resultados" className="case-screen case-screen--spacious case-screen--compact approach-section">
           <div className="case-screen__container">
-            {/* Título centralizado */}
-            <div className="case-screen__content" style={{ textAlign: 'center', marginBottom: '4rem' }}>
-              <div className="case-eyebrow">RESULTADOS</div>
-              <h2 className="case-screen__title">Resultados do Rebranding</h2>
-            </div>
-            
-            {/* 3 Blocos de resultados */}
-            <div className="results-grid">
-              
-              {/* Bloco 1: Reconhecimento e Avaliação Positiva */}
-              <div className="results-block">
-                <div className="results-block__content">
-                  <h3 className="results-block__title">Reconhecimento e Avaliação Positiva</h3>
-                  <p className="results-block__text">O Insólito recebe elogios em plataformas de avaliação, como Booking.com e Expedia, destacando-se pela qualidade do atendimento, conforto das acomodações e o ambiente artístico. Os hóspedes frequentemente mencionam a experiência sensorial proporcionada pelo hotel, alinhada ao conceito de "Descubra Arte em sua Natureza".</p>
+            <div className="case-grid case-grid--divided case-grid--left7">
+              <div className="case-grid__left">
+                <div className="case-screen__content">
+                  <div className="case-eyebrow" style={{ color: '#fff' }}>RESULTADOS</div>
+                  <h2 className="case-screen__title" style={{ color: '#fff' }}>Resultados do Rebranding</h2>
+                  <p className="case-screen__body" style={{ color: '#fff' }}>O rebranding do Insólito gerou resultados significativos em múltiplas dimensões, confirmando o impacto da estratégia implementada:</p>
+                  <ul className="approach-plates">
+                    <li>
+                      <span className="approach-plates__icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke="currentColor" strokeWidth="1.6"/>
+                        </svg>
+                      </span>
+                      <span className="approach-plates__text"><strong>Reconhecimento e Avaliação Positiva:</strong> O Insólito recebe elogios em plataformas de avaliação, como Booking.com e Expedia, destacando-se pela qualidade do atendimento, conforto das acomodações e o ambiente artístico;</span>
+                    </li>
+                    <li>
+                      <span className="approach-plates__icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3M3 5v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2z" stroke="currentColor" strokeWidth="1.6"/>
+                          <path d="M9 9h6v6H9V9z" stroke="currentColor" strokeWidth="1.6"/>
+                        </svg>
+                      </span>
+                      <span className="approach-plates__text"><strong>Coerência Visual e Identidade Fortalecida:</strong> O redesign da identidade visual, incluindo o novo logotipo, paleta de cores sóbria e elegante, trouxe uma coerência visual que reflete a brasilidade, criatividade e transformação;</span>
+                    </li>
+                    <li>
+                      <span className="approach-plates__icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" stroke="currentColor" strokeWidth="1.6"/>
+                          <circle cx="6" cy="6" r="4" stroke="currentColor" strokeWidth="1.6"/>
+                          <path d="M2 12h8v9H2v-9z" stroke="currentColor" strokeWidth="1.6"/>
+                        </svg>
+                      </span>
+                      <span className="approach-plates__text"><strong>Posicionamento Aplicado em Diferentes Canais:</strong> O perfil do Instagram (@insolitohotel) é vibrante! A curadoria de conteúdo, incluindo imagens de obras de arte, detalhes da arquitetura e experiências sensoriais, tem gerado engajamento significativo.</span>
+                    </li>
+                  </ul>
                 </div>
-                <div className="results-block__image">
-                  <div className="case-frame case-frame--compact case-elevate">
-                    <Image 
-                      src="/images/cases/insolito/resultado0.jpeg" 
-                      alt="Reconhecimento e avaliações positivas do Insólito" 
-                      width={600}
-                      height={400}
-                      style={{ width: '100%', height: 'auto' }}
-                    />
+              </div>
+              <div className="case-grid__right">
+                <div className="case-screen__content">
+                  <div className="approach-card">
+                    <p className="case-screen__body">Os resultados demonstram que a estratégia de <strong>rebranding</strong> foi bem-sucedida, criando uma identidade visual coerente que comunica efetivamente os valores da marca.</p>
+                    <p className="case-screen__body">A nova identidade fortaleceu o posicionamento do hotel como um <strong>destino de experiências únicas</strong>, onde arte e natureza brasileiras se conectam de forma memorável.</p>
+                    <p className="case-screen__body">O engajamento nas redes sociais e as avaliações positivas confirmam que o conceito <strong>"Descubra Arte em sua Natureza"</strong> ressoa com o público-alvo, consolidando o Insólito como referência em hospitalidade artística e cultural.</p>
                   </div>
                 </div>
               </div>
-
-              {/* Bloco 2: Coerência Visual e Identidade Fortalecida */}
-              <div className="results-block">
-                <div className="results-block__content">
-                  <h3 className="results-block__title">Coerência Visual e Identidade Fortalecida</h3>
-                  <p className="results-block__text">O redesign da identidade visual, incluindo o novo logotipo, paleta de cores sóbria e elegante, e o manifesto da marca, trouxe uma coerência visual que reflete a brasilidade, criatividade e transformação.</p>
-                </div>
-                <div className="results-block__images">
-                  <div className="results-images-grid">
-                    <div className="case-frame case-frame--compact case-elevate">
-                      <Image 
-                        src="/images/cases/insolito/resultados1.jpeg" 
-                        alt="Coerência visual da nova identidade" 
-                        width={600}
-                        height={400}
-                        style={{ width: '100%', height: 'auto' }}
-                      />
-                    </div>
-                    <div className="case-frame case-frame--compact case-elevate">
-                      <Image 
-                        src="/images/cases/insolito/resultados2.jpeg" 
-                        alt="Identidade visual fortalecida" 
-                        width={600}
-                        height={400}
-                        style={{ width: '100%', height: 'auto' }}
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Bloco 3: Posicionamento Aplicado em Diferentes Canais */}
-              <div className="results-block">
-                <div className="results-block__content">
-                  <h3 className="results-block__title">Posicionamento Aplicado em Diferentes Canais</h3>
-                  <p className="results-block__text">O perfil do Instagram do Insólito (@insolitohotel) é vibrante! A curadoria de conteúdo, incluindo imagens de obras de arte, detalhes da arquitetura e experiências sensoriais, tem gerado engajamento significativo em diferentes canais de comunicação.</p>
-                </div>
-                <div className="results-block__image">
-                  <div className="case-frame case-frame--compact case-elevate">
-                    <Image 
-                      src="/images/cases/insolito/resultado 3.jpeg" 
-                      alt="Posicionamento em diferentes canais de comunicação" 
-                      width={600}
-                      height={400}
-                      style={{ width: '100%', height: 'auto' }}
-                    />
-                  </div>
-                </div>
-              </div>
-
             </div>
           </div>
         </section>
