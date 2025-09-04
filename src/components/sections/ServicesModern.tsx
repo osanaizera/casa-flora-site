@@ -103,132 +103,148 @@ export default function ServicesModern() {
                 ))}
               </div>
             ) : activeTab === "ativacao" ? (
-              <div className="services-modern__ativacao-layout">
-                <div className="services-modern__glass-card services-modern__glass-card--header">
-                  <div className="services-modern__glass-bg services-modern__glass-bg--ambar"></div>
-                  <div className="services-modern__glass-content services-modern__glass-content--header">
-                    <div className="services-modern__glass-header">
-                      <span className="services-modern__glass-number">02</span>
-                      <div className="services-modern__glass-badge">Estrutura da identidade</div>
-                      <h3 className="services-modern__glass-title">Ativação Âmbar</h3>
-                      <p className="services-modern__glass-subtitle">Acendimento da presença</p>
-                    </div>
-                    <div className="services-modern__glass-footer">
-                      <div className="services-modern__glass-arrow">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                          <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
-                      </div>
+              <div className="services-modern__split">
+                {/* Card hero alto e fino com fundo da imagem */}
+                <a className="hero__card hero__card--tall services-modern__hero-narrow" href="#servicos-ambar" aria-label="Ativação Âmbar">
+                  <div className="hero__card-bg hero__card-bg--ambar"></div>
+                  <div className="hero__card-overlay">
+                    <div className="hero__card-content">
+                      <span className="hero__card-label">Ativação</span>
+                      <h3 className="hero__card-title">ÂMBAR</h3>
+                      <p className="hero__card-subtitle">Acendimento da presença</p>
                     </div>
                   </div>
-                </div>
+                </a>
 
-                <div className="services-modern__content-layout">
-                  <div className="services-modern__content-column">
-                    <div className="services-modern__text-content">
-                      <p>
-                        A <strong>Ativação Âmbar</strong> é o ponto de partida para marcas que desejam alinhar essência,
-                        organizar presença e comunicar com clareza.
-                      </p>
-                      <p>
-                        Mais que um projeto, é um <strong>ritual estratégico de ativação de branding</strong> — intenso,
-                        profundo e direcionado.
-                      </p>
-                      <p>
-                        Assim como o âmbar, que cristaliza e protege ao longo do tempo, esse processo dá forma, densidade
-                        e luz à identidade da marca.
-                      </p>
-                      <p>
-                        Desenvolvemos o <strong>Ritual Âmbar</strong> — nossa metodologia exclusiva — aplicada em ciclos de
-                        <strong> 3, 6 ou 12 meses</strong>.
-                      </p>
-                    </div>
+                {/* Conteúdo ao lado */}
+                <div id="servicos-ambar">
+                  <div className="services-modern__text-content" style={{ marginBottom: "1rem" }}>
+                    <p>
+                      A <strong>Ativação Âmbar</strong> é o ponto de partida para marcas que desejam alinhar essência, organizar presença e comunicar com clareza.
+                    </p>
+                    <p>
+                      Mais que um projeto, é um <strong>ritual estratégico de ativação de branding</strong> — intenso, profundo e direcionado.
+                    </p>
+                    <p>
+                      Assim como o âmbar, que cristaliza e protege ao longo do tempo, esse processo dá forma, densidade e luz à identidade da marca.
+                    </p>
+                    <p>
+                      Aplicamos o <strong>Ritual Âmbar</strong> em ciclos de <strong>3, 6 ou 12 meses</strong>.
+                    </p>
                   </div>
-                  <div className="services-modern__content-column">
-                    <div className="services-modern__image-frame case-frame" style={{ marginBottom: "1.25rem", borderRadius: 12, overflow: "hidden" }}>
-                      <Image src="/images/ambar.png" alt="Ativação Âmbar" width={1200} height={800} style={{ width: "100%", height: "auto" }} priority />
-                    </div>
-                    <div className="services-modern__phases-section">
-                      <h4 className="services-modern__phases-title">✽ Os três tempos do Ritual Âmbar</h4>
-                      <div className="services-modern__phases-list">
-                        <div className="services-modern__phase-item">
-                          <div className="services-modern__phase-header">
-                            <span className="services-modern__phase-number">01</span>
-                            <h5 className="services-modern__phase-title">Imersão</h5>
-                          </div>
-                          <p className="services-modern__phase-description">
-                            Mergulho profundo na essência, história e diferenciais da marca. Análise de público, mercado,
-                            concorrência e oportunidades.
-                          </p>
+                  <div className="services-modern__phases-section">
+                    <h4 className="services-modern__phases-title">✽ Os três tempos do Ritual Âmbar</h4>
+                    <div className="services-modern__phases-list">
+                      <div className="services-modern__phase-item">
+                        <div className="services-modern__phase-header">
+                          <span className="services-modern__phase-number">01</span>
+                          <h5 className="services-modern__phase-title">Imersão</h5>
                         </div>
-                        <div className="services-modern__phase-item">
-                          <div className="services-modern__phase-header">
-                            <span className="services-modern__phase-number">02</span>
-                            <h5 className="services-modern__phase-title">Organização</h5>
-                          </div>
-                          <p className="services-modern__phase-description">
-                            Construção da base estratégica: posicionamento, tom de voz, identidade visual, storytelling e
-                            plano editorial.
-                          </p>
+                        <p className="services-modern__phase-description">
+                          Mergulho profundo na essência, história e diferenciais da marca. Análise de público, mercado, concorrência e oportunidades.
+                        </p>
+                      </div>
+                      <div className="services-modern__phase-item">
+                        <div className="services-modern__phase-header">
+                          <span className="services-modern__phase-number">02</span>
+                          <h5 className="services-modern__phase-title">Organização</h5>
                         </div>
-                        <div className="services-modern__phase-item">
-                          <div className="services-modern__phase-header">
-                            <span className="services-modern__phase-number">03</span>
-                            <h5 className="services-modern__phase-title">Ativação</h5>
-                          </div>
-                          <p className="services-modern__phase-description">
-                            Aplicação prática e consistente da marca: campanhas, plano de comunicação, conteúdos,
-                            materiais e diretrizes vivas.
-                          </p>
+                        <p className="services-modern__phase-description">
+                          Construção da base estratégica: posicionamento, tom de voz, identidade visual, storytelling e plano editorial.
+                        </p>
+                      </div>
+                      <div className="services-modern__phase-item">
+                        <div className="services-modern__phase-header">
+                          <span className="services-modern__phase-number">03</span>
+                          <h5 className="services-modern__phase-title">Ativação</h5>
                         </div>
+                        <p className="services-modern__phase-description">
+                          Aplicação prática e consistente da marca: campanhas, plano de comunicação, conteúdos, materiais e diretrizes vivas.
+                        </p>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             ) : (
-              <div className="services-modern__ativacao-layout">
-                <div className="services-modern__glass-card services-modern__glass-card--header">
-                  <div className="services-modern__glass-bg services-modern__glass-bg--seiva"></div>
-                  <div className="services-modern__glass-content services-modern__glass-content--header">
-                    <div className="services-modern__glass-header">
-                      <span className="services-modern__glass-number">03</span>
-                      <div className="services-modern__glass-badge">Gestão contínua</div>
-                      <h3 className="services-modern__glass-title">Acompanhamento Seiva</h3>
-                      <p className="services-modern__glass-subtitle">Crescimento orgânico e consistente</p>
-                    </div>
-                    <div className="services-modern__glass-footer">
-                      <div className="services-modern__glass-arrow">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                          <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
-                      </div>
+              <div className="services-modern__split">
+                {/* Card hero alto e fino com fundo da imagem */}
+                <a className="hero__card hero__card--tall services-modern__hero-narrow" href="#servicos-seiva" aria-label="Acompanhamento Seiva">
+                  <div className="hero__card-bg hero__card-bg--seiva"></div>
+                  <div className="hero__card-overlay">
+                    <div className="hero__card-content">
+                      <span className="hero__card-label">Acompanhamento</span>
+                      <h3 className="hero__card-title">SEIVA</h3>
+                      <p className="hero__card-subtitle">Crescimento orgânico e consistente</p>
                     </div>
                   </div>
-                </div>
+                </a>
 
-                <div className="services-modern__content-layout">
-                  <div className="services-modern__content-column">
-                    <div className="services-modern__text-content">
-                      <p>
-                        O <strong>Seiva</strong> é nosso acompanhamento de marca para manter a identidade viva, organizada e
-                        presente no dia a dia, com consistência e intenção.
-                      </p>
-                      <p>
-                        De forma contínua, cuidamos de estratégia, conteúdo e aplicações para que a marca cresça de forma
-                        orgânica e sustentável.
-                      </p>
-                      <ul style={{ marginTop: "0.75rem" }}>
-                        <li>Direção de conteúdo editorial e calendário;</li>
-                        <li>Aplicações da identidade (on/offline);</li>
-                        <li>Rotina de análise, ajustes e melhorias;</li>
-                        <li>Suporte criativo e estratégico recorrente.</li>
-                      </ul>
-                    </div>
+                {/* Conteúdo ao lado */}
+                <div id="servicos-seiva">
+                  <div className="services-modern__text-content" style={{ marginBottom: "1.25rem" }}>
+                    <div className="case-eyebrow">ACOMPANHAMENTO SEIVA</div>
+                    <h3 className="h3" style={{ marginBottom: 8 }}>Proteção da essência. Clareza no crescimento.</h3>
+                    <p className="body-large" style={{ marginBottom: 12 }}>
+                      É <strong>estratégia contínua e personalizada</strong>. A Seiva acompanha a marca já viva — ajudando a crescer com coerência, inteligência e ritmo.
+                    </p>
+                    <blockquote className="services-modern__blockquote">
+                      <p>A seiva é o fluido vital que percorre todo o organismo.</p>
+                      <p>Conecta raízes, caule, folhas e flores.</p>
+                      <p>Nutre de dentro para fora.</p>
+                    </blockquote>
+                    <p>
+                      Para nós, a Seiva é o <strong>branding vivo</strong>: o sistema que conecta essência, estratégia, expressão e evolução.
+                    </p>
+                    <p>
+                      Na Casa Flora, acreditamos que marcas são organismos em movimento — e, como todo organismo, precisam de fluxo constante de nutrição, direção e expressão para prosperar.
+                    </p>
+                    <p>
+                      É por isso que criamos o <strong>Método Seiva</strong> — nossa metodologia proprietária de gestão de marca viva, aplicada exclusivamente no <strong>Acompanhamento Seiva</strong>.
+                    </p>
+                    <p>
+                      Mais do que manutenção, é um espaço de <strong>direção, inteligência e presença contínua</strong>: um olhar estratégico e criativo que protege a essência da marca enquanto promove seu crescimento.
+                    </p>
+                    <p>
+                      Além do planejamento e da execução, o Acompanhamento Seiva contempla <strong>análise de branding e performance</strong>, cruzando resultados e indicadores (KPIs) para guiar a evolução da marca com consciência e consistência.
+                    </p>
                   </div>
-                  <div className="services-modern__content-column">
-                    <div className="services-modern__image-frame case-frame" style={{ borderRadius: 12, overflow: "hidden" }}>
-                      <Image src="/images/seiva.png" alt="Acompanhamento Seiva" width={1200} height={800} style={{ width: "100%", height: "auto" }} priority />
+
+                  <div className="services-modern__pillars">
+                    <h4 className="services-modern__phases-title" style={{ marginBottom: 10 }}>OS QUATRO PILARES DO MÉTODO SEIVA</h4>
+                    <div className="services-modern__pillars-grid">
+                      <div className="services-modern__pillar-item">
+                        <div className="services-modern__pillar-header">
+                          <span className="services-modern__pillar-number">01</span>
+                          <h5 className="services-modern__pillar-title">Essência</h5>
+                        </div>
+                        <p className="services-modern__pillar-description">Identidade viva e autêntica.</p>
+                        <p className="services-modern__pillar-description">Propósito, valores, diferenciais, arquétipo e tom de voz.</p>
+                      </div>
+                      <div className="services-modern__pillar-item">
+                        <div className="services-modern__pillar-header">
+                          <span className="services-modern__pillar-number">02</span>
+                          <h5 className="services-modern__pillar-title">Estratégia</h5>
+                        </div>
+                        <p className="services-modern__pillar-description">Direção clara e viável.</p>
+                        <p className="services-modern__pillar-description">Posicionamento, objetivos, público, metas e planos de ação.</p>
+                      </div>
+                      <div className="services-modern__pillar-item">
+                        <div className="services-modern__pillar-header">
+                          <span className="services-modern__pillar-number">03</span>
+                          <h5 className="services-modern__pillar-title">Expressão</h5>
+                        </div>
+                        <p className="services-modern__pillar-description">Presença visual e narrativa sensível.</p>
+                        <p className="services-modern__pillar-description">Design, storytelling, campanhas, canais e comportamento.</p>
+                      </div>
+                      <div className="services-modern__pillar-item">
+                        <div className="services-modern__pillar-header">
+                          <span className="services-modern__pillar-number">04</span>
+                          <h5 className="services-modern__pillar-title">Evolução</h5>
+                        </div>
+                        <p className="services-modern__pillar-description">Crescimento contínuo com consciência.</p>
+                        <p className="services-modern__pillar-description">KPIs, reputação, inteligência de marca e performance.</p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -240,4 +256,3 @@ export default function ServicesModern() {
     </section>
   );
 }
-
