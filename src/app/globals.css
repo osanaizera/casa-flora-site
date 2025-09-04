@@ -3955,5 +3955,19 @@ body {
 
 /* Results section - copy of approach section styling but with different background */
 #resultados.approach-section {
+  position: relative;
   background-image: url('/images/cases/insolito/resultadosBG.jpg');
+  background-size: cover;
+  background-position: center;
 }
+#resultados.approach-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  z-index: 1;
+}
+#resultados.approach-section > .case-screen__container { position: relative; z-index: 2; }
+#resultados.approach-section .case-screen__body,
+#resultados.approach-section .case-screen__title,
+#resultados.approach-section .case-eyebrow { color: #fff; }
