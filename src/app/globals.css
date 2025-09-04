@@ -476,11 +476,11 @@ body {
 .services-modern__pillar-description { color: var(--color-gray-700); line-height: 1.6; margin: 2px 0; }
 
 /* Slide-in etiqueta horizontal (Seiva) */
-.services-modern__slide-wrap { position: relative; min-height: 420px; width: 100vw; margin-left: calc(50% - 50vw); }
+.services-modern__slide-wrap { position: relative; min-height: 380px; width: 100vw; margin-left: calc(50% - 50vw); }
 .services-modern__slide-tag { 
   position: absolute; top: 0; right: 0;
-  width: clamp(760px, 68vw, 980px); 
-  min-height: clamp(360px, 52vh, 560px);
+  width: clamp(740px, 64vw, 960px); 
+  min-height: clamp(320px, 50vh, 520px);
   border-radius: 16px; 
   overflow: hidden; 
   border: 1px solid rgba(0,0,0,0.08);
@@ -491,8 +491,9 @@ body {
 .services-modern__slide-tag.is-active { transform: translateX(0); }
 .services-modern__slide-bg { position: absolute; inset: 0; background-size: cover; background-position: center; }
 .services-modern__slide-overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.42) 48%, rgba(0,0,0,0.26) 100%); }
-.services-modern__slide-inner { position: relative; z-index: 1; max-width: 1280px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 28px); }
-.services-modern__slide-content { display: grid; grid-template-columns: 1.05fr 1.15fr; gap: clamp(12px, 2.5vw, 28px); color: #fff; padding: clamp(18px, 2.4vw, 28px) 0; }
+.services-modern__slide-inner { position: relative; z-index: 1; width: 100%; height: 100%; padding: clamp(16px, 2.8vw, 28px) clamp(16px, 2.8vw, 28px); }
+.services-modern__slide-content { display: grid; grid-template-columns: 1.05fr 1.15fr; gap: clamp(12px, 2.5vw, 28px); color: #fff; height: 100%; }
+@media (max-width: 1024px) { .services-modern__slide-content { grid-template-columns: 1fr; } }
 @media (max-width: 860px) {
   .services-modern__slide-content { grid-template-columns: 1fr; gap: 10px; }
 }
@@ -500,9 +501,12 @@ body {
 .services-modern__lead { margin: 6px 0; }
 .services-modern__slide-body p { margin: 6px 0; }
 .services-modern__slide-eyebrow { margin-top: 8px; font-size: 0.9rem; font-weight: 600; opacity: 0.95; }
-.services-modern__list-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 10px 16px; margin-top: 6px; }
-@media (max-width: 860px) { .services-modern__list-grid { grid-template-columns: 1fr; } }
-.services-modern__list-item { font-size: 0.94rem; line-height: 1.45; }
+.services-modern__list-columns { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 10px 16px; margin-top: 6px; }
+@media (max-width: 1200px) { .services-modern__list-columns { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+@media (max-width: 640px) { .services-modern__list-columns { grid-template-columns: 1fr; } }
+.services-modern__list-col { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.18); padding: 10px 12px; border-radius: 10px; }
+.services-modern__list-title { font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 6px; }
+.services-modern__list-text { font-size: 0.94rem; line-height: 1.45; }
 .services-modern__resolve { margin-top: 12px; font-size: 1rem; font-weight: 600; background: rgba(0,0,0,0.25); border: 1px solid rgba(255,255,255,0.28); padding: 10px 12px; border-radius: 10px; }
 
 /* Destaque visual para os "E" dos quatro E's */
