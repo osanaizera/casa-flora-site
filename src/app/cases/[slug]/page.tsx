@@ -381,49 +381,79 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
         {/* Resultados do Rebranding */}
         <section id="resultados" className="case-screen case-screen--spacious case-screen--compact approach-section">
           <div className="case-screen__container">
-            <div className="case-grid case-grid--divided case-grid--left7">
-              <div className="case-grid__left">
-                <div className="case-screen__content">
-                  <div className="case-eyebrow" style={{ color: '#fff' }}>RESULTADOS</div>
-                  <h2 className="case-screen__title" style={{ color: '#fff' }}>Resultados do Rebranding</h2>
-                  <p className="case-screen__body" style={{ color: '#fff' }}>O rebranding do Insólito gerou resultados significativos em múltiplas dimensões, confirmando o impacto da estratégia implementada:</p>
-                  <ul className="approach-plates">
-                    <li>
-                      <span className="approach-plates__icon">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke="currentColor" strokeWidth="1.6"/>
-                        </svg>
-                      </span>
-                      <span className="approach-plates__text"><strong>Reconhecimento e Avaliação Positiva:</strong> O Insólito recebe elogios em plataformas de avaliação, como Booking.com e Expedia, destacando-se pela qualidade do atendimento, conforto das acomodações e o ambiente artístico;</span>
-                    </li>
-                    <li>
-                      <span className="approach-plates__icon">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3M3 5v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2z" stroke="currentColor" strokeWidth="1.6"/>
-                          <path d="M9 9h6v6H9V9z" stroke="currentColor" strokeWidth="1.6"/>
-                        </svg>
-                      </span>
-                      <span className="approach-plates__text"><strong>Coerência Visual e Identidade Fortalecida:</strong> O redesign da identidade visual, incluindo o novo logotipo, paleta de cores sóbria e elegante, trouxe uma coerência visual que reflete a brasilidade, criatividade e transformação;</span>
-                    </li>
-                    <li>
-                      <span className="approach-plates__icon">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" stroke="currentColor" strokeWidth="1.6"/>
-                          <circle cx="6" cy="6" r="4" stroke="currentColor" strokeWidth="1.6"/>
-                          <path d="M2 12h8v9H2v-9z" stroke="currentColor" strokeWidth="1.6"/>
-                        </svg>
-                      </span>
-                      <span className="approach-plates__text"><strong>Posicionamento Aplicado em Diferentes Canais:</strong> O perfil do Instagram (@insolitohotel) é vibrante! A curadoria de conteúdo, incluindo imagens de obras de arte, detalhes da arquitetura e experiências sensoriais, tem gerado engajamento significativo.</span>
-                    </li>
-                  </ul>
+            {/* Título centralizado */}
+            <div className="case-screen__content" style={{ textAlign: 'center', marginBottom: '3rem' }}>
+              <div className="case-eyebrow" style={{ color: '#fff' }}>RESULTADOS</div>
+              <h2 className="case-screen__title" style={{ color: '#fff' }}>Resultados do Rebranding</h2>
+            </div>
+            
+            <div className="case-screen__content" style={{ marginBottom: '3rem' }}>
+              <p className="case-screen__body" style={{ color: '#fff', textAlign: 'center', maxWidth: '800px', margin: '0 auto' }}>O rebranding do Insólito gerou resultados significativos em múltiplas dimensões, confirmando o impacto da estratégia implementada:</p>
+            </div>
+
+            {/* 3 blocos com texto e imagem */}
+            <div className="results-blocks">
+              <div className="result-block">
+                <div className="result-block__content">
+                  <h3 className="result-block__title" style={{ color: '#fff' }}>Reconhecimento e Avaliação Positiva</h3>
+                  <p className="result-block__text" style={{ color: '#fff' }}>O Insólito recebe elogios em plataformas de avaliação, como Booking.com e Expedia, destacando-se pela qualidade do atendimento, conforto das acomodações e o ambiente artístico.</p>
+                </div>
+                <div className="result-block__image">
+                  <div className="case-frame case-frame--compact case-elevate">
+                    <Image 
+                      src="/images/cases/insolito/resultado0.jpeg" 
+                      alt="Reconhecimento e Avaliação Positiva" 
+                      width={600}
+                      height={400}
+                      style={{ width: '100%', height: 'auto' }}
+                    />
+                  </div>
                 </div>
               </div>
-              <div className="case-grid__right">
-                <div className="case-screen__content">
-                  <div className="approach-card">
-                    <p className="case-screen__body">Os resultados demonstram que a estratégia de <strong>rebranding</strong> foi bem-sucedida, criando uma identidade visual coerente que comunica efetivamente os valores da marca.</p>
-                    <p className="case-screen__body">A nova identidade fortaleceu o posicionamento do hotel como um <strong>destino de experiências únicas</strong>, onde arte e natureza brasileiras se conectam de forma memorável.</p>
-                    <p className="case-screen__body">O engajamento nas redes sociais e as avaliações positivas confirmam que o conceito <strong>"Descubra Arte em sua Natureza"</strong> ressoa com o público-alvo, consolidando o Insólito como referência em hospitalidade artística e cultural.</p>
+
+              <div className="result-block">
+                <div className="result-block__content">
+                  <h3 className="result-block__title" style={{ color: '#fff' }}>Coerência Visual e Identidade Fortalecida</h3>
+                  <p className="result-block__text" style={{ color: '#fff' }}>O redesign da identidade visual, incluindo o novo logotipo, paleta de cores sóbria e elegante, trouxe uma coerência visual que reflete a brasilidade, criatividade e transformação.</p>
+                </div>
+                <div className="result-block__images">
+                  <div className="case-images-grid">
+                    <div className="case-frame case-frame--compact case-elevate">
+                      <Image 
+                        src="/images/cases/insolito/resultados1.jpeg" 
+                        alt="Coerência Visual - Imagem 1" 
+                        width={400}
+                        height={300}
+                        style={{ width: '100%', height: 'auto' }}
+                      />
+                    </div>
+                    <div className="case-frame case-frame--compact case-elevate">
+                      <Image 
+                        src="/images/cases/insolito/resultados2.jpeg" 
+                        alt="Coerência Visual - Imagem 2" 
+                        width={400}
+                        height={300}
+                        style={{ width: '100%', height: 'auto' }}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="result-block">
+                <div className="result-block__content">
+                  <h3 className="result-block__title" style={{ color: '#fff' }}>Posicionamento Aplicado em Diferentes Canais</h3>
+                  <p className="result-block__text" style={{ color: '#fff' }}>O perfil do Instagram (@insolitohotel) é vibrante! A curadoria de conteúdo, incluindo imagens de obras de arte, detalhes da arquitetura e experiências sensoriais, tem gerado engajamento significativo.</p>
+                </div>
+                <div className="result-block__image">
+                  <div className="case-frame case-frame--compact case-elevate">
+                    <Image 
+                      src="/images/cases/insolito/resultado 3.jpeg" 
+                      alt="Posicionamento em Diferentes Canais" 
+                      width={600}
+                      height={400}
+                      style={{ width: '100%', height: 'auto' }}
+                    />
                   </div>
                 </div>
               </div>
