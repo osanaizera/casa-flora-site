@@ -459,7 +459,7 @@ body {
 .manifesto-card__text { color: var(--color-gray-700); line-height: 1.75; margin-top: 6px; }
 
 /* Fundo da sessão Manifesto em rosa chapado */
-.case-screen.manifesto-section { background: #cc1751 !important; }
+.case-screen.manifesto-section { background: url('/images/cases/insolito/manifesto%20bg.png') center/cover no-repeat !important; }
 .manifesto-section .case-screen__body { color: #fff; }
 .manifesto-section .case-screen__title,
 .manifesto-section .case-screen__subtitle,
