@@ -286,12 +286,20 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
               />
             </div>
 
-            {/* Texto dos parágrafos abaixo do vídeo */}
-            <div className="case-screen__content">
-              <p className="case-screen__body">O manifesto do Insólito traduz o propósito, a essência e a personalidade da marca, reforçando que o hotel vai além de hospedagem: é um lugar de <strong>descoberta, arte e conexão com a brasilidade</strong>. Cada detalhe — da curadoria artística à experiência sensorial — reflete o compromisso do hotel em criar <strong>experiências únicas</strong>.</p>
-              <p className="case-screen__body">Ao final, o manifesto convida o hóspede a vivenciar essa experiência de forma ativa.</p>
-              <p className="case-screen__body">Esse convite conecta diretamente ao conceito central da marca, <strong>"Descubra Arte em sua Natureza"</strong>, que guia todas as experiências, comunicações e ativações do hotel, orientando o hóspede a explorar a brasilidade, a arte e a criatividade de cada espaço de forma integrada e inspiradora.</p>
-              <p className="case-screen__body">O <strong>conceito central</strong>, <strong>"Descubra Arte em sua Natureza"</strong>, sintetiza a proposta do Insólito de maneira clara e inspiradora. Ele une dois pilares fundamentais da marca:</p>
+            {/* Texto dos parágrafos abaixo do vídeo em duas colunas */}
+            <div className="case-grid case-grid--equal" style={{ marginBottom: '1.5rem' }}>
+              <div className="case-grid__left">
+                <div className="case-screen__content">
+                  <p className="case-screen__body">O manifesto do Insólito traduz o propósito, a essência e a personalidade da marca, reforçando que o hotel vai além de hospedagem: é um lugar de <strong>descoberta, arte e conexão com a brasilidade</strong>. Cada detalhe — da curadoria artística à experiência sensorial — reflete o compromisso do hotel em criar <strong>experiências únicas</strong>.</p>
+                  <p className="case-screen__body">Ao final, o manifesto convida o hóspede a vivenciar essa experiência de forma ativa.</p>
+                </div>
+              </div>
+              <div className="case-grid__right">
+                <div className="case-screen__content">
+                  <p className="case-screen__body">Esse convite conecta diretamente ao conceito central da marca, <strong>"Descubra Arte em sua Natureza"</strong>, que guia todas as experiências, comunicações e ativações do hotel, orientando o hóspede a explorar a brasilidade, a arte e a criatividade de cada espaço de forma integrada e inspiradora.</p>
+                  <p className="case-screen__body">O <strong>conceito central</strong>, <strong>"Descubra Arte em sua Natureza"</strong>, sintetiza a proposta do Insólito de maneira clara e inspiradora. Ele une dois pilares fundamentais da marca:</p>
+                </div>
+              </div>
             </div>
 
             {/* Cards Arte e Natureza */}
