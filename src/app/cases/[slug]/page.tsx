@@ -46,7 +46,7 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
             <div className="case-hero__content">
               <div className="case-hero__content-inner">
                 {item.logo && (
-                  <Image src={item.logo} alt={`${item.title} logo`} width={320} height={140} className="case-hero__brand-logo" priority />
+                  <Image src={item.logo} alt={`${item.title} logo`} width={640} height={280} className="case-hero__brand-logo" priority />
                 )}
                 <h1 className="case-hero__title">DA ARTE DA ESSÊNCIA À EXPERIÊNCIA DA HOSPITALIDADE</h1>
               </div>

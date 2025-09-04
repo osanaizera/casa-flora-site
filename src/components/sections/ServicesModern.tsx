@@ -167,19 +167,23 @@ export default function ServicesModern() {
               </div>
             ) : (
               <div className="services-modern__slide-wrap">
-                {/* Etiqueta horizontal deslizante (entra da direita) */}
+                {/* Etiqueta horizontal deslizante (apenas fundo/overlay) */}
                 <div className="services-modern__slide-tag services-modern__slide-tag--seiva is-active">
                   <div className="services-modern__slide-bg hero__card-bg--seiva" />
                   <div className="services-modern__slide-overlay" />
+                </div>
+                {/* Conteúdo alinhado ao container, respeitando respiros */}
+                <div className="services-modern__slide-inner">
                   <div className="services-modern__slide-content">
                     <div className="services-modern__slide-header">
                       <div className="case-eyebrow">03 Acompanhamento e Gestão de Marca</div>
                       <h3 className="h3">ACOMPANHAMENTO SEIVA</h3>
+                      <p className="services-modern__lead"><strong>É estratégia contínua e personalizada para crescimento.</strong></p>
+                      <p className="services-modern__lead">
+                        A <strong>Seiva</strong> é nosso método proprietário de gestão de marca viva, estruturado em ciclos contínuos. Um processo que nutre a essência, organiza a estratégia, fortalece a expressão e garante evolução constante — equilibrando branding, performance e presença no mercado.
+                      </p>
                     </div>
                     <div className="services-modern__slide-body">
-                      <p><strong>É estratégia contínua e personalizada para crescimento.</strong></p>
-                      <p>A <strong>Seiva</strong> é nosso método proprietário de gestão de marca viva, estruturado em ciclos contínuos. Um processo que nutre a essência, organiza a estratégia, fortalece a expressão e garante evolução constante — equilibrando branding, performance e presença no mercado.</p>
-
                       <h4 className="services-modern__slide-eyebrow">✽ Os quatro E’s do Método Seiva:</h4>
                       <div className="services-modern__list-grid">
                         <div className="services-modern__list-item"><strong><span className="services-modern__initial-e">E</span>ssência</strong> – definições de marca que garantam que cada ação reflita a identidade e objetivos da marca.</div>
@@ -187,8 +191,7 @@ export default function ServicesModern() {
                         <div className="services-modern__list-item"><strong><span className="services-modern__initial-e">E</span>xpressão</strong> – desenvolvimento de storytelling, acompanhamento do design, canais, materiais físicos e digitais, campanhas e experiências sensoriais aplicadas.</div>
                         <div className="services-modern__list-item"><strong><span className="services-modern__initial-e">E</span>volução</strong> – análise de performance, KPIs e inteligência de marca para crescer com consciência.</div>
                       </div>
-
-                      <div className="services-modern__cta-note">👉 <strong>O que resolve:</strong> dá direção e consistência para marcas em movimento, com acompanhamento contínuo garantindo que cada decisão impulsione resultados.</div>
+                      <div className="services-modern__resolve"><strong>O que resolve:</strong> dá direção e consistência para marcas em movimento, com acompanhamento contínuo garantindo que cada decisão impulsione resultados.</div>
                     </div>
                   </div>
                 </div>
