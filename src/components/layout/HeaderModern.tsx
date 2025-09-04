@@ -39,7 +39,7 @@ export default function HeaderModern() {
     >
       <Link href="/" className="nav__logo">
         <Image
-          src="/images/casa-flora-logo.png"
+          src="/images/iconeheader.png"
           alt="Casa Flora"
           width={120}
           height={40}

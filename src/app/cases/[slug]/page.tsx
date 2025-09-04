@@ -360,7 +360,7 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
                 <div className="case-screen__content">
                   <div className="case-frame case-frame--compact case-elevate" style={{ marginBottom: '1.5rem' }}>
                     <Image 
-                      src="/images/cases/insolito/Captura de Tela 2025-08-13 às 09.50.20.png" 
+                      src="/images/cases/insolito/rebranding1.png" 
                       alt="Redesign do logo do Insólito" 
                       width={800}
                       height={600}
@@ -370,7 +370,7 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
                   
                   <div className="case-frame case-frame--compact case-elevate" style={{ marginBottom: '2rem' }}>
                     <Image 
-                      src="/images/cases/insolito/Captura de Tela 2025-08-13 às 09.50.30.png" 
+                      src="/images/cases/insolito/rebranding2.png" 
                       alt="Aplicação da nova identidade visual" 
                       width={800}
                       height={600}

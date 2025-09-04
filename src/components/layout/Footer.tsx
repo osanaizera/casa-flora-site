@@ -13,7 +13,7 @@ export default function Footer() {
             <div className="flex items-center space-x-3 mb-8">
               <div className="relative w-12 h-12 organic-border">
                 <Image
-                  src="/casa-flora-logo.png"
+                  src="/images/iconefooter.png"
                   alt="Casa Flora"
                   width={48}
                   height={48}

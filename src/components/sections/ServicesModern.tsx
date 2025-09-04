@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { motion } from 'framer-motion';
 
 export default function ServicesModern() {
   const [activeTab, setActiveTab] = useState('branding');
@@ -63,11 +62,18 @@ export default function ServicesModern() {
                 <span className="services-modern__tab-title">Projetos de Branding</span>
               </button>
               <button 
+                className={`services-modern__tab ${activeTab === 'ativacao' ? 'active' : ''}`}
+                onClick={() => setActiveTab('ativacao')}
+              >
+                <span className="services-modern__tab-label">02</span>
+                <span className="services-modern__tab-title">Projetos de Ativação</span>
+              </button>
+              <button 
                 className={`services-modern__tab ${activeTab === 'extensions' ? 'active' : ''}`}
                 onClick={() => setActiveTab('extensions')}
               >
-                <span className="services-modern__tab-label">02</span>
-                <span className="services-modern__tab-title">Extensões & Projetos Complementares</span>
+                <span className="services-modern__tab-label">03</span>
+                <span className="services-modern__tab-title">Acompanhamento e Gestão de Marca</span>
               </button>
             </div>
           </div>
@@ -101,244 +107,162 @@ export default function ServicesModern() {
                   </div>
                 ))}
               </div>
+            ) : activeTab === 'ativacao' ? (
+              // Ativação Âmbar - Header Card + Two Column Layout
+              <div className="services-modern__ativacao-layout">
+                {/* Glass Card Header */}
+                <div className="services-modern__glass-card services-modern__glass-card--header">
+                  <div className="services-modern__glass-bg services-modern__glass-bg--ambar"></div>
+                  <div className="services-modern__glass-content services-modern__glass-content--header">
+                    <div className="services-modern__glass-header">
+                      <span className="services-modern__glass-number">02</span>
+                      <div className="services-modern__glass-badge">Estrutura da identidade</div>
+                      <h3 className="services-modern__glass-title">Ativação Âmbar</h3>
+                      <p className="services-modern__glass-subtitle">Acendimento da presença</p>
+                    </div>
+                    
+                    <div className="services-modern__glass-footer">
+                      <div className="services-modern__glass-arrow">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                          <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Content in Two Columns */}
+                <div className="services-modern__content-layout">
+                  <div className="services-modern__content-column">
+                    <div className="services-modern__text-content">
+                      <p>A <strong>Ativação Âmbar</strong> é o ponto de partida para marcas que desejam alinhar essência, organizar presença e comunicar com clareza.</p>
+                      <p>Mais que um projeto, é um <strong>ritual estratégico de ativação de branding</strong> — intenso, profundo e direcionado.</p>
+                      <p>Assim como o âmbar, que cristaliza e protege ao longo do tempo, esse processo dá forma, densidade e luz à identidade da marca.</p>
+                      <p>Desenvolvemos o <strong>Ritual Âmbar</strong> — nossa metodologia exclusiva — aplicada em ciclos de <strong>3, 6 ou 12 meses</strong>.</p>
+                    </div>
+                  </div>
+                  
+                  <div className="services-modern__content-column">
+                    <div className="services-modern__phases-section">
+                      <h4 className="services-modern__phases-title">✽ Os três tempos do Ritual Âmbar</h4>
+                      <div className="services-modern__phases-list">
+                        <div className="services-modern__phase-item">
+                          <div className="services-modern__phase-header">
+                            <span className="services-modern__phase-number">01</span>
+                            <h5 className="services-modern__phase-title">Imersão</h5>
+                          </div>
+                          <p className="services-modern__phase-description">
+                            Mergulho profundo na essência, história e diferenciais da marca. 
+                            Análise de público, mercado, concorrência e oportunidades.
+                          </p>
+                        </div>
+                        <div className="services-modern__phase-item">
+                          <div className="services-modern__phase-header">
+                            <span className="services-modern__phase-number">02</span>
+                            <h5 className="services-modern__phase-title">Organização</h5>
+                          </div>
+                          <p className="services-modern__phase-description">
+                            Construção da base estratégica: posicionamento, tom de voz, 
+                            identidade visual, storytelling e plano editorial.
+                          </p>
+                        </div>
+                        <div className="services-modern__phase-item">
+                          <div className="services-modern__phase-header">
+                            <span className="services-modern__phase-number">03</span>
+                            <h5 className="services-modern__phase-title">Ativação</h5>
+                          </div>
+                          <p className="services-modern__phase-description">
+                            Aplicação prática e consistente da marca: campanhas, plano de 
+                            comunicação, conteúdos, materiais e diretrizes vivas.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             ) : (
-              // Grid Elegante com Cards Refinados
-              <div className="services-modern__extensions-showcase">
-                {/* Card 1 - Plano de Ativação */}
-                <motion.div 
-                  className="services-modern__extension-card"
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ 
-                    duration: 0.6, 
-                    delay: 0.1,
-                    ease: "easeOut"
-                  }}
-                  whileHover={{ 
-                    y: -8,
-                    transition: { duration: 0.3, ease: "easeOut" }
-                  }}
-                >
-                  <motion.div 
-                    className="services-modern__extension-content"
-                    initial={{ y: 20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.5, delay: 0.3 }}
-                  >
-                    <div className="services-modern__extension-header">
-                      <div className="services-modern__extension-icon">
+              // Acompanhamento Seiva - Header Card + Two Column Layout
+              <div className="services-modern__ativacao-layout">
+                {/* Glass Card Header */}
+                <div className="services-modern__glass-card services-modern__glass-card--header">
+                  <div className="services-modern__glass-bg services-modern__glass-bg--seiva"></div>
+                  <div className="services-modern__glass-content services-modern__glass-content--header">
+                    <div className="services-modern__glass-header">
+                      <span className="services-modern__glass-number">03</span>
+                      <div className="services-modern__glass-badge">Proteção da essência</div>
+                      <h3 className="services-modern__glass-title">Acompanhamento Seiva</h3>
+                      <p className="services-modern__glass-subtitle">Clareza no crescimento</p>
+                    </div>
+                    
+                    <div className="services-modern__glass-footer">
+                      <div className="services-modern__glass-arrow">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                          <path d="M6 18L9 15L12 18L15 12L18 15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                          <path d="M15 12L18 9L21 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                          <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                         </svg>
                       </div>
-                      <div className="services-modern__extension-tag services-modern__extension-tag--action">Ação</div>
                     </div>
-                    <div className="services-modern__extension-main">
-                      <span className="services-modern__extension-number">01</span>
-                      <h4 className="services-modern__extension-title">Plano de Ativação na Prática</h4>
-                      <p className="services-modern__extension-description">Transformamos sua estratégia em ações concretas com acompanhamento dedicado para garantir resultados.</p>
-                    </div>
-                  </motion.div>
-                </motion.div>
+                  </div>
+                </div>
 
-                {/* Card 2 - Colméia */}
-                <motion.div 
-                  className="services-modern__extension-card"
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ 
-                    duration: 0.6, 
-                    delay: 0.2,
-                    ease: "easeOut"
-                  }}
-                  whileHover={{ 
-                    y: -8,
-                    transition: { duration: 0.3, ease: "easeOut" }
-                  }}
-                >
-                  <motion.div 
-                    className="services-modern__extension-content"
-                    initial={{ y: 20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.5, delay: 0.4 }}
-                  >
-                    <div className="services-modern__extension-header">
-                      <div className="services-modern__extension-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                          <path d="M12 3L18 6V18L12 21L6 18V6L12 3Z" stroke="currentColor" strokeWidth="2" fill="none"/>
-                          <path d="M12 9L15 10.5V13.5L12 15L9 13.5V10.5L12 9Z" stroke="currentColor" strokeWidth="2" fill="none"/>
-                        </svg>
+                {/* Content in Two Columns */}
+                <div className="services-modern__content-layout">
+                  <div className="services-modern__content-column">
+                    <div className="services-modern__text-content">
+                      <p><strong>É estratégia contínua e personalizada</strong>. A Seiva acompanha a marca já viva — ajudando a crescer com coerência, inteligência e ritmo.</p>
+                      <blockquote className="services-modern__seiva-quote">
+                        <p>A seiva é o fluido vital que percorre todo o organismo.<br/>
+                        Conecta raízes, caule, folhas e flores. Nutre de dentro para fora.</p>
+                      </blockquote>
+                      <p>Para nós, a Seiva é o <strong>branding vivo</strong>: o sistema que conecta essência, estratégia, expressão e evolução.</p>
+                      <p>Criamos o <strong>Método Seiva</strong> — nossa metodologia proprietária de gestão de marca viva, aplicada exclusivamente no <strong>Acompanhamento Seiva</strong>.</p>
+                    </div>
+                  </div>
+                  
+                  <div className="services-modern__content-column">
+                    <div className="services-modern__phases-section">
+                      <h4 className="services-modern__phases-title">✽ Os quatro pilares do Método Seiva</h4>
+                      <div className="services-modern__pillars-list">
+                        <div className="services-modern__pillar-item">
+                          <div className="services-modern__pillar-header">
+                            <span className="services-modern__pillar-number">01</span>
+                            <h5 className="services-modern__pillar-title">Essência</h5>
+                          </div>
+                          <p className="services-modern__pillar-description">
+                            Identidade viva e autêntica. Propósito, valores, diferenciais, arquétipo e tom de voz.
+                          </p>
+                        </div>
+                        <div className="services-modern__pillar-item">
+                          <div className="services-modern__pillar-header">
+                            <span className="services-modern__pillar-number">02</span>
+                            <h5 className="services-modern__pillar-title">Estratégia</h5>
+                          </div>
+                          <p className="services-modern__pillar-description">
+                            Direção clara e viável. Posicionamento, objetivos, público, metas e planos de ação.
+                          </p>
+                        </div>
+                        <div className="services-modern__pillar-item">
+                          <div className="services-modern__pillar-header">
+                            <span className="services-modern__pillar-number">03</span>
+                            <h5 className="services-modern__pillar-title">Expressão</h5>
+                          </div>
+                          <p className="services-modern__pillar-description">
+                            Presença visual e narrativa sensível. Design, storytelling, campanhas, canais e comportamento.
+                          </p>
+                        </div>
+                        <div className="services-modern__pillar-item">
+                          <div className="services-modern__pillar-header">
+                            <span className="services-modern__pillar-number">04</span>
+                            <h5 className="services-modern__pillar-title">Evolução</h5>
+                          </div>
+                          <p className="services-modern__pillar-description">
+                            Crescimento contínuo com consciência. KPIs, reputação, inteligência de marca e performance.
+                          </p>
+                        </div>
                       </div>
-                      <div className="services-modern__extension-tag services-modern__extension-tag--action">Ação</div>
                     </div>
-                    <div className="services-modern__extension-main">
-                      <span className="services-modern__extension-number">02</span>
-                      <h4 className="services-modern__extension-title">Colméia — Cultura Organizacional</h4>
-                      <p className="services-modern__extension-description">Workshops imersivos e materiais para transformar seu time em embaixadores da marca.</p>
-                    </div>
-                  </motion.div>
-                </motion.div>
-
-                {/* Card 3 - Pólen */}
-                <motion.div 
-                  className="services-modern__extension-card"
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ 
-                    duration: 0.6, 
-                    delay: 0.3,
-                    ease: "easeOut"
-                  }}
-                  whileHover={{ 
-                    y: -8,
-                    transition: { duration: 0.3, ease: "easeOut" }
-                  }}
-                >
-                  <motion.div 
-                    className="services-modern__extension-content"
-                    initial={{ y: 20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.5, delay: 0.5 }}
-                  >
-                    <div className="services-modern__extension-header">
-                      <div className="services-modern__extension-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                          <path d="M12 4.5L15 7.5L12 10.5L9 7.5L12 4.5Z" stroke="currentColor" strokeWidth="2" fill="none"/>
-                          <path d="M12 13.5L15 16.5L12 19.5L9 16.5L12 13.5Z" stroke="currentColor" strokeWidth="2" fill="none"/>
-                          <path d="M4.5 12L7.5 9L10.5 12L7.5 15L4.5 12Z" stroke="currentColor" strokeWidth="2" fill="none"/>
-                          <path d="M13.5 12L16.5 9L19.5 12L16.5 15L13.5 12Z" stroke="currentColor" strokeWidth="2" fill="none"/>
-                          <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
-                        </svg>
-                      </div>
-                      <div className="services-modern__extension-tag services-modern__extension-tag--action">Ação</div>
-                    </div>
-                    <div className="services-modern__extension-main">
-                      <span className="services-modern__extension-number">03</span>
-                      <h4 className="services-modern__extension-title">Pólen — Jornada de Encantamento</h4>
-                      <p className="services-modern__extension-description">Mapeamento da experiência do cliente em todos os pontos de contato para máximo impacto.</p>
-                    </div>
-                  </motion.div>
-                </motion.div>
-
-                {/* Card 4 - Branding & Performance */}
-                <motion.div 
-                  className="services-modern__extension-card"
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ 
-                    duration: 0.6, 
-                    delay: 0.4,
-                    ease: "easeOut"
-                  }}
-                  whileHover={{ 
-                    y: -8,
-                    transition: { duration: 0.3, ease: "easeOut" }
-                  }}
-                >
-                  <motion.div 
-                    className="services-modern__extension-content"
-                    initial={{ y: 20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.5, delay: 0.6 }}
-                  >
-                    <div className="services-modern__extension-header">
-                      <div className="services-modern__extension-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                          <path d="M4.5 18L7.5 12L10.5 15L13.5 9L16.5 13.5L19.5 10.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-                          <circle cx="7.5" cy="12" r="1.5" fill="currentColor"/>
-                          <circle cx="10.5" cy="15" r="1.5" fill="currentColor"/>
-                          <circle cx="13.5" cy="9" r="1.5" fill="currentColor"/>
-                          <circle cx="16.5" cy="13.5" r="1.5" fill="currentColor"/>
-                        </svg>
-                      </div>
-                      <div className="services-modern__extension-tag services-modern__extension-tag--follow">Acompanhamento</div>
-                    </div>
-                    <div className="services-modern__extension-main">
-                      <span className="services-modern__extension-number">04</span>
-                      <h4 className="services-modern__extension-title">Branding & Performance</h4>
-                      <p className="services-modern__extension-description">Acompanhamento estratégico contínuo com análise de performance e otimização da marca.</p>
-                    </div>
-                  </motion.div>
-                </motion.div>
-
-                {/* Card 5 - Arquitetura */}
-                <motion.div 
-                  className="services-modern__extension-card"
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ 
-                    duration: 0.6, 
-                    delay: 0.5,
-                    ease: "easeOut"
-                  }}
-                  whileHover={{ 
-                    y: -8,
-                    transition: { duration: 0.3, ease: "easeOut" }
-                  }}
-                >
-                  <motion.div 
-                    className="services-modern__extension-content"
-                    initial={{ y: 20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.5, delay: 0.7 }}
-                  >
-                    <div className="services-modern__extension-header">
-                      <div className="services-modern__extension-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                          <path d="M4.5 19.5H19.5V9L12 4.5L4.5 9V19.5Z" stroke="currentColor" strokeWidth="2" fill="none"/>
-                          <path d="M9 19.5V13.5H15V19.5" stroke="currentColor" strokeWidth="2" fill="none"/>
-                          <path d="M10.5 16.5H13.5" stroke="currentColor" strokeWidth="2"/>
-                        </svg>
-                      </div>
-                      <div className="services-modern__extension-tag services-modern__extension-tag--structure">Arquitetura</div>
-                    </div>
-                    <div className="services-modern__extension-main">
-                      <span className="services-modern__extension-number">05</span>
-                      <h4 className="services-modern__extension-title">Arquitetura de Marca</h4>
-                      <p className="services-modern__extension-description">Estruturação estratégica de marcas e sub-marcas com hierarquia clara e coerência total.</p>
-                    </div>
-                  </motion.div>
-                </motion.div>
-
-                {/* Card 6 - Naming */}
-                <motion.div 
-                  className="services-modern__extension-card"
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ 
-                    duration: 0.6, 
-                    delay: 0.6,
-                    ease: "easeOut"
-                  }}
-                  whileHover={{ 
-                    y: -8,
-                    transition: { duration: 0.3, ease: "easeOut" }
-                  }}
-                >
-                  <motion.div 
-                    className="services-modern__extension-content"
-                    initial={{ y: 20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.5, delay: 0.8 }}
-                  >
-                    <div className="services-modern__extension-header">
-                      <div className="services-modern__extension-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                          <path d="M6 4.5H18V9H6V4.5Z" stroke="currentColor" strokeWidth="2" fill="none"/>
-                          <path d="M4.5 10.5H19.5V15H4.5V10.5Z" stroke="currentColor" strokeWidth="2" fill="none"/>
-                          <path d="M7.5 16.5H16.5V21H7.5V16.5Z" stroke="currentColor" strokeWidth="2" fill="none"/>
-                        </svg>
-                      </div>
-                      <div className="services-modern__extension-tag services-modern__extension-tag--structure">Arquitetura</div>
-                    </div>
-                    <div className="services-modern__extension-main">
-                      <span className="services-modern__extension-number">06</span>
-                      <h4 className="services-modern__extension-title">Naming — Criação de Nome</h4>
-                      <p className="services-modern__extension-description">Processo criativo e estratégico para desenvolver nomes únicos, memoráveis e disponíveis.</p>
-                    </div>
-                  </motion.div>
-                </motion.div>
+                  </div>
+                </div>
               </div>
             )}
           </div>

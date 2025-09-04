@@ -39,7 +39,7 @@ export default function Header() {
           <Link href="/" className="group flex items-center">
             <div className="relative w-auto h-10">
               <Image
-                src="/casa-flora-logo.png"
+                src="/images/iconeheader.png"
                 alt="Casa Flora - Experiências & Hospitalidade"
                 width={160}
                 height={40}

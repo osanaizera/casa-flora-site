@@ -458,6 +458,14 @@ body {
 .manifesto-card__title { font-family: var(--font-display); font-size: 1.05rem; }
 .manifesto-card__text { color: var(--color-gray-700); line-height: 1.75; margin-top: 6px; }
 
+/* Redesign da identidade visual – placas de bullets */
+.redesign-plates { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(12px, 2vw, 18px); list-style: none; padding: 0; margin-top: 12px; }
+@media (max-width: 860px) { .redesign-plates { grid-template-columns: 1fr; } }
+.redesign-plates li { display: flex; align-items: flex-start; gap: 12px; background: #ffffff; border: 1px solid #E5E7EB; border-radius: 12px; padding: clamp(12px, 2vw, 16px); box-shadow: 0 10px 28px rgba(0,0,0,0.06); }
+.redesign-plates__icon { width: 28px; height: 28px; border-radius: 8px; display: inline-flex; align-items: center; justify-content: center; background: rgba(17,24,39,0.06); border: 1px solid rgba(17,24,39,0.12); color: #111827; flex: 0 0 auto; }
+.redesign-plates__icon svg { width: 16px; height: 16px; }
+.redesign-plates__text { color: var(--color-ink); line-height: 1.7; }
+
 /* Fundo da sessão Manifesto em rosa chapado */
 .case-screen.manifesto-section { background: url('/images/cases/insolito/manifesto%20bg.png') center/cover no-repeat !important; }
 .manifesto-section .case-screen__body { color: #fff; }
@@ -1780,6 +1788,44 @@ body {
   background-blend-mode: overlay, soft-light, normal;
 }
 
+.services-modern__glass-bg--ambar {
+  background: 
+    linear-gradient(135deg, 
+      rgba(180, 83, 9, 0.85) 0%, 
+      rgba(217, 119, 6, 0.75) 30%,
+      rgba(245, 158, 11, 0.65) 70%,
+      rgba(251, 191, 36, 0.55) 100%
+    ),
+    linear-gradient(45deg,
+      rgba(0, 0, 0, 0.35) 0%,
+      transparent 50%,
+      rgba(255, 255, 255, 0.1) 100%
+    ),
+    url('/images/ambar.jpg');
+  background-size: cover, cover, cover;
+  background-position: center, center, center;
+  background-blend-mode: overlay, soft-light, normal;
+}
+
+.services-modern__glass-bg--seiva {
+  background: 
+    linear-gradient(135deg, 
+      rgba(5, 46, 22, 0.8) 0%, 
+      rgba(6, 78, 59, 0.7) 30%,
+      rgba(6, 95, 70, 0.6) 70%,
+      rgba(16, 185, 129, 0.5) 100%
+    ),
+    linear-gradient(45deg,
+      rgba(0, 0, 0, 0.3) 0%,
+      transparent 50%,
+      rgba(255, 255, 255, 0.08) 100%
+    ),
+    url('/images/seiva.jpg');
+  background-size: cover, cover, cover;
+  background-position: center, center, center;
+  background-blend-mode: overlay, soft-light, normal;
+}
+
 /* Fundo para card de citação do Insólito */
 .services-modern__glass-bg--insolito-quote {
   background:
@@ -1887,6 +1933,210 @@ body {
 
 .services-modern__glass-card:hover .services-modern__glass-bg {
   transform: scale(1.05);
+}
+
+/* Ativação Layout */
+.services-modern__ativacao-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: center;
+}
+
+.services-modern__glass-card--header {
+  max-width: 600px;
+  width: 100%;
+  height: 280px;
+}
+
+.services-modern__glass-content--header {
+  padding: 32px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Content Layout - Two Columns */
+.services-modern__content-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.services-modern__content-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.services-modern__text-content {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-gray-700);
+}
+
+.services-modern__text-content p {
+  margin-bottom: 16px;
+}
+
+.services-modern__text-content strong {
+  color: var(--color-ink);
+  font-weight: 600;
+}
+
+/* Seiva Quote outside card */
+.services-modern__seiva-quote {
+  background: rgba(6, 95, 70, 0.08);
+  border-left: 3px solid rgba(6, 95, 70, 0.3);
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin: 20px 0;
+  font-style: italic;
+}
+
+/* Phases Section */
+.services-modern__phases-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.services-modern__phases-title {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--color-ink);
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+/* Phases List - Vertical Layout */
+.services-modern__phases-list,
+.services-modern__pillars-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.services-modern__phase-item,
+.services-modern__pillar-item {
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.services-modern__phase-item:hover,
+.services-modern__pillar-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  border-color: #CBD5E1;
+}
+
+.services-modern__phase-header,
+.services-modern__pillar-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.services-modern__phase-number,
+.services-modern__pillar-number {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #6B7280;
+  background: #F3F4F6;
+  border-radius: 6px;
+  padding: 4px 8px;
+  letter-spacing: 0.1em;
+  min-width: 28px;
+  text-align: center;
+}
+
+.services-modern__phase-title,
+.services-modern__pillar-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-ink);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.services-modern__phase-description,
+.services-modern__pillar-description {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--color-gray-700);
+  margin: 0;
+}
+
+/* Quote specific styling update */
+.services-modern__seiva-quote p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-gray-700);
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .services-modern__content-layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  
+  .services-modern__glass-card--header {
+    max-width: 500px;
+    height: 250px;
+  }
+  
+  .services-modern__glass-content--header {
+    padding: 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-modern__ativacao-layout {
+    gap: 24px;
+  }
+  
+  .services-modern__content-layout {
+    gap: 24px;
+  }
+  
+  .services-modern__glass-card--header {
+    max-width: 100%;
+    height: 220px;
+  }
+  
+  .services-modern__glass-content--header {
+    padding: 24px;
+  }
+  
+  .services-modern__text-content {
+    font-size: 0.95rem;
+  }
+  
+  .services-modern__phases-title {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+  }
+  
+  .services-modern__phase-item,
+  .services-modern__pillar-item {
+    padding: 16px;
+  }
+  
+  .services-modern__phases-list,
+  .services-modern__pillars-list {
+    gap: 16px;
+  }
 }
 
 /* Minimal Line Icons - Remove colorful backgrounds */
