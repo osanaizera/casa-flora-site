@@ -458,6 +458,10 @@ body {
 .manifesto-card__title { font-family: var(--font-display); font-size: 1.05rem; }
 .manifesto-card__text { color: var(--color-gray-700); line-height: 1.75; margin-top: 6px; }
 
+/* Fundo da sessão Manifesto em rosa chapado */
+.manifesto-section { background: #cc1751; }
+.manifesto-section .case-screen__body { color: #fff; }
+
 .hero__card-arrow {
   width: 32px;
   height: 32px;

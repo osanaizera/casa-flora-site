@@ -267,7 +267,7 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
         </section>
 
         {/* Manifesto e Conceito da Marca */}
-        <section id="manifesto" className="case-screen case-screen--spacious case-screen--compact">
+        <section id="manifesto" className="case-screen case-screen--spacious case-screen--compact manifesto-section">
           <div className="case-screen__container">
             {/* Título centralizado */}
             <div className="case-screen__content" style={{ textAlign: 'center', marginBottom: '2rem' }}>
@@ -292,42 +292,42 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
                 <div className="case-screen__content">
                   <p className="case-screen__body">O manifesto do Insólito traduz o propósito, a essência e a personalidade da marca, reforçando que o hotel vai além de hospedagem: é um lugar de <strong>descoberta, arte e conexão com a brasilidade</strong>. Cada detalhe — da curadoria artística à experiência sensorial — reflete o compromisso do hotel em criar <strong>experiências únicas</strong>.</p>
                   <p className="case-screen__body">Ao final, o manifesto convida o hóspede a vivenciar essa experiência de forma ativa.</p>
+                  {/* Cards Arte e Natureza na coluna esquerda */}
+                  <div className="manifesto-cards" style={{ marginTop: '1rem' }}>
+                    <div className="manifesto-card">
+                      <div className="manifesto-card__header">
+                        <span className="manifesto-card__icon">
+                          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 4h6l3 6h6l-3 6H6l-3-6Z" stroke="currentColor" strokeWidth="1.6"/>
+                          </svg>
+                        </span>
+                        <div className="manifesto-card__title">Arte</div>
+                      </div>
+                      <div className="manifesto-card__text">Cada espaço, cada quarto e cada experiência são cuidadosamente curados para revelar a criatividade e a cultura brasileiras.</div>
+                    </div>
+                    <div className="manifesto-card">
+                      <div className="manifesto-card__header">
+                        <span className="manifesto-card__icon">
+                          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 12c4-6 10-6 14 0-4 6-10 6-14 0Z" stroke="currentColor" strokeWidth="1.6"/>
+                            <path d="M12 7v10" stroke="currentColor" strokeWidth="1.6"/>
+                          </svg>
+                        </span>
+                        <div className="manifesto-card__title">Natureza</div>
+                      </div>
+                      <div className="manifesto-card__text">A brasilidade e a conexão com o ambiente natural são evidentes no design, na identidade visual e nas experiências oferecidas.</div>
+                    </div>
+                  </div>
                 </div>
               </div>
               <div className="case-grid__right">
                 <div className="case-screen__content">
-                  <p className="case-screen__body">Esse convite conecta diretamente ao conceito central da marca, <strong>"Descubra Arte em sua Natureza"</strong>, que guia todas as experiências, comunicações e ativações do hotel, orientando o hóspede a explorar a brasilidade, a arte e a criatividade de cada espaço de forma integrada e inspiradora.</p>
                   <p className="case-screen__body">O <strong>conceito central</strong>, <strong>"Descubra Arte em sua Natureza"</strong>, sintetiza a proposta do Insólito de maneira clara e inspiradora. Ele une dois pilares fundamentais da marca:</p>
                 </div>
               </div>
             </div>
 
-            {/* Cards Arte e Natureza */}
-            <div className="manifesto-cards">
-              <div className="manifesto-card">
-                <div className="manifesto-card__header">
-                  <span className="manifesto-card__icon">
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M3 4h6l3 6h6l-3 6H6l-3-6Z" stroke="currentColor" strokeWidth="1.6"/>
-                    </svg>
-                  </span>
-                  <div className="manifesto-card__title">Arte</div>
-                </div>
-                <div className="manifesto-card__text">Cada espaço, cada quarto e cada experiência são cuidadosamente curados para revelar a criatividade e a cultura brasileiras.</div>
-              </div>
-              <div className="manifesto-card">
-                <div className="manifesto-card__header">
-                  <span className="manifesto-card__icon">
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M5 12c4-6 10-6 14 0-4 6-10 6-14 0Z" stroke="currentColor" strokeWidth="1.6"/>
-                      <path d="M12 7v10" stroke="currentColor" strokeWidth="1.6"/>
-                    </svg>
-                  </span>
-                  <div className="manifesto-card__title">Natureza</div>
-                </div>
-                <div className="manifesto-card__text">A brasilidade e a conexão com o ambiente natural são evidentes no design, na identidade visual e nas experiências oferecidas.</div>
-              </div>
-            </div>
+            {/* (Cards movidos para a coluna esquerda acima) */}
           </div>
         </section>
 
