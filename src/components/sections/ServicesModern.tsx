@@ -182,10 +182,10 @@ export default function ServicesModern() {
 
                       <h4 className="services-modern__slide-eyebrow">✽ Os quatro E’s do Método Seiva:</h4>
                       <div className="services-modern__list-grid">
-                        <div className="services-modern__list-item"><strong>Essência</strong> – definições de marca que garantam que cada ação reflita a identidade e objetivos da marca.</div>
-                        <div className="services-modern__list-item"><strong>Estratégia</strong> – planejamento de campanhas e influenciadores, lançamentos, novos produtos ou serviços, marketing digital, ações OOH, ações de publicidade etc..</div>
-                        <div className="services-modern__list-item"><strong>Expressão</strong> – desenvolvimento de storytelling, acompanhamento do design, canais, materiais físicos e digitais, campanhas e experiências sensoriais aplicadas.</div>
-                        <div className="services-modern__list-item"><strong>Evolução</strong> – análise de performance, KPIs e inteligência de marca para crescer com consciência.</div>
+                        <div className="services-modern__list-item"><strong><span className="services-modern__initial-e">E</span>ssência</strong> – definições de marca que garantam que cada ação reflita a identidade e objetivos da marca.</div>
+                        <div className="services-modern__list-item"><strong><span className="services-modern__initial-e">E</span>stratégia</strong> – planejamento de campanhas e influenciadores, lançamentos, novos produtos ou serviços, marketing digital, ações OOH, ações de publicidade etc..</div>
+                        <div className="services-modern__list-item"><strong><span className="services-modern__initial-e">E</span>xpressão</strong> – desenvolvimento de storytelling, acompanhamento do design, canais, materiais físicos e digitais, campanhas e experiências sensoriais aplicadas.</div>
+                        <div className="services-modern__list-item"><strong><span className="services-modern__initial-e">E</span>volução</strong> – análise de performance, KPIs e inteligência de marca para crescer com consciência.</div>
                       </div>
 
                       <div className="services-modern__cta-note">👉 <strong>O que resolve:</strong> dá direção e consistência para marcas em movimento, com acompanhamento contínuo garantindo que cada decisão impulsione resultados.</div>
