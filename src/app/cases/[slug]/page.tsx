@@ -3,7 +3,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { getCaseBySlug, cases } from '@/data/cases';
 import { notFound } from 'next/navigation';
-import Carousel from '@/components/magazine/Carousel';
 import ActiveSectionNav from '@/components/ui/ActiveSectionNav';
 
 type RouteParams = { slug: string };
@@ -296,7 +295,7 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
               </div>
               <div className="case-grid__right">
                 <div className="case-screen__content">
-                  <p className="case-screen__body">O <strong>conceito central</strong>, <strong>"Descubra Arte em sua Natureza"</strong>, sintetiza a proposta do Insólito de maneira clara e inspiradora. Ele une dois pilares fundamentais da marca:</p>
+                  <p className="case-screen__body">O <strong>conceito central</strong>, <strong>&quot;Descubra Arte em sua Natureza&quot;</strong>, sintetiza a proposta do Insólito de maneira clara e inspiradora. Ele une dois pilares fundamentais da marca:</p>
                   {/* Cards Arte e Natureza na coluna direita */}
                   <div className="manifesto-cards" style={{ marginTop: '1rem' }}>
                     <div className="manifesto-card">
