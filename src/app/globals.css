@@ -444,8 +444,10 @@ body {
   gap: clamp(16px, 2.5vw, 28px); 
   align-items: start;
 }
-.services-modern__hero-narrow { display: block; width: 100%; max-width: 280px; }
+.services-modern__hero-narrow { display: block; width: 100%; max-width: 280px; height: clamp(420px, 56vh, 520px); }
 .services-modern__text-content { max-width: 72ch; }
+/* Texto mais compacto para caber sem rolagem */
+.services-modern__text-compact p { margin: 6px 0; }
 @media (max-width: 860px) {
   .services-modern__split { grid-template-columns: 1fr; }
   .services-modern__hero-narrow { max-width: none; height: 420px; }
@@ -471,7 +473,7 @@ body {
 .services-modern__pillar-header { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
 .services-modern__pillar-number { font-size: 0.75rem; border: 1px solid rgba(17,24,39,0.18); padding: 2px 8px; border-radius: 999px; }
 .services-modern__pillar-title { font-family: var(--font-display); font-size: 1.05rem; }
-.services-modern__pillar-description { color: var(--color-gray-700); line-height: 1.6; }
+.services-modern__pillar-description { color: var(--color-gray-700); line-height: 1.6; margin: 2px 0; }
 /* Eyebrow (label) acima de subtítulos de sessão */
 .case-eyebrow { 
   font-size: 0.8rem; 

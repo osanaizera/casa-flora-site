@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import Image from "next/image";
 
 export default function ServicesModern() {
   const [activeTab, setActiveTab] = useState<"branding" | "ativacao" | "extensions">("branding");
@@ -180,53 +179,32 @@ export default function ServicesModern() {
                   </div>
                 </a>
 
-                {/* Conteúdo ao lado */}
+                {/* Conteúdo ao lado (resumo compacto) */}
                 <div id="servicos-seiva">
-                  <div className="services-modern__text-content" style={{ marginBottom: "1.25rem" }}>
-                    <div className="case-eyebrow">ACOMPANHAMENTO SEIVA</div>
-                    <h3 className="h3" style={{ marginBottom: 8 }}>Proteção da essência. Clareza no crescimento.</h3>
-                    <p className="body-large" style={{ marginBottom: 12 }}>
-                      É <strong>estratégia contínua e personalizada</strong>. A Seiva acompanha a marca já viva — ajudando a crescer com coerência, inteligência e ritmo.
-                    </p>
-                    <blockquote className="services-modern__blockquote">
-                      <p>A seiva é o fluido vital que percorre todo o organismo.</p>
-                      <p>Conecta raízes, caule, folhas e flores.</p>
-                      <p>Nutre de dentro para fora.</p>
-                    </blockquote>
-                    <p>
-                      Para nós, a Seiva é o <strong>branding vivo</strong>: o sistema que conecta essência, estratégia, expressão e evolução.
-                    </p>
-                    <p>
-                      Na Casa Flora, acreditamos que marcas são organismos em movimento — e, como todo organismo, precisam de fluxo constante de nutrição, direção e expressão para prosperar.
-                    </p>
-                    <p>
-                      É por isso que criamos o <strong>Método Seiva</strong> — nossa metodologia proprietária de gestão de marca viva, aplicada exclusivamente no <strong>Acompanhamento Seiva</strong>.
-                    </p>
-                    <p>
-                      Mais do que manutenção, é um espaço de <strong>direção, inteligência e presença contínua</strong>: um olhar estratégico e criativo que protege a essência da marca enquanto promove seu crescimento.
-                    </p>
-                    <p>
-                      Além do planejamento e da execução, o Acompanhamento Seiva contempla <strong>análise de branding e performance</strong>, cruzando resultados e indicadores (KPIs) para guiar a evolução da marca com consciência e consistência.
-                    </p>
+                  <div className="services-modern__text-content services-modern__text-compact" style={{ marginBottom: "1rem" }}>
+                    <div className="case-eyebrow">03 Acompanhamento e Gestão de Marca</div>
+                    <h3 className="h3" style={{ marginBottom: 6 }}>ACOMPANHAMENTO SEIVA</h3>
+                    <p><strong>É estratégia contínua e personalizada.</strong></p>
+                    <p>A Seiva acompanha a marca já viva — ajudando a crescer com coerência, inteligência e ritmo.</p>
+                    <p><strong>Método Seiva</strong> é o <strong>branding vivo</strong> — nossa metodologia proprietária de gestão de marca viva, aplicada exclusivamente no <strong>Acompanhamento Seiva</strong>.</p>
+                    <p>Um espaço de <strong>direção, planejamento e presença contínua</strong>, com <strong>análise de branding e performance</strong>, cruzando resultados e indicadores (KPIs) para guiar a evolução da marca com consciência e consistência.</p>
                   </div>
 
-                  <div className="services-modern__pillars">
-                    <h4 className="services-modern__phases-title" style={{ marginBottom: 10 }}>OS QUATRO PILARES DO MÉTODO SEIVA</h4>
+                  <div className="services-modern__pillars services-modern__text-compact">
+                    <h4 className="services-modern__phases-title" style={{ marginBottom: 8 }}>✽ OS QUATRO E’s DO MÉTODO SEIVA</h4>
                     <div className="services-modern__pillars-grid">
                       <div className="services-modern__pillar-item">
                         <div className="services-modern__pillar-header">
                           <span className="services-modern__pillar-number">01</span>
                           <h5 className="services-modern__pillar-title">Essência</h5>
                         </div>
-                        <p className="services-modern__pillar-description">Identidade viva e autêntica.</p>
-                        <p className="services-modern__pillar-description">Propósito, valores, diferenciais, arquétipo e tom de voz.</p>
+                        <p className="services-modern__pillar-description">Objetivos, propósito, valores, diferenciais, arquétipo e tom de voz.</p>
                       </div>
                       <div className="services-modern__pillar-item">
                         <div className="services-modern__pillar-header">
                           <span className="services-modern__pillar-number">02</span>
                           <h5 className="services-modern__pillar-title">Estratégia</h5>
                         </div>
-                        <p className="services-modern__pillar-description">Direção clara e viável.</p>
                         <p className="services-modern__pillar-description">Posicionamento, objetivos, público, metas e planos de ação.</p>
                       </div>
                       <div className="services-modern__pillar-item">
@@ -234,7 +212,6 @@ export default function ServicesModern() {
                           <span className="services-modern__pillar-number">03</span>
                           <h5 className="services-modern__pillar-title">Expressão</h5>
                         </div>
-                        <p className="services-modern__pillar-description">Presença visual e narrativa sensível.</p>
                         <p className="services-modern__pillar-description">Design, storytelling, campanhas, canais e comportamento.</p>
                       </div>
                       <div className="services-modern__pillar-item">
@@ -242,8 +219,7 @@ export default function ServicesModern() {
                           <span className="services-modern__pillar-number">04</span>
                           <h5 className="services-modern__pillar-title">Evolução</h5>
                         </div>
-                        <p className="services-modern__pillar-description">Crescimento contínuo com consciência.</p>
-                        <p className="services-modern__pillar-description">KPIs, reputação, inteligência de marca e performance.</p>
+                        <p className="services-modern__pillar-description">Crescimento contínuo com consciência. KPIs, reputação, inteligência de marca e performance.</p>
                       </div>
                     </div>
                   </div>
