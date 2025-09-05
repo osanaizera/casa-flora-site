@@ -179,7 +179,7 @@ export default function CasesShowcase() {
                       const variant = lower.includes('garden') ? 'garden' : lower.includes('raiz') ? 'raiz' : lower.includes('ambar') ? 'ambar' : lower.includes('seiva') ? 'seiva' : 'muted';
                       const cls = `case-badge case-badge--${variant}`;
                       if ((lower.includes('garden') || lower.includes('raiz')) && isAvailable) {
-                        return <Link href="/cases" key={i} className={cls}>{p}</Link>;
+                        return <Link href="/#cases" key={i} className={cls}>{p}</Link>;
                       }
                       return <span key={i} className={cls}>{p}</span>;
                     })}

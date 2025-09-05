@@ -81,7 +81,7 @@ export default function ServicesModern() {
             {activeTab === "branding" ? (
               <div className="services-modern__branding-grid">
                 {brandingServices.map((service) => (
-                  <Link key={service.id} href="/cases" className="services-modern__glass-card" aria-label={`Ver cases do pacote ${service.title}`}>
+                  <Link key={service.id} href="/#cases" className="services-modern__glass-card" aria-label={`Ver cases do pacote ${service.title}`}>
                     <div className={`services-modern__glass-bg services-modern__glass-bg--${service.color}`}></div>
                     <div className="services-modern__glass-content">
                       <div className="services-modern__glass-header">

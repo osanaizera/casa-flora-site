@@ -94,7 +94,7 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
                       // Garden/Raiz clicam para página de cases
                       if (isGarden || isRaiz) {
                         return (
-                          <Link key={idx} href="/cases" className={className} aria-label={`Ver cases do pacote ${label}`}>
+                          <Link key={idx} href="/#cases" className={className} aria-label={`Ver cases do pacote ${label}`}>
                             {label}
                           </Link>
                         );
