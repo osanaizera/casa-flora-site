@@ -408,31 +408,53 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
                   <h3 className="case-screen__subtitle" style={{ marginBottom: '0.5rem' }}>Paleta de cores</h3>
                   <p className="case-screen__body">A <strong>paleta de cores</strong> foi atualizada, tornando-se mais <strong>sóbria e elegante</strong>, mantendo referências à brasilidade e à arte, equilibrando sofisticação e autenticidade.</p>
 
-                  {/* Visualização compacta da evolução da paleta (antes → depois) */}
-                  <div className="color-ribbon-comparison">
-                    <div className="color-ribbon-section">
-                      <div className="color-ribbon-label">Primeira paleta de cores</div>
-                      <div className="color-ribbon-tag">(antiga)</div>
-                      <div className="color-ribbon">
-                        <div className="color-ribbon__stripe" style={{ background: '#d53974' }} title="#d53974" />
-                        <div className="color-ribbon__stripe" style={{ background: '#a8cf4b' }} title="#a8cf4b" />
-                        <div className="color-ribbon__stripe" style={{ background: '#f6ad21' }} title="#f6ad21" />
-                        <div className="color-ribbon__stripe" style={{ background: '#28889c' }} title="#28889c" />
+                  {/* Paleta como cartões (antes → depois) */}
+                  <div className="palette-cards-comparison">
+                    <div className="palette-cards-section">
+                      <div className="palette-section-title">
+                        <span className="case-eyebrow">Antiga</span>
+                        <h4 className="h4">Primeira paleta de cores</h4>
+                      </div>
+                      <div className="palette-cards-grid">
+                        <div className="palette-card" style={{ backgroundColor: '#d53974', color: '#ffffff' }}>
+                          <div className="palette-card__text">Rosa <span className="palette-card__hex">#d53974</span></div>
+                        </div>
+                        <div className="palette-card" style={{ backgroundColor: '#a8cf4b', color: '#111111' }}>
+                          <div className="palette-card__text">Verde-limão <span className="palette-card__hex">#a8cf4b</span></div>
+                        </div>
+                        <div className="palette-card" style={{ backgroundColor: '#f6ad21', color: '#111111' }}>
+                          <div className="palette-card__text">Amarelo/laranja <span className="palette-card__hex">#f6ad21</span></div>
+                        </div>
+                        <div className="palette-card" style={{ backgroundColor: '#28889c', color: '#ffffff' }}>
+                          <div className="palette-card__text">Azul-petróleo <span className="palette-card__hex">#28889c</span></div>
+                        </div>
                       </div>
                     </div>
-                    <div className="color-ribbon-arrow" aria-hidden>
+
+                    <div className="palette-arrow" aria-hidden>
                       <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
                         <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                       </svg>
                     </div>
-                    <div className="color-ribbon-section">
-                      <div className="color-ribbon-label">Paleta de cores transformada</div>
-                      <div className="color-ribbon-tag color-ribbon-tag--new">(nova)</div>
-                      <div className="color-ribbon">
-                        <div className="color-ribbon__stripe" style={{ background: '#d53874' }} title="#d53874" />
-                        <div className="color-ribbon__stripe" style={{ background: '#08878b' }} title="#08878b" />
-                        <div className="color-ribbon__stripe" style={{ background: '#cdac7f' }} title="#cdac7f" />
-                        <div className="color-ribbon__stripe" style={{ background: '#2a4360' }} title="#2a4360" />
+
+                    <div className="palette-cards-section">
+                      <div className="palette-section-title">
+                        <span className="case-eyebrow">Nova</span>
+                        <h4 className="h4">Paleta de cores transformada</h4>
+                      </div>
+                      <div className="palette-cards-grid">
+                        <div className="palette-card" style={{ backgroundColor: '#d53874', color: '#ffffff' }}>
+                          <div className="palette-card__text">Rosa <span className="palette-card__hex">#d53874</span></div>
+                        </div>
+                        <div className="palette-card" style={{ backgroundColor: '#08878b', color: '#ffffff' }}>
+                          <div className="palette-card__text">Verde azulado <span className="palette-card__hex">#08878b</span></div>
+                        </div>
+                        <div className="palette-card" style={{ backgroundColor: '#cdac7f', color: '#111111' }}>
+                          <div className="palette-card__text">Bege/amarronzado <span className="palette-card__hex">#cdac7f</span></div>
+                        </div>
+                        <div className="palette-card" style={{ backgroundColor: '#2a4360', color: '#ffffff' }}>
+                          <div className="palette-card__text">Azul escuro <span className="palette-card__hex">#2a4360</span></div>
+                        </div>
                       </div>
                     </div>
                   </div>

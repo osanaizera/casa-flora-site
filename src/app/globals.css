@@ -3369,6 +3369,48 @@ body {
   flex-shrink: 0;
 }
 
+/* Palette cards comparison (case palette before/after) */
+.palette-cards-comparison {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: start;
+  gap: clamp(16px, 3vw, 28px);
+  margin: 18px 0 22px;
+}
+@media (max-width: 860px) {
+  .palette-cards-comparison { grid-template-columns: 1fr; }
+  .palette-arrow { display: none; }
+}
+.palette-cards-section { display: grid; gap: 12px; justify-items: center; }
+.palette-section-title { text-align: center; }
+.palette-cards-grid { 
+  display: grid; 
+  grid-template-columns: repeat(2, minmax(0,1fr)); 
+  gap: clamp(10px, 2vw, 14px); 
+  width: 100%;
+}
+.palette-card {
+  position: relative;
+  height: clamp(96px, 12vw, 128px);
+  border-radius: 14px;
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.08);
+  display: grid; place-items: center;
+}
+.palette-card__text { 
+  text-align: center; 
+  font-family: var(--font-display); 
+  font-weight: 600; 
+  letter-spacing: 0.01em; 
+}
+.palette-card__hex { 
+  display: block; 
+  font-family: var(--font-body); 
+  font-weight: 500; 
+  opacity: 0.9; 
+  margin-top: 2px; 
+}
+
 /* Compact frame for smaller image cards */
 .case-frame--compact {
   aspect-ratio: 16/9;
