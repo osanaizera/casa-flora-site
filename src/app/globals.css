@@ -604,9 +604,11 @@ body {
 .services-modern__footer-center { display: flex; justify-content: center; margin-top: 10px; }
 .services-modern__cta-btn {
   display: inline-flex; align-items: center; gap: 10px;
-  padding: 12px 18px; border-radius: 999px; border: 1px solid transparent;
-  background: #ffffff; color: var(--color-ink); text-decoration: none; font-size: 0.95rem; font-weight: 600;
-  box-shadow: 0 8px 22px rgba(0,0,0,0.18); cursor: pointer; transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  padding: 12px 20px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.45);
+  background: rgba(255,255,255,0.14);
+  color: #fff; text-decoration: none; font-size: 0.95rem; font-weight: 700;
+  box-shadow: 0 10px 26px rgba(0,0,0,0.25); cursor: pointer; transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, filter 0.2s ease;
+  backdrop-filter: blur(6px);
 }
 
 /* CTA button in left column */
@@ -633,7 +635,34 @@ body {
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(0,0,0,0.2);
 }
-.services-modern__cta-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(0,0,0,0.22); background: #f7f7f7; }
+.services-modern__cta-btn::after {
+  content: '→';
+  display: inline-block;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  opacity: 0.9;
+}
+.services-modern__cta-btn:hover { transform: translateY(-2px); box-shadow: 0 14px 34px rgba(0,0,0,0.28); filter: brightness(1.05); }
+.services-modern__cta-btn:hover::after { transform: translateX(4px); opacity: 1; }
+
+/* Variantes visuais por slide para reforçar que é um botão */
+.services-modern__slide-tag--ambar .services-modern__cta-btn {
+  background: linear-gradient(135deg, rgba(245,158,11,0.96), rgba(217,119,6,0.96));
+  border-color: rgba(255,255,255,0.55);
+  color: #111;
+  text-shadow: none;
+}
+.services-modern__slide-tag--ambar .services-modern__cta-btn:hover {
+  filter: saturate(1.05) brightness(1.02);
+}
+
+.services-modern__slide-tag--seiva .services-modern__cta-btn {
+  background: linear-gradient(135deg, rgba(34,197,94,0.96), rgba(21,83,45,0.96));
+  border-color: rgba(255,255,255,0.55);
+  color: #fff;
+}
+.services-modern__slide-tag--seiva .services-modern__cta-btn:hover {
+  filter: saturate(1.06) brightness(1.04);
+}
 
 /* Destaque visual para os "E" dos quatro E's */
 .services-modern__initial-e {
