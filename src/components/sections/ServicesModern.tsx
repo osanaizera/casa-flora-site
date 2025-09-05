@@ -112,7 +112,7 @@ export default function ServicesModern() {
                       {/* Cabeçalho e introdução (largura total) */}
                       <div className="services-modern__head">
                         <div className="case-eyebrow">02 Projetos de Ativação</div>
-                        <h3 className="h3 services-modern__title">ATIVAÇÃO ÂMBAR</h3>
+                        <h3 className="h3 services-modern__title">Ativação Âmbar</h3>
                         <div className="services-modern__subtitle">Estrutura e acendimento da presença.</div>
                         <p className="services-modern__paragraph">
                           A <strong>Âmbar</strong> é nossa ativação estratégica de branding. Um processo focado em alinhar essência,
@@ -160,7 +160,7 @@ export default function ServicesModern() {
                       {/* Cabeçalho e introdução (largura total) */}
                       <div className="services-modern__head">
                         <div className="case-eyebrow">03 Acompanhamento e Gestão de Marca</div>
-                        <h3 className="h3 services-modern__title">ACOMPANHAMENTO SEIVA</h3>
+                        <h3 className="h3 services-modern__title">Acompanhamento Seiva</h3>
                         <div className="services-modern__subtitle">É estratégia contínua e personalizada para crescimento.</div>
                         <p className="services-modern__paragraph">
                           A <strong>Seiva</strong> é nosso método proprietário de gestão de marca viva, estruturado em ciclos contínuos. Um processo que nutre a essência, organiza a estratégia, fortalece a expressão e garante evolução constante — equilibrando branding, performance e presença no mercado.

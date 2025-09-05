@@ -570,7 +570,9 @@ body {
 .services-modern__slide-tag .services-modern__title { white-space: normal; word-break: break-word; overflow-wrap: anywhere; }
 /* Bigger titles for slides on larger screens */
 .services-modern__slide-tag .h3 { font-size: clamp(1.6rem, 3vw, 2.4rem); }
-.services-modern__subtitle { font-size: 1.1rem; font-weight: 600; line-height: 1.25; opacity: 0.95; margin: 2px 0 12px; }
+/* Replicar respiros dos glass cards: título 16px, subtítulo 32px */
+.services-modern__title { margin: 0 0 16px; }
+.services-modern__subtitle { font-size: 1.1rem; font-weight: 600; line-height: 1.25; opacity: 0.95; margin: 0 0 32px; }
 .services-modern__paragraph { font-size: 0.95rem; line-height: 1.5; max-width: none; color: rgba(255,255,255,0.9); }
 .services-modern__head { max-width: none; width: 100%; }
 .services-modern__slide-tag .services-modern__title {
