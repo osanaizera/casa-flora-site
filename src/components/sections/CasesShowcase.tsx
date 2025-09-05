@@ -11,7 +11,19 @@ export default function CasesShowcase() {
   const carouselRef = useRef<HTMLDivElement | null>(null);
   const dragRef = useRef<{ down: boolean; startX: number; startScroll: number }>({ down: false, startX: 0, startScroll: 0 });
 
-  const cases = [
+  type CaseCard = {
+    id: string;
+    title: string;
+    location: string;
+    service: string;
+    category: string;
+    year: string;
+    image: string;
+    description: string;
+    pack?: string[];
+  };
+
+  const cases: CaseCard[] = [
     // Insólito primeiro para centralizar no início
     {
       id: 'insolito',
@@ -160,7 +172,7 @@ export default function CasesShowcase() {
                   </div>
                   {/* Chips compactos sempre visíveis: usa pack se houver; senão, usa o service */}
                   <div className="case-badges case-badges--compact" aria-label="Pacote de serviços">
-                    {((caseItem as any).pack ?? [caseItem.service]).map((p: string, i: number) => {
+                    {(caseItem.pack ?? [caseItem.service]).map((p, i) => {
                       const lower = p.normalize('NFD').replace(/\p{Diacritic}/gu, '').toLowerCase();
                       const variant = lower.includes('garden') ? 'garden' : lower.includes('raiz') ? 'raiz' : lower.includes('ambar') ? 'ambar' : lower.includes('seiva') ? 'seiva' : 'muted';
                       const cls = `case-badge case-badge--${variant}`;
