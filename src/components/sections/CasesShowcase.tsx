@@ -96,7 +96,7 @@ export default function CasesShowcase() {
       service: 'Raiz',
       category: 'Identidade',
       year: '2024',
-      image: '/images/garden.jpg',
+      image: '/images/CASAPOEMACAPA.png',
       description: 'Uma identidade visual que traduz a simplicidade acolhedora da experiência de estar em casa.'
     },
     {
@@ -106,7 +106,7 @@ export default function CasesShowcase() {
       service: 'Raiz',
       category: 'Identidade',
       year: '2025',
-      image: '/images/experiencia.jpg',
+      image: '/images/VEDANCAPA.jpg',
       description: 'Exclusividade, sofisticação e a experiência como essência: a identidade viva do Vedan Advocacia.'
     },
     {
@@ -116,7 +116,7 @@ export default function CasesShowcase() {
       service: 'Raiz',
       category: 'Identidade',
       year: '2025',
-      image: '/images/hospitalidade.jpg',
+      image: '/images/BEGOCAPA.png',
       description: 'Redesign que simplifica para valorizar: Begô agora traduz o essencialismo e o feito à mão em uma identidade minimalista e atemporal.'
     },
     {
@@ -126,7 +126,7 @@ export default function CasesShowcase() {
       service: 'Raiz',
       category: 'Identidade',
       year: '2024',
-      image: '/images/experiencia.jpg',
+      image: '/images/INFLUACAPA.png',
       description: 'Rebranding que conecta essência, confiança e excelência em todos os detalhes.'
     },
     {
@@ -136,7 +136,7 @@ export default function CasesShowcase() {
       service: 'Raiz',
       category: 'Identidade',
       year: '2025',
-      image: '/images/garden.jpg',
+      image: '/images/TOMAZZETTICAPA.png',
       description: 'Transformando a marca para expressar maturidade, excelência e autoridade.'
     }
   ];
