@@ -1089,8 +1089,9 @@ body {
   .hero {
     grid-template-columns: 1fr;
     text-align: center;
-    padding: 0 var(--space-md);
-    margin-top: 40px;
+    /* Add inner top padding to clear fixed header */
+    padding: 140px var(--space-md) 0;
+    margin-top: 0;
     margin-bottom: 80px;
   }
 
@@ -1190,21 +1191,21 @@ body {
 .case-modern__tile--tall { aspect-ratio: 3/4; }
 
 @media (max-width: 768px) {
-  .hero__title {
-    font-size: clamp(2.5rem, 10vw, 4rem);
-  }
+  /* Push entire page content below fixed header on very small widths */
+  body { padding-top: 160px; }
+  .main > main { padding-top: 0 !important; }
 
-  .services {
-    padding: var(--space-xl) var(--space-md);
-  }
+  .hero__title { font-size: clamp(2.5rem, 10vw, 4rem); }
+
+  .services { padding: var(--space-xl) var(--space-md); }
   
   .hero {
-    padding: var(--space-sm);
+    /* Keep only small internal padding; body handles header offset */
+    padding: 24px var(--space-md) 0;
+    margin-top: 0;
   }
   
-  .nav {
-    padding: var(--space-sm) var(--space-md);
-  }
+  .nav { padding: var(--space-sm) var(--space-md); }
 }
 
 /* Animations */
@@ -1233,6 +1234,11 @@ body {
 /* Remove scroll snap temporariamente */
 .main {
   overflow-y: auto;
+}
+
+/* Ensure global offset below fixed header on small screens */
+@media (max-width: 768px) {
+  .main > main { padding-top: 140px; }
 }
 
 /* Case Hero Overlay (editorial) */
