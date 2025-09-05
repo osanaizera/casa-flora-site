@@ -57,10 +57,21 @@ export default function ActiveSectionNav({ sections }: ActiveSectionNavProps) {
       {sections.map(({ href, label }) => {
         const isAnchor = href.startsWith('#');
         const cls = isAnchor ? (activeSection === href.substring(1) ? 'active' : '') : 'case-menu__home';
+        if (!isAnchor && label.toLowerCase() === 'home') {
+          return (
+            <a key={href} href={href} className={cls} aria-label="Voltar para a Home">
+              <span className="home-icon" aria-hidden>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M3 9.5L12 3l9 6.5"/>
+                  <path d="M19 10v9a1 1 0 0 1-1 1h-4v-6h-4v6H6a1 1 0 0 1-1-1v-9"/>
+                </svg>
+              </span>
+              <span>Home</span>
+            </a>
+          );
+        }
         return (
-          <a key={href} href={href} className={cls}>
-            {label}
-          </a>
+          <a key={href} href={href} className={cls}>{label}</a>
         );
       })}
     </nav>

@@ -1630,12 +1630,22 @@ body {
 
 /* Home button in case menu (distinct background) */
 .case-menu a.case-menu__home {
-  background: var(--color-ink);
-  color: var(--color-paper);
-  border-color: var(--color-ink);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,255,255,0.18);
+  color: #fff;
+  border-color: rgba(255,255,255,0.35);
+  backdrop-filter: blur(8px);
+  text-shadow: 0 2px 8px rgba(0,0,0,0.25);
 }
 .case-menu a.case-menu__home:hover {
-  filter: brightness(1.05);
+  background: rgba(255,255,255,0.26);
+  border-color: rgba(255,255,255,0.45);
+}
+
+.case-menu a.case-menu__home .home-icon svg {
+  width: 14px; height: 14px; display: inline-block;
 }
 
 @media (max-width: 860px) { .case-menu { display: none; } }
