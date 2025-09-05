@@ -111,7 +111,7 @@ export default function ServicesModern() {
                     <div className="services-modern__slide-content services-modern__slide-content--stack">
                       {/* Cabeçalho e introdução (largura total) */}
                       <div className="services-modern__head">
-                        <div className="services-modern__glass-badge">02 Projetos de Ativação</div>
+                        <div className="services-modern__glass-badge">Projetos de Ativação</div>
                         <h3 className="h3 services-modern__title">Ativação Âmbar</h3>
                         <div className="services-modern__subtitle">Estrutura e acendimento da presença.</div>
                         <p className="services-modern__paragraph">
@@ -159,7 +159,7 @@ export default function ServicesModern() {
                     <div className="services-modern__slide-content services-modern__slide-content--stack">
                       {/* Cabeçalho e introdução (largura total) */}
                       <div className="services-modern__head">
-                        <div className="services-modern__glass-badge">03 Acompanhamento e Gestão de Marca</div>
+                        <div className="services-modern__glass-badge">Acompanhamento e Gestão de Marca</div>
                         <h3 className="h3 services-modern__title">Acompanhamento Seiva</h3>
                         <div className="services-modern__subtitle">É estratégia contínua e personalizada para crescimento.</div>
                         <p className="services-modern__paragraph">
