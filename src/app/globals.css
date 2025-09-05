@@ -570,9 +570,20 @@ body {
 .services-modern__slide-tag .services-modern__title { white-space: normal; word-break: break-word; overflow-wrap: anywhere; }
 /* Bigger titles for slides on larger screens */
 .services-modern__slide-tag .h3 { font-size: clamp(1.6rem, 3vw, 2.4rem); }
-.services-modern__subtitle { font-size: 0.92rem; opacity: 0.95; margin: 2px 0 6px; }
-.services-modern__paragraph { font-size: 0.92rem; line-height: 1.5; max-width: none; }
+.services-modern__subtitle { font-size: 1.1rem; font-weight: 600; line-height: 1.25; opacity: 0.95; margin: 2px 0 12px; }
+.services-modern__paragraph { font-size: 0.95rem; line-height: 1.5; max-width: none; color: rgba(255,255,255,0.9); }
 .services-modern__head { max-width: none; width: 100%; }
+.services-modern__slide-tag .services-modern__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 2.5rem; /* alinhado aos glass cards */
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.4);
+}
+@media (max-width: 768px) {
+  .services-modern__slide-tag .services-modern__title { font-size: clamp(1.6rem, 6.5vw, 2rem); }
+}
 .services-modern__slide-body p { margin: 6px 0; }
 .services-modern__slide-eyebrow { margin-top: 8px; font-size: 0.9rem; font-weight: 600; opacity: 0.95; }
 .services-modern__es-grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: clamp(10px, 2vw, 16px); }
