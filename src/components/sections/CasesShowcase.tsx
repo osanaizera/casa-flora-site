@@ -150,13 +150,12 @@ export default function CasesShowcase() {
             onPointerCancel={() => { dragRef.current.down = false; }}
           >
           {cases.map((caseItem) => {
-            const href =
-              caseItem.id === 'zendaya' ? '/cases/zendaya-resort' :
-              `/cases/${caseItem.id}`;
+            const isAvailable = caseItem.id === 'insolito';
+            const href = isAvailable ? `/cases/${caseItem.id}` : undefined;
             return (
             <motion.div
               key={caseItem.id}
-              className={`cases-showcase__card cases-showcase__card--${caseItem.service.toLowerCase()}`}
+              className={`cases-showcase__card cases-showcase__card--${caseItem.service.toLowerCase()} ${!isAvailable ? 'is-disabled' : ''}`}
               variants={cardVariants}
             >
               {href && (
@@ -170,13 +169,16 @@ export default function CasesShowcase() {
                     <span className="cases-showcase__card-category">{caseItem.category}</span>
                     <span className="cases-showcase__card-year">{caseItem.year}</span>
                   </div>
+                  {!isAvailable && (
+                    <div className="cases-showcase__soon" aria-label="Em breve">Em breve</div>
+                  )}
                   {/* Chips compactos sempre visíveis: usa pack se houver; senão, usa o service */}
                   <div className="case-badges case-badges--compact" aria-label="Pacote de serviços">
                     {(caseItem.pack ?? [caseItem.service]).map((p, i) => {
                       const lower = p.normalize('NFD').replace(/\p{Diacritic}/gu, '').toLowerCase();
                       const variant = lower.includes('garden') ? 'garden' : lower.includes('raiz') ? 'raiz' : lower.includes('ambar') ? 'ambar' : lower.includes('seiva') ? 'seiva' : 'muted';
                       const cls = `case-badge case-badge--${variant}`;
-                      if (lower.includes('garden') || lower.includes('raiz')) {
+                      if ((lower.includes('garden') || lower.includes('raiz')) && isAvailable) {
                         return <Link href="/cases" key={i} className={cls}>{p}</Link>;
                       }
                       return <span key={i} className={cls}>{p}</span>;
@@ -212,7 +214,7 @@ export default function CasesShowcase() {
                       </svg>
                     </Link>
                   ) : (
-                    <button className="cases-showcase__card-cta" disabled>
+                    <button className="cases-showcase__card-cta cases-showcase__card-cta--disabled" disabled aria-disabled="true">
                       <span>Em breve</span>
                     </button>
                   )}
