@@ -536,8 +536,8 @@ body {
 .services-modern__slide-tag.is-active { transform: translateX(0); }
 .services-modern__slide-bg { position: absolute; inset: 0; background-size: cover; background-position: center; }
 .services-modern__slide-overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.25) 48%, rgba(0,0,0,0.12) 100%); }
-.services-modern__slide-inner { position: relative; z-index: 1; width: 100%; height: 100%; padding: clamp(14px, 2.2vw, 22px) clamp(14px, 2.4vw, 24px); pointer-events: auto; }
-.services-modern__slide-content { display: grid; grid-template-columns: 1fr; gap: clamp(12px, 2vw, 22px); color: #fff; height: 100%; align-items: start; pointer-events: auto; }
+.services-modern__slide-inner { position: relative; z-index: 1; width: 100%; height: 100%; padding: clamp(18px, 3vw, 32px) clamp(18px, 3.2vw, 34px); pointer-events: auto; }
+.services-modern__slide-content { display: grid; grid-template-columns: 1fr; gap: clamp(14px, 2.5vw, 26px); color: #fff; height: 100%; align-items: start; pointer-events: auto; }
 .services-modern__slide-content p,
 .services-modern__list-text,
 .services-modern__resolve { text-align: justify; text-justify: inter-word; hyphens: auto; }
@@ -573,8 +573,8 @@ body {
 /* Replicar respiros dos glass cards: título 16px, subtítulo 32px */
 .services-modern__title { margin: 0 0 16px; }
 .services-modern__subtitle { font-size: 1.1rem; font-weight: 600; line-height: 1.25; opacity: 0.95; margin: 0 0 32px; }
-.services-modern__paragraph { font-size: 0.95rem; line-height: 1.5; max-width: none; color: rgba(255,255,255,0.9); }
-.services-modern__head { max-width: none; width: 100%; }
+.services-modern__paragraph { font-size: 0.95rem; line-height: 1.6; max-width: none; color: rgba(255,255,255,0.9); margin-bottom: 12px; }
+.services-modern__head { max-width: none; width: 100%; margin-bottom: 16px; }
 .services-modern__slide-tag .services-modern__title {
   font-family: var(--font-display);
   font-weight: 700;
@@ -586,7 +586,7 @@ body {
 @media (max-width: 768px) {
   .services-modern__slide-tag .services-modern__title { font-size: clamp(1.6rem, 6.5vw, 2rem); }
 }
-.services-modern__slide-body p { margin: 6px 0; }
+.services-modern__slide-body p { margin: 10px 0; }
 .services-modern__slide-eyebrow { margin-top: 8px; font-size: 0.9rem; font-weight: 600; opacity: 0.95; }
 .services-modern__es-grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: clamp(10px, 2vw, 16px); }
 /* Stack in a single column on tablet/mobile instead of 2x2 */
