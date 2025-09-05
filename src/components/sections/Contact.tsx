@@ -18,8 +18,8 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="body-regular text-neutral-300">Email</p>
-                  <a href="mailto:contato@casaflora.com" className="body-large text-white hover:text-earth-400 transition-colors">
-                    contato@casaflora.com
+                  <a href="mailto:contato@casaflora-brand.com.br" className="body-large text-white hover:text-earth-400 transition-colors">
+                    contato@casaflora-brand.com.br
                   </a>
                 </div>
               </div>
@@ -32,8 +32,8 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="body-regular text-neutral-300">Telefone</p>
-                  <a href="tel:+5511999999999" className="body-large text-white hover:text-earth-400 transition-colors">
-                    (11) 99999-9999
+                  <a href="tel:+5521995505403" className="body-large text-white hover:text-earth-400 transition-colors">
+                    (21) 99550-5403
                   </a>
                 </div>
               </div>

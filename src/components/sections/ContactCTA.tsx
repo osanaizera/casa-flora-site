@@ -48,7 +48,7 @@ export default function ContactCTA() {
             
             <div className="contact-cta__actions">
               <a 
-                href="https://wa.me/5521999999999" 
+                href="https://wa.me/5521995505403" 
                 className="contact-cta__btn contact-cta__btn--whatsapp"
                 target="_blank" 
                 rel="noopener noreferrer"
@@ -59,7 +59,7 @@ export default function ContactCTA() {
                 WhatsApp
               </a>
               <a 
-                href="mailto:contato@casaflora.com.br" 
+                href="mailto:contato@casaflora-brand.com.br" 
                 className="contact-cta__btn contact-cta__btn--email"
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">

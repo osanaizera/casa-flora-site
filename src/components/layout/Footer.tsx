@@ -117,20 +117,20 @@ export default function Footer() {
               <div>
                 <div className="caption text-warm-brown mb-2 tracking-wider">EMAIL</div>
                 <a 
-                  href="mailto:contato@casaflora.com" 
+                  href="mailto:contato@casaflora-brand.com.br" 
                   className="text-warm-gray hover:text-warm-brown transition-colors body-regular hover-lift-elegant"
                 >
-                  contato@casaflora.com
+                  contato@casaflora-brand.com.br
                 </a>
               </div>
               
               <div>
                 <div className="caption text-warm-brown mb-2 tracking-wider">TELEFONE</div>
                 <a 
-                  href="tel:+5511999999999" 
+                  href="tel:+5521995505403" 
                   className="text-warm-gray hover:text-warm-brown transition-colors body-regular hover-lift-elegant"
                 >
-                  (11) 99999-9999
+                  (21) 99550-5403
                 </a>
               </div>
 
