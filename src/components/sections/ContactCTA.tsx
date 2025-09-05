@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState } from 'react';
 
 export default function ContactCTA() {
@@ -35,8 +36,8 @@ export default function ContactCTA() {
     <section id="contato-hero" className="contact-cta" aria-labelledby="contact-cta-title">
       <div className="contact-cta__container">
         <div className="contact-cta__layout">
-          <div className="contact-cta__image">
-            <img src="/images/form.jpeg" alt="Casa Flora" />
+          <div className="contact-cta__image" style={{ position: 'relative', minHeight: '220px' }}>
+            <Image src="/images/form.jpeg" alt="Casa Flora" fill priority sizes="(min-width: 1024px) 40vw, 92vw" style={{ objectFit: 'cover' }} />
           </div>
           
           <div className="contact-cta__content">

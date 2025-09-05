@@ -333,112 +333,90 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
         {/* Redesign da identidade visual */}
         <section id="redesign" className="case-screen case-screen--spacious case-screen--compact">
           <div className="case-screen__container">
-            {/* Título e subtítulo centralizados */}
-            <div className="case-screen__content" style={{ textAlign: 'center', marginBottom: '3rem' }}>
+            <div className="case-screen__content" style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
               <div className="case-eyebrow">REDESIGN</div>
               <h2 className="case-screen__title">Redesign da identidade visual</h2>
-              <p className="redesign-lead">Um redesenho que traduz brasilidade, fluidez e autenticidade.</p>
             </div>
-            
-            {/* Layout em duas colunas harmonioso */}
-            <div className="case-grid case-grid--redesign">
+
+            <div className="case-grid case-grid--equal">
               <div className="case-grid__left">
                 <div className="case-screen__content">
-                  <div className="redesign-narrative">
-                    <p>O redesign da identidade visual do Insólito teve como objetivo <strong>resgatar a essência da marca e marcar o novo conceito</strong>, traduzindo em elementos visuais sua brasilidade, criatividade e espírito transformador.</p>
-                  </div>
-                  
-                  <div className="redesign-content-grid">
-                    <div className="redesign-insights">
-                      <div className="redesign-insight-card">
-                        <div className="redesign-insight-icon">
-                          <svg viewBox="0 0 24 24" fill="none">
-                            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" stroke="currentColor" strokeWidth="1.5"/>
-                          </svg>
-                        </div>
-                        <div className="redesign-insight-text">
-                          <strong>Essência brasileira</strong><br/>
-                          Análise profunda da cultura nacional
-                        </div>
-                      </div>
+                  <p className="case-screen__body">O redesign da identidade visual do Insólito teve como objetivo <strong>resgatar a essência da marca e marcar o novo conceito</strong>, traduzindo em elementos visuais sua brasilidade, criatividade e espírito transformador.</p>
+                  <p className="case-screen__body">O <strong>logo foi redesenhado</strong> para transmitir organicidade, fluidez e singularidade:</p>
 
-                      <div className="redesign-insight-card">
-                        <div className="redesign-insight-icon">
-                          <svg viewBox="0 0 24 24" fill="none">
-                            <path d="M21 16V8a2 2 0 0 0-1-1.73L12 2L4 6.27A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73L12 22l8-4.27A2 2 0 0 0 21 16z" stroke="currentColor" strokeWidth="1.5"/>
-                          </svg>
-                        </div>
-                        <div className="redesign-insight-text">
-                          <strong>Formas naturais</strong><br/>
-                          Curvas orgânicas e autênticas
-                        </div>
-                      </div>
+                  {/* Bullets em cards (estilo do case) */}
+                  <ul className="redesign-plates">
+                    <li>
+                      <span className="redesign-plates__icon">
+                        <svg viewBox="0 0 24 24" fill="none"><path d="M12 2l3 6 6 1-4 4 1 6-6-3-6 3 1-6-4-4 6-1 3-6Z" stroke="currentColor" strokeWidth="1.6"/></svg>
+                      </span>
+                      <span className="redesign-plates__text">Análise da <strong>essência da marca e da natureza brasileira;</strong></span>
+                    </li>
+                    <li>
+                      <span className="redesign-plates__icon">
+                        <svg viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h10" stroke="currentColor" strokeWidth="1.6"/></svg>
+                      </span>
+                      <span className="redesign-plates__text">Redefinição de tipografia, cores e logo;</span>
+                    </li>
+                    <li>
+                      <span className="redesign-plates__icon">
+                        <svg viewBox="0 0 24 24" fill="none"><path d="M4 12c4-6 12-6 16 0-4 6-12 6-16 0Z" stroke="currentColor" strokeWidth="1.6"/></svg>
+                      </span>
+                      <span className="redesign-plates__text">Mais <strong>curvas</strong>, mais <strong>orgânico</strong>, <strong>único</strong> e <strong>natural</strong>, refletindo a brasilidade;</span>
+                    </li>
+                    <li>
+                      <span className="redesign-plates__icon">
+                        <svg viewBox="0 0 24 24" fill="none"><path d="M3 12h6l3 3 3-3h6" stroke="currentColor" strokeWidth="1.6"/></svg>
+                      </span>
+                      <span className="redesign-plates__text">Uma forma que dialoga com arte e natureza, reforçando a conexão do hotel com experiências sensoriais e culturais.</span>
+                    </li>
+                  </ul>
 
-                      <div className="redesign-insight-card">
-                        <div className="redesign-insight-icon">
-                          <svg viewBox="0 0 24 24" fill="none">
-                            <path d="M9 11H5a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2z" stroke="currentColor" strokeWidth="1.5"/>
-                            <path d="M21 11h-4a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2z" stroke="currentColor" strokeWidth="1.5"/>
-                          </svg>
-                        </div>
-                        <div className="redesign-insight-text">
-                          <strong>Conexão cultural</strong><br/>
-                          Diálogo entre arte e tradição
-                        </div>
-                      </div>
+                  {/* Imagens lado a lado, proporcionais e menores */}
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginTop: '16px' }}>
+                    <div className="case-frame case-frame--compact case-elevate" style={{ aspectRatio: '4 / 3', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                      <Image src="/images/cases/insolito/rebranding1.png" alt="Redesign do logo do Insólito" width={800} height={600} style={{ maxWidth: '100%', maxHeight: '100%', width: 'auto', height: 'auto' }} />
                     </div>
-
-                    <div className="redesign-image-showcase">
-                      <div className="case-frame case-frame--portrait">
-                        <Image 
-                          src="/images/cases/insolito/rebranding1.png" 
-                          alt="Redesign do logo do Insólito" 
-                          width={300}
-                          height={400}
-                          style={{ width: '100%', height: '100%', objectFit: 'contain' }}
-                        />
-                      </div>
+                    <div className="case-frame case-frame--compact case-elevate" style={{ aspectRatio: '4 / 3', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                      <Image src="/images/cases/insolito/rebranding2.png" alt="Aplicação da nova identidade visual" width={800} height={600} style={{ maxWidth: '100%', maxHeight: '100%', width: 'auto', height: 'auto' }} />
                     </div>
                   </div>
                 </div>
               </div>
-              
+
               <div className="case-grid__right">
                 <div className="case-screen__content">
-                  <div className="redesign-colors-section">
-                    <h3 className="redesign-colors-title">Paleta de cores</h3>
-                    
-                    <div className="color-evolution">
-                      <div className="color-palette-group">
-                        <span className="color-palette-label">Anterior</span>
-                        <div className="color-palette-compact">
-                          <div className="color-swatch" style={{ backgroundColor: '#d53974' }}></div>
-                          <div className="color-swatch" style={{ backgroundColor: '#a8cf4b' }}></div>
-                          <div className="color-swatch" style={{ backgroundColor: '#f6ad21' }}></div>
-                          <div className="color-swatch" style={{ backgroundColor: '#28889c' }}></div>
-                        </div>
+                  <h3 className="case-screen__subtitle" style={{ marginBottom: '0.5rem' }}>Paleta de cores</h3>
+                  <p className="case-screen__body">A <strong>paleta de cores</strong> foi atualizada, tornando-se mais <strong>sóbria e elegante</strong>, mantendo referências à brasilidade e à arte, equilibrando sofisticação e autenticidade.</p>
+                  <div className="color-evolution" style={{ marginTop: '1rem', display: 'grid', gap: '12px' }}>
+                    <div className="color-palette-group">
+                      <span className="color-palette-label">Primeira paleta de cores (antiga)</span>
+                      <div className="color-palette-compact">
+                        <div className="color-swatch" title="#d53974" style={{ backgroundColor: '#d53974' }}></div>
+                        <div className="color-swatch" title="#a8cf4b" style={{ backgroundColor: '#a8cf4b' }}></div>
+                        <div className="color-swatch" title="#f6ad21" style={{ backgroundColor: '#f6ad21' }}></div>
+                        <div className="color-swatch" title="#28889c" style={{ backgroundColor: '#28889c' }}></div>
                       </div>
-
-                      <div className="color-palette-group">
-                        <span className="color-palette-label color-palette-label--highlight">Nova</span>
-                        <div className="color-palette-compact">
-                          <div className="color-swatch" style={{ backgroundColor: '#d53874' }}></div>
-                          <div className="color-swatch" style={{ backgroundColor: '#08878b' }}></div>
-                          <div className="color-swatch" style={{ backgroundColor: '#cdac7f' }}></div>
-                          <div className="color-swatch" style={{ backgroundColor: '#2a4360' }}></div>
-                        </div>
+                      <div className="color-labels" style={{ display:'grid', gridTemplateColumns:'repeat(2,minmax(0,1fr))', gap:'6px', marginTop:'6px', fontSize:'0.9rem' }}>
+                        <div>Rosa: #d53974</div>
+                        <div>Verde-limão: #a8cf4b</div>
+                        <div>Amarelo/laranja: #f6ad21</div>
+                        <div>Azul-petróleo: #28889c</div>
                       </div>
                     </div>
-
-                    <div className="redesign-logo-showcase-small">
-                      <div className="case-frame case-frame--landscape">
-                        <Image 
-                          src="/images/cases/insolito/rebranding2.png" 
-                          alt="Aplicação da nova identidade visual" 
-                          width={400}
-                          height={300}
-                          style={{ width: '100%', height: '100%', objectFit: 'contain' }}
-                        />
+                    <div className="color-palette-group">
+                      <span className="color-palette-label color-palette-label--highlight">Paleta de cores transformada (nova)</span>
+                      <div className="color-palette-compact">
+                        <div className="color-swatch" title="#d53874" style={{ backgroundColor: '#d53874' }}></div>
+                        <div className="color-swatch" title="#08878b" style={{ backgroundColor: '#08878b' }}></div>
+                        <div className="color-swatch" title="#cdac7f" style={{ backgroundColor: '#cdac7f' }}></div>
+                        <div className="color-swatch" title="#2a4360" style={{ backgroundColor: '#2a4360' }}></div>
+                      </div>
+                      <div className="color-labels" style={{ display:'grid', gridTemplateColumns:'repeat(2,minmax(0,1fr))', gap:'6px', marginTop:'6px', fontSize:'0.9rem' }}>
+                        <div>Rosa: #d53874</div>
+                        <div>Verde azulado: #08878b</div>
+                        <div>Bege/amarronzado: #cdac7f</div>
+                        <div>Azul escuro: #2a4360</div>
                       </div>
                     </div>
                   </div>

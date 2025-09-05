@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 
 export default function ServicesModern() {
   const [activeTab, setActiveTab] = useState<"branding" | "ativacao" | "extensions">("branding");
@@ -140,12 +141,9 @@ export default function ServicesModern() {
                         </div>
                       </div>
 
-                      {/* Footer: O que resolve + CTA */}
-                      <div className="services-modern__footer-bar">
-                        <div className="services-modern__resolve"><strong>O que resolve:</strong> acende a presença da marca com base estruturada e direção clara, unindo estratégia e execução.</div>
-                        <div className="services-modern__cta-wrap">
-                          <a href="/#contato-hero" className="services-modern__cta-btn">quero ativar minha marca com a Âmbar</a>
-                        </div>
+                      {/* CTA centralizado */}
+                      <div className="services-modern__footer-center">
+                        <Link href="/#contato-hero" className="services-modern__cta-btn">quero ativar minha marca com a Âmbar</Link>
                       </div>
                     </div>
                   </div>
@@ -189,12 +187,9 @@ export default function ServicesModern() {
                         </div>
                       </div>
 
-                      {/* Footer: O que resolve + CTA à direita */}
-                      <div className="services-modern__footer-bar">
-                        <div className="services-modern__resolve"><strong>O que resolve:</strong> dá direção e consistência para marcas em movimento, com acompanhamento contínuo garantindo que cada decisão impulsione resultados.</div>
-                        <div className="services-modern__cta-wrap">
-                          <a href="/#contato-hero" className="services-modern__cta-btn">preciso de acompanhamento mensal para o meu negócio</a>
-                        </div>
+                      {/* CTA centralizado */}
+                      <div className="services-modern__footer-center">
+                        <Link href="/#contato-hero" className="services-modern__cta-btn">preciso de acompanhamento mensal para o meu negócio</Link>
                       </div>
                     </div>
                   </div>
