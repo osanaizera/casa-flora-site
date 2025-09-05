@@ -87,6 +87,58 @@ export default function CasesShowcase() {
       image: '/images/ZENDAYA CAPA.png',
       description: 'Elegância contemporânea para um resort de destino.'
     }
+    ,
+    // ——— Em breve ———
+    {
+      id: 'casa-poema',
+      title: 'Casa Poema',
+      location: 'PARATY',
+      service: 'Raiz',
+      category: 'Identidade',
+      year: '2024',
+      image: '/images/garden.jpg',
+      description: 'Uma identidade visual que traduz a simplicidade acolhedora da experiência de estar em casa.'
+    },
+    {
+      id: 'vedan-advocacia',
+      title: 'Vedan Advocacia',
+      location: 'PATO BRANCO',
+      service: 'Raiz',
+      category: 'Identidade',
+      year: '2025',
+      image: '/images/experiencia.jpg',
+      description: 'Exclusividade, sofisticação e a experiência como essência: a identidade viva do Vedan Advocacia.'
+    },
+    {
+      id: 'bego',
+      title: 'Begô',
+      location: 'PORTO ALEGRE',
+      service: 'Raiz',
+      category: 'Identidade',
+      year: '2025',
+      image: '/images/hospitalidade.jpg',
+      description: 'Redesign que simplifica para valorizar: Begô agora traduz o essencialismo e o feito à mão em uma identidade minimalista e atemporal.'
+    },
+    {
+      id: 'influa-filmes',
+      title: 'Influa Filmes',
+      location: 'PORTO ALEGRE',
+      service: 'Raiz',
+      category: 'Identidade',
+      year: '2024',
+      image: '/images/experiencia.jpg',
+      description: 'Rebranding que conecta essência, confiança e excelência em todos os detalhes.'
+    },
+    {
+      id: 'tomazzetti-melo',
+      title: 'Tomazzetti e Melo',
+      location: 'SANTA CRUZ DO SUL',
+      service: 'Raiz',
+      category: 'Identidade',
+      year: '2025',
+      image: '/images/garden.jpg',
+      description: 'Transformando a marca para expressar maturidade, excelência e autoridade.'
+    }
   ];
 
   // animations handled per-card only; container variants removed

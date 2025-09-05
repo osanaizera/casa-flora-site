@@ -943,7 +943,7 @@ body {
 .about-clean__intro { grid-column: 1 / -1; text-align: center; }
 @media (max-width: 1024px) { .about-clean__intro { grid-column: 1 / -1; } }
 .about-clean__subtitle { margin-top: 6px; margin-bottom: 10px; }
-.about-clean__intro p { text-align: center; max-width: 88ch; margin-left: auto; margin-right: auto; }
+.about-clean__intro p { text-align: center; max-width: 96ch; margin-left: auto; margin-right: auto; }
 .about-clean__profiles-grid { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(12, minmax(0,1fr)); gap: clamp(16px, 2.5vw, 28px); margin-top: clamp(24px, 5vw, 64px); }
 .about-clean__profile { grid-column: span 6; }
 @media (min-width: 1024px) {
