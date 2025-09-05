@@ -80,10 +80,29 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
                 <div className="case-screen__content">
                   <div className="case-eyebrow">SOBRE</div>
                   <h2 className="case-screen__title">Descubra o Insólito Boutique Hotel &amp; Spa</h2>
-                  <div className="case-screen__badges">
-                    {item.category && (<div className="services-modern__glass-badge">{item.category}</div>)}
-                    {item.service && (<div className="services-modern__glass-badge">{item.service}</div>)}
-                    {item.year && (<div className="services-modern__glass-badge">{item.year}</div>)}
+                  <div className="case-badges">
+                    {item.category && (<span className="case-badge case-badge--muted" aria-label="Categoria">{item.category}</span>)}
+                    {item.year && (<span className="case-badge case-badge--muted" aria-label="Ano">{item.year}</span>)}
+                    {/* Pacote de serviços (ex.: Garden + Ativação Âmbar) */}
+                    {item.servicePack && item.servicePack.split('+').map((p, idx) => {
+                      const label = p.trim();
+                      const lower = label.normalize('NFD').replace(/\p{Diacritic}/gu, '').toLowerCase();
+                      const isGarden = lower.includes('garden');
+                      const isRaiz = lower.includes('raiz');
+                      const variant = isGarden ? 'garden' : isRaiz ? 'raiz' : (lower.includes('ambar') ? 'ambar' : (lower.includes('seiva') ? 'seiva' : 'muted'));
+                      const className = `case-badge case-badge--${variant}`;
+                      // Garden/Raiz clicam para página de cases
+                      if (isGarden || isRaiz) {
+                        return (
+                          <Link key={idx} href="/cases" className={className} aria-label={`Ver cases do pacote ${label}`}>
+                            {label}
+                          </Link>
+                        );
+                      }
+                      return (
+                        <span key={idx} className={className}>{label}</span>
+                      );
+                    })}
                   </div>
                   <div className="case-text-narrow">
                     <p className="case-screen__lead">O Insólito é um hotel boutique e spa visualmente vibrante, com alma e estética profundamente brasileiras. Localizado à beira-mar, na praia da Ferradura, em Búzios (RJ), ele é reconhecido por sua curadoria artística: cada quarto é inspirado em uma obra de arte, transformando o espaço em uma galeria viva que celebra artistas nacionais.</p>
@@ -563,6 +582,232 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
             </div>
           </div>
         </footer>
+      </>
+    );
+  }
+
+  // Template editorial para o Búzios Mar
+  if (slug === 'buzios-mar' && item) {
+    return (
+      <>
+        {/* Hero */}
+        <section className="case-hero-wrap">
+          <div className="case-hero">
+            <div className="case-hero__media">
+              <Image src={item.heroImage} alt={item.title} fill className="object-cover" priority sizes="100vw" />
+            </div>
+            <div className="case-hero__overlay" />
+            <div className="case-hero__content">
+              <div className="case-hero__content-inner">
+                <h1 className="case-hero__title">BÚZIOS MAR HOTEL</h1>
+              </div>
+              <svg className="case-hero__arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+                <path d="M12 5v14M12 19l-6-6M12 19l6-6" stroke="white" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </div>
+          </div>
+        </section>
+
+        <ActiveSectionNav
+          sections={[
+            { href: '#desafio', label: 'Desafio' },
+            { href: '#imersao', label: 'Imersão' },
+            { href: '#estrategia', label: 'Estratégia' },
+            { href: '#posicionamento', label: 'Posicionamento' },
+            { href: '#essencia', label: 'Essência' },
+            { href: '#conceito', label: 'Conceito' },
+            { href: '#implementacao', label: 'Implementação' },
+            { href: '#resultados', label: 'Resultados' },
+          ]}
+        />
+
+        {/* Desafio */}
+        <section id="desafio" className="case-screen case-screen--spacious case-screen--compact">
+          <div className="case-screen__container">
+            <div className="case-screen__content" style={{ textAlign: 'center', marginBottom: '2rem' }}>
+              <div className="case-eyebrow">DESAFIO</div>
+              <h2 className="case-screen__title">Estruturar uma identidade autêntica e competitiva</h2>
+            </div>
+            <div className="case-text-columns">
+              <div className="case-text-column">
+                <p className="case-screen__body">Búzios Mar — localização privilegiada, atmosfera descontraída, equipe jovem e hospitaleira, experiências como o rooftop no pôr do sol e a gastronomia caiçara inspirada nos frutos do mar. O grande desafio estratégico estava em <strong>estruturar uma identidade de marca</strong> que traduzisse essas forças em uma narrativa coesa, desejável e competitiva.</p>
+                <p className="case-screen__body"><strong>Perfil do hóspede:</strong> majoritariamente casais, em busca de conexão, relaxamento e experiências. <strong>Alta rotatividade:</strong> hóspedes retornam algumas vezes por ano, mas em estadias curtas.</p>
+                <p className="case-screen__body"><strong>Experiência marcante no rooftop:</strong> o ritual do drink no pôr do sol pode se tornar assinatura espontânea da marca. <strong>Estilo de atendimento:</strong> equipe jovem e comunicação leve criam um ambiente acolhedor.</p>
+              </div>
+              <div className="case-text-column">
+                <p className="case-screen__body"><strong>Estrutura física:</strong> o grande número de escadas naturalmente restringe o acesso para alguns hóspedes.</p>
+                <p className="case-screen__body"><strong>Gastronomia alinhada ao território:</strong> cardápio de frutos do mar e inspiração caiçara como ponto de diferenciação.</p>
+                <p className="case-screen__body"><strong>Estética e identidade visual:</strong> predominância do azul (mar) e fachada amarela icônica, ainda pouco aproveitada estrategicamente.</p>
+                <p className="case-screen__body">Em síntese, o desafio era <strong>traduzir essas singularidades em um posicionamento claro</strong>, aproveitando tendências de comportamento, turismo e lifestyle, para ser percebido não apenas como um hotel, mas como uma experiência de Búzios.</p>
+              </div>
+            </div>
+            <div className="case-frame case-frame--wide case-elevate case-frame--centered" style={{ marginTop: '18px' }}>
+              <Image src="/images/BUZIOS MAR CAPA.png" alt="Rooftop do Búzios Mar" width={1920} height={820} />
+            </div>
+          </div>
+        </section>
+
+        {/* Imersão */}
+        <section id="imersao" className="case-screen case-screen--spacious case-screen--compact">
+          <div className="case-screen__container">
+            <div className="case-screen__content" style={{ textAlign: 'center', marginBottom: '2rem' }}>
+              <div className="case-eyebrow">IMERSÃO</div>
+              <h2 className="case-screen__title">Leituras de campo e rituais da experiência</h2>
+            </div>
+            <div className="case-text-columns">
+              <div className="case-text-column">
+                <p className="case-screen__body">A Casa Flora iniciou o projeto com <strong>imersão</strong> na operação, atmosfera e comportamento dos hóspedes. Mapeamos rituais, momentos de destaque e a interação com espaços, equipe e o destino.</p>
+                <ul className="redesign-plates" style={{ marginTop: 8 }}>
+                  <li><span className="redesign-plates__text"><strong>Experiências instagramáveis:</strong> rooftop no pôr do sol alia estética e significado.</span></li>
+                  <li><span className="redesign-plates__text"><strong>Short breaks:</strong> viagens mais curtas e frequentes, por proximidade com grandes capitais.</span></li>
+                  <li><span className="redesign-plates__text"><strong>Hospitalidade descontraída:</strong> atendimento leve e próximo como ativo de marca.</span></li>
+                </ul>
+              </div>
+              <div className="case-text-column">
+                <ul className="redesign-plates">
+                  <li><span className="redesign-plates__text"><strong>Gastronomia local:</strong> culinária que conta histórias do território.</span></li>
+                  <li><span className="redesign-plates__text"><strong>Assinaturas visuais:</strong> cores e arquitetura que se tornam ícones nas redes.</span></li>
+                </ul>
+                <div className="case-frame case-frame--compact case-elevate" style={{ marginTop: 12 }}>
+                  <Image src="/images/hospitalidade.jpg" alt="Ambiente descontraído" width={1280} height={720} />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Estratégia */}
+        <section id="estrategia" className="case-screen case-screen--spacious case-screen--compact approach-section">
+          <div className="case-screen__container">
+            <div className="case-grid case-grid--divided case-grid--left7">
+              <div className="case-grid__left">
+                <div className="case-screen__content">
+                  <div className="case-eyebrow" style={{ color: '#fff' }}>ESTRATÉGIA DE MARCA</div>
+                  <h2 className="case-screen__title" style={{ color: '#fff' }}>Pilares estratégicos de posicionamento</h2>
+                  <p className="case-screen__body" style={{ color: '#fff' }}>O cenário competitivo de Búzios tende ao formalismo e a estéticas padronizadas. O Búzios Mar <strong>se diferencia pela autenticidade</strong>, leveza e pela experiência que ultrapassa a estadia.</p>
+                  <ul className="approach-plates">
+                    <li><span className="approach-plates__text">Experiências memoráveis acima do luxo tradicional</span></li>
+                    <li><span className="approach-plates__text">Gastronomia caiçara como diferenciação</span></li>
+                    <li><span className="approach-plates__text">Comunicação leve e espontânea</span></li>
+                    <li><span className="approach-plates__text">Rooftop e vistas como rituais de convivência</span></li>
+                  </ul>
+                </div>
+              </div>
+              <div className="case-grid__right case-grid__right--center">
+                <div className="case-frame case-frame--portrait case-elevate">
+                  <Image src="/images/BUZIOS MAR CAPA.png" alt="Vista do hotel" width={1080} height={1440} />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Posicionamento */}
+        <section id="posicionamento" className="case-screen case-screen--spacious case-screen--compact">
+          <div className="case-screen__container">
+            <div className="case-screen__content" style={{ textAlign: 'center' }}>
+              <div className="case-eyebrow">POSICIONAMENTO</div>
+              <h2 className="case-screen__title">Experiências leves e ensolaradas diante do mar</h2>
+              <p className="case-screen__body" style={{ maxWidth: 860, margin: '6px auto 0' }}>Acolhimento sem formalidade, autenticidade gastronômica e vistas que marcam a memória – um convite a viver Búzios com leveza, cor e proximidade.</p>
+            </div>
+          </div>
+        </section>
+
+        {/* Essência e Direcionadores */}
+        <section id="essencia" className="case-screen case-screen--spacious case-screen--compact">
+          <div className="case-screen__container">
+            <div className="case-grid case-grid--divided case-grid--left7">
+              <div className="case-grid__left">
+                <div className="case-screen__content">
+                  <div className="case-eyebrow">ESSÊNCIA E DIRECIONADORES</div>
+                  <h3 className="case-screen__subtitle">A leveza do mar em cada detalhe</h3>
+                  <ul className="redesign-plates">
+                    <li><span className="redesign-plates__text"><strong>Arquétipo:</strong> Explorador – inspira movimento, descoberta e paisagens.</span></li>
+                    <li><span className="redesign-plates__text"><strong>Tom de voz:</strong> Direto, próximo e descontraído.</span></li>
+                    <li><span className="redesign-plates__text"><strong>Diferenciais:</strong> Rooftop como ícone, gastronomia do território, energia jovem e localização estratégica.</span></li>
+                  </ul>
+                </div>
+              </div>
+              <div className="case-grid__right">
+                <div className="case-frame case-frame--landscape case-elevate">
+                  <Image src="/images/experiencia.jpg" alt="Experiências leves e ensolaradas" width={1600} height={900} />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Conceito Criativo */}
+        <section id="conceito" className="case-screen case-screen--spacious case-screen--compact">
+          <div className="case-screen__container">
+            <div className="case-screen__content" style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
+              <div className="case-eyebrow">CONCEITO CRIATIVO</div>
+              <h2 className="case-screen__title">Mar, energia jovem e o ritual do pôr do sol</h2>
+              <p className="case-screen__body" style={{ maxWidth: 900, margin: '6px auto 0' }}>A narrativa visual e verbal parte de três pilares: conexão com o mar, energia jovem e experiências memoráveis no rooftop – um tripé que guia a expressão e a presença da marca.</p>
+            </div>
+            <div className="case-images-grid">
+              <div className="case-frame case-elevate"><Image src="/images/hospitalidade.jpg" alt="Hospitalidade" width={1280} height={720} /></div>
+              <div className="case-frame case-elevate"><Image src="/images/garden.jpg" alt="Energia jovem" width={1280} height={720} /></div>
+            </div>
+          </div>
+        </section>
+
+        {/* Implementação */}
+        <section id="implementacao" className="case-screen case-screen--spacious case-screen--compact approach-section">
+          <div className="case-screen__container">
+            <div className="case-grid case-grid--divided case-grid--left7">
+              <div className="case-grid__left">
+                <div className="case-screen__content">
+                  <div className="case-eyebrow" style={{ color: '#fff' }}>IMPLEMENTAÇÃO</div>
+                  <h2 className="case-screen__title" style={{ color: '#fff' }}>Identidade viva nos pontos de contato</h2>
+                  <p className="case-screen__body" style={{ color: '#fff' }}>Dualidade azul (mar) e amarelo (arquitetura icônica), comunicação leve e direta e experiências que potencializam rituais – com a gastronomia integrada ao posicionamento.</p>
+                  <ul className="approach-plates">
+                    <li><span className="approach-plates__text">Sistema visual e verbal consistente</span></li>
+                    <li><span className="approach-plates__text">Plano editorial e fotografia</span></li>
+                    <li><span className="approach-plates__text">Materiais impressos e ambientação</span></li>
+                    <li><span className="approach-plates__text">Site e redes sociais</span></li>
+                  </ul>
+                </div>
+              </div>
+              <div className="case-grid__right case-grid__right--center">
+                <div className="case-frame case-frame--wide case-elevate">
+                  <Image src="/images/BUZIOS MAR CAPA.png" alt="Identidade aplicada" width={1920} height={820} />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Resultados */}
+        <section id="resultados" className="case-screen case-screen--spacious case-screen--compact">
+          <div className="case-screen__container">
+            <div className="case-screen__content" style={{ textAlign: 'center', marginBottom: '2rem' }}>
+              <div className="case-eyebrow">RESULTADOS</div>
+              <h2 className="case-screen__title">Percepção elevada e presença com identidade</h2>
+              <p className="case-screen__body" style={{ maxWidth: 820, margin: '6px auto 0' }}>O reposicionamento fortaleceu a identidade como hotel boutique e ampliou a relevância digital. A marca se consolida como opção diferenciada em Búzios para o público jovem adulto.</p>
+            </div>
+            <div className="results-blocks">
+              <div className="result-block">
+                <div className="case-frame case-frame--compact case-elevate">
+                  <Image src="/images/experiencia.jpg" alt="Conteúdo e presença" width={1280} height={720} />
+                </div>
+                <p className="result-block__text">Conteúdo e presença com assinatura visual clara.</p>
+              </div>
+              <div className="result-block">
+                <div className="case-frame case-frame--compact case-elevate">
+                  <Image src="/images/hospitalidade.jpg" alt="Rituais e experiências" width={1280} height={720} />
+                </div>
+                <p className="result-block__text">Rituais e experiências que fortalecem relacionamento.</p>
+              </div>
+              <div className="result-block">
+                <div className="case-frame case-frame--compact case-elevate">
+                  <Image src="/images/garden.jpg" alt="Percepção de valor" width={1280} height={720} />
+                </div>
+                <p className="result-block__text">Percepção de valor elevada com diferenciação.</p>
+              </div>
+            </div>
+          </div>
+        </section>
       </>
     );
   }

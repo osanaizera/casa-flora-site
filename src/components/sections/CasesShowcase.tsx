@@ -12,6 +12,18 @@ export default function CasesShowcase() {
   const dragRef = useRef<{ down: boolean; startX: number; startScroll: number }>({ down: false, startX: 0, startScroll: 0 });
 
   const cases = [
+    // Insólito primeiro para centralizar no início
+    {
+      id: 'insolito',
+      title: 'Insólito',
+      location: 'BÚZIOS',
+      service: 'Garden',
+      pack: ['Garden','Ativação Âmbar'],
+      category: 'Hotel & Spa',
+      year: '2022',
+      image: '/images/INSOLITO CAPA.jpg',
+      description: 'Rebranding sensorial para um ícone boutique à beira-mar.'
+    },
     {
       id: 'buzios-mar',
       title: 'Búzios Mar',
@@ -31,16 +43,6 @@ export default function CasesShowcase() {
       year: '2024',
       image: '/images/GRECO CAPA.jpg',
       description: 'Marca com autenticidade mediterrânea e brasilidade na experiência.'
-    },
-    {
-      id: 'insolito',
-      title: 'Insólito',
-      location: 'BÚZIOS',
-      service: 'Garden',
-      category: 'Hotel & Spa',
-      year: '2024',
-      image: '/images/INSOLITO CAPA.jpg',
-      description: 'Rebranding sensorial para um ícone boutique à beira-mar.'
     },
     {
       id: 'le-village',
@@ -67,6 +69,7 @@ export default function CasesShowcase() {
       title: 'Zendaya',
       location: 'COSTA DO SOL',
       service: 'Garden',
+      pack: ['Garden','Acompanhamento Seiva'],
       category: 'Resort',
       year: '2023',
       image: '/images/ZENDAYA CAPA.png',
@@ -155,8 +158,17 @@ export default function CasesShowcase() {
                     <span className="cases-showcase__card-category">{caseItem.category}</span>
                     <span className="cases-showcase__card-year">{caseItem.year}</span>
                   </div>
-                  <div className="cases-showcase__card-service">
-                    <span>{caseItem.service}</span>
+                  {/* Chips compactos sempre visíveis: usa pack se houver; senão, usa o service */}
+                  <div className="case-badges case-badges--compact" aria-label="Pacote de serviços">
+                    {((caseItem as any).pack ?? [caseItem.service]).map((p: string, i: number) => {
+                      const lower = p.normalize('NFD').replace(/\p{Diacritic}/gu, '').toLowerCase();
+                      const variant = lower.includes('garden') ? 'garden' : lower.includes('raiz') ? 'raiz' : lower.includes('ambar') ? 'ambar' : lower.includes('seiva') ? 'seiva' : 'muted';
+                      const cls = `case-badge case-badge--${variant}`;
+                      if (lower.includes('garden') || lower.includes('raiz')) {
+                        return <Link href="/cases" key={i} className={cls}>{p}</Link>;
+                      }
+                      return <span key={i} className={cls}>{p}</span>;
+                    })}
                   </div>
                 </div>
 
@@ -199,14 +211,7 @@ export default function CasesShowcase() {
                 </div>
               </div>
 
-              {/* Decorative Elements */}
-              <div className="cases-showcase__card-decoration">
-                <div className="cases-showcase__card-lines">
-                  <div className="cases-showcase__card-line cases-showcase__card-line--1"></div>
-                  <div className="cases-showcase__card-line cases-showcase__card-line--2"></div>
-                  <div className="cases-showcase__card-line cases-showcase__card-line--3"></div>
-                </div>
-              </div>
+              {/* Decorative Elements removed for cleaner aesthetic */}
             </motion.div>
             );
           })}

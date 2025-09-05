@@ -81,7 +81,7 @@ export default function ServicesModern() {
             {activeTab === "branding" ? (
               <div className="services-modern__branding-grid">
                 {brandingServices.map((service) => (
-                  <div key={service.id} className="services-modern__glass-card">
+                  <Link key={service.id} href="/cases" className="services-modern__glass-card" aria-label={`Ver cases do pacote ${service.title}`}>
                     <div className={`services-modern__glass-bg services-modern__glass-bg--${service.color}`}></div>
                     <div className="services-modern__glass-content">
                       <div className="services-modern__glass-header">
@@ -99,7 +99,7 @@ export default function ServicesModern() {
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </Link>
                 ))}
               </div>
             ) : activeTab === "ativacao" ? (
@@ -143,7 +143,7 @@ export default function ServicesModern() {
 
                       {/* CTA centralizado */}
                       <div className="services-modern__footer-center">
-                        <Link href="/#contato-hero" className="services-modern__cta-btn">quero ativar minha marca com a Âmbar</Link>
+                        <Link href="/#contato-hero" className="services-modern__cta-btn">Quero conversar sobre ativar minha marca</Link>
                       </div>
                     </div>
                   </div>
@@ -189,7 +189,7 @@ export default function ServicesModern() {
 
                       {/* CTA centralizado */}
                       <div className="services-modern__footer-center">
-                        <Link href="/#contato-hero" className="services-modern__cta-btn">preciso de acompanhamento mensal para o meu negócio</Link>
+                        <Link href="/#contato-hero" className="services-modern__cta-btn">Quero orientação contínua para minha marca</Link>
                       </div>
                     </div>
                   </div>

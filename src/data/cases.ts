@@ -39,7 +39,7 @@ export const cases: CaseItem[] = [
     segment: "Hotel Boutique & Spa",
     tagline: "Rebranding & Estratégia de Marca",
     servicePack: "Garden + Ativação Âmbar",
-    year: "2024",
+    year: "2022",
     service: "Rebranding",
     category: "Hospitalidade",
     summary:
@@ -111,7 +111,7 @@ export const cases: CaseItem[] = [
       "Identidade e presença alinhadas ao espírito praiano e sofisticado de Búzios.",
     description:
       "Projeto de base para estruturar linguagem visual, narrativa e pontos de contato essenciais de uma marca com vocação solar e acolhedora.",
-    heroImage: "/images/experiencia.jpg",
+    heroImage: "/images/BUZIOS MAR CAPA.png",
     gallery: [
       "/images/experiencia.jpg",
       "/images/hospitalidade.jpg",
@@ -208,6 +208,7 @@ export const cases: CaseItem[] = [
     location: "Costa do Sol",
     year: "2023",
     service: "Branding Completo",
+    servicePack: "Garden + Acompanhamento Seiva",
     category: "Resort",
     summary:
       "Criação de marca sofisticada para resort de luxo, capturando a essência do destino e da hospitalidade de alto padrão.",
