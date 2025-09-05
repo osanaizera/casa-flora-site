@@ -69,7 +69,7 @@ export default function CasesShowcase() {
     {
       id: 'parador-lumiar',
       title: 'Parador Lumiar',
-      location: 'LUMIAR',
+      location: 'LUMIAR (RJ)',
       service: 'Raiz',
       category: 'Hospedagem',
       year: '2024',
@@ -92,7 +92,7 @@ export default function CasesShowcase() {
     {
       id: 'casa-poema',
       title: 'Casa Poema',
-      location: 'PARATY',
+      location: 'PARATY (RJ)',
       service: 'Raiz',
       category: 'Identidade',
       year: '2024',
@@ -102,7 +102,7 @@ export default function CasesShowcase() {
     {
       id: 'vedan-advocacia',
       title: 'Vedan Advocacia',
-      location: 'PATO BRANCO',
+      location: 'PATO BRANCO (PR)',
       service: 'Raiz',
       category: 'Identidade',
       year: '2025',
@@ -112,7 +112,7 @@ export default function CasesShowcase() {
     {
       id: 'bego',
       title: 'Begô',
-      location: 'PORTO ALEGRE',
+      location: 'PORTO ALEGRE (RS)',
       service: 'Raiz',
       category: 'Identidade',
       year: '2025',
@@ -122,7 +122,7 @@ export default function CasesShowcase() {
     {
       id: 'influa-filmes',
       title: 'Influa Filmes',
-      location: 'PORTO ALEGRE',
+      location: 'PORTO ALEGRE (RS)',
       service: 'Raiz',
       category: 'Identidade',
       year: '2024',
@@ -132,7 +132,7 @@ export default function CasesShowcase() {
     {
       id: 'tomazzetti-melo',
       title: 'Tomazzetti e Melo',
-      location: 'SANTA CRUZ DO SUL',
+      location: 'SANTA CRUZ DO SUL (RS)',
       service: 'Raiz',
       category: 'Identidade',
       year: '2025',
