@@ -522,7 +522,7 @@ body {
   position: absolute; top: 0; right: 0;
   /* Allow smaller widths at narrow viewports; tablet/mobile are overridden below */
   width: clamp(480px, 58vw, 900px); 
-  min-height: clamp(300px, 48vh, 480px);
+  min-height: clamp(420px, 56vh, 600px);
   border-radius: 16px; 
   overflow: hidden; 
   border: 1px solid rgba(0,0,0,0.08);
@@ -536,8 +536,8 @@ body {
 .services-modern__slide-tag.is-active { transform: translateX(0); }
 .services-modern__slide-bg { position: absolute; inset: 0; background-size: cover; background-position: center; }
 .services-modern__slide-overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.25) 48%, rgba(0,0,0,0.12) 100%); }
-.services-modern__slide-inner { position: relative; z-index: 1; width: 100%; height: 100%; padding: clamp(18px, 3vw, 32px) clamp(18px, 3.2vw, 34px); pointer-events: auto; }
-.services-modern__slide-content { display: grid; grid-template-columns: 1fr; gap: clamp(14px, 2.5vw, 26px); color: #fff; height: 100%; align-items: start; pointer-events: auto; }
+.services-modern__slide-inner { position: relative; z-index: 1; width: 100%; height: 100%; padding: clamp(24px, 4vw, 46px) clamp(24px, 4.2vw, 48px); pointer-events: auto; }
+.services-modern__slide-content { display: grid; grid-template-columns: 1fr; gap: clamp(18px, 3vw, 28px); color: #fff; height: 100%; align-items: start; pointer-events: auto; }
 .services-modern__slide-content p,
 .services-modern__list-text,
 .services-modern__resolve { text-align: justify; text-justify: inter-word; hyphens: auto; }
@@ -546,7 +546,7 @@ body {
   .services-modern__slide-content { grid-template-columns: 1fr; }
   /* Tablet: use block layout like branding cards */
   .services-modern__slide-wrap { width: 100%; margin-left: 0; min-height: unset; pointer-events: auto; }
-  .services-modern__slide-tag { position: relative; right: auto; left: 0; width: 100%; max-width: 100%; min-height: unset; transform: none; }
+  .services-modern__slide-tag { position: relative; right: auto; left: 0; width: 100%; max-width: 100%; min-height: clamp(360px, 52vh, 520px); transform: none; }
 }
 @media (max-width: 860px) {
   .services-modern__slide-content { grid-template-columns: 1fr; gap: 10px; }
@@ -557,8 +557,8 @@ body {
 /* Mobile: make slide tags full-width and content-driven */
 @media (max-width: 640px) {
   .services-modern__slide-wrap { width: 100%; margin-left: 0; min-height: unset; pointer-events: auto; }
-  .services-modern__slide-tag { position: relative; width: 100%; min-height: unset; transform: none; }
-  .services-modern__slide-inner { padding: 14px; }
+  .services-modern__slide-tag { position: relative; width: 100%; min-height: clamp(340px, 56vh, 480px); transform: none; }
+  .services-modern__slide-inner { padding: 18px; }
 }
 .services-modern__slide-header .h3 { color: #fff; margin: 2px 0 6px; }
 .services-modern__head .h3 { color: #fff; }
