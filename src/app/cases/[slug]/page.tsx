@@ -458,38 +458,7 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
                       </div>
                     </div>
                   </div>
-                  <div className="color-evolution" style={{ marginTop: '1rem', display: 'grid', gap: '12px' }}>
-                    <div className="color-palette-group">
-                      <span className="color-palette-label">Primeira paleta de cores (antiga)</span>
-                      <div className="color-palette-compact">
-                        <div className="color-swatch" title="#d53974" style={{ backgroundColor: '#d53974' }}></div>
-                        <div className="color-swatch" title="#a8cf4b" style={{ backgroundColor: '#a8cf4b' }}></div>
-                        <div className="color-swatch" title="#f6ad21" style={{ backgroundColor: '#f6ad21' }}></div>
-                        <div className="color-swatch" title="#28889c" style={{ backgroundColor: '#28889c' }}></div>
-                      </div>
-                      <div className="color-labels" style={{ display:'grid', gridTemplateColumns:'repeat(2,minmax(0,1fr))', gap:'6px', marginTop:'6px', fontSize:'0.9rem' }}>
-                        <div>Rosa: #d53974</div>
-                        <div>Verde-limão: #a8cf4b</div>
-                        <div>Amarelo/laranja: #f6ad21</div>
-                        <div>Azul-petróleo: #28889c</div>
-                      </div>
-                    </div>
-                    <div className="color-palette-group">
-                      <span className="color-palette-label color-palette-label--highlight">Paleta de cores transformada (nova)</span>
-                      <div className="color-palette-compact">
-                        <div className="color-swatch" title="#d53874" style={{ backgroundColor: '#d53874' }}></div>
-                        <div className="color-swatch" title="#08878b" style={{ backgroundColor: '#08878b' }}></div>
-                        <div className="color-swatch" title="#cdac7f" style={{ backgroundColor: '#cdac7f' }}></div>
-                        <div className="color-swatch" title="#2a4360" style={{ backgroundColor: '#2a4360' }}></div>
-                      </div>
-                      <div className="color-labels" style={{ display:'grid', gridTemplateColumns:'repeat(2,minmax(0,1fr))', gap:'6px', marginTop:'6px', fontSize:'0.9rem' }}>
-                        <div>Rosa: #d53874</div>
-                        <div>Verde azulado: #08878b</div>
-                        <div>Bege/amarronzado: #cdac7f</div>
-                        <div>Azul escuro: #2a4360</div>
-                      </div>
-                    </div>
-                  </div>
+                  {/* Removido o bloco textual redundante da paleta */}
                 </div>
               </div>
             </div>

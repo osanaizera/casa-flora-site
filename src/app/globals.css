@@ -3385,16 +3385,19 @@ body {
 .palette-section-title { text-align: center; }
 .palette-cards-grid { 
   display: grid; 
-  grid-template-columns: repeat(2, minmax(0,1fr)); 
-  gap: clamp(10px, 2vw, 14px); 
+  grid-template-columns: repeat(2, minmax(220px, 300px));
+  justify-content: center;
+  gap: clamp(12px, 2.2vw, 18px); 
   width: 100%;
 }
 .palette-card {
   position: relative;
-  height: clamp(96px, 12vw, 128px);
-  border-radius: 14px;
+  width: 100%;
+  max-width: 300px;
+  height: clamp(160px, 22vw, 240px); /* mais alto */
+  border-radius: 16px;
   border: 1px solid rgba(0,0,0,0.06);
-  box-shadow: 0 16px 40px rgba(0,0,0,0.08);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.10);
   display: grid; place-items: center;
 }
 .palette-card__text { 
