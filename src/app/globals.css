@@ -517,7 +517,7 @@ body {
 .services-modern__pillar-description { color: var(--color-gray-700); line-height: 1.6; margin: 2px 0; }
 
 /* Slide-in etiqueta horizontal (Seiva) */
-.services-modern__slide-wrap { position: relative; min-height: 380px; width: 100vw; margin-left: calc(50% - 50vw); z-index: 0; pointer-events: none; }
+.services-modern__slide-wrap { position: relative; min-height: clamp(640px, 72vh, 880px); width: 100vw; margin-left: calc(50% - 50vw); z-index: 0; pointer-events: none; padding-bottom: clamp(16px, 2.5vw, 28px); }
 .services-modern__slide-tag { 
   position: absolute; top: 0; right: 0;
   /* Allow smaller widths at narrow viewports; tablet/mobile are overridden below */
@@ -545,20 +545,20 @@ body {
 @media (max-width: 1024px) { 
   .services-modern__slide-content { grid-template-columns: 1fr; }
   /* Tablet: use block layout like branding cards */
-  .services-modern__slide-wrap { width: 100%; margin-left: 0; min-height: unset; pointer-events: auto; }
-  .services-modern__slide-tag { position: relative; right: auto; left: 0; width: 100%; max-width: 100%; min-height: clamp(360px, 52vh, 520px); transform: none; }
+  .services-modern__slide-wrap { width: 100%; margin-left: 0; min-height: clamp(520px, 68vh, 760px); pointer-events: auto; padding-bottom: clamp(14px, 2vw, 22px); }
+  .services-modern__slide-tag { position: relative; right: auto; left: 0; width: 100%; max-width: 100%; min-height: clamp(420px, 60vh, 640px); transform: none; }
 }
 @media (max-width: 860px) {
-  .services-modern__slide-content { grid-template-columns: 1fr; gap: 10px; }
+  .services-modern__slide-content { grid-template-columns: 1fr; gap: 12px; }
   /* Make slide full-width inside section to avoid side clipping */
-  .services-modern__slide-wrap { width: 100%; margin-left: 0; min-height: unset; pointer-events: auto; }
-  .services-modern__slide-tag { position: relative; right: auto; left: 0; width: 100%; min-height: unset; transform: none; }
+  .services-modern__slide-wrap { width: 100%; margin-left: 0; min-height: clamp(500px, 66vh, 700px); pointer-events: auto; }
+  .services-modern__slide-tag { position: relative; right: auto; left: 0; width: 100%; min-height: clamp(400px, 58vh, 600px); transform: none; }
 }
 /* Mobile: make slide tags full-width and content-driven */
 @media (max-width: 640px) {
-  .services-modern__slide-wrap { width: 100%; margin-left: 0; min-height: unset; pointer-events: auto; }
-  .services-modern__slide-tag { position: relative; width: 100%; min-height: clamp(340px, 56vh, 480px); transform: none; }
-  .services-modern__slide-inner { padding: 18px; }
+  .services-modern__slide-wrap { width: 100%; margin-left: 0; min-height: clamp(460px, 70vh, 620px); pointer-events: auto; padding-bottom: 16px; }
+  .services-modern__slide-tag { position: relative; width: 100%; min-height: clamp(380px, 62vh, 560px); transform: none; }
+  .services-modern__slide-inner { padding: 22px; }
 }
 .services-modern__slide-header .h3 { color: #fff; margin: 2px 0 6px; }
 .services-modern__head .h3 { color: #fff; }
@@ -1783,13 +1783,13 @@ body {
 
 /* Services Section */
 .services-modern {
-  padding: 130px 80px 60px 40px;
+  padding: 130px 80px 100px 40px; /* mais respiro abaixo */
   background: var(--color-paper);
   min-height: auto;
   display: flex;
-  align-items: center;
+  align-items: stretch; /* evitar corte vertical por centragem */
   position: relative;
-  overflow: hidden;
+  overflow: visible; /* permitir sombras/bases */
   margin-bottom: 120px;
 }
 

@@ -264,7 +264,10 @@ export default function CasesShowcase() {
               >
                 <h3 className="cases-showcase__title">Sobre Nós</h3>
                 <h4 className="h3 about-clean__subtitle">
-                  <strong>Dois olhares diferentes — o criativo e o estratégico. Desse encontro nasceu a Casa Flora.</strong>
+                  <strong>
+                    Dois olhares diferentes — o criativo e o estratégico.<br/>
+                    Desse encontro nasceu a Casa Flora.
+                  </strong>
                 </h4>
                 <p className="body-large">
                   Há mais de cinco anos, a Ana e o Pedro caminham lado a lado, desenvolvendo marcas de experiência e hospitalidade, com diversos projetos já assinados em conjunto. E a Casa Flora é a expressão dessa parceria: um espaço onde pesquisa, estratégia, branding e design se encontram para cultivar marcas com alma, verdade e propósito.
