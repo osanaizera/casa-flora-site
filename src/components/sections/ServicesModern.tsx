@@ -102,64 +102,50 @@ export default function ServicesModern() {
                 ))}
               </div>
             ) : activeTab === "ativacao" ? (
-              <div className="services-modern__split">
-                {/* Card hero alto e fino com fundo da imagem */}
-                <a className="hero__card hero__card--tall services-modern__hero-narrow" href="#servicos-ambar" aria-label="Ativação Âmbar">
-                  <div className="hero__card-bg hero__card-bg--ambar"></div>
-                  <div className="hero__card-overlay">
-                    <div className="hero__card-content">
-                      <span className="hero__card-label">Ativação</span>
-                      <h3 className="hero__card-title">ÂMBAR</h3>
-                      <p className="hero__card-subtitle">Acendimento da presença</p>
-                    </div>
-                  </div>
-                </a>
+              <div className="services-modern__slide-wrap">
+                <div className="services-modern__slide-tag services-modern__slide-tag--ambar is-active">
+                  <div className="services-modern__slide-bg hero__card-bg--ambar" />
+                  <div className="services-modern__slide-overlay" />
+                  <div className="services-modern__slide-inner">
+                    <div className="services-modern__slide-content services-modern__slide-content--stack">
+                      {/* Cabeçalho e introdução (largura total) */}
+                      <div className="services-modern__head">
+                        <div className="case-eyebrow">02 Projetos de Ativação</div>
+                        <h3 className="h3 services-modern__title">ATIVAÇÃO ÂMBAR</h3>
+                        <div className="services-modern__subtitle">Estrutura e acendimento da presença.</div>
+                        <p className="services-modern__paragraph">
+                          A <strong>Âmbar</strong> é nossa ativação estratégica de branding. Um processo focado em alinhar essência,
+                          organizar a base e acender a presença — da clareza de posicionamento à aplicação consistente da marca,
+                          em ciclos de <strong>3, 6 ou 12 meses</strong>.
+                        </p>
+                      </div>
 
-                {/* Conteúdo ao lado */}
-                <div id="servicos-ambar">
-                  <div className="services-modern__text-content" style={{ marginBottom: "1rem" }}>
-                    <p>
-                      A <strong>Ativação Âmbar</strong> é o ponto de partida para marcas que desejam alinhar essência, organizar presença e comunicar com clareza.
-                    </p>
-                    <p>
-                      Mais que um projeto, é um <strong>ritual estratégico de ativação de branding</strong> — intenso, profundo e direcionado.
-                    </p>
-                    <p>
-                      Assim como o âmbar, que cristaliza e protege ao longo do tempo, esse processo dá forma, densidade e luz à identidade da marca.
-                    </p>
-                    <p>
-                      Aplicamos o <strong>Ritual Âmbar</strong> em ciclos de <strong>3, 6 ou 12 meses</strong>.
-                    </p>
-                  </div>
-                  <div className="services-modern__phases-section">
-                    <h4 className="services-modern__phases-title">✽ Os três tempos do Ritual Âmbar</h4>
-                    <div className="services-modern__phases-list">
-                      <div className="services-modern__phase-item">
-                        <div className="services-modern__phase-header">
-                          <span className="services-modern__phase-number">01</span>
-                          <h5 className="services-modern__phase-title">Imersão</h5>
+                      {/* Quadrados do método (4 col) */}
+                      <div className="services-modern__es-grid">
+                        <div className="services-modern__es-item">
+                          <div className="services-modern__list-title">Imersão</div>
+                          <div className="services-modern__list-text">Mergulho na essência, público e contexto para identificar verdades, oportunidades e prioridades.</div>
                         </div>
-                        <p className="services-modern__phase-description">
-                          Mergulho profundo na essência, história e diferenciais da marca. Análise de público, mercado, concorrência e oportunidades.
-                        </p>
+                        <div className="services-modern__es-item">
+                          <div className="services-modern__list-title">Organização</div>
+                          <div className="services-modern__list-text">Base estratégica: posicionamento, narrativa, tom de voz, identidade e plano de presença.</div>
+                        </div>
+                        <div className="services-modern__es-item">
+                          <div className="services-modern__list-title">Ativação</div>
+                          <div className="services-modern__list-text">Aplicação prática com campanhas, conteúdo, materiais e rituais de marca nos canais-chave.</div>
+                        </div>
+                        <div className="services-modern__es-item">
+                          <div className="services-modern__list-title">Consolidação</div>
+                          <div className="services-modern__list-text">Rotina de ajustes e melhorias para sustentar consistência e impacto.</div>
+                        </div>
                       </div>
-                      <div className="services-modern__phase-item">
-                        <div className="services-modern__phase-header">
-                          <span className="services-modern__phase-number">02</span>
-                          <h5 className="services-modern__phase-title">Organização</h5>
+
+                      {/* Footer: O que resolve + CTA */}
+                      <div className="services-modern__footer-bar">
+                        <div className="services-modern__resolve"><strong>O que resolve:</strong> acende a presença da marca com base estruturada e direção clara, unindo estratégia e execução.</div>
+                        <div className="services-modern__cta-wrap">
+                          <a href="/#contato-hero" className="services-modern__cta-btn">quero ativar minha marca com a Âmbar</a>
                         </div>
-                        <p className="services-modern__phase-description">
-                          Construção da base estratégica: posicionamento, tom de voz, identidade visual, storytelling e plano editorial.
-                        </p>
-                      </div>
-                      <div className="services-modern__phase-item">
-                        <div className="services-modern__phase-header">
-                          <span className="services-modern__phase-number">03</span>
-                          <h5 className="services-modern__phase-title">Ativação</h5>
-                        </div>
-                        <p className="services-modern__phase-description">
-                          Aplicação prática e consistente da marca: campanhas, plano de comunicação, conteúdos, materiais e diretrizes vivas.
-                        </p>
                       </div>
                     </div>
                   </div>
@@ -172,38 +158,43 @@ export default function ServicesModern() {
                   <div className="services-modern__slide-bg hero__card-bg--seiva" />
                   <div className="services-modern__slide-overlay" />
                   <div className="services-modern__slide-inner">
-                    <div className="services-modern__slide-content">
-                      {/* Coluna esquerda: header + texto principal */}
-                      <div className="services-modern__slide-left">
+                    <div className="services-modern__slide-content services-modern__slide-content--stack">
+                      {/* Cabeçalho e introdução (largura total) */}
+                      <div className="services-modern__head">
                         <div className="case-eyebrow">03 Acompanhamento e Gestão de Marca</div>
-                        <h3 className="h3">ACOMPANHAMENTO SEIVA</h3>
-                        <p className="services-modern__lead"><strong>É estratégia contínua e personalizada para crescimento.</strong></p>
-                        <p className="services-modern__lead">
+                        <h3 className="h3 services-modern__title">ACOMPANHAMENTO SEIVA</h3>
+                        <div className="services-modern__subtitle">É estratégia contínua e personalizada para crescimento.</div>
+                        <p className="services-modern__paragraph">
                           A <strong>Seiva</strong> é nosso método proprietário de gestão de marca viva, estruturado em ciclos contínuos. Um processo que nutre a essência, organiza a estratégia, fortalece a expressão e garante evolução constante — equilibrando branding, performance e presença no mercado.
                         </p>
                       </div>
-                      {/* Coluna direita: Quatro E's + O que resolve */}
-                      <div className="services-modern__slide-right">
-                        <h4 className="services-modern__slide-eyebrow">✽ Os quatro E’s do Método Seiva:</h4>
-                        <div className="services-modern__list-columns">
-                          <div className="services-modern__list-col">
-                            <div className="services-modern__list-title"><span className="services-modern__initial-e">E</span>ssência</div>
-                            <div className="services-modern__list-text">Definições de marca que garantam que cada ação reflita a identidade e objetivos da marca.</div>
-                          </div>
-                          <div className="services-modern__list-col">
-                            <div className="services-modern__list-title"><span className="services-modern__initial-e">E</span>stratégia</div>
-                            <div className="services-modern__list-text">Planejamento de campanhas e influenciadores, lançamentos, novos produtos/serviços, marketing digital, OOH e publicidade.</div>
-                          </div>
-                          <div className="services-modern__list-col">
-                            <div className="services-modern__list-title"><span className="services-modern__initial-e">E</span>xpressão</div>
-                            <div className="services-modern__list-text">Storytelling, acompanhamento de design, canais, materiais físicos e digitais, campanhas e experiências sensoriais.</div>
-                          </div>
-                          <div className="services-modern__list-col">
-                            <div className="services-modern__list-title"><span className="services-modern__initial-e">E</span>volução</div>
-                            <div className="services-modern__list-text">Análise de performance, KPIs e inteligência de marca para crescer com consciência.</div>
-                          </div>
+
+                      {/* Quatro E's em 4 quadrados (largura total) */}
+                      <div className="services-modern__es-grid">
+                        <div className="services-modern__es-item">
+                          <div className="services-modern__list-title">Essência</div>
+                          <div className="services-modern__list-text">Definições de marca que garantam que cada ação reflita a identidade e objetivos da marca.</div>
                         </div>
+                        <div className="services-modern__es-item">
+                          <div className="services-modern__list-title">Estratégia</div>
+                          <div className="services-modern__list-text">Planejamento de campanhas e influenciadores, lançamentos, novos produtos/serviços, marketing digital, OOH e publicidade.</div>
+                        </div>
+                        <div className="services-modern__es-item">
+                          <div className="services-modern__list-title">Expressão</div>
+                          <div className="services-modern__list-text">Storytelling, acompanhamento de design, canais, materiais físicos e digitais, campanhas e experiências sensoriais.</div>
+                        </div>
+                        <div className="services-modern__es-item">
+                          <div className="services-modern__list-title">Evolução</div>
+                          <div className="services-modern__list-text">Análise de performance, KPIs e inteligência de marca para crescer com consciência.</div>
+                        </div>
+                      </div>
+
+                      {/* Footer: O que resolve + CTA à direita */}
+                      <div className="services-modern__footer-bar">
                         <div className="services-modern__resolve"><strong>O que resolve:</strong> dá direção e consistência para marcas em movimento, com acompanhamento contínuo garantindo que cada decisão impulsione resultados.</div>
+                        <div className="services-modern__cta-wrap">
+                          <a href="/#contato-hero" className="services-modern__cta-btn">preciso de acompanhamento mensal para o meu negócio</a>
+                        </div>
                       </div>
                     </div>
                   </div>

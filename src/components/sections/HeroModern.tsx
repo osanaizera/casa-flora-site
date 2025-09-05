@@ -14,12 +14,12 @@ export default function HeroModern() {
           <span className="fade-in outline">memoráveis</span>
         </h1>
         <p className="hero__description fade-in">
-          Desenvolvemos identidades sensoriais, autorais e profundamente humanas
+          Transformamos negócios em organismos vivos — Unimos pesquisa e criação para marcas que cultivam experiência e hospitalidade.
         </p>
-        <Link href="/contato" className="btn fade-in">
-          <span>Começar projeto</span>
-          <svg className="btn__arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
-            <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        <Link href="/#contato-hero" className="hero__cta-button fade-in">
+          Começar Projeto
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </Link>
       </div>

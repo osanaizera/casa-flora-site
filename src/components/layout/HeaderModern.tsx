@@ -57,7 +57,7 @@ export default function HeaderModern() {
           </li>
         ))}
         <li>
-          <Link href="/contato" className="nav__cta">
+          <Link href="/#contato-hero" className="nav__cta">
             Contato
           </Link>
         </li>
