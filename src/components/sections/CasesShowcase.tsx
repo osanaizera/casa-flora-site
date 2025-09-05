@@ -28,7 +28,7 @@ export default function CasesShowcase() {
     {
       id: 'insolito',
       title: 'Insólito',
-      location: 'BÚZIOS',
+      location: 'BÚZIOS (RJ)',
       service: 'Garden',
       pack: ['Garden','Ativação Âmbar'],
       category: 'Hotel & Spa',
@@ -39,7 +39,7 @@ export default function CasesShowcase() {
     {
       id: 'buzios-mar',
       title: 'Búzios Mar',
-      location: 'BÚZIOS',
+      location: 'BÚZIOS (RJ)',
       service: 'Raiz',
       category: 'Hospitalidade',
       year: '2024',

@@ -43,7 +43,7 @@ export default function ContactCTA() {
           <div className="contact-cta__content">
             <h3 id="contact-cta-title" className="contact-cta__title">Vamos conversar?</h3>
             <p className="contact-cta__description">
-              Entre em contato ou inscreva-se para receber nosso material rico de pesquisa.
+              Sua marca também pode florescer no ecossistema Casa Flora.
             </p>
             
             <div className="contact-cta__actions">
@@ -72,7 +72,7 @@ export default function ContactCTA() {
             </div>
 
             <div className="contact-cta__divider">
-              <span>E você quer receber conteúdos exclusivos? Deixe seu contato e entre no nosso círculo de pesquisa e criação.</span>
+              <span>Quer receber conteúdos exclusivos? Deixe seu contato e entre no nosso círculo de pesquisa e criação.</span>
             </div>
 
             {!isSubmitted ? (
