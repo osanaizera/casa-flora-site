@@ -60,6 +60,7 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
         {/* Menu lateral flutuante com realce de sessão ativa */}
         <ActiveSectionNav
           sections={[
+            { href: '/', label: 'Home' },
             { href: '#sobre', label: 'Sobre' },
             { href: '#desafio', label: 'Desafio' },
             { href: '#abordagem', label: 'Abordagem' },
@@ -630,6 +631,7 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
 
         <ActiveSectionNav
           sections={[
+            { href: '/', label: 'Home' },
             { href: '#desafio', label: 'Desafio' },
             { href: '#imersao', label: 'Imersão' },
             { href: '#estrategia', label: 'Estratégia' },

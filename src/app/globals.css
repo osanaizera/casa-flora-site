@@ -1628,6 +1628,16 @@ body {
   border-color: #111;
 }
 
+/* Home button in case menu (distinct background) */
+.case-menu a.case-menu__home {
+  background: var(--color-ink);
+  color: var(--color-paper);
+  border-color: var(--color-ink);
+}
+.case-menu a.case-menu__home:hover {
+  filter: brightness(1.05);
+}
+
 @media (max-width: 860px) { .case-menu { display: none; } }
 
 /* Remove old styles - already redefined above */

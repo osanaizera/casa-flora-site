@@ -37,13 +37,15 @@ export default function ActiveSectionNav({ sections }: ActiveSectionNavProps) {
       }
     );
 
-    // Observe all sections
+    // Observe only in-page anchors (hrefs that start with '#')
     sections.forEach(({ href }) => {
-      const element = document.getElementById(href.substring(1)); // Remove # from href
-      if (element) {
-        observer.observe(element);
-      } else {
-        console.warn(`Section not found: ${href.substring(1)}`);
+      if (href.startsWith('#')) {
+        const element = document.getElementById(href.substring(1));
+        if (element) {
+          observer.observe(element);
+        } else {
+          console.warn(`Section not found: ${href.substring(1)}`);
+        }
       }
     });
 
@@ -52,15 +54,15 @@ export default function ActiveSectionNav({ sections }: ActiveSectionNavProps) {
 
   return (
     <nav className="case-menu" aria-label="Sessões do case">
-      {sections.map(({ href, label }) => (
-        <a
-          key={href}
-          href={href}
-          className={activeSection === href.substring(1) ? 'active' : ''}
-        >
-          {label}
-        </a>
-      ))}
+      {sections.map(({ href, label }) => {
+        const isAnchor = href.startsWith('#');
+        const cls = isAnchor ? (activeSection === href.substring(1) ? 'active' : '') : 'case-menu__home';
+        return (
+          <a key={href} href={href} className={cls}>
+            {label}
+          </a>
+        );
+      })}
     </nav>
   );
 }
