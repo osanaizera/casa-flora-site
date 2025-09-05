@@ -407,6 +407,35 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
                 <div className="case-screen__content">
                   <h3 className="case-screen__subtitle" style={{ marginBottom: '0.5rem' }}>Paleta de cores</h3>
                   <p className="case-screen__body">A <strong>paleta de cores</strong> foi atualizada, tornando-se mais <strong>sóbria e elegante</strong>, mantendo referências à brasilidade e à arte, equilibrando sofisticação e autenticidade.</p>
+
+                  {/* Visualização compacta da evolução da paleta (antes → depois) */}
+                  <div className="color-ribbon-comparison">
+                    <div className="color-ribbon-section">
+                      <div className="color-ribbon-label">Primeira paleta de cores</div>
+                      <div className="color-ribbon-tag">(antiga)</div>
+                      <div className="color-ribbon">
+                        <div className="color-ribbon__stripe" style={{ background: '#d53974' }} title="#d53974" />
+                        <div className="color-ribbon__stripe" style={{ background: '#a8cf4b' }} title="#a8cf4b" />
+                        <div className="color-ribbon__stripe" style={{ background: '#f6ad21' }} title="#f6ad21" />
+                        <div className="color-ribbon__stripe" style={{ background: '#28889c' }} title="#28889c" />
+                      </div>
+                    </div>
+                    <div className="color-ribbon-arrow" aria-hidden>
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                        <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </div>
+                    <div className="color-ribbon-section">
+                      <div className="color-ribbon-label">Paleta de cores transformada</div>
+                      <div className="color-ribbon-tag color-ribbon-tag--new">(nova)</div>
+                      <div className="color-ribbon">
+                        <div className="color-ribbon__stripe" style={{ background: '#d53874' }} title="#d53874" />
+                        <div className="color-ribbon__stripe" style={{ background: '#08878b' }} title="#08878b" />
+                        <div className="color-ribbon__stripe" style={{ background: '#cdac7f' }} title="#cdac7f" />
+                        <div className="color-ribbon__stripe" style={{ background: '#2a4360' }} title="#2a4360" />
+                      </div>
+                    </div>
+                  </div>
                   <div className="color-evolution" style={{ marginTop: '1rem', display: 'grid', gap: '12px' }}>
                     <div className="color-palette-group">
                       <span className="color-palette-label">Primeira paleta de cores (antiga)</span>
