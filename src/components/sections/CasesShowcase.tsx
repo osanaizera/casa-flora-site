@@ -49,7 +49,7 @@ export default function CasesShowcase() {
     {
       id: 'greco-hotel',
       title: 'Greco Hotel',
-      location: 'ILHABELA',
+      location: 'BÚZIOS (RJ)',
       service: 'Raiz',
       category: 'Hotel Boutique',
       year: '2024',
@@ -59,7 +59,7 @@ export default function CasesShowcase() {
     {
       id: 'le-village',
       title: 'Le Village',
-      location: 'PARATY',
+      location: 'BÚZIOS (RJ)',
       service: 'Raiz',
       category: 'Pousada',
       year: '2023',
@@ -79,11 +79,11 @@ export default function CasesShowcase() {
     {
       id: 'zendaya',
       title: 'Zendaya',
-      location: 'COSTA DO SOL',
+      location: 'BÚZIOS (RJ)',
       service: 'Garden',
       pack: ['Garden','Acompanhamento Seiva'],
       category: 'Resort',
-      year: '2023',
+      year: '2024/2025',
       image: '/images/ZENDAYA CAPA.png',
       description: 'Elegância contemporânea para um resort de destino.'
     }
