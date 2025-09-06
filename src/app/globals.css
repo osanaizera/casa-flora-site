@@ -731,12 +731,34 @@ body {
 .manifesto-card__text { color: var(--color-gray-700); line-height: 1.75; margin-top: 6px; }
 
 /* Redesign da identidade visual – placas de bullets */
-.redesign-plates { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(12px, 2vw, 18px); list-style: none; padding: 0; margin-top: 12px; }
+.redesign-plates { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(12px, 2vw, 20px); list-style: none; padding: 0; margin-top: 14px; }
 @media (max-width: 860px) { .redesign-plates { grid-template-columns: 1fr; } }
-.redesign-plates li { display: flex; align-items: flex-start; gap: 12px; background: #ffffff; border: 1px solid #E5E7EB; border-radius: 12px; padding: clamp(12px, 2vw, 16px); box-shadow: 0 10px 28px rgba(0,0,0,0.06); }
-.redesign-plates__icon { width: 28px; height: 28px; border-radius: 8px; display: inline-flex; align-items: center; justify-content: center; background: rgba(17,24,39,0.06); border: 1px solid rgba(17,24,39,0.12); color: #111827; flex: 0 0 auto; }
+/* Visual card leve, com ícone circular + título e subtítulo */
+.redesign-plates li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: linear-gradient(180deg, #ffffff, rgba(255,255,255,0.96));
+  border: 1px solid rgba(17,24,39,0.06);
+  border-radius: 20px;
+  padding: clamp(12px, 1.6vw, 16px);
+  box-shadow: 0 8px 22px rgba(0,0,0,0.05);
+}
+.redesign-plates__icon {
+  width: 36px; height: 36px;
+  border-radius: 999px;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: rgba(42,67,96,0.10); /* azul discreto */
+  border: 1px solid rgba(42,67,96,0.18);
+  color: #2a4360;
+  flex: 0 0 auto;
+}
 .redesign-plates__icon svg { width: 16px; height: 16px; }
-.redesign-plates__text { color: var(--color-ink); line-height: 1.7; }
+.redesign-plates__text { color: var(--color-gray-700); font-size: 0.86rem; line-height: 1.5; }
+.redesign-plates__text strong { display: block; color: var(--color-ink); font-weight: 600; font-size: 0.98rem; line-height: 1.35; margin-bottom: 2px; }
+
+/* Ajustes específicos do redesign: manter proporção e leveza */
+#redesign .redesign-plates li { background: #fff; }
 
 /* Fundo da sessão Manifesto em rosa chapado */
 .case-screen.manifesto-section { background: url('/images/cases/insolito/manifesto%20bg.png') center/cover no-repeat !important; }
@@ -748,6 +770,9 @@ body {
 /* Em grids 'equal', garanta 50/50 ignorando regras de 12 colunas */
 .case-grid--equal .case-grid__left,
 .case-grid--equal .case-grid__right { grid-column: auto; }
+@media (max-width: 1024px) {
+  .case-grid--equal { grid-template-columns: 1fr; gap: 2rem; }
+}
 
 .hero__card-arrow {
   width: 32px;
@@ -1433,9 +1458,14 @@ body {
 }
 .case-screen__lead { font-size: clamp(1.125rem, 2.2vw, 1.35rem); line-height: 1.9; color: var(--color-gray-700); margin-top: 12px; }
 .case-screen__body { font-size: clamp(1.0625rem, 2vw, 1.25rem); line-height: 1.95; color: var(--color-gray-700); margin-top: 12px; }
+@media (max-width: 480px) {
+  .case-screen__lead, .case-screen__body { text-align: left; text-justify: auto; }
+}
 /* Parágrafos mais estreitos (reduz ~30% da largura) na tipografia compacta */
 .case-screen--compact .case-screen__lead,
 .case-screen--compact .case-screen__body { max-width: 63ch; }
+#redesign.case-screen .case-screen__lead,
+#redesign.case-screen .case-screen__body { max-width: none; }
 .case-screen__list { display: grid; gap: 8px; padding-left: 1.25rem; list-style: disc; max-width: 78ch; color: var(--color-gray-700); margin-top: 12px; }
 .case-screen__media { width: 100%; }
 .case-screen__figure { margin-top: 14px; }
@@ -2353,6 +2383,73 @@ body {
   width: 100% !important;
   height: auto !important;
 }
+/* Altura do frame no redesign para logos */
+#redesign .case-frame--compact { aspect-ratio: 4/3; }
+
+/* Paletas lado a lado 7:3 na coluna direita */
+#redesign .palette-sides { display: grid; grid-template-columns: 1fr; gap: clamp(24px, 4vw, 48px); margin-top: clamp(20px, 3vw, 36px); justify-items: start; }
+#redesign .case-grid__right .case-screen__content { padding-right: 0; margin: 0; width: 100%; max-width: 100%; text-align: left; }
+
+/* Reduzir drasticamente os cards das paletas no redesign */
+#redesign .palette-cards-grid {
+  grid-template-columns: repeat(4, minmax(72px, 96px)); /* uma fileira lado a lado */
+  gap: clamp(10px, 2vw, 16px); /* mais respiro entre swatches */
+  justify-content: start;
+}
+#redesign .palette-section-title { text-align: left; }
+#redesign .palette-card {
+  max-width: 100px;
+  height: clamp(42px, 6vw, 70px);
+}
+#redesign .palette-side--new .palette-cards-grid { position: relative; }
+@keyframes palette-reveal-swipe {
+  0% { clip-path: inset(0 100% 0 0); opacity: 0; }
+  60% { opacity: 1; }
+  100% { clip-path: inset(0 0 0 0); opacity: 1; }
+}
+#redesign .palette-side--new .palette-cards-grid { animation: palette-reveal-swipe 900ms ease-out 120ms both; }
+@media (prefers-reduced-motion: reduce) {
+  #redesign .palette-side--new .palette-cards-grid { animation: none; }
+}
+#redesign .palette-card__text { display: none !important; }
+#redesign .palette-card__hex { display: none !important; }
+
+/* Garantir alinhamento à esquerda e largura máxima do conteúdo da paleta */
+#redesign .case-grid__right, #redesign .palette-sides { width: 100%; max-width: 100%; }
+#redesign .case-grid__right { padding-right: 0; text-align: left; overflow: hidden; }
+#redesign .case-grid__right p { max-width: 100%; overflow-wrap: anywhere; word-break: break-word; }
+
+/* Conter altura do conteúdo à esquerda até o limite da seção */
+#redesign .case-grid__left .case-screen__content { max-height: none; overflow: visible; }
+/* Alinhar o conteúdo da seção ao topo (sem centralização vertical) */
+#redesign.case-screen { align-items: flex-start; }
+
+/* Split inferior da coluna esquerda: flip-card e bullets */
+#redesign .redesign-left-split { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(16px, 2.4vw, 28px); margin-top: 14px; }
+@media (max-width: 860px) { #redesign .redesign-left-split { grid-template-columns: 1fr; } }
+#redesign .redesign-left-split > .flip-card { display: block; width: 90%; max-width: 940px; aspect-ratio: 3/2; height: auto; min-height: 0; margin-inline: auto; }
+@media (max-width: 1024px) { #redesign .redesign-left-split > .flip-card { width: 100%; max-width: 100%; } }
+#redesign .redesign-left-split > .flip-card .flip-card__img { object-position: top center !important; }
+#redesign .redesign-left-split__bullets { display: flex; justify-content: center; }
+#redesign .redesign-left-split__bullets .redesign-plates { width: 100%; max-width: 520px; }
+
+/* Bullets discretos, compactos (atributos do novo logo) */
+#redesign .redesign-left-split__bullets .redesign-plates li {
+  padding: clamp(3px, 0.6vw, 6px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  border-radius: 8px;
+}
+#redesign .redesign-left-split__bullets .redesign-plates__icon { width: 14px; height: 14px; }
+#redesign .redesign-left-split__bullets .redesign-plates__icon svg { width: 9px; height: 9px; }
+#redesign .redesign-left-split__bullets .redesign-plates__text { font-size: 0.74rem; line-height: 1.35; }
+
+/* Flip card (frente/verso) */
+.flip-card { position: relative; width: 100%; height: 100%; min-height: 240px; perspective: 1200px; }
+.flip-card__inner { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform 0.7s cubic-bezier(0.2, 0.6, 0.2, 1); cursor: pointer; }
+.flip-card.is-flipped .flip-card__inner { transform: rotateY(180deg); }
+.flip-card__face { position: absolute; inset: 0; backface-visibility: hidden; border-radius: inherit; overflow: hidden; }
+.flip-card__face--back { transform: rotateY(180deg); }
+.flip-card__img { object-fit: contain !important; }
 
 /* Stack for multiple framed media */
 .case-stack { display: grid; gap: clamp(12px, 2vw, 24px); }
@@ -2997,6 +3094,25 @@ body {
   display: block;
 }
 
+.hero__card--case.hero__card--disabled {
+  cursor: default;
+  filter: grayscale(0.3);
+  opacity: 0.85;
+}
+
+.hero__card-soon {
+  background: rgba(255, 255, 255, 0.9);
+  color: rgba(0, 0, 0, 0.6);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 12px;
+  display: inline-block;
+}
+
 /* Case text formatting */
 .case-text-narrow {
   width: 90%;
@@ -3049,20 +3165,27 @@ body {
   margin-right: auto;
 }
 
-/* Grid 60/40 layout */
+/* Grid redesign: 2 colunas (65% / 35%) */
 .case-grid--redesign {
   display: grid;
-  grid-template-columns: 3fr 2fr; /* 60% / 40% */
-  gap: 4rem;
+  grid-template-columns: minmax(0,70%) minmax(0,30%);
+  gap: clamp(80px, 12.8vw, 144px); /* gap amplo entre os lados */
   align-items: start;
+  max-width: 100%;
 }
+.case-grid--redesign .case-grid__left,
+.case-grid--redesign .case-grid__right { grid-column: auto; }
 
 @media (max-width: 1024px) {
   .case-grid--redesign {
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 2.5rem;
   }
 }
+
+/* Bullets empilhados no redesign (coluna esquerda) */
+#redesign .case-grid__left .redesign-plates { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 860px) { #redesign .case-grid__left .redesign-plates { grid-template-columns: 1fr; } }
 
 /* Narrative text with character limit */
 .redesign-narrative p {
@@ -3395,8 +3518,8 @@ body {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: start;
-  gap: clamp(16px, 3vw, 28px);
-  margin: 18px 0 22px;
+  gap: clamp(28px, 6vw, 48px); /* mais respiro entre as paletas */
+  margin: 22px 0 26px;
 }
 @media (max-width: 860px) {
   .palette-cards-comparison { grid-template-columns: 1fr; }
@@ -3406,16 +3529,19 @@ body {
 .palette-section-title { text-align: center; }
 .palette-cards-grid { 
   display: grid; 
-  grid-template-columns: repeat(2, minmax(220px, 300px));
+  grid-template-columns: repeat(2, minmax(200px, 260px));
   justify-content: center;
   gap: clamp(12px, 2.2vw, 18px); 
   width: 100%;
 }
+@media (max-width: 480px) {
+  .palette-cards-grid { grid-template-columns: 1fr; }
+}
 .palette-card {
   position: relative;
   width: 100%;
-  max-width: 300px;
-  height: clamp(160px, 22vw, 240px); /* mais alto */
+  max-width: 260px;
+  height: clamp(130px, 18vw, 200px); /* reduzir tamanho */
   border-radius: 16px;
   border: 1px solid rgba(0,0,0,0.06);
   box-shadow: 0 16px 40px rgba(0,0,0,0.10);
@@ -3670,7 +3796,7 @@ body {
   position: relative;
   display: grid;
   grid-auto-flow: column;
-  /* Centraliza 1 card por vez, cards mais estreitos */
+  /* Centraliza 1 card por vez */
   grid-auto-columns: 46%;
   gap: var(--gap);
   overflow-x: auto;
@@ -3678,7 +3804,7 @@ body {
   scroll-snap-type: x mandatory;
   scroll-padding-left: 50%;
   scroll-padding-right: 50%;
-  padding: 24px 20px 48px; /* mais respiro superior/inferior para a sombra */
+  padding: 24px 80px 48px; /* padding lateral igual ao container principal */
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE/Edge */
@@ -3691,7 +3817,13 @@ body {
 }
 .cases-showcase__carousel::-webkit-scrollbar { display: none; }
 .cases-showcase__nav { position: absolute; inset: 0; pointer-events: none; z-index: 5; }
-.cases-showcase__carousel-wrap { position: relative; padding-bottom: 12px; }
+.cases-showcase__carousel-wrap { 
+  position: relative; 
+  padding-bottom: 12px;
+  /* Quebra os limites do container para ocupar toda a tela */
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+}
 .cases-showcase__nav-btn {
   position: absolute;
   top: 45%;
@@ -4032,7 +4164,10 @@ body {
 /* Responsive Design */
 @media (max-width: 1200px) {
   .cases-showcase__container { padding: 0 20px; }
-  .cases-showcase__carousel { grid-auto-columns: 60%; }
+  .cases-showcase__carousel { 
+    grid-auto-columns: 60%; 
+    padding: 24px 40px 48px; /* padding reduzido em telas médias */
+  }
 }
 
 @media (max-width: 768px) {
@@ -4048,7 +4183,11 @@ body {
     align-items: center;
   }
   
-  .cases-showcase__carousel { grid-auto-columns: 92%; gap: 16px; padding: 4px 24px 10px; }
+  .cases-showcase__carousel { 
+    grid-auto-columns: 92%; 
+    gap: 16px; 
+    padding: 4px 24px 10px; 
+  }
   .cases-showcase__card { padding: 24px; }
   
   .cases-showcase__card-title {
@@ -5950,3 +6089,66 @@ body {
     gap: 0.5rem;
   }
 }
+#redesign { overflow-x: hidden; }
+#redesign .case-grid__right > * { max-width: 100%; }
+#redesign .palette-sides, #redesign .palette-cards-grid { max-width: 100%; }
+#redesign.case-screen {
+  /* Fundo sensorial sutil: camadas de gradientes lembrando papel/âmbar */
+  background:
+    radial-gradient(1200px 600px at -10% 0%, rgba(245, 235, 220, 0.55), transparent 60%),
+    radial-gradient(1000px 500px at 110% 110%, rgba(255, 222, 179, 0.45), transparent 60%),
+    linear-gradient(180deg, rgba(255,255,255,1), rgba(255,255,255,0.96));
+}
+
+/* Grid do hero: duas imagens lado a lado com contenção */
+.logo-hero__grid { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: clamp(10px, 2vw, 18px); align-items: center; justify-items: center; max-width: clamp(520px, 56vw, 980px); margin-inline: auto; }
+.logo-hero__item { display: flex; width: 100%; align-items: center; justify-content: center; border-radius: 12px; overflow: hidden; border: 1px solid rgba(0,0,0,0.06); background: #fff; box-shadow: 0 8px 22px rgba(0,0,0,0.05); padding: clamp(6px, 1vw, 10px); }
+.logo-hero__item img { display: block; width: 60%; height: auto; }
+/* Reduz 20% apenas a imagem da esquerda (primeiro item) */
+.logo-hero__grid .logo-hero__item:first-child img { width: 48%; }
+@media (max-width: 860px) {
+  /* Em mobile, mantém a escala uniforme para não ficar pequeno demais */
+  .logo-hero__grid .logo-hero__item:first-child img { width: 70%; }
+}
+@media (max-width: 860px) {
+  .logo-hero__grid { grid-template-columns: 1fr; max-width: 92vw; }
+}
+
+/* Hierarquia do título e subtítulo do Redesign (padronizado com demais) */
+#redesign .case-screen__title { font-size: clamp(1.8rem, 4.5vw, 2.6rem); letter-spacing: -0.01em; }
+#redesign .redesign-lead { font-style: italic; color: var(--color-gray-700); margin-top: 6px; }
+
+/* Bloco hero do logo (âmbar suave) */
+.logo-hero {
+  margin-top: 10px;
+  padding: clamp(14px, 2vw, 24px);
+  border-radius: 18px;
+  border: 1px solid rgba(146, 64, 14, 0.12);
+  background: linear-gradient(180deg, rgba(251, 245, 235, 0.9), rgba(251, 245, 235, 0.72));
+  box-shadow: 0 30px 80px rgba(146, 64, 14, 0.06), 0 10px 30px rgba(0,0,0,0.04);
+}
+.logo-hero > .flip-card { width: 100%; max-width: 100%; }
+.logo-hero .flip-card__img { object-position: top center !important; }
+
+/* Split: manter narrativa com maior peso no logo */
+#redesign .redesign-left-split { grid-template-columns: 1.2fr 0.8fr; }
+@media (max-width: 860px) { #redesign .redesign-left-split { grid-template-columns: 1fr; } }
+#redesign .redesign-left-split__spacer { display:none; }
+
+/* Bullets estilo cards leves (já atualizado), ajuste fino */
+#redesign .redesign-left-split__bullets .redesign-plates { gap: clamp(10px, 1.8vw, 16px); }
+
+/* Paletas como pastilhas circulares com leve brilho */
+#redesign .palette-cards-grid { grid-template-columns: repeat(4, minmax(64px, 90px)); gap: clamp(12px, 2vw, 18px); }
+#redesign .palette-card {
+  width: 90px; height: 90px; max-width: 90px; border-radius: 999px;
+  box-shadow: inset 0 2px 6px rgba(0,0,0,0.08), 0 10px 24px rgba(0,0,0,0.06);
+  border: 1px solid rgba(0,0,0,0.05);
+}
+@media (max-width: 640px) { #redesign .palette-card { width: 72px; height: 72px; max-width: 72px; } }
+#redesign .palette-card__text, #redesign .palette-card__hex { display: none !important; }
+#redesign .palette-section-title { text-align: left; margin-bottom: 6px; }
+.palette-side + .palette-side { margin-top: clamp(18px, 3vw, 28px); }
+
+/* Encerramento com statement visual */
+.redesign-closing { margin-top: clamp(18px, 3vw, 28px); font-family: var(--font-display); font-size: clamp(1.1rem, 2.6vw, 1.6rem); letter-spacing: 0.01em; color: #374151; }

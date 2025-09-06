@@ -358,62 +358,76 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
               <h2 className="case-screen__title">Redesign da identidade visual</h2>
             </div>
 
-            <div className="case-grid case-grid--equal">
+            {/* Grade 2 colunas 50/50: esquerda (texto+flip+bullets) / direita (texto+paletas 7:3) */}
+            <div className="case-grid case-grid--redesign">
               <div className="case-grid__left">
                 <div className="case-screen__content">
                   <p className="case-screen__body">O redesign da identidade visual do Insólito teve como objetivo <strong>resgatar a essência da marca e marcar o novo conceito</strong>, traduzindo em elementos visuais sua brasilidade, criatividade e espírito transformador.</p>
                   <p className="case-screen__body">O <strong>logo foi redesenhado</strong> para transmitir organicidade, fluidez e singularidade:</p>
 
-                  {/* Bullets em cards (estilo do case) */}
-                  <ul className="redesign-plates">
+                  {/* Hero do logo: fundo âmbar com duas versões lado a lado */}
+                  <div className="logo-hero">
+                    <div className="logo-hero__grid">
+                      <div className="logo-hero__item">
+                        <Image
+                          src="/images/cases/insolito/rebranding2.png"
+                          alt="Logo – Depois"
+                          width={1000}
+                          height={750}
+                        />
+                      </div>
+                      <div className="logo-hero__item">
+                        <Image
+                          src="/images/cases/insolito/rebranding1.png"
+                          alt="Logo – Antes"
+                          width={1000}
+                          height={750}
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Bullets (atributos) em 2x2 abaixo do bloco do logo */}
+                  <ul className="redesign-plates redesign-plates--below">
                     <li>
                       <span className="redesign-plates__icon">
                         <svg viewBox="0 0 24 24" fill="none"><path d="M12 2l3 6 6 1-4 4 1 6-6-3-6 3 1-6-4-4 6-1 3-6Z" stroke="currentColor" strokeWidth="1.6"/></svg>
                       </span>
-                      <span className="redesign-plates__text">Análise da <strong>essência da marca e da natureza brasileira;</strong></span>
+                      <span className="redesign-plates__text"><strong>Essência viva</strong> Sutileza orgânica inspirada na natureza brasileira.</span>
                     </li>
                     <li>
                       <span className="redesign-plates__icon">
                         <svg viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h10" stroke="currentColor" strokeWidth="1.6"/></svg>
                       </span>
-                      <span className="redesign-plates__text">Redefinição de tipografia, cores e logo;</span>
+                      <span className="redesign-plates__text"><strong>Tipografia e cor</strong> Paleta e letras mais maduras e sensoriais.</span>
                     </li>
                     <li>
                       <span className="redesign-plates__icon">
                         <svg viewBox="0 0 24 24" fill="none"><path d="M4 12c4-6 12-6 16 0-4 6-12 6-16 0Z" stroke="currentColor" strokeWidth="1.6"/></svg>
                       </span>
-                      <span className="redesign-plates__text">Mais <strong>curvas</strong>, mais <strong>orgânico</strong>, <strong>único</strong> e <strong>natural</strong>, refletindo a brasilidade;</span>
+                      <span className="redesign-plates__text"><strong>Curvas e fluidez</strong> Formas únicas que traduzem movimento e autenticidade.</span>
                     </li>
                     <li>
                       <span className="redesign-plates__icon">
                         <svg viewBox="0 0 24 24" fill="none"><path d="M3 12h6l3 3 3-3h6" stroke="currentColor" strokeWidth="1.6"/></svg>
                       </span>
-                      <span className="redesign-plates__text">Uma forma que dialoga com arte e natureza, reforçando a conexão do hotel com experiências sensoriais e culturais.</span>
+                      <span className="redesign-plates__text"><strong>Arte + Natureza</strong> Diálogo entre cultura e paisagem em cada traço.</span>
                     </li>
                   </ul>
 
-                  {/* Imagens lado a lado, proporcionais e menores */}
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginTop: '16px' }}>
-                    <div className="case-frame case-frame--compact case-elevate" style={{ aspectRatio: '4 / 3', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                      <Image src="/images/cases/insolito/rebranding1.png" alt="Redesign do logo do Insólito" width={800} height={600} style={{ maxWidth: '100%', maxHeight: '100%', width: 'auto', height: 'auto' }} />
-                    </div>
-                    <div className="case-frame case-frame--compact case-elevate" style={{ aspectRatio: '4 / 3', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                      <Image src="/images/cases/insolito/rebranding2.png" alt="Aplicação da nova identidade visual" width={800} height={600} style={{ maxWidth: '100%', maxHeight: '100%', width: 'auto', height: 'auto' }} />
-                    </div>
-                  </div>
                 </div>
               </div>
 
-              <div className="case-grid__right">
-                <div className="case-screen__content">
-                  <h3 className="case-screen__subtitle" style={{ marginBottom: '0.5rem' }}>Paleta de cores</h3>
-                  <p className="case-screen__body">A <strong>paleta de cores</strong> foi atualizada, tornando-se mais <strong>sóbria e elegante</strong>, mantendo referências à brasilidade e à arte, equilibrando sofisticação e autenticidade.</p>
+              
 
-                  {/* Paleta como cartões (antes → depois) */}
-                  <div className="palette-cards-comparison">
-                    <div className="palette-cards-section">
+              <div className="case-grid__right">
+                <p className="case-screen__body" style={{ marginTop: 8, textAlign: 'left' }}>A <strong>paleta de cores</strong> foi atualizada, tornando-se mais <strong>sóbria e elegante</strong>, mantendo referências à brasilidade e à arte, equilibrando sofisticação e autenticidade.</p>
+
+                  {/* Paletas lado a lado (7:3) */}
+                  <div className="palette-sides">
+                    <div className="palette-side palette-side--old">
                       <div className="palette-section-title">
-                        <span className="case-eyebrow">Antiga</span>
+                        <span className="palette-badge palette-badge--before">Antes</span>
                         <h4 className="h4">Primeira paleta de cores</h4>
                       </div>
                       <div className="palette-cards-grid">
@@ -430,17 +444,12 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
                           <div className="palette-card__text">Azul-petróleo <span className="palette-card__hex">#28889c</span></div>
                         </div>
                       </div>
+                      {/* microexemplo removido a pedido */}
                     </div>
 
-                    <div className="palette-arrow" aria-hidden>
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                        <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                      </svg>
-                    </div>
-
-                    <div className="palette-cards-section">
+                    <div className="palette-side palette-side--new">
                       <div className="palette-section-title">
-                        <span className="case-eyebrow">Nova</span>
+                        <span className="palette-badge palette-badge--after">Depois</span>
                         <h4 className="h4">Paleta de cores transformada</h4>
                       </div>
                       <div className="palette-cards-grid">
@@ -457,10 +466,11 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
                           <div className="palette-card__text">Azul escuro <span className="palette-card__hex">#2a4360</span></div>
                         </div>
                       </div>
+                      {/* microexemplo removido a pedido */}
                     </div>
                   </div>
-                  {/* Removido o bloco textual redundante da paleta */}
-                </div>
+                {/* Encerramento narrativo (padronizado com a tipografia do case) */}
+                <p className="case-screen__body" style={{ marginTop: 24, textAlign: 'left' }}>Uma marca mais fluida, natural e autêntica.</p>
               </div>
             </div>
           </div>
@@ -552,20 +562,41 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
         {/* Outros Cases - Carrossel da Home */}
         <section className="cases-showcase" id="outros-cases">
           <div className="cases-showcase__container">
-            <h2 className="cases-showcase__title">Outros Cases</h2>
+            <h2 className="cases-showcase__title" style={{ marginBottom: '3rem' }}>Outros Cases</h2>
             <div className="cases-showcase__grid">
-              {cases.filter(c => c.slug !== slug).slice(0, 2).map((caseItem) => (
-                <Link key={caseItem.slug} href={`/cases/${caseItem.slug}`} className="hero__card hero__card--case">
-                  <div className="hero__card-overlay">
-                    <div className="hero__card-content">
-                      <span className="hero__card-label">Case</span>
-                      <h3 className="hero__card-title">{caseItem.title}</h3>
-                      <p className="hero__card-subtitle">{caseItem.summary}</p>
+              {cases.filter(c => c.slug !== slug).slice(0, 2).map((caseItem) => {
+                const isAvailable = caseItem.available === true;
+                const href = isAvailable ? `/cases/${caseItem.slug}` : undefined;
+                
+                if (href) {
+                  return (
+                    <Link key={caseItem.slug} href={href} className="hero__card hero__card--case">
+                      <div className="hero__card-overlay">
+                        <div className="hero__card-content">
+                          <span className="hero__card-label">Case</span>
+                          <h3 className="hero__card-title">{caseItem.title}</h3>
+                          <p className="hero__card-subtitle">{caseItem.summary}</p>
+                        </div>
+                      </div>
+                      <div className="hero__card-bg" style={{backgroundImage: `url(${caseItem.image})`}}></div>
+                    </Link>
+                  );
+                } else {
+                  return (
+                    <div key={caseItem.slug} className="hero__card hero__card--case hero__card--disabled">
+                      <div className="hero__card-overlay">
+                        <div className="hero__card-content">
+                          <span className="hero__card-label">Case</span>
+                          <h3 className="hero__card-title">{caseItem.title}</h3>
+                          <p className="hero__card-subtitle">{caseItem.summary}</p>
+                          <div className="hero__card-soon">Em breve</div>
+                        </div>
+                      </div>
+                      <div className="hero__card-bg" style={{backgroundImage: `url(${caseItem.image})`}}></div>
                     </div>
-                  </div>
-                  <div className="hero__card-bg" style={{backgroundImage: `url(${caseItem.heroImage})`}}></div>
-                </Link>
-              ))}
+                  );
+                }
+              })}
             </div>
           </div>
         </section>

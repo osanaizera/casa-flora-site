@@ -4,142 +4,13 @@ import { useRef } from 'react';
 import { motion, useInView, Variants } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
+import { cases } from '@/data/cases';
 
 export default function CasesShowcase() {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
   const carouselRef = useRef<HTMLDivElement | null>(null);
   const dragRef = useRef<{ down: boolean; startX: number; startScroll: number }>({ down: false, startX: 0, startScroll: 0 });
-
-  type CaseCard = {
-    id: string;
-    title: string;
-    location: string;
-    service: string;
-    category: string;
-    year: string;
-    image: string;
-    description: string;
-    pack?: string[];
-  };
-
-  const cases: CaseCard[] = [
-    // Insólito primeiro para centralizar no início
-    {
-      id: 'insolito',
-      title: 'Insólito',
-      location: 'BÚZIOS (RJ)',
-      service: 'Garden',
-      pack: ['Garden','Ativação Âmbar'],
-      category: 'Hotel & Spa',
-      year: '2022',
-      image: '/images/INSOLITO CAPA.jpg',
-      description: 'Rebranding sensorial para um ícone boutique à beira-mar.'
-    },
-    {
-      id: 'buzios-mar',
-      title: 'Búzios Mar',
-      location: 'BÚZIOS (RJ)',
-      service: 'Raiz',
-      category: 'Hospitalidade',
-      year: '2024',
-      image: '/images/BUZIOS MAR CAPA.png',
-      description: 'Identidade e presença alinhadas ao espírito praiano e sofisticado de Búzios.'
-    },
-    {
-      id: 'greco-hotel',
-      title: 'Greco Hotel',
-      location: 'BÚZIOS (RJ)',
-      service: 'Raiz',
-      category: 'Hotel Boutique',
-      year: '2024',
-      image: '/images/GRECO CAPA.jpg',
-      description: 'Marca com autenticidade mediterrânea e brasilidade na experiência.'
-    },
-    {
-      id: 'le-village',
-      title: 'Le Village',
-      location: 'BÚZIOS (RJ)',
-      service: 'Raiz',
-      category: 'Pousada',
-      year: '2023',
-      image: '/images/LE VILLAGE CAPA.jpg',
-      description: 'Charme histórico traduzido em identidade e jornada de encantamento.'
-    },
-    {
-      id: 'parador-lumiar',
-      title: 'Parador Lumiar',
-      location: 'LUMIAR (RJ)',
-      service: 'Raiz',
-      category: 'Hospedagem',
-      year: '2024',
-      image: '/images/PARADOR LUMIAR CAPA.webp',
-      description: 'Posicionamento estratégico e visual com natureza como protagonista.'
-    },
-    {
-      id: 'zendaya',
-      title: 'Zendaya',
-      location: 'BÚZIOS (RJ)',
-      service: 'Garden',
-      pack: ['Garden','Acompanhamento Seiva'],
-      category: 'Resort',
-      year: '2024/2025',
-      image: '/images/ZENDAYA CAPA.png',
-      description: 'Elegância contemporânea para um resort de destino.'
-    }
-    ,
-    // ——— Em breve ———
-    {
-      id: 'casa-poema',
-      title: 'Casa Poema',
-      location: 'PARATY (RJ)',
-      service: 'Raiz',
-      category: 'Identidade',
-      year: '2024',
-      image: '/images/CASAPOEMACAPA.png',
-      description: 'Uma identidade visual que traduz a simplicidade acolhedora da experiência de estar em casa.'
-    },
-    {
-      id: 'vedan-advocacia',
-      title: 'Vedan Advocacia',
-      location: 'PATO BRANCO (PR)',
-      service: 'Raiz',
-      category: 'Identidade',
-      year: '2025',
-      image: '/images/VEDANCAPA.jpg',
-      description: 'Exclusividade, sofisticação e a experiência como essência: a identidade viva do Vedan Advocacia.'
-    },
-    {
-      id: 'bego',
-      title: 'Begô',
-      location: 'PORTO ALEGRE (RS)',
-      service: 'Raiz',
-      category: 'Identidade',
-      year: '2025',
-      image: '/images/BEGOCAPA.png',
-      description: 'Redesign que simplifica para valorizar: Begô agora traduz o essencialismo e o feito à mão em uma identidade minimalista e atemporal.'
-    },
-    {
-      id: 'influa-filmes',
-      title: 'Influa Filmes',
-      location: 'PORTO ALEGRE (RS)',
-      service: 'Raiz',
-      category: 'Identidade',
-      year: '2024',
-      image: '/images/INFLUACAPA.png',
-      description: 'Rebranding que conecta essência, confiança e excelência em todos os detalhes.'
-    },
-    {
-      id: 'tomazzetti-melo',
-      title: 'Tomazzetti e Melo',
-      location: 'SANTA CRUZ DO SUL (RS)',
-      service: 'Raiz',
-      category: 'Identidade',
-      year: '2025',
-      image: '/images/TOMAZZETTICAPA.png',
-      description: 'Transformando a marca para expressar maturidade, excelência e autoridade.'
-    }
-  ];
 
   // animations handled per-card only; container variants removed
 
@@ -202,11 +73,11 @@ export default function CasesShowcase() {
             onPointerCancel={() => { dragRef.current.down = false; }}
           >
           {cases.map((caseItem) => {
-            const isAvailable = caseItem.id === 'insolito';
-            const href = isAvailable ? `/cases/${caseItem.id}` : undefined;
+            const isAvailable = caseItem.available === true;
+            const href = isAvailable ? `/cases/${caseItem.slug}` : undefined;
             return (
             <motion.div
-              key={caseItem.id}
+              key={caseItem.slug}
               className={`cases-showcase__card cases-showcase__card--${caseItem.service.toLowerCase()} ${!isAvailable ? 'is-disabled' : ''}`}
               variants={cardVariants}
             >

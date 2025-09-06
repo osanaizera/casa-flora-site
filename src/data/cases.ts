@@ -13,6 +13,10 @@ export type CaseItem = {
   description: string;
   heroImage: string;
   logo?: string; // Caminho opcional para logo do case
+  // Campos para o carrossel
+  image: string; // Imagem para o carrossel (pode ser igual à heroImage)
+  pack?: string[]; // Array de serviços para badges (ex: ['Garden', 'Ativação Âmbar'])
+  available?: boolean; // Se o case está disponível ou "em breve" (default: false)
   // Conteúdo narrativo
   aboutHotel?: string;
   challenge?: string;
@@ -35,18 +39,21 @@ export const cases: CaseItem[] = [
     slug: "insolito",
     title: "Insólito",
     client: "Insólito Boutique Hotel & Spa",
-    location: "Búzios (RJ)",
+    location: "BÚZIOS (RJ)",
     segment: "Hotel Boutique & Spa",
     tagline: "Rebranding & Estratégia de Marca",
     servicePack: "Garden + Ativação Âmbar",
     year: "2022",
-    service: "Rebranding",
-    category: "Hospitalidade",
+    service: "Garden",
+    category: "Hotel & Spa",
     summary:
       "Hospitalidade que encontra a cultura: rebranding e estratégia para uma marca boutique à beira-mar.",
     description:
-      "Transformação estratégica e visual para alinhar a identidade do Insólito ao seu caráter artístico e sensorial, do posicionamento ao plano de ativação.",
+      "Rebranding sensorial para um ícone boutique à beira-mar.",
     heroImage: "/images/cases/insolito/hero.jpg",
+    image: "/images/INSOLITO%20CAPA.jpg",
+    pack: ["Garden", "Ativação Âmbar"],
+    available: true, // Único case disponível
     logo: "/images/cases/insolito/insolitologo.png",
     aboutHotel:
       "O Insólito é um hotel boutique e spa visualmente vibrante, com alma e estética profundamente brasileiras. Localizado à beira-mar, é reconhecido por sua curadoria artística: cada quarto é inspirado em uma obra de arte, transformando o espaço em uma galeria viva que celebra artistas nacionais.",
@@ -96,12 +103,70 @@ export const cases: CaseItem[] = [
     notionUrl:
       "https://brief-key-ebd.notion.site/Ins-lito-24efc4073fad80609415c29c713a8577",
   },
-  // Placeholder — Búzios Mar
+  {
+    slug: "casa-poema",
+    title: "Casa Poema",
+    client: "Casa Poema",
+    location: "PARATY (RJ)",
+    segment: "Identidade",
+    tagline: "Simplicidade acolhedora da experiência de estar em casa",
+    year: "2024",
+    service: "Raiz",
+    category: "Identidade",
+    summary:
+      "Uma identidade visual que traduz a simplicidade acolhedora da experiência de estar em casa.",
+    description:
+      "Uma identidade visual que traduz a simplicidade acolhedora da experiência de estar em casa.",
+    heroImage: "/images/CASAPOEMACAPA.png",
+    image: "/images/CASAPOEMACAPA.png",
+    pack: ["Raiz"],
+    available: false, // Em breve
+    gallery: [
+      "/images/experiencia.jpg",
+      "/images/hospitalidade.jpg",
+      "/images/garden.jpg",
+    ],
+    results: [
+      "Identidade visual coesa",
+      "Simplicidade que acolhe",
+      "Base sólida de marca",
+    ],
+  },
+  {
+    slug: "zendaya",
+    title: "Zendaya",
+    client: "Zendaya Resort",
+    location: "BÚZIOS (RJ)",
+    segment: "Resort",
+    tagline: "Elegância contemporânea para um resort de destino",
+    year: "2024/2025",
+    service: "Garden",
+    servicePack: "Garden + Acompanhamento Seiva",
+    category: "Resort",
+    summary:
+      "Elegância contemporânea para um resort de destino.",
+    description:
+      "Elegância contemporânea para um resort de destino.",
+    heroImage: "/images/ZENDAYA%20CAPA.png",
+    image: "/images/ZENDAYA%20CAPA.png",
+    pack: ["Garden", "Acompanhamento Seiva"],
+    available: false, // Em breve
+    gallery: [
+      "/images/experiencia.jpg",
+      "/images/hospitalidade.jpg",
+      "/images/garden.jpg",
+    ],
+    results: [
+      "Marca premium reconhecível",
+      "Coerência em todos os touchpoints",
+      "Material de apresentação impecável",
+    ],
+  },
   {
     slug: "buzios-mar",
     title: "Búzios Mar",
     client: "Búzios Mar",
-    location: "Búzios (RJ)",
+    location: "BÚZIOS (RJ)",
     segment: "Hospitalidade",
     tagline: "Identidade e experiência com alma praiana",
     year: "2024",
@@ -110,8 +175,10 @@ export const cases: CaseItem[] = [
     summary:
       "Identidade e presença alinhadas ao espírito praiano e sofisticado de Búzios.",
     description:
-      "Projeto de base para estruturar linguagem visual, narrativa e pontos de contato essenciais de uma marca com vocação solar e acolhedora.",
-    heroImage: "/images/BUZIOS MAR CAPA.png",
+      "Identidade e presença alinhadas ao espírito praiano e sofisticado de Búzios.",
+    heroImage: "/images/BUZIOS%20MAR%20CAPA.png",
+    image: "/images/BUZIOS%20MAR%20CAPA.png",
+    pack: ["Raiz"],
     gallery: [
       "/images/experiencia.jpg",
       "/images/hospitalidade.jpg",
@@ -123,22 +190,23 @@ export const cases: CaseItem[] = [
       "Prontidão para ativações",
     ],
   },
-  // Placeholder — Greco Hotel
   {
     slug: "greco-hotel",
     title: "Greco Hotel",
     client: "Greco Hotel",
-    location: "Búzios (RJ)",
+    location: "BÚZIOS (RJ)",
     segment: "Hotel Boutique",
     tagline: "Mediterrâneo encontra brasilidade",
     year: "2024",
     service: "Raiz",
-    category: "Hospitalidade",
+    category: "Hotel Boutique",
     summary:
       "Marca com autenticidade mediterrânea e brasilidade na experiência.",
     description:
-      "Essência, linguagem e estética que traduzem hospitalidade calorosa com referências mediterrâneas e alma brasileira.",
-    heroImage: "/images/raiz.jpg",
+      "Marca com autenticidade mediterrânea e brasilidade na experiência.",
+    heroImage: "/images/GRECO%20CAPA.jpg",
+    image: "/images/GRECO%20CAPA.jpg",
+    pack: ["Raiz"],
     gallery: [
       "/images/raiz.jpg",
       "/images/hospitalidade.jpg",
@@ -150,22 +218,23 @@ export const cases: CaseItem[] = [
       "Experiência mais memorável",
     ],
   },
-  // Placeholder — Le Village
   {
     slug: "le-village",
     title: "Le Village",
     client: "Le Village",
-    location: "Búzios (RJ)",
+    location: "BÚZIOS (RJ)",
     segment: "Pousada",
     tagline: "Charme histórico que acolhe",
     year: "2023",
     service: "Raiz",
-    category: "Hospitalidade",
+    category: "Pousada",
     summary:
       "Charme histórico traduzido em identidade e jornada de encantamento.",
     description:
-      "Linguagem autoral que respeita o patrimônio e potencializa a experiência com sutileza e afeto.",
-    heroImage: "/images/hospitalidade.jpg",
+      "Charme histórico traduzido em identidade e jornada de encantamento.",
+    heroImage: "/images/LE%20VILLAGE%20CAPA.jpg",
+    image: "/images/LE%20VILLAGE%20CAPA.jpg",
+    pack: ["Raiz"],
     gallery: [
       "/images/hospitalidade.jpg",
       "/images/experiencia.jpg",
@@ -181,15 +250,18 @@ export const cases: CaseItem[] = [
     slug: "parador-lumiar",
     title: "Parador Lumiar",
     client: "Parador Lumiar",
-    location: "Lumiar",
+    location: "LUMIAR (RJ)",
+    segment: "Hospedagem",
     year: "2024",
-    service: "Rebranding",
-    category: "Hospitalidade",
+    service: "Raiz",
+    category: "Hospedagem",
     summary:
-      "Reposicionamento estratégico de marca para uma pousada premium na serra, conectando natureza com experiências autênticas.",
+      "Posicionamento estratégico e visual com natureza como protagonista.",
     description:
-      "Estratégia e identidade que unem conforto, autenticidade e o cenário exuberante da serra para uma marca memorável.",
-    heroImage: "/images/experiencia.jpg",
+      "Posicionamento estratégico e visual com natureza como protagonista.",
+    heroImage: "/images/PARADOR%20LUMIAR%20CAPA.webp",
+    image: "/images/PARADOR%20LUMIAR%20CAPA.webp",
+    pack: ["Raiz"],
     gallery: [
       "/images/experiencia.jpg",
       "/images/hospitalidade.jpg",
@@ -201,101 +273,113 @@ export const cases: CaseItem[] = [
       "Base para comunicação consistente",
     ],
   },
+  // ——— Em breve ———
   {
-    slug: "zendaya-resort",
-    title: "Zendaya Resort",
-    client: "Zendaya Resort",
-    location: "Búzios (RJ)",
-    year: "2024/2025",
-    service: "Branding Completo",
-    servicePack: "Garden + Acompanhamento Seiva",
-    category: "Resort",
+    slug: "vedan-advocacia",
+    title: "Vedan Advocacia",
+    client: "Vedan Advocacia",
+    location: "PATO BRANCO (PR)",
+    segment: "Identidade",
+    year: "2025",
+    service: "Raiz",
+    category: "Identidade",
     summary:
-      "Criação de marca sofisticada para resort de luxo, capturando a essência do destino e da hospitalidade de alto padrão.",
+      "Exclusividade, sofisticação e a experiência como essência: a identidade viva do Vedan Advocacia.",
     description:
-      "Do diagnóstico ao universo simbólico e visual, um branding completo para uma experiência de luxo com identidade forte.",
-    heroImage: "/images/garden.jpg",
+      "Exclusividade, sofisticação e a experiência como essência: a identidade viva do Vedan Advocacia.",
+    heroImage: "/images/VEDANCAPA.jpg",
+    image: "/images/VEDANCAPA.jpg",
+    pack: ["Raiz"],
     gallery: [
-      "/images/garden.jpg",
       "/images/experiencia.jpg",
       "/images/hospitalidade.jpg",
+      "/images/garden.jpg",
     ],
     results: [
-      "Marca premium reconhecível",
-      "Coerência em todos os touchpoints",
-      "Material de apresentação impecável",
+      "Identidade sofisticada",
+      "Posicionamento premium",
+      "Experiência diferenciada",
     ],
   },
   {
-    slug: "buzios-mar",
-    title: "Búzios Mar",
-    client: "Búzios Mar Hotel",
-    location: "Búzios (RJ)",
+    slug: "bego",
+    title: "Begô",
+    client: "Begô",
+    location: "PORTO ALEGRE (RS)",
+    segment: "Identidade",
+    year: "2025",
+    service: "Raiz",
+    category: "Identidade",
+    summary:
+      "Redesign que simplifica para valorizar: Begô agora traduz o essencialismo e o feito à mão em uma identidade minimalista e atemporal.",
+    description:
+      "Redesign que simplifica para valorizar: Begô agora traduz o essencialismo e o feito à mão em uma identidade minimalista e atemporal.",
+    heroImage: "/images/BEGOCAPA.png",
+    image: "/images/BEGOCAPA.png",
+    pack: ["Raiz"],
+    gallery: [
+      "/images/experiencia.jpg",
+      "/images/hospitalidade.jpg",
+      "/images/garden.jpg",
+    ],
+    results: [
+      "Identidade minimalista",
+      "Essencialismo valorizado",
+      "Marca atemporal",
+    ],
+  },
+  {
+    slug: "influa-filmes",
+    title: "Influa Filmes",
+    client: "Influa Filmes",
+    location: "PORTO ALEGRE (RS)",
+    segment: "Identidade",
     year: "2024",
-    service: "Identidade Visual",
-    category: "Hospitalidade",
+    service: "Raiz",
+    category: "Identidade",
     summary:
-      "Criação de identidade visual para hotel boutique em Búzios, capturando a essência do mar e a sofisticação local.",
+      "Rebranding que conecta essência, confiança e excelência em todos os detalhes.",
     description:
-      "Desenvolvimento de marca que conecta o charme de Búzios com experiências únicas à beira-mar.",
-    heroImage: "/images/hospitalidade.jpg",
+      "Rebranding que conecta essência, confiança e excelência em todos os detalhes.",
+    heroImage: "/images/INFLUACAPA.png",
+    image: "/images/INFLUACAPA.png",
+    pack: ["Raiz"],
     gallery: [
-      "/images/hospitalidade.jpg",
       "/images/experiencia.jpg",
+      "/images/hospitalidade.jpg",
       "/images/garden.jpg",
     ],
     results: [
-      "Identidade visual consistente",
-      "Posicionamento claro no mercado",
-      "Material de comunicação alinhado",
+      "Rebranding consistente",
+      "Confiança fortalecida",
+      "Excelência comunicada",
     ],
   },
   {
-    slug: "greco-hotel",
-    title: "Greco Hotel",
-    client: "Greco Hotel",
-    location: "Santorini",
-    year: "2023",
-    service: "Rebranding",
-    category: "Hospitalidade",
+    slug: "tomazzetti-melo",
+    title: "Tomazzetti e Melo",
+    client: "Tomazzetti e Melo",
+    location: "SANTA CRUZ DO SUL (RS)",
+    segment: "Identidade",
+    year: "2025",
+    service: "Raiz",
+    category: "Identidade",
     summary:
-      "Rebranding completo para hotel greco, unindo tradição mediterrânea com hospitalidade contemporânea.",
+      "Transformando a marca para expressar maturidade, excelência e autoridade.",
     description:
-      "Revitalização da marca com inspiração na arquitetura e cultura grega para uma experiência autêntica.",
-    heroImage: "/images/experiencia.jpg",
+      "Transformando a marca para expressar maturidade, excelência e autoridade.",
+    heroImage: "/images/TOMAZZETTICAPA.png",
+    image: "/images/TOMAZZETTICAPA.png",
+    pack: ["Raiz"],
     gallery: [
       "/images/experiencia.jpg",
       "/images/hospitalidade.jpg",
       "/images/garden.jpg",
     ],
     results: [
-      "Marca autêntica e memorável",
-      "Conexão emocional com hóspedes",
-      "Diferenciação no mercado greco",
-    ],
-  },
-  {
-    slug: "le-village",
-    title: "Le Village",
-    client: "Le Village Resort",
-    location: "Vale dos Vinhedos (RS)",
-    year: "2024",
-    service: "Branding Completo",
-    category: "Resort",
-    summary:
-      "Branding completo para resort na região vinícola, celebrando a cultura do vinho e experiências gastronômicas.",
-    description:
-      "Criação de marca que expressa sofisticação, tradição vinícola e experiências únicas no Vale dos Vinhedos.",
-    heroImage: "/images/garden.jpg",
-    gallery: [
-      "/images/garden.jpg",
-      "/images/experiencia.jpg",
-      "/images/hospitalidade.jpg",
-    ],
-    results: [
-      "Posicionamento premium estabelecido",
-      "Identidade alinhada à região",
-      "Material promocional sofisticado",
+      "Maturidade expressa",
+      "Autoridade consolidada",
+      "Marca transformada",
     ],
   },
 ];
