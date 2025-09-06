@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { getCaseBySlug, cases } from '@/data/cases';
 import { notFound } from 'next/navigation';
 import ActiveSectionNav from '@/components/ui/ActiveSectionNav';
+import ContactCTA from '@/components/sections/ContactCTA';
 
 type RouteParams = { slug: string };
 
@@ -516,22 +517,22 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
                 </div>
                 <div className="result-block__images">
                   <div className="case-images-grid">
-                    <div className="case-frame case-frame--compact case-elevate">
+                    <div className="case-frame case-frame--portrait-shallow case-elevate">
                       <Image 
                         src="/images/cases/insolito/resultados1.jpeg" 
                         alt="Coerência Visual - Imagem 1" 
-                        width={400}
-                        height={300}
-                        style={{ width: '100%', height: 'auto' }}
+                        width={800}
+                        height={1000}
+                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                       />
                     </div>
-                    <div className="case-frame case-frame--compact case-elevate">
+                    <div className="case-frame case-frame--portrait-shallow case-elevate">
                       <Image 
                         src="/images/cases/insolito/resultados2.jpeg" 
                         alt="Coerência Visual - Imagem 2" 
-                        width={400}
-                        height={300}
-                        style={{ width: '100%', height: 'auto' }}
+                        width={800}
+                        height={1000}
+                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                       />
                     </div>
                   </div>
@@ -544,12 +545,12 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
                   <p className="result-block__text" style={{ color: '#fff' }}>O perfil do Instagram (@insolitohotel) é vibrante! A curadoria de conteúdo, incluindo imagens de obras de arte, detalhes da arquitetura e experiências sensoriais, tem gerado engajamento significativo.</p>
                 </div>
                 <div className="result-block__image">
-                  <div className="case-frame case-frame--compact case-elevate">
+                  <div className="case-frame case-elevate">
                     <Image 
                       src="/images/cases/insolito/resultado 3.jpeg" 
                       alt="Posicionamento em Diferentes Canais" 
-                      width={600}
-                      height={400}
+                      width={1200}
+                      height={675}
                       style={{ width: '100%', height: 'auto' }}
                     />
                   </div>
@@ -560,7 +561,7 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
         </section>
 
         {/* Outros Cases - Carrossel da Home */}
-        <section className="cases-showcase" id="outros-cases">
+        <section className="cases-showcase cases-showcase--reduced-bottom" id="outros-cases">
           <div className="cases-showcase__container">
             <h2 className="cases-showcase__title" style={{ marginBottom: '3rem' }}>Outros Cases</h2>
             <div className="cases-showcase__grid">
@@ -601,21 +602,8 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
           </div>
         </section>
 
-        {/* CTA final no estilo da home */}
-        <section className="cta-final">
-          <div className="cases-showcase__container">
-            <div className="cases-showcase__bottom-cta">
-              <div className="cases-showcase__cta-content">
-                <h3 className="cases-showcase__cta-title">Gostou deste projeto?</h3>
-                <p className="cases-showcase__cta-description">Cada projeto é único e merece uma abordagem personalizada. Vamos conversar sobre como a Casa Flora pode transformar sua marca em algo verdadeiramente memorável.</p>
-                <Link href="/contato" className="cases-showcase__cta-button">
-                  <span>Iniciar conversa</span>
-                  <div className="cases-showcase__cta-button-glow"></div>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* Formulário de contato completo da home */}
+        <ContactCTA />
 
         {/* Rodapé preto minimalista */}
         <footer className="site-footer">
