@@ -25,27 +25,24 @@ export default function HospitalidadePage() {
 
       {/* Coluna do conteúdo */}
       <main className="topic-split__content">
-        {/* Header também no conteúdo (UX/SEO) */}
-        <header className="topic-split__header">
-          <h1 className="topic-hero__title topic-split__title">Hospitalidade</h1>
-          <p className="topic-hero__subtitle topic-split__subtitle">Marcas que dominam a arte de bem-receber.</p>
-        </header>
-
         <section className="topic-section--narrow">
           <p>
-            Espaços que entendem que cada chegada, cada gesto e cada detalhe é uma oportunidade de acolher, surpreender e criar vínculo. Aqui, a atmosfera é viva: é o aroma, a textura, a iluminação, o ritmo da música. É o toque humano que transforma visitantes em hóspedes e clientes em amigos.
+            Tudo que envolve receber, acolher, hospedar e proporcionar estadias memoráveis.
           </p>
         </section>
 
         {/* Tipos de negócios */}
         <section className="topic-section--narrow">
-          <h2 className="topic-title">Para quem criamos hospitalidade</h2>
+          <h2 className="topic-title">Segmentos que atendemos</h2>
           <div className="topic-chips">
-            <span className="topic-chip">Hotéis Boutique & Pousadas</span>
-            <span className="topic-chip">Resorts & Glampings</span>
-            <span className="topic-chip">Spas & Wellness</span>
-            <span className="topic-chip">Restaurantes de Hotel</span>
-            <span className="topic-chip">Clubes & Beach Clubs</span>
+            <span className="topic-chip">Hotéis, Pousadas e Hospedagem</span>
+            <span className="topic-chip">Resorts</span>
+            <span className="topic-chip">Pousadas boutique</span>
+            <span className="topic-chip">Casas no Airbnb</span>
+            <span className="topic-chip">Spas e Centros de Bem-Estar</span>
+            <span className="topic-chip">Centros holísticos e de terapias</span>
+            <span className="topic-chip">Espaços de yoga e meditação</span>
+            <span className="topic-chip">Clínicas de beleza e saúde</span>
           </div>
         </section>
 

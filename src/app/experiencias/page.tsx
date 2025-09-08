@@ -25,26 +25,25 @@ export default function ExperienciasPage() {
 
       {/* Coluna do conteúdo */}
       <main className="topic-split__content">
-        <header className="topic-split__header">
-          <h1 className="topic-hero__title topic-split__title">Experiências</h1>
-          <p className="topic-hero__subtitle topic-split__subtitle">Marcas que transformam interações em memórias vivas.</p>
-        </header>
-
         <section className="topic-section--narrow">
           <p>
-            São aquelas que criam universos sensoriais e imersivos — onde o cliente não apenas consome, mas vive algo que ficará marcado. Cada detalhe é pensado para despertar emoções: o som ambiente que conversa com a proposta, o cuidado no design, a narrativa que conduz o visitante por uma jornada.
+            Tudo que envolve criar sensações, narrativas e vivências únicas — no espaço, no design, na estética e na relação com o público.
           </p>
         </section>
 
         {/* Tipos de negócios */}
         <section className="topic-section--narrow">
-          <h2 className="topic-title">Para quem criamos experiências</h2>
+          <h2 className="topic-title">Segmentos que atendemos</h2>
           <div className="topic-chips">
-            <span className="topic-chip">Museus & Centros Culturais</span>
-            <span className="topic-chip">Flagships & Varejo Autoral</span>
-            <span className="topic-chip">Restaurantes & Bares</span>
-            <span className="topic-chip">Parques & Atrações</span>
-            <span className="topic-chip">Eventos & Pop-ups</span>
+            <span className="topic-chip">Restaurantes</span>
+            <span className="topic-chip">Cafeterias</span>
+            <span className="topic-chip">Bares</span>
+            <span className="topic-chip">Espaços gastronômicos</span>
+            <span className="topic-chip">Estúdios criativos</span>
+            <span className="topic-chip">Escritório de Arquitetura</span>
+            <span className="topic-chip">Escritório de Advocacia</span>
+            <span className="topic-chip">Espaços para Eventos</span>
+            <span className="topic-chip">Projetos imobiliários</span>
           </div>
         </section>
 

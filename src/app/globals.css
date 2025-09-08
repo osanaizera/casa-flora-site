@@ -186,6 +186,11 @@ body {
   margin-right: auto;
 }
 
+/* Em notebooks, somar offset do header fixo e dar respiro ao hero */
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .hero { padding-top: 120px; margin-top: 0; }
+}
+
 .hero__content {
   max-width: 600px;
 }
@@ -1308,6 +1313,11 @@ body {
   .main > main { padding-top: 140px; }
 }
 
+/* Ensure global offset below fixed header on notebook widths */
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .main > main { padding-top: 128px; }
+}
+
 /* Case Hero Overlay (editorial) */
 .case-hero-wrap { height: 100vh; background: #ffffff; }
 
@@ -1342,6 +1352,20 @@ body {
   text-align: center;
   color: #fff;
   padding: 0 clamp(32px, 7.8vw, 110px);
+}
+
+/* Em notebooks (larguras médias), evite o header sobrepor o hero e dê respiro no topo */
+@media (min-width: 769px) and (max-width: 1400px) {
+  :root { --header-offset-nb: 128px; }
+  /* Garante que nada fique sob o header fixo e adiciona respiro visual */
+  .case-hero-wrap { padding-top: var(--header-offset-nb); }
+  .case-hero { height: calc(100vh - var(--header-offset-nb)); }
+  .case-hero__content { 
+    align-items: flex-start; 
+    padding-top: clamp(32px, 7vh, 112px);
+  }
+  /* Um dedo de espaço extra no conteúdo interno */
+  .case-hero__content-inner { margin-top: 12px; }
 }
 
 .case-hero__content-inner {
