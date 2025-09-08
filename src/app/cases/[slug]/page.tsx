@@ -299,7 +299,7 @@ export default async function CaseDetail({ params }: { params: Promise<RoutePara
             <div className="case-frame case-frame--wide case-elevate manifesto-video" style={{ margin: '0 0 2rem 0' }}>
               <iframe
                 className="manifesto-video__embed"
-                src="https://www.youtube.com/embed/VIDEO_ID?rel=0&modestbranding=1&playsinline=1"
+                src="https://www.youtube.com/embed/nmQqbIhonPI?rel=0&modestbranding=1&playsinline=1"
                 title="Manifesto – Insólito"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
