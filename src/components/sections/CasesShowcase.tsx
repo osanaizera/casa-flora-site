@@ -215,7 +215,7 @@ export default function CasesShowcase() {
                         <p className="about-clean__role">Sócia Fundadora e Diretora Criativa</p>
                       </div>
                       <p className="about-clean__text">
-                        Designer de formação e empreendedora desde 2017, Ana sempre teve um olhar sensível para estética e narrativa. Com seu primeiro projeto autoral, o Bossarts Design, transformou intuição em identidade, dando vida a histórias por meio do design. Desde então, dedica-se a criar marcas que respiram sensibilidade e emoção.
+                        Designer de formação e empreendedora desde 2017, Ana construiu sua trajetória unindo sensibilidade estética e visão estratégica. Seu talento está em escutar com profundidade, captar a essência de pessoas e negócios e traduzi-la em simbologias, narrativas e experiências vivas. Com um olhar que conecta intuição e método, inspira e orienta marcas a florescerem com autenticidade, beleza e propósito.
                       </p>
                     </div>
                   </div>
