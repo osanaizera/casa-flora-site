@@ -5827,6 +5827,13 @@ body {
   box-shadow: 0 4px 16px rgba(10, 10, 10, 0.2);
 }
 
+/* Social links under Contact CTA */
+.contact-cta__social { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+.contact-cta__social-label { font-size: 0.9rem; color: var(--color-gray-700); margin-right: 6px; }
+.contact-cta__social-link { display: inline-flex; align-items: center; gap: 6px; padding: 8px 10px; border: 1px solid #E5E7EB; border-radius: 999px; text-decoration: none; color: var(--color-ink); background: #fff; transition: all 0.2s ease; }
+.contact-cta__social-link:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(0,0,0,0.06); }
+.contact-cta__social-link svg { opacity: 0.9; }
+
 /* Responsive Design */
 @media (max-width: 1024px) {
   .contact-cta__layout {

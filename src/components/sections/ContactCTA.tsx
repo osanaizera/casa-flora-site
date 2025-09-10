@@ -136,7 +136,32 @@ export default function ContactCTA() {
                   </svg>
                 </Link>
               </div>
+            ) : (
+              <></>
             )}
+
+            {/* Social links */}
+            <div className="contact-cta__social" aria-label="Siga a Casa Flora nas redes sociais">
+              <span className="contact-cta__social-label">Siga a Casa Flora:</span>
+              <a href="https://www.instagram.com/casaflora.brand?igsh=MXNlYnBrMnd3OTZ6cA==" target="_blank" rel="noopener noreferrer" className="contact-cta__social-link" aria-label="Instagram Casa Flora">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                  <path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 5a5 5 0 100 10 5 5 0 000-10zm6-1a1 1 0 100 2 1 1 0 000-2z"/>
+                </svg>
+                Instagram
+              </a>
+              <a href="https://www.linkedin.com/company/casaflora-brand/" target="_blank" rel="noopener noreferrer" className="contact-cta__social-link" aria-label="LinkedIn Casa Flora">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                  <path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0 8h5v15H0V8zm7.5 0H12v2.16h.06c.62-1.18 2.14-2.42 4.41-2.42 4.72 0 5.59 3.11 5.59 7.15V23H17v-6.78c0-1.62-.03-3.7-2.25-3.7-2.25 0-2.6 1.76-2.6 3.58V23H7.5V8z"/>
+                </svg>
+                LinkedIn
+              </a>
+              <a href="https://www.tiktok.com/@casaflora.brand?_t=ZM-8zVhdYHYPuH&_r=1" target="_blank" rel="noopener noreferrer" className="contact-cta__social-link" aria-label="TikTok Casa Flora">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                  <path d="M16 8.04a6.3 6.3 0 01-.43-2.33h-3.1v10.27a3.18 3.18 0 11-3.18-3.18c.2 0 .4.02.59.06V9.6a6.29 6.29 0 00-.59-.03 6.18 6.18 0 106.18 6.18V9.86a9.54 9.54 0 005.21 1.58V8.34a6.34 6.34 0 01-4.68-2.26z"/>
+                </svg>
+                TikTok
+              </a>
+            </div>
           </div>
         </div>
       </div>
