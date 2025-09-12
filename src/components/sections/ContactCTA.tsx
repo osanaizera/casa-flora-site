@@ -143,27 +143,21 @@ export default function ContactCTA() {
           <div className="contact-cta__social-glass" aria-label="Siga a Casa Flora nas redes sociais">
             <span className="contact-cta__social-label">Nos siga nas redes sociais</span>
             <a href="https://www.instagram.com/casaflora.brand?igsh=MXNlYnBrMnd3OTZ6cA==" target="_blank" rel="noopener noreferrer" className="contact-cta__social-link contact-cta__social-link--ig" aria-label="Instagram Casa Flora">
-              <span className="contact-cta__social-icon contact-cta__social-icon--ig">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-                  <path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 4.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zm6.2-.9a1.1 1.1 0 100 2.2 1.1 1.1 0 000-2.2z"/>
-                </svg>
-              </span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                <path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 4.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zm6.2-.9a1.1 1.1 0 100 2.2 1.1 1.1 0 000-2.2z"/>
+              </svg>
               Instagram
             </a>
             <a href="https://www.linkedin.com/company/casaflora-brand/" target="_blank" rel="noopener noreferrer" className="contact-cta__social-link contact-cta__social-link--in" aria-label="LinkedIn Casa Flora">
-              <span className="contact-cta__social-icon contact-cta__social-icon--in">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-                  <path d="M4.98 3.5A2.5 2.5 0 112.5 1a2.5 2.5 0 012.48 2.5zM0 8h5v15H0V8zm7.5 0H12v2.2h.06c.63-1.2 2.16-2.44 4.44-2.44 4.7 0 5.5 3.1 5.5 7.14V23H17v-6.8c0-1.64-.03-3.7-2.25-3.7-2.25 0-2.6 1.76-2.6 3.58V23H7.5V8z"/>
-                </svg>
-              </span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                <path d="M4.98 3.5A2.5 2.5 0 112.5 1a2.5 2.5 0 012.48 2.5zM0 8h5v15H0V8zm7.5 0H12v2.2h.06c.63-1.2 2.16-2.44 4.44-2.44 4.7 0 5.5 3.1 5.5 7.14V23H17v-6.8c0-1.64-.03-3.7-2.25-3.7-2.25 0-2.6 1.76-2.6 3.58V23H7.5V8z"/>
+              </svg>
               LinkedIn
             </a>
             <a href="https://www.tiktok.com/@casaflora.brand?_t=ZM-8zVhdYHYPuH&_r=1" target="_blank" rel="noopener noreferrer" className="contact-cta__social-link contact-cta__social-link--tt" aria-label="TikTok Casa Flora">
-              <span className="contact-cta__social-icon contact-cta__social-icon--tt">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-                  <path d="M14 3h-3v12.2a2.3 2.3 0 11-2.3-2.3c.12 0 .24.01.36.03V9.7a5.3 5.3 0 00-.36-.01 5.7 5.7 0 105.7 5.7V9.9a8 8 0 004.6 1.4V8.6a4.9 4.9 0 01-3.9-1.9A5.8 5.8 0 0114 3z"/>
-                </svg>
-              </span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                <path d="M14 3h-3v12.2a2.3 2.3 0 11-2.3-2.3c.12 0 .24.01.36.03V9.7a5.3 5.3 0 00-.36-.01 5.7 5.7 0 105.7 5.7V9.9a8 8 0 004.6 1.4V8.6a4.9 4.9 0 01-3.9-1.9A5.8 5.8 0 0114 3z"/>
+              </svg>
               TikTok
             </a>
           </div>

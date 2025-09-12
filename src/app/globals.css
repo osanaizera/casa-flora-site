@@ -5871,18 +5871,7 @@ body {
 .contact-cta__social-glass .contact-cta__social-link--tt { background: #000 !important; color: #fff !important; border: 1px solid #111 !important; }
 
 /* Icon contrast: white circular chip with brand color glyph */
-.contact-cta__social-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 24px;
-  height: 24px;
-  border-radius: 999px;
-  background: #fff;
-}
-.contact-cta__social-icon--ig { color: #E1306C; }
-.contact-cta__social-icon--in { color: #0A66C2; }
-.contact-cta__social-icon--tt { color: #000; }
+/* icon chips removed — icons follow link color (white) */
 
 @media (max-width: 860px) {
   .contact-cta__social-glass { grid-template-columns: repeat(2, minmax(0, 1fr)); }
