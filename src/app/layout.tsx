@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
 
 // Import Archivo via CDN for now
 const archivo = {
@@ -50,6 +51,7 @@ export default function RootLayout({
         <main role="main">
           {children}
         </main>
+        <Analytics />
       </body>
     </html>
   );
