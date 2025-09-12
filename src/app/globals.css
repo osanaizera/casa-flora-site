@@ -5557,8 +5557,15 @@ body {
 .contact-cta__layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 8rem;
+  column-gap: 8rem;
+  row-gap: 0.25rem; /* colar redes na imagem */
   align-items: center;
+}
+/* Desktop placement: image (col1,row1), content (col2,row1), socials (col1,row2) */
+@media (min-width: 1025px) {
+  .contact-cta__image { grid-column: 1; grid-row: 1; }
+  .contact-cta__content { grid-column: 2; grid-row: 1; }
+  .contact-cta__social-glass { grid-column: 1; grid-row: 2; width: 100%; }
 }
 
 .contact-cta__content {
@@ -5827,12 +5834,64 @@ body {
   box-shadow: 0 4px 16px rgba(10, 10, 10, 0.2);
 }
 
-/* Social links under Contact CTA */
-.contact-cta__social { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
-.contact-cta__social-label { font-size: 0.9rem; color: var(--color-gray-700); margin-right: 6px; }
-.contact-cta__social-link { display: inline-flex; align-items: center; gap: 6px; padding: 8px 10px; border: 1px solid #E5E7EB; border-radius: 999px; text-decoration: none; color: var(--color-ink); background: #fff; transition: all 0.2s ease; }
-.contact-cta__social-link:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(0,0,0,0.06); }
+/* Social links under Contact CTA (grid de 3 colunas) */
+.contact-cta__social-glass {
+  margin-top: 0;
+  align-self: start;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  padding: 10px 12px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.16);
+  border: 1px solid rgba(255,255,255,0.28);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.06);
+}
+.contact-cta__social-label { font-size: 0.9rem; color: var(--color-gray-700); flex-basis: 100%; margin: 0 0 2px 0; font-weight: 500; }
+.contact-cta__social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  flex: 1 1 0;
+  min-width: 0;
+  justify-content: center;
+}
+.contact-cta__social-link:hover { transform: translateY(-1px); box-shadow: 0 8px 22px rgba(0,0,0,0.06); }
 .contact-cta__social-link svg { opacity: 0.9; }
+
+/* Brand colors */
+.contact-cta__social-glass .contact-cta__social-link--ig { background: #E1306C !important; color: #fff !important; border: 1px solid #cf2b62 !important; }
+.contact-cta__social-glass .contact-cta__social-link--in { background: #0A66C2 !important; color: #fff !important; border: 1px solid #095bab !important; }
+.contact-cta__social-glass .contact-cta__social-link--tt { background: #000 !important; color: #fff !important; border: 1px solid #111 !important; }
+
+/* Icon contrast: white circular chip with brand color glyph */
+.contact-cta__social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  background: #fff;
+}
+.contact-cta__social-icon--ig { color: #E1306C; }
+.contact-cta__social-icon--in { color: #0A66C2; }
+.contact-cta__social-icon--tt { color: #000; }
+
+@media (max-width: 860px) {
+  .contact-cta__social-glass { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 480px) {
+  .contact-cta__social-glass { grid-template-columns: 1fr; }
+}
+
+/* duplicate social styles removed to avoid overrides */
 
 /* Responsive Design */
 @media (max-width: 1024px) {
@@ -5856,7 +5915,8 @@ body {
   }
 
   .contact-cta__layout {
-    gap: 3rem;
+    row-gap: 1.5rem;
+    column-gap: 3rem;
   }
 
   .contact-cta__content {
@@ -6189,3 +6249,30 @@ body {
 
 /* Encerramento com statement visual */
 .redesign-closing { margin-top: clamp(18px, 3vw, 28px); font-family: var(--font-display); font-size: clamp(1.1rem, 2.6vw, 1.6rem); letter-spacing: 0.01em; color: #374151; }
+.contact-cta__social-glass {
+  margin-top: 18px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 10px 12px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.16);
+  border: 1px solid rgba(255,255,255,0.28);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.06);
+}
+.contact-cta__social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: rgba(255,255,255,0.9);
+  border: 1px solid #E5E7EB;
+  border-radius: 999px;
+  color: var(--color-ink);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.contact-cta__social-link:hover { transform: translateY(-1px); box-shadow: 0 8px 22px rgba(0,0,0,0.06); }
+.contact-cta__social-link svg { opacity: 0.9; }
