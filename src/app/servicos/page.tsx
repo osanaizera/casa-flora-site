@@ -1,3 +1,10 @@
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Serviços | Casa Flora',
+  description: 'Conheça nossos serviços de branding, arquitetura e design.',
+};
+
 export default function Servicos() {
   return (
     <div className="container py-24">

@@ -1,3 +1,10 @@
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Sobre | Casa Flora',
+  description: 'Conheça nossa história e filosofia de criar marcas memoráveis.',
+};
+
 export default function Sobre() {
   return (
     <div className="container py-24">

@@ -25,12 +25,13 @@ export default function HeaderModern() {
     { href: '/#servicos', label: 'Serviços' },
     { href: '/experiencias', label: 'Experiências' },
     { href: '/hospitalidade', label: 'Hospitalidade' },
+    { href: '/blog', label: 'Journal' },
     { href: '/#cases', label: 'Cases' },
     { href: '/#sobre', label: 'Sobre' },
   ];
 
   return (
-    <nav 
+    <nav
       className="nav"
       style={{
         background: isScrolled ? 'rgba(250, 250, 249, 0.95)' : 'rgba(250, 250, 249, 0.9)',
@@ -47,7 +48,7 @@ export default function HeaderModern() {
           priority
         />
       </Link>
-      
+
       <ul className="nav__menu">
         {navItems.map((item) => (
           <li key={item.href}>

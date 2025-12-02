@@ -2,6 +2,7 @@ import HeaderModern from '@/components/layout/HeaderModern';
 import HeroModern from '@/components/sections/HeroModern';
 import ServicesModern from '@/components/sections/ServicesModern';
 import CasesShowcase from '@/components/sections/CasesShowcase';
+import JournalPreview from '@/components/sections/JournalPreview';
 import ContactCTA from '@/components/sections/ContactCTA';
 import ScrollScript from '@/components/shared/ScrollScript';
 import Link from 'next/link';
@@ -13,11 +14,12 @@ export default function Home() {
       <ScrollScript />
       <div className="main">
         <HeaderModern />
-        
+
         <main>
           <HeroModern />
           <ServicesModern />
           <CasesShowcase />
+          <JournalPreview />
           <ContactCTA />
           {/* Rodapé preto minimalista */}
           <footer className="site-footer">
