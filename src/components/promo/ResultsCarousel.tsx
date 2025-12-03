@@ -100,19 +100,6 @@ export default function ResultsCarousel() {
           ))}
         </div>
       </div>
-
-      <style jsx>{`
-        @keyframes infinite-scroll {
-          from { transform: translateX(0); }
-          to { transform: translateX(-33.33%); } /* Move 1/3 because we tripled the list */
-        }
-        .animate-infinite-scroll {
-          animation: infinite-scroll 40s linear infinite;
-        }
-        .hover\:pause-animation:hover {
-          animation-play-state: paused;
-        }
-      `}</style>
     </section>
   );
 }

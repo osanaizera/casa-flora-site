@@ -5899,6 +5899,20 @@ body {
   box-shadow: 0 4px 16px rgba(10, 10, 10, 0.2);
 }
 
+/* Animations Global */
+@keyframes infinite-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-33.33%); }
+}
+
+.animate-infinite-scroll {
+  animation: infinite-scroll 40s linear infinite;
+}
+
+.hover\:pause-animation:hover {
+  animation-play-state: paused;
+}
+
 /* Social links under Contact CTA (grid de 3 colunas) */
 .contact-cta__social-glass {
   margin-top: 0;
