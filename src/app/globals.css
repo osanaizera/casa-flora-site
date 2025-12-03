@@ -3889,10 +3889,7 @@ body {
 .cases-showcase__carousel {
   --gap: 24px;
   position: relative;
-  display: grid;
-  grid-auto-flow: column;
-  /* Centraliza 1 card por vez - cards mais estreitos */
-  grid-auto-columns: 38%;
+  display: flex;
   gap: var(--gap);
   overflow-x: auto;
   overflow-y: visible; /* permitir sombra abaixo/acima dos cards */
@@ -3951,6 +3948,10 @@ body {
   transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
   box-shadow: 0 2px 10px rgba(0,0,0,0.04);
   scroll-snap-align: center;
+  /* Flex fix */
+  flex: 0 0 38%;
+  min-width: 320px;
+  max-width: 90vw;
 }
 .cases-showcase__card::before {
   content: '';
