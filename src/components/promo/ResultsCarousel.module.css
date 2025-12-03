@@ -9,6 +9,14 @@
     }
 }
 
+.section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    background-color: var(--color-paper);
+    border-bottom: 1px solid var(--neutral-200);
+    overflow: hidden;
+}
+
 .track {
     display: flex;
     gap: 2rem;
