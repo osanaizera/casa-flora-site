@@ -59,12 +59,12 @@ export default function ResultsCarousel() {
         <div className="absolute right-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-l from-[var(--color-paper)] to-transparent pointer-events-none" />
 
         {/* Scrolling Track */}
-        <div className="flex gap-8 w-max animate-infinite-scroll hover:pause-animation flex-nowrap">
+        <div className="results-carousel__track">
           {/* Duplicate list 3 times to ensure smooth infinite loop on wide screens */}
           {[...featuredCases, ...featuredCases, ...featuredCases].map((item, idx) => (
-            <div 
-              key={`${item.id}-${idx}`} 
-              className="group relative w-[280px] min-w-[280px] md:w-[340px] md:min-w-[340px] flex-shrink-0 cursor-pointer"
+            <div
+              key={`${item.id}-${idx}`}
+              className="group relative results-carousel__item cursor-pointer"
             >
               {/* Card Image */}
               <div className="relative aspect-[4/3] overflow-hidden rounded-md bg-[var(--neutral-200)] shadow-sm">
