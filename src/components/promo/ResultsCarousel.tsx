@@ -69,16 +69,16 @@ export default function ResultsCarousel() {
               className={`group relative cursor-pointer ${styles.item}`}
             >
               {/* Card Image */}
-              <div className="relative aspect-[4/3] overflow-hidden rounded-md bg-[var(--neutral-200)] shadow-sm">
+              <div className={styles.imageContainer}>
                 <Image
                   src={item.image}
                   alt={item.name}
                   fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  className={styles.image}
                   sizes="(max-width: 768px) 280px, 340px"
                 />
                 {/* Overlay on hover */}
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
+                <div className={styles.overlay} />
               </div>
 
               {/* Card Info */}
