@@ -1,0 +1,57 @@
+/* Animations */
+
+@keyframes infinite-scroll {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-33.33%);
+    }
+}
+
+@keyframes ping {
+
+    75%,
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+.animate-ping {
+    animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.animate-infinite-scroll {
+    animation: infinite-scroll 40s linear infinite;
+}
+
+.hover\:pause-animation:hover {
+    animation-play-state: paused;
+}
+
+/* Results Carousel Fix */
+.results-carousel__track {
+    display: flex;
+    gap: 2rem;
+    width: max-content;
+    animation: infinite-scroll 40s linear infinite;
+}
+
+.results-carousel__track:hover {
+    animation-play-state: paused;
+}
+
+.results-carousel__item {
+    width: 280px;
+    min-width: 280px;
+    flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+    .results-carousel__item {
+        width: 340px;
+        min-width: 340px;
+    }
+}
