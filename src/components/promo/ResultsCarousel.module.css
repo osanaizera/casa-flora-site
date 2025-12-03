@@ -1,0 +1,36 @@
+/* Keyframes must be defined locally or imported if not global */
+@keyframes infinite-scroll {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-33.33%);
+    }
+}
+
+.track {
+    display: flex;
+    gap: 2rem;
+    width: max-content;
+    animation: infinite-scroll 40s linear infinite;
+}
+
+.track:hover {
+    animation-play-state: paused;
+}
+
+.item {
+    width: 280px;
+    min-width: 280px;
+    flex-shrink: 0;
+    position: relative;
+    /* Ensure relative positioning for children */
+}
+
+@media (min-width: 768px) {
+    .item {
+        width: 340px;
+        min-width: 340px;
+    }
+}

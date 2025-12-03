@@ -3,6 +3,8 @@
 import React from 'react';
 import Image from 'next/image';
 
+import styles from './ResultsCarousel.module.css';
+
 // Dados selecionados manualmente para garantir as melhores imagens para a Promo
 const featuredCases = [
   {
@@ -59,12 +61,12 @@ export default function ResultsCarousel() {
         <div className="absolute right-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-l from-[var(--color-paper)] to-transparent pointer-events-none" />
 
         {/* Scrolling Track */}
-        <div className="results-carousel__track">
+        <div className={styles.track}>
           {/* Duplicate list 3 times to ensure smooth infinite loop on wide screens */}
           {[...featuredCases, ...featuredCases, ...featuredCases].map((item, idx) => (
             <div
               key={`${item.id}-${idx}`}
-              className="group relative results-carousel__item cursor-pointer"
+              className={`group relative cursor-pointer ${styles.item}`}
             >
               {/* Card Image */}
               <div className="relative aspect-[4/3] overflow-hidden rounded-md bg-[var(--neutral-200)] shadow-sm">
