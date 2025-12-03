@@ -14,7 +14,7 @@ export default function BonusSection() {
             <div className="inline-flex items-center gap-2 bg-[var(--earth-600)]/20 border border-[var(--earth-600)]/40 px-4 py-1.5 rounded-full">
                 <span className="w-1.5 h-1.5 rounded-full bg-[var(--earth-400)] animate-pulse"></span>
                 <span className="text-[var(--earth-200)] text-xs font-bold tracking-widest uppercase">
-                 Condição Especial
+                 Cortesia Institucional
                 </span>
             </div>
 
@@ -25,10 +25,15 @@ export default function BonusSection() {
 
             <p className="text-[var(--neutral-300)] text-lg leading-relaxed">
               De nada adianta um logo bonito se o atendimento é frio. 
-              Ao garantir sua vaga no <strong>Projeto Raiz</strong> agora, você recebe de presente nosso manual interno de hospitalidade.
+              Ao garantir sua vaga no <strong>Projeto Raiz</strong> agora, você recebe <span className="text-white font-bold">sem custo adicional</span> nosso manual interno de hospitalidade.
             </p>
 
-            <div className="bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur-sm">
+            <div className="bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur-sm relative overflow-hidden">
+                {/* Ribbon */}
+                <div className="absolute top-0 right-0 bg-[#16a34a] text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg">
+                    DE <span className="line-through opacity-70">R$ 1.500</span> POR ZERO
+                </div>
+
                 <h3 className="text-xl font-display mb-4 flex items-center gap-2">
                     <span className="text-2xl">🎁</span>
                     <span className="text-white">Manual de Encantamento (M.E.C)</span>
@@ -50,7 +55,7 @@ export default function BonusSection() {
             </div>
             
             <p className="text-xs text-[var(--neutral-400)] uppercase tracking-widest mt-4">
-                * Vendido separadamente por R$ 997,00. <span className="text-[var(--earth-400)] font-bold">Hoje: R$ 0,00.</span>
+                * Disponível exclusivamente para clientes do ciclo atual.
             </p>
           </div>
 

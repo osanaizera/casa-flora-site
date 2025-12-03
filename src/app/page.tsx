@@ -35,12 +35,15 @@ export default function Home() {
                   <Link href="/#sobre" className="site-footer__link">Sobre</Link>
                 </nav>
               </div>
+
+              {/* Social Icons removed from footer as requested, moved to ContactCTA */}
+
               <div className="site-footer__row site-footer__meta">
                 <p>© {new Date().getFullYear()} Casa Flora — Todos os direitos reservados.</p>
                 <p>
                   desenvolvido por {""}
-                  <a href="https://ozaoza.com.br" target="_blank" rel="noopener noreferrer" className="site-footer__link">
-                    ozaoza.com.br
+                  <a href="https://salesdrive.com.br" target="_blank" rel="noopener noreferrer" className="site-footer__link">
+                    Salesdrive.com.br
                   </a>
                 </p>
               </div>

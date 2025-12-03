@@ -23,11 +23,11 @@ export default function HeroSection() {
           {/* Authority Trigger / Scarcity */}
           <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/50 border border-[var(--neutral-200)] backdrop-blur-sm mb-8 shadow-sm animate-fade-in-up">
             <span className="relative flex h-2.5 w-2.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--earth-600)] opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[var(--earth-600)]"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--color-accent)] opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[var(--color-accent)]"></span>
             </span>
             <span className="text-xs font-medium tracking-widest uppercase text-[var(--neutral-600)] font-sans">
-              Agenda Janeiro/26: <span className="text-[var(--neutral-900)] font-bold">Últimas Vagas</span>
+              Vagas de Janeiro: <span className="text-[var(--neutral-900)] font-bold">04 de 10 preenchidas</span>
             </span>
           </div>
 
@@ -53,7 +53,7 @@ export default function HeroSection() {
           <div className="flex flex-col items-center gap-6 w-full md:w-auto">
             <a href="#contato-hero"
               className="group relative w-full md:w-auto inline-flex items-center justify-center gap-3 px-8 md:px-12 py-5 bg-[var(--neutral-900)] text-[var(--color-paper)] rounded-sm text-lg font-medium tracking-wide transition-all duration-300 hover:bg-[var(--earth-600)] hover:-translate-y-1 shadow-[0_10px_30px_rgba(0,0,0,0.15)] hover:shadow-[0_20px_40px_rgba(139,115,85,0.3)] overflow-hidden">
-              <span className="relative z-10">SOLICITAR PROPOSTA VIP</span>
+              <span className="relative z-10">QUERO RESOLVER MEU PROBLEMA</span>
               <svg className="w-5 h-5 relative z-10 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
@@ -65,7 +65,7 @@ export default function HeroSection() {
               <svg className="w-4 h-4 text-[var(--sage-600)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
-              Condição especial de pré-venda válida até preenchimento das vagas.
+              Condição especial para antecipação de agenda.
             </p>
           </div>
 

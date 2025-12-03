@@ -54,7 +54,7 @@ export default function SolutionSection() {
                         </h2>
                     </div>
                     <p className="max-w-md text-[var(--neutral-600)] leading-relaxed text-sm md:text-base">
-                        Não entregamos apenas um &quot;logo bonito&quot;. Entregamos um sistema visual e estratégico pronto para escalar seu negócio em 2026.
+                        O Projeto Raiz é a sustentação que sua marca precisa para crescer. Uma base firme e saudável que traz clareza visual e de mensagem, funcionando como um pacote completo para profissionalizar seu negócio.
                     </p>
                 </div>
 

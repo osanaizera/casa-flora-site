@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import HeroSection from '@/components/promo/HeroSection';
+import ResultsCarousel from '@/components/promo/ResultsCarousel';
 import PainSection from '@/components/promo/PainSection';
 import SolutionSection from '@/components/promo/SolutionSection';
 import BonusSection from '@/components/promo/BonusSection';
@@ -45,6 +46,7 @@ export default function PromoPage() {
       </nav>
       <main className="min-h-screen bg-[var(--color-paper)]">
         <HeroSection />
+        <ResultsCarousel />
         <PainSection />
         <SolutionSection />
         <BonusSection />

@@ -11,7 +11,7 @@ export default function PainSection() {
                     <span className="text-[var(--earth-600)] uppercase tracking-widest text-sm font-semibold mb-4 block">Diagnóstico</span>
                     <h2 className="font-display text-4xl md:text-5xl font-light leading-tight mb-6">
                         O sintoma silencioso que está <br/>
-                        <span className="text-white font-medium">matando sua margem de lucro.</span>
+                        <span className="text-white font-medium">limitando o valor do seu contrato.</span>
                     </h2>
                     <p className="text-[var(--neutral-400)] text-lg md:text-xl font-light max-w-2xl mx-auto">
                         Seu produto é &quot;Premium&quot;, mas sua apresentação é &quot;Básica&quot;. Esse gap cria uma dissonância cognitiva no seu cliente, gerando objeções como:

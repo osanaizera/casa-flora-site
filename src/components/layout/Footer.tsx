@@ -139,7 +139,9 @@ export default function Footer() {
                 <div className="caption text-warm-brown mb-4 tracking-wider">REDES SOCIAIS</div>
                 <div className="flex space-x-4">
                   <a 
-                    href="#" 
+                    href="https://www.instagram.com/casaflorabrand/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
                     className="text-warm-gray hover:text-warm-brown transition-colors hover-lift-elegant"
                     aria-label="Instagram"
                   >
@@ -148,7 +150,9 @@ export default function Footer() {
                     </svg>
                   </a>
                   <a 
-                    href="#" 
+                    href="https://www.linkedin.com/company/casaflorabrand/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
                     className="text-warm-gray hover:text-sage-green transition-colors hover-lift-elegant"
                     aria-label="LinkedIn"
                   >
@@ -157,7 +161,9 @@ export default function Footer() {
                     </svg>
                   </a>
                   <a 
-                    href="#" 
+                    href="https://wa.me/5521995505403" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
                     className="text-warm-gray hover:text-soft-gold transition-colors hover-lift-elegant"
                     aria-label="WhatsApp"
                   >
@@ -182,6 +188,9 @@ export default function Footer() {
           <div className="flex items-center space-x-6 mt-4 md:mt-0">
             <p className="caption text-warm-brown">
               SOFISTICAÇÃO ORGÂNICA CONTEMPORÂNEA
+            </p>
+            <p className="caption text-warm-gray">
+              Desenvolvido por <a href="https://salesdrive.com.br" target="_blank" rel="noopener noreferrer" className="hover:text-warm-brown transition-colors">Salesdrive.com.br</a>
             </p>
           </div>
         </div>

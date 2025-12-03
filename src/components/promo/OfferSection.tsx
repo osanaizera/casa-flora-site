@@ -13,7 +13,7 @@ export default function OfferSection() {
                     
                     <div className="p-8 md:p-16 text-center">
                         <span className="text-[var(--neutral-400)] uppercase tracking-[0.3em] text-xs font-semibold mb-6 block">
-                            Convite Oficial
+                            Apenas 10 vagas disponíveis
                         </span>
                         
                         <h2 className="font-display text-4xl md:text-5xl text-[var(--neutral-900)] mb-6">
@@ -22,12 +22,12 @@ export default function OfferSection() {
                         </h2>
 
                         <p className="text-[var(--neutral-600)] text-lg mb-12 max-w-xl mx-auto">
-                            Garanta sua vaga na agenda de Janeiro com a tabela de preços de 2025. Uma decisão inteligente de branding e de caixa.
+                            Garanta o preço de 2025 e comece o ano com tudo pronto. As vagas são limitadas até o preenchimento total do ciclo de Janeiro.
                         </p>
 
                         {/* Value Stack Grid */}
                         <div className="bg-[var(--neutral-50)] rounded-xl p-8 mb-10 text-left border border-[var(--neutral-200)]">
-                            <p className="text-xs uppercase text-[var(--neutral-400)] font-bold tracking-widest mb-6 text-center">O que está incluso</p>
+                            <p className="text-xs uppercase text-[var(--neutral-400)] font-bold tracking-widest mb-6 text-center">Escopo do Projeto</p>
                             <div className="grid md:grid-cols-2 gap-y-4 gap-x-8">
                                 <div className="flex items-center gap-3">
                                     <div className="w-5 h-5 rounded-full bg-[var(--earth-600)] flex items-center justify-center text-white text-xs">✓</div>
@@ -59,7 +59,7 @@ export default function OfferSection() {
                         {/* CTA */}
                         <div className="flex flex-col items-center gap-4">
                             <a href="#contato-hero" className="btn-primary w-full md:w-auto text-lg px-12 py-5 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all">
-                                SOLICITAR PROPOSTA AGORA
+                                APLICAR PARA O PROJETO
                             </a>
                             <p className="text-xs text-[var(--neutral-500)] mt-2">
                                 Sem compromisso. Vamos apenas conversar sobre o seu momento.
