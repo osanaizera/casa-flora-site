@@ -20,14 +20,27 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.casaflora-brand.com.br"),
   title: {
-    default: "Casa Flora - Experiências & Hospitalidade",
-    template: "%s | Casa Flora",
+    default: "Casa Flora Branding e Design | Agência de Design no Rio de Janeiro",
+    template: "%s | Casa Flora Branding e Design",
   },
-  description: "Quebramos o óbvio criando marcas memoráveis. Desenvolvemos identidades sensoriais, autorais e profundamente humanas que conectam negócios e pessoas com autenticidade.",
-  keywords: ["branding", "identidade visual", "experiências", "hospitalidade", "marcas memoráveis", "design sensorial", "arquitetura de marca"],
-  authors: [{ name: "Casa Flora" }],
-  creator: "Casa Flora",
-  publisher: "Casa Flora",
+  description: "Agência de design em Ipanema, Rio de Janeiro. Quebramos o óbvio criando marcas memoráveis. Desenvolvemos identidades sensoriais, autorais e profundamente humanas que conectam negócios e pessoas.",
+  keywords: [
+    "branding",
+    "identidade visual",
+    "agência de design",
+    "design rio de janeiro",
+    "branding ipanema",
+    "casa flora branding",
+    "casa flora brand",
+    "marcas memoráveis",
+    "design sensorial",
+    "arquitetura de marca",
+    "experiências",
+    "hospitalidade"
+  ],
+  authors: [{ name: "Casa Flora Branding e Design" }],
+  creator: "Casa Flora Branding e Design",
+  publisher: "Casa Flora Branding e Design",
   formatDetection: {
     email: false,
     address: false,
@@ -39,25 +52,25 @@ export const metadata: Metadata = {
     apple: "/images/favicon.png",
   },
   openGraph: {
-    title: "Casa Flora - Experiências & Hospitalidade",
-    description: "Quebramos o óbvio criando marcas memoráveis",
+    title: "Casa Flora Branding e Design | Agência de Design no Rio de Janeiro",
+    description: "Agência de design em Ipanema, Rio de Janeiro. Quebramos o óbvio criando marcas memoráveis.",
     url: "https://www.casaflora-brand.com.br",
-    siteName: "Casa Flora",
+    siteName: "Casa Flora Branding e Design",
     locale: "pt_BR",
     type: "website",
     images: [
       {
-        url: "/images/og-image.jpg", // Assuming we might have one, or fallback to something else if not exists, but keeping structure clean.
+        url: "/images/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Casa Flora - Branding e Experiências",
+        alt: "Casa Flora Branding e Design - Agência de Design no Rio de Janeiro",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Casa Flora - Experiências & Hospitalidade",
-    description: "Quebramos o óbvio criando marcas memoráveis",
+    title: "Casa Flora Branding e Design | Agência de Design no Rio de Janeiro",
+    description: "Agência de design em Ipanema. Quebramos o óbvio criando marcas memoráveis.",
     images: ["/images/og-image.jpg"],
   },
   robots: {
@@ -76,6 +89,47 @@ export const metadata: Metadata = {
   },
 };
 
+// Schema.org LocalBusiness structured data for GMB association
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://www.casaflora-brand.com.br/#organization",
+  "name": "Casa Flora Branding e Design",
+  "alternateName": "Casa Flora Brand",
+  "description": "Agência de design em Ipanema, Rio de Janeiro especializada em branding, identidade visual e experiências de marca memoráveis.",
+  "url": "https://www.casaflora-brand.com.br",
+  "telephone": "+55-21-99550-5403",
+  "email": "contato@casaflora-brand.com.br",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "R. Visc. de Pirajá, 495",
+    "addressLocality": "Rio de Janeiro",
+    "addressRegion": "RJ",
+    "postalCode": "22410-002",
+    "addressCountry": "BR"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": -22.9838,
+    "longitude": -43.2044
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "09:00",
+      "closes": "17:00"
+    }
+  ],
+  "sameAs": [
+    "https://www.instagram.com/casaflorabrand/",
+    "https://www.linkedin.com/company/casaflorabrand/"
+  ],
+  "priceRange": "$$$",
+  "image": "https://www.casaflora-brand.com.br/images/og-image.jpg",
+  "logo": "https://www.casaflora-brand.com.br/images/favicon.png"
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -86,6 +140,11 @@ export default function RootLayout({
       <head>
         {/* Garantir favicon explícito */}
         <link rel="icon" href="/images/favicon.png" />
+        {/* Schema.org LocalBusiness JSON-LD for GMB association */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        />
       </head>
       <body className={`${archivo.variable} ${inter.variable} antialiased`}>
         {children}

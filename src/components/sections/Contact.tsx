@@ -8,7 +8,7 @@ export default function Contact() {
             <p className="body-large mb-8 text-neutral-300">
               Pronto para transformar seu espaço? Entre em contato conosco e descubra como podemos dar vida à sua visão.
             </p>
-            
+
             <div className="space-y-6">
               <div className="flex items-center">
                 <div className="w-12 h-12 bg-earth-600 rounded-full flex items-center justify-center mr-4">
@@ -23,7 +23,7 @@ export default function Contact() {
                   </a>
                 </div>
               </div>
-              
+
               <div className="flex items-center">
                 <div className="w-12 h-12 bg-earth-600 rounded-full flex items-center justify-center mr-4">
                   <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -37,7 +37,7 @@ export default function Contact() {
                   </a>
                 </div>
               </div>
-              
+
               <div className="flex items-center">
                 <div className="w-12 h-12 bg-earth-600 rounded-full flex items-center justify-center mr-4">
                   <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -47,39 +47,40 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="body-regular text-neutral-300">Localização</p>
-                  <p className="body-large text-white">São Paulo, SP</p>
+                  <p className="body-large text-white">R. Visc. de Pirajá, 495</p>
+                  <p className="body-regular text-neutral-300">Ipanema, Rio de Janeiro - RJ</p>
                 </div>
               </div>
             </div>
           </div>
-          
+
           <div className="bg-white rounded-2xl p-8">
             <h3 className="h3 mb-6 text-neutral-900">Fale Conosco</h3>
             <form className="space-y-6">
               <div>
                 <label htmlFor="name" className="block body-regular text-neutral-900 mb-2">Nome</label>
-                <input 
-                  type="text" 
-                  id="name" 
+                <input
+                  type="text"
+                  id="name"
                   className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-earth-600 focus:border-transparent transition-colors"
                   placeholder="Seu nome completo"
                 />
               </div>
-              
+
               <div>
                 <label htmlFor="email" className="block body-regular text-neutral-900 mb-2">Email</label>
-                <input 
-                  type="email" 
-                  id="email" 
+                <input
+                  type="email"
+                  id="email"
                   className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-earth-600 focus:border-transparent transition-colors"
                   placeholder="seu@email.com"
                 />
               </div>
-              
+
               <div>
                 <label htmlFor="project" className="block body-regular text-neutral-900 mb-2">Tipo de Projeto</label>
-                <select 
-                  id="project" 
+                <select
+                  id="project"
                   className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-earth-600 focus:border-transparent transition-colors"
                 >
                   <option value="">Selecione o tipo de projeto</option>
@@ -89,17 +90,17 @@ export default function Contact() {
                   <option value="consultoria">Consultoria</option>
                 </select>
               </div>
-              
+
               <div>
                 <label htmlFor="message" className="block body-regular text-neutral-900 mb-2">Mensagem</label>
-                <textarea 
-                  id="message" 
+                <textarea
+                  id="message"
                   rows={4}
                   className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-earth-600 focus:border-transparent transition-colors"
                   placeholder="Conte-nos sobre seu projeto..."
                 />
               </div>
-              
+
               <button type="submit" className="w-full btn-primary">
                 Enviar Mensagem
               </button>
