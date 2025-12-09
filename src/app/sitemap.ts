@@ -1,9 +1,11 @@
 import { MetadataRoute } from 'next';
+import { blogPosts } from '@/data/blog-posts';
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = 'https://www.casaflora-brand.com.br';
 
-    return [
+    // Páginas estáticas
+    const staticPages: MetadataRoute.Sitemap = [
         {
             url: baseUrl,
             lastModified: new Date(),
@@ -65,4 +67,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
             priority: 0.5,
         },
     ];
+
+    // Páginas dinâmicas do blog (geradas automaticamente)
+    const blogPages: MetadataRoute.Sitemap = blogPosts.map((post) => ({
+        url: `${baseUrl}/blog/${post.slug}`,
+        lastModified: new Date(post.date),
+        changeFrequency: 'monthly' as const,
+        priority: 0.6,
+    }));
+
+    return [...staticPages, ...blogPages];
 }
+

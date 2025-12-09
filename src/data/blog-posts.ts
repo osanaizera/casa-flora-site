@@ -13,6 +13,42 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'agencia-design-rio-janeiro-importancia',
+    title: 'Por que contratar uma Agência de Design do Rio de Janeiro muda o jogo',
+    excerpt: 'Entenda como a cultura carioca, o networking local e a identidade solar influenciam o sucesso da sua marca. Um guia sobre branding no RJ.',
+    content: `
+      <p>O Rio de Janeiro não é apenas uma cidade; é um estado de espírito. Para marcas que operam aqui, entender as nuances da "alma carioca" não é um luxo, é uma necessidade de sobrevivência e crescimento. É aqui que entra o valor estratégico de contratar uma <strong>agência de design no Rio de Janeiro</strong>.</p>
+      
+      <h2>O "Borogodó" como Estratégia de Marca</h2>
+      <p>Existe um código cultural invisível no Rio. Uma informalidade sofisticada, uma elegância despojada que mistura a praia com o concreto. Uma agência local, como a <strong>Casa Flora</strong>, respira esses códigos diariamente. Sabemos traduzir o estilo de vida carioca em identidade visual, tom de voz e experiência de marca de uma forma que agências de fora dificilmente conseguem replicar.</p>
+      
+      <h3>Conexão Real com o Público Carioca</h3>
+      <p>O consumidor do Rio valoriza a autenticidade e a proximidade. Marcas que tentam impor estéticas excessivamente frias ou corporativas (comuns em São Paulo ou no exterior) muitas vezes sofrem rejeição. O design no Rio pede calor, pede luz, pede uma organicidade que conecta.</p>
+      
+      <h2>Networking e Ecossistema Local</h2>
+      <p>Além da estética, há o fator relacional. O Rio funciona à base de conexões. Uma agência de design local está inserida em um ecossistema de fornecedores, parceiros e influenciadores da região. </p>
+      <ul>
+        <li>Fotógrafos que conhecem a luz da cidade;</li>
+        <li>Arquitetos que entendem a legislação e o clima locais;</li>
+        <li>Produtores de eventos que dominam a cena cultural.</li>
+      </ul>
+      <p>Ao contratar localmente, você herda essa rede de contatos.</p>
+      
+      <h2>Design Sensorial e a Vibe do Rio</h2>
+      <p>Na Casa Flora, aplicamos o conceito de <strong>design sensorial</strong>. No Rio, isso é ainda mais potente. O cheiro de mar, a textura das pedras portuguesas, o som do ambiente... tudo isso compõe a marca. Nossos projetos de branding consideram como sua marca vai "viver" no calor e na luz do Rio de Janeiro.</p>
+      
+      <h2>Conclusão</h2>
+      <p>Se sua empresa está no Rio, sua marca precisa falar "carioca" — mesmo que seja um carioca cosmopolita e global. Investir em uma agência de design que entende o seu CEP é o primeiro passo para construir uma marca que não apenas existe, mas pertence.</p>
+    `,
+    author: 'Equipe Casa Flora',
+    date: '2025-12-08',
+    category: 'Mercado Local',
+    readingTime: '4 min',
+    imageUrl: '/images/blog/agencia-design-rio.jpg',
+    tags: ['Agência de Design', 'Rio de Janeiro', 'Branding RJ', 'Mercado Carioca'],
+  },
+
+  {
     slug: 'roi-design-sensorial-hoteis-boutique',
     title: 'O ROI do Design Sensorial em Hotéis Boutique',
     excerpt: 'Descubra como investir em experiências multisensoriais pode aumentar a diária média e a fidelização de hóspedes em até 40%.',
