@@ -24,7 +24,7 @@ export default function Footer() {
             </div>
 
             <p className="body-large leading-relaxed text-warm-gray mb-8 max-w-md">
-              Experiências & Hospitalidade. Desenvolvemos marcas sensoriais, autorais e
+              Branding e Design. Desenvolvemos marcas sensoriais, autorais e
               profundamente humanas que conectam negócios e pessoas com autenticidade.
             </p>
 
