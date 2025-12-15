@@ -84,7 +84,7 @@ export default function TestimonialsSection() {
                                 <h3 className="font-display text-2xl md:text-3xl text-white mb-4 leading-tight">
                                     Junte-se a quem decidiu <br className="hidden lg:block" /> se profissionalizar.
                                 </h3>
-                                <p className="text-[var(--neutral-300)] font-light leading-relaxed text-base md:text-lg max-w-xl mx-auto lg:mx-0">
+                                <p className="text-white font-light leading-relaxed text-base md:text-lg max-w-xl mx-auto lg:mx-0">
                                     Nossa metodologia já guiou negócios de mais de 15 nichos diferentes rumo à construção de uma autoridade visual inquestionável.
                                 </p>
                             </div>
@@ -109,11 +109,11 @@ export default function TestimonialsSection() {
                                     </span>
                                     
                                     <div className="flex flex-col pb-2 md:pb-3">
-                                        <span className="font-serif italic text-xl md:text-2xl text-[var(--neutral-200)] leading-none">
+                                        <span className="text-xl md:text-2xl font-serif italic text-[var(--neutral-200)] leading-none whitespace-nowrap">
                                             Marcas
                                         </span>
-                                        <span className="text-[10px] font-bold uppercase tracking-widest text-[var(--earth-500)] mt-1 whitespace-nowrap">
-                                            Posicionadas
+                                        <span className="text-[10px] font-bold uppercase tracking-widest text-white mt-1 whitespace-nowrap">
+                                            Criadas
                                         </span>
                                     </div>
                                 </div>
