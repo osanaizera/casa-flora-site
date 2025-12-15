@@ -44,8 +44,8 @@ export default function HeroSection() {
           </h1>
 
           {/* Subheadline */}
-          <p className="font-sans text-lg md:text-xl text-[var(--neutral-600)] max-w-2xl mx-auto leading-relaxed mb-10 md:mb-12">
-            Você tem qualidade, entrega e história. Mas o visual da sua marca ainda passa a imagem de quem está começando. O <strong>Projeto Raiz</strong> é o seu primeiro passo para mudar isso, aqui na Casa Flora vamos alinhar sua essência, identidade e comunicação — e elevar a percepção e o valor da sua marca.
+          <p className="font-sans text-lg md:text-xl text-[var(--neutral-900)] max-w-2xl mx-auto leading-relaxed mb-10 md:mb-12">
+            <strong className="font-medium">Você tem qualidade, entrega e história. Mas o visual da sua marca ainda passa a imagem de quem está começando.</strong> O <strong>Projeto Raiz</strong> é o seu primeiro passo para mudar isso, aqui na Casa Flora vamos alinhar sua essência, identidade e comunicação — e elevar a percepção e o valor da sua marca.
             <br/><br/>
             E para melhorar ainda mais sua entrega, somente neste período, você recebe também o Manual de Encantamento 2026 — um guia prático e sensorial para transformar cada ponto de contato da sua marca em uma experiência inesquecível para seu cliente.
           </p>
