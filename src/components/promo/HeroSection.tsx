@@ -4,7 +4,7 @@ import React from 'react';
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-[var(--color-paper)] pt-20 pb-16 md:pt-0 md:pb-0">
+    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-[var(--color-paper)] pt-32 pb-16 md:pt-40 md:pb-20">
       {/* Background Texture - Subtle Grain & Grid */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="absolute inset-0 opacity-[0.03]" 
@@ -34,7 +34,7 @@ export default function HeroSection() {
           {/* Main Headline */}
           <h1 className="flex flex-col items-center font-display text-[var(--neutral-900)] leading-[0.95] tracking-tight mb-8">
             <span className="text-5xl md:text-8xl font-light block mb-2">Sua empresa cresceu.</span>
-            <span className="text-5xl md:text-8xl font-medium italic font-serif text-[var(--earth-400)] block relative">
+            <span className="text-5xl md:text-8xl font-medium italic font-serif text-[#cc5500] block relative">
               Sua marca travou?
               {/* Decorative line */}
               <svg className="absolute -bottom-2 md:-bottom-4 left-0 w-full h-3 md:h-6 text-[var(--sage-600)] opacity-40" viewBox="0 0 200 9" fill="none" xmlns="http://www.w3.org/2000/svg">

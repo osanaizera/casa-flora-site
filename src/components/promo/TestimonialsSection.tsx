@@ -63,51 +63,62 @@ export default function TestimonialsSection() {
                     </motion.h2>
                 </div>
 
-                {/* The "Glassmorphism" Hero Block */}
+                {/* The "Glassmorphism" Hero Block - REDESIGNED */}
                 <motion.div 
                     initial={{ opacity: 0, scale: 0.95 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     className="relative max-w-5xl mx-auto mb-24"
                 >
-                    {/* Dark Glass Container for Impact */}
-                    <div className="relative bg-[#1c1917] rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-10 overflow-hidden shadow-2xl">
+                    {/* Dark Card Container */}
+                    <div className="relative bg-[#1c1917] rounded-3xl p-8 md:p-12 overflow-hidden shadow-2xl border border-[var(--neutral-800)]">
                         
-                        {/* Background Effects inside card */}
-                        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/black-linen.png')] opacity-20 mix-blend-overlay" />
-                        <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-[var(--earth-600)] opacity-10 blur-[100px] rounded-full pointer-events-none" />
-                        <div className="absolute inset-0 -translate-x-full animate-[shimmer_4s_infinite] bg-gradient-to-r from-transparent via-white/5 to-transparent pointer-events-none" />
-
-                        {/* Text Content */}
-                        <div className="flex-1 text-center md:text-left relative z-10">
-                            <h3 className="font-display text-2xl md:text-3xl text-white mb-3">
-                                Junte-se a quem decidiu se profissionalizar.
-                            </h3>
-                            <p className="text-[var(--neutral-300)] font-light leading-relaxed max-w-md mx-auto md:mx-0">
-                                Nossa metodologia já guiou negócios de mais de 15 nichos diferentes rumo à construção de uma autoridade visual inquestionável.
-                            </p>
-                        </div>
-
-                        {/* Divider */}
-                        <div className="hidden md:block w-px h-24 bg-gradient-to-b from-transparent via-[var(--neutral-700)] to-transparent" />
-
-                        {/* Progressive Counter Block */}
-                        <div className="flex items-center gap-6 relative z-10 min-w-[240px]">
-                            <div className="text-right hidden md:block">
-                                <span className="block text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--neutral-400)] mb-1">Portfólio</span>
-                                <span className="block text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--earth-400)]">Consolidado</span>
-                            </div>
+                        {/* Background Effects */}
+                        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/black-linen.png')] opacity-30 mix-blend-overlay" />
+                        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[var(--earth-600)] opacity-[0.08] blur-[120px] rounded-full pointer-events-none" />
+                        
+                        <div className="relative z-10 flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
                             
-                            {/* Fixed width container for counter to prevent jitter */}
-                            <div className="flex items-baseline w-[180px]"> 
-                                <span className="font-display text-7xl md:text-8xl text-white font-medium tracking-tighter flex items-baseline">
-                                    +<span className="inline-block w-[140px] text-left tabular-nums"><Counter from={0} to={120} /></span>
-                                </span>
-                                <div className="ml-[-10px] flex flex-col items-start relative top-[-6px]">
-                                    <span className="text-xl md:text-2xl font-serif italic text-[var(--neutral-200)] leading-none whitespace-nowrap">Marcas</span>
-                                    <span className="text-[10px] font-bold uppercase tracking-widest text-[var(--earth-500)] mt-1 whitespace-nowrap">Posicionadas</span>
+                            {/* Left Content */}
+                            <div className="flex-1 text-center lg:text-left">
+                                <h3 className="font-display text-2xl md:text-3xl text-white mb-4 leading-tight">
+                                    Junte-se a quem decidiu <br className="hidden lg:block" /> se profissionalizar.
+                                </h3>
+                                <p className="text-[var(--neutral-300)] font-light leading-relaxed text-base md:text-lg max-w-xl mx-auto lg:mx-0">
+                                    Nossa metodologia já guiou negócios de mais de 15 nichos diferentes rumo à construção de uma autoridade visual inquestionável.
+                                </p>
+                            </div>
+
+                            {/* Divider (Horizontal on mobile, Vertical on Desktop) */}
+                            <div className="w-full h-px lg:w-px lg:h-32 bg-gradient-to-r lg:bg-gradient-to-b from-transparent via-[var(--neutral-600)] to-transparent opacity-50 flex-shrink-0" />
+
+                            {/* Right Content: The Stats */}
+                            <div className="flex flex-col items-center lg:items-start flex-shrink-0">
+                                {/* Small Label */}
+                                <div className="flex items-center gap-3 mb-2">
+                                    <span className="h-px w-6 bg-[var(--earth-500)]"></span>
+                                    <span className="text-[10px] md:text-xs font-bold uppercase tracking-[0.25em] text-[var(--neutral-400)]">
+                                        Portfólio Consolidado
+                                    </span>
+                                </div>
+
+                                {/* Big Number & Label Group */}
+                                <div className="flex items-end gap-3">
+                                    <span className="font-display text-6xl md:text-7xl lg:text-8xl text-white font-medium tracking-tighter tabular-nums leading-[0.9]">
+                                        +<Counter from={0} to={120} />
+                                    </span>
+                                    
+                                    <div className="flex flex-col pb-2 md:pb-3">
+                                        <span className="font-serif italic text-xl md:text-2xl text-[var(--neutral-200)] leading-none">
+                                            Marcas
+                                        </span>
+                                        <span className="text-[10px] font-bold uppercase tracking-widest text-[var(--earth-500)] mt-1 whitespace-nowrap">
+                                            Posicionadas
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </motion.div>
