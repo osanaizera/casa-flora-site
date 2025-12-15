@@ -129,7 +129,7 @@ export default function BonusSection() {
 
 // --- Subcomponents for Clean Architecture --- 
 
-function FeatureCard({ icon, title, desc, delay }: { icon: JSX.Element, title: string, desc: string, delay: number }) {
+function FeatureCard({ icon, title, desc, delay }: { icon: React.ReactNode, title: string, desc: string, delay: number }) {
     return (
         <motion.div 
             initial={{ opacity: 0, x: 20 }}
