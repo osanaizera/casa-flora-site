@@ -15,8 +15,8 @@ export default function OfferSection() {
                         {/* Vacancy Counter - ADDED */}
                         <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/50 border border-[var(--neutral-200)] backdrop-blur-sm mb-6 shadow-sm">
                             <span className="relative flex h-2.5 w-2.5">
-                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--earth-600)] opacity-75"></span>
-                                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[var(--earth-600)]"></span>
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#E11D48] opacity-75"></span>
+                                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#E11D48]"></span>
                             </span>
                             <span className="text-xs font-medium tracking-widest uppercase text-[var(--neutral-600)] font-sans">
                                 Vagas de Janeiro: <span className="text-[var(--neutral-900)] font-bold">06 de 10 preenchidas</span>

@@ -57,8 +57,8 @@ export default function ContactSection() {
                     {/* Vacancy Counter - ADDED */}
                     <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/[0.05] border border-white/[0.1] backdrop-blur-sm mb-8 shadow-sm self-center lg:self-start">
                         <span className="relative flex h-2.5 w-2.5">
-                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--earth-600)] opacity-75"></span>
-                            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[var(--earth-600)]"></span>
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#E11D48] opacity-75"></span>
+                            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#E11D48]"></span>
                         </span>
                         <span className="text-xs font-medium tracking-widest uppercase text-[var(--neutral-400)] font-sans">
                             Vagas de Janeiro: <span className="text-white font-bold">06 de 10 preenchidas</span>
