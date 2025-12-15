@@ -65,7 +65,7 @@ export default function PromoPage() {
               <div className="text-sm text-[var(--neutral-500)] text-center md:text-right">
                 <p className="mb-2">© {new Date().getFullYear()} Casa Flora — Todos os direitos reservados.</p>
                 <p>
-                  Design High-End para marcas que querem liderar.
+                  Site desenvolvido por <a href="https://salesdrive.com.br" target="_blank" rel="noopener noreferrer" className="underline hover:text-white transition-colors">salesdrive.com.br</a>
                 </p>
               </div>
             </div>
