@@ -1,87 +1,256 @@
+'use client';
+
 import React from 'react';
+import { motion, useTransform, useMotionValue } from 'framer-motion';
 
 export default function BonusSection() {
-  return (
-    <section className="py-24 bg-gradient-to-br from-[#1c1917] to-[#292524] text-[var(--neutral-50)] relative overflow-hidden">
-        {/* Abstract Shapes */}
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[var(--earth-600)] opacity-10 blur-[100px] rounded-full pointer-events-none" />
-        
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          
-          {/* Left: Copy */}
-          <div className="space-y-8 order-2 lg:order-1">
-            <div className="inline-flex items-center gap-2 bg-[var(--earth-600)]/20 border border-[var(--earth-600)]/40 px-4 py-1.5 rounded-full">
-                <span className="w-1.5 h-1.5 rounded-full bg-[var(--earth-400)] animate-pulse"></span>
-                <span className="text-[var(--earth-200)] text-xs font-bold tracking-widest uppercase">
-                 Cortesia Institucional
-                </span>
-            </div>
-
-            <h2 className="font-display text-4xl md:text-5xl leading-tight">
-              A marca atrai. <br/>
-              <span className="text-[var(--earth-400)] font-serif italic">A experiência fideliza.</span>
-            </h2>
-
-            <p className="text-[var(--neutral-300)] text-lg leading-relaxed">
-              De nada adianta um logo bonito se o atendimento é frio. 
-              Ao garantir sua vaga no <strong>Projeto Raiz</strong> agora, você recebe <span className="text-white font-bold">sem custo adicional</span> nosso manual interno de hospitalidade.
-            </p>
-
-            <div className="bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur-sm relative overflow-hidden">
-                {/* Ribbon */}
-                <div className="absolute top-0 right-0 bg-[#16a34a] text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg">
-                    DE <span className="line-through opacity-70">R$ 1.500</span> POR ZERO
-                </div>
-
-                <h3 className="text-xl font-display mb-4 flex items-center gap-2">
-                    <span className="text-2xl">🎁</span>
-                    <span className="text-white">Manual de Encantamento (M.E.C)</span>
-                </h3>
-                <ul className="space-y-4">
-                    <li className="flex items-start gap-3 text-[var(--neutral-300)]">
-                        <svg className="w-5 h-5 text-[var(--earth-400)] mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
-                        <span><strong>Rituais de Boas-vindas:</strong> O passo a passo para encantar o cliente nos primeiros 5 minutos.</span>
-                    </li>
-                    <li className="flex items-start gap-3 text-[var(--neutral-300)]">
-                        <svg className="w-5 h-5 text-[var(--earth-400)] mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
-                        <span><strong>Sensorial & Ambiente:</strong> Checklists de aroma, som e luz para criar uma atmosfera de marca.</span>
-                    </li>
-                    <li className="flex items-start gap-3 text-[var(--neutral-300)]">
-                        <svg className="w-5 h-5 text-[var(--earth-400)] mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
-                        <span><strong>Recuperação de Clientes:</strong> O script exato para transformar uma reclamação em um elogio público.</span>
-                    </li>
-                </ul>
+    return (
+        <section className="py-20 md:py-24 lg:py-28 bg-[#0c0a09] relative overflow-hidden text-[var(--neutral-50)] min-h-[calc(100vh-80px)] flex items-center">
+            
+            {/* 1. Cinematic Background Texture */}
+            <div className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-overlay"
+                 style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.65\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E")' }}>
             </div>
             
-            <p className="text-xs text-[var(--neutral-400)] uppercase tracking-widest mt-4">
-                * Disponível exclusivamente para clientes do ciclo atual.
-            </p>
-          </div>
+            {/* 2. Ambient Lighting (Golden Hour Glow) */}
+            <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[var(--earth-600)] opacity-10 blur-[150px] rounded-full pointer-events-none translate-x-1/3 -translate-y-1/3" />
+            <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[var(--earth-800)] opacity-10 blur-[120px] rounded-full pointer-events-none -translate-x-1/3 translate-y-1/3" />
 
-          {/* Right: Visual (Book Mockup) */}
-          <div className="order-1 lg:order-2 flex justify-center perspective-1000">
-            <div className="relative group w-[300px] h-[420px] bg-[#1a1a1a] rounded-r-lg shadow-[20px_20px_60px_rgba(0,0,0,0.5)] border-l-4 border-l-[var(--neutral-600)] transform transition-transform duration-500 hover:rotate-y-[-10deg] hover:rotate-x-[5deg]">
-                {/* Book Cover Design */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center border border-[var(--neutral-700)] rounded-r-lg bg-[url('https://www.transparenttextures.com/patterns/black-linen.png')]">
-                    <div className="w-16 h-16 border border-[var(--earth-600)] rounded-full flex items-center justify-center mb-8">
-                        <span className="text-[var(--earth-600)] font-display text-2xl">CF</span>
-                    </div>
-                    <h3 className="font-display text-3xl text-white tracking-widest uppercase mb-2">Manual de<br/>Encantamento</h3>
-                    <p className="font-serif italic text-[var(--earth-400)]">Edição Clientes Raiz</p>
+            <div className="container mx-auto px-6 relative z-10">
+                <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
                     
-                    <div className="absolute bottom-8 text-[10px] uppercase tracking-[0.3em] text-[var(--neutral-500)]">
-                        Casa Flora • 2026
+                    {/* LEFT COLUMN: Content Strategy */}
+                    <div className="lg:col-span-7 space-y-6 md:space-y-8">
+                        
+                        {/* Eyebrow */}
+                        <motion.div 
+                            initial={{ opacity: 0, x: -20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            className="flex items-center gap-3"
+                        >
+                            <span className="h-px w-8 bg-[var(--earth-400)]"></span>
+                            <span className="text-[var(--earth-400)] text-xs font-bold tracking-[0.25em] uppercase">
+                                Cortesia Institucional
+                            </span>
+                        </motion.div>
+
+                        {/* Headline */}
+                        <motion.h2 
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.1 }}
+                            className="font-display text-4xl md:text-5xl leading-[1.05]"
+                        >
+                            A marca atrai. <br/>
+                            <span className="font-serif italic text-[var(--neutral-400)]">A experiência fideliza.</span>
+                        </motion.h2>
+
+                        {/* Editorial Body */}
+                        <motion.p 
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.2 }}
+                            className="text-[var(--neutral-300)] text-base md:text-lg leading-relaxed max-w-xl font-light border-l border-[var(--neutral-800)] pl-6"
+                        >
+                             Aqui na Casa Flora valorizamos cada detalhe da experiência com o cliente, e você vai sentir isso desde o seu primeiro contato. Para que seus clientes também vivam essa sensação, criamos o <strong className="text-white font-medium">Manual de Encantamento 2026</strong>. Ao garantir sua vaga no Projeto Raiz agora, você recebe sem custo adicional nosso manual interno de hospitalidade.
+                        </motion.p>
+
+                        {/* High-Value List (Cards) with new icons */}
+                        <div className="space-y-3 md:space-y-4 pt-4">
+                            <FeatureCard 
+                                icon={
+                                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-6-4h4m2 0h4m-4 0v4m0 4h.01M17 19H7a2 2 0 01-2-2V7a2 2 0 012-2h10a2 2 0 012 2v10a2 2 0 01-2 2z" />
+                                    </svg>
+                                }
+                                title="Rituais de Boas-vindas"
+                                desc="O passo a passo para encantar o cliente nos primeiros 5 minutos."
+                                delay={0.3}
+                            />
+                            <FeatureCard 
+                                icon={
+                                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.636 4.636a9 9 0 0112.728 0m-9.9 2.828a5 5 0 010 7.072M21 12c0 8.837-7.163 16-16 16S-5 20.837-5 12 2.163-4 10-4s11 7.163 11 16z" />
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
+                                    </svg>
+                                }
+                                title="Sensorial & Ambiente"
+                                desc="Checklists de aroma, som e luz para criar uma atmosfera de marca."
+                                delay={0.4}
+                            />
+                            <FeatureCard 
+                                icon={
+                                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8s-9-3.582-9-8 4.03-8 9-8 9 3.582 9 8z" />
+                                    </svg>
+                                }
+                                title="Recuperação de Clientes"
+                                desc="O script exato para transformar uma reclamação em um elogio público."
+                                delay={0.5}
+                            />
+                        </div>
+
+                         {/* Price Anchor Tag - ENHANCED */}
+                         <motion.div 
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.6 }}
+                            className="flex flex-col sm:flex-row items-center gap-4 mt-8 bg-[var(--earth-800)]/20 border border-[var(--earth-600)]/40 p-4 rounded-lg backdrop-blur-md shadow-lg"
+                        >
+                            <span className="text-sm md:text-base text-[var(--neutral-500)] line-through font-bold whitespace-nowrap">
+                                DE R$ 1.500
+                            </span>
+                            <span className="text-xl md:text-2xl font-extrabold text-white bg-[var(--earth-600)] px-4 py-2 rounded-md shadow-xl whitespace-nowrap">
+                                POR ZERO!
+                            </span>
+                            <span className="text-xs md:text-sm uppercase tracking-widest text-[var(--earth-200)] font-bold ml-auto">
+                                BÔNUS EXCLUSIVO
+                            </span>
+                        </motion.div>
+                    </div>
+
+                    {/* RIGHT COLUMN: The "Artifact" (3D Book) */}
+                    <div className="lg:col-span-5 flex justify-center perspective-1000 relative">
+                        {/* Glow Behind Book */}
+                        <div className="absolute inset-0 bg-gradient-to-tr from-[var(--earth-500)] to-purple-900 opacity-20 blur-[90px] rounded-full animate-pulse" />
+                        
+                        <Book3D />
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    );
+}
+
+// --- Subcomponents for Clean Architecture --- 
+
+function FeatureCard({ icon, title, desc, delay }: { icon: JSX.Element, title: string, desc: string, delay: number }) {
+    return (
+        <motion.div 
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay }}
+            className="group flex items-start gap-4 p-4 rounded-xl bg-white/[0.03] border border-white/[0.05] hover:bg-white/[0.06] hover:border-[var(--earth-600)]/30 transition-all duration-300 backdrop-blur-sm cursor-default"
+        >
+            <div className="w-10 h-10 rounded-full bg-[var(--neutral-800)] flex items-center justify-center text-lg border border-[var(--neutral-700)] group-hover:scale-110 transition-transform text-[var(--earth-400)]">
+                {icon}
+            </div>
+            <div>
+                <h4 className="text-[var(--neutral-100)] font-display text-lg mb-1">{title}</h4>
+                <p className="text-[var(--neutral-400)] text-sm leading-relaxed group-hover:text-[var(--neutral-300)] transition-colors">
+                    {desc}
+                </p>
+            </div>
+        </motion.div>
+    );
+}
+
+function Book3D() {
+    // 3D Tilt Logic
+    const x = useMotionValue(0);
+    const y = useMotionValue(0);
+    
+    const rotateX = useTransform(y, [-100, 100], [15, -15]);
+    const rotateY = useTransform(x, [-100, 100], [-15, 15]);
+
+    function handleMouseMove(event: React.MouseEvent<HTMLDivElement, MouseEvent>) {
+        const rect = event.currentTarget.getBoundingClientRect();
+        const width = rect.width;
+        const height = rect.height;
+        const mouseX = event.clientX - rect.left;
+        const mouseY = event.clientY - rect.top;
+        const xPct = mouseX / width - 0.5;
+        const yPct = mouseY / height - 0.5;
+        x.set(xPct * 200);
+        y.set(yPct * 200);
+    }
+
+    function handleMouseLeave() {
+        x.set(0);
+        y.set(0);
+    }
+
+    return (
+        <motion.div
+            style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
+            onMouseMove={handleMouseMove}
+            onMouseLeave={handleMouseLeave}
+            className="relative w-[280px] h-[400px] md:w-[320px] md:h-[460px] cursor-pointer group flex-shrink-0"
+        >
+            {/* BOOK SPINE (Thickness) */}
+            <div 
+                className="absolute left-0 top-0 bottom-0 w-[30px] md:w-[40px] bg-[#1a1a1a] origin-left transform -rotate-y-90 translate-z-[15px] md:translate-z-[20px]"
+                style={{ transform: 'rotateY(-90deg) translateX(-15px)', zIndex: 0 }}
+            >
+                <div className="h-full w-full"></div>
+            </div>
+
+            {/* PAGES (Thickness Right) */}
+            <div 
+                className="absolute right-0 top-2 bottom-2 w-[26px] md:w-[36px] bg-[#e5e5e5] origin-right transform rotate-y-90 translate-z-[13px] md:translate-z-[18px]"
+                style={{ 
+                    backgroundImage: 'repeating-linear-gradient(90deg, #e5e5e5 0px, #d4d4d4 1px, #e5e5e5 2px)',
+                    transform: 'rotateY(90deg) translateX(13px)',
+                    zIndex: 0 
+                }}
+            />
+
+            {/* FRONT COVER */}
+            <div 
+                className="absolute inset-0 bg-[#1c1917] rounded-sm shadow-2xl border-l-2 border-[#333] overflow-hidden"
+                style={{ transform: 'translateZ(15px)' }}
+            >
+                {/* Cover Texture */}
+                <div className="absolute inset-0 opacity-40 bg-[url('https://www.transparenttextures.com/patterns/black-linen.png')] mix-blend-overlay" />
+                
+                {/* Shine Gradient */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-transparent opacity-0 group-hover:opacity-30 transition-opacity duration-500 pointer-events-none" />
+
+                {/* Cover Content */}
+                <div className="relative h-full p-6 md:p-8 flex flex-col justify-between border-[1px] border-white/10 m-2 md:m-3">
+                    
+                    {/* Top Logos */}
+                    <div className="flex justify-between items-start">
+                        <div className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-[var(--earth-600)] flex items-center justify-center">
+                             <span className="font-display text-[var(--earth-600)] text-lg md:text-xl">CF</span>
+                        </div>
+                        <span className="text-[8px] md:text-[10px] text-[var(--neutral-500)] uppercase tracking-widest border border-[var(--neutral-800)] px-2 py-1 rounded">
+                            Confidencial
+                        </span>
+                    </div>
+
+                    {/* Center Title - Adjusted for better fit */}
+                    <div className="space-y-1 md:space-y-2 mb-auto mt-auto">
+                        <h3 className="font-display text-2xl md:text-3xl text-white leading-[1.05]">
+                            MANUAL DE <br/>
+                            <span className="text-[var(--earth-500)]">ENCANTAMENTO</span>
+                        </h3>
+                        <div className="w-10 h-1 bg-[var(--earth-600)] mt-2 md:mt-4"></div>
+                        <p className="font-serif italic text-[var(--neutral-400)] text-sm md:text-lg pt-1 md:pt-2">
+                            Edição Clientes Raiz
+                        </p>
+                    </div>
+
+                    {/* Bottom Detail */}
+                    <div>
+                        <p className="text-[8px] md:text-[10px] uppercase tracking-[0.3em] text-[var(--neutral-600)] text-center">
+                            Metodologia M.E.C • 2026
+                        </p>
                     </div>
                 </div>
-                {/* Book Pages Effect (Side) */}
-                <div className="absolute top-2 bottom-2 right-0 w-4 bg-gradient-to-l from-[#e5e5e5] to-[#d4d4d4] rounded-r-sm transform translate-x-[2px] z-[-1]"></div>
-                <div className="absolute top-3 bottom-3 right-0 w-3 bg-gradient-to-l from-[#f5f5f5] to-[#e5e5e5] rounded-r-sm transform translate-x-[4px] z-[-2]"></div>
             </div>
-          </div>
 
-        </div>
-      </div>
-    </section>
-  );
+            {/* BACK COVER (Shadow mostly) */}
+            <div 
+                className="absolute inset-0 bg-[#111] rounded-sm transform translate-z-[-15px] md:translate-z-[-20px] shadow-2xl"
+                style={{ transform: 'translateZ(-15px)' }}
+            />
+        </motion.div>
+    );
 }

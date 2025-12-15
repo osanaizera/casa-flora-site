@@ -50,7 +50,7 @@ export default function ResultsCarousel() {
     <section className={styles.section}>
       <div className="container mx-auto px-6 mb-10 text-center">
         <p className="text-xs font-bold tracking-[0.2em] uppercase text-[var(--neutral-500)]">
-          Marcas que se tornaram referência
+          Marcas que transformamos e hoje se tornaram referência:
         </p>
       </div>
 

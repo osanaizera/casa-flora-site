@@ -34,7 +34,7 @@ export default function HeroSection() {
           {/* Main Headline */}
           <h1 className="flex flex-col items-center font-display text-[var(--neutral-900)] leading-[0.95] tracking-tight mb-8">
             <span className="text-5xl md:text-8xl font-light block mb-2">Sua empresa cresceu.</span>
-            <span className="text-5xl md:text-8xl font-medium italic font-serif text-[var(--earth-600)] block relative">
+            <span className="text-5xl md:text-8xl font-medium italic font-serif text-[var(--earth-400)] block relative">
               Sua marca travou?
               {/* Decorative line */}
               <svg className="absolute -bottom-2 md:-bottom-4 left-0 w-full h-3 md:h-6 text-[var(--sage-600)] opacity-40" viewBox="0 0 200 9" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -45,15 +45,16 @@ export default function HeroSection() {
 
           {/* Subheadline */}
           <p className="font-sans text-lg md:text-xl text-[var(--neutral-600)] max-w-2xl mx-auto leading-relaxed mb-10 md:mb-12">
-            Você tem qualidade, entrega e história. Mas o visual da sua marca ainda passa a imagem de <span className="bg-[var(--neutral-200)] px-1">quem está começando</span>. 
-            O <strong>Projeto Raiz</strong> é a intervenção estratégica para alinhar sua percepção ao seu faturamento.
+            Você tem qualidade, entrega e história. Mas o visual da sua marca ainda passa a imagem de quem está começando. O <strong>Projeto Raiz</strong> é o seu primeiro passo para mudar isso, aqui na Casa Flora vamos alinhar sua essência, identidade e comunicação — e elevar a percepção e o valor da sua marca.
+            <br/><br/>
+            E para melhorar ainda mais sua entrega, somente neste período, você recebe também o Manual de Encantamento 2026 — um guia prático e sensorial para transformar cada ponto de contato da sua marca em uma experiência inesquecível para seu cliente.
           </p>
 
           {/* CTA & Trust */}
           <div className="flex flex-col items-center gap-6 w-full md:w-auto">
             <a href="#contato-hero"
               className="group relative w-full md:w-auto inline-flex items-center justify-center gap-3 px-8 md:px-12 py-5 bg-[var(--neutral-900)] text-[var(--color-paper)] rounded-sm text-lg font-medium tracking-wide transition-all duration-300 hover:bg-[var(--earth-600)] hover:-translate-y-1 shadow-[0_10px_30px_rgba(0,0,0,0.15)] hover:shadow-[0_20px_40px_rgba(139,115,85,0.3)] overflow-hidden">
-              <span className="relative z-10">QUERO RESOLVER MEU PROBLEMA</span>
+              <span className="relative z-10">QUERO TRANSFORMAR MINHA MARCA EM 2026</span>
               <svg className="w-5 h-5 relative z-10 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>

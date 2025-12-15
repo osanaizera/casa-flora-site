@@ -14,7 +14,7 @@ export default function PainSection() {
                         <span className="text-white font-medium">limitando o valor do seu contrato.</span>
                     </h2>
                     <p className="text-[var(--neutral-400)] text-lg md:text-xl font-light max-w-2xl mx-auto">
-                        Seu produto é &quot;Premium&quot;, mas sua apresentação é &quot;Básica&quot;. Esse gap cria uma dissonância cognitiva no seu cliente, gerando objeções como:
+                        Seu produto tem qualidade e valor. Mas a forma como sua marca se apresenta ainda não transmite tudo isso — e esse desencontro faz o cliente não enxergar todo seu valor.
                     </p>
                 </div>
 
