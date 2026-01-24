@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Inter, Archivo } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
@@ -140,6 +141,17 @@ export default function RootLayout({
       <head>
         {/* Garantir favicon explícito */}
         <link rel="icon" href="/images/favicon.png" />
+        {/* Google tag (gtag.js) */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-YYH25YQJRX"
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-YYH25YQJRX');`}
+        </Script>
         {/* Schema.org LocalBusiness JSON-LD for GMB association */}
         <script
           type="application/ld+json"
