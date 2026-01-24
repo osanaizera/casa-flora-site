@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import type { RemotePattern } from "next/dist/shared/lib/image-config";
 
 const cmsBaseUrl = process.env.CMS_BASE_URL;
 const remotePatterns: NonNullable<NextConfig["images"]>["remotePatterns"] = [];
@@ -6,12 +7,15 @@ const remotePatterns: NonNullable<NextConfig["images"]>["remotePatterns"] = [];
 if (cmsBaseUrl) {
   try {
     const url = new URL(cmsBaseUrl);
-    remotePatterns.push({
-      protocol: url.protocol.replace(":", ""),
+    const pattern: RemotePattern = {
+      protocol: url.protocol === "https:" ? "https" : "http",
       hostname: url.hostname,
-      port: url.port || undefined,
       pathname: "/**",
-    });
+    };
+    if (url.port) {
+      pattern.port = url.port;
+    }
+    remotePatterns.push(pattern);
   } catch {
     // Ignore invalid CMS_BASE_URL.
   }

@@ -3,6 +3,8 @@ import { listPosts } from "@/lib/cms";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const baseUrl = "https://www.casaflora-brand.com.br";
+    const cmsBaseUrl = process.env.CMS_BASE_URL;
+    const cmsApiKey = process.env.CMS_API_KEY;
 
     // Páginas estáticas
     const staticPages: MetadataRoute.Sitemap = [
@@ -68,35 +70,43 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         },
     ];
 
-    const blogPages: MetadataRoute.Sitemap = [];
-    let cursor: string | undefined;
-
-    while (true) {
-        const { data, nextCursor } = await listPosts({
-            limit: 50,
-            type: "BLOG",
-            includeContent: false,
-            cursor,
-        });
-
-        for (const post of data) {
-            const lastModified =
-                post.updatedAt ||
-                post.publishedAt ||
-                post.createdAt ||
-                new Date().toISOString();
-
-            blogPages.push({
-                url: `${baseUrl}/blog/${post.slug}`,
-                lastModified,
-                changeFrequency: "monthly",
-                priority: 0.6,
-            });
-        }
-
-        if (!nextCursor) break;
-        cursor = nextCursor;
+    if (!cmsBaseUrl || !cmsApiKey) {
+        return staticPages;
     }
 
-    return [...staticPages, ...blogPages];
+    try {
+        const blogPages: MetadataRoute.Sitemap = [];
+        let cursor: string | undefined;
+
+        while (true) {
+            const { data, nextCursor } = await listPosts({
+                limit: 50,
+                type: "BLOG",
+                includeContent: false,
+                cursor,
+            });
+
+            for (const post of data) {
+                const lastModified =
+                    post.updatedAt ||
+                    post.publishedAt ||
+                    post.createdAt ||
+                    new Date().toISOString();
+
+                blogPages.push({
+                    url: `${baseUrl}/blog/${post.slug}`,
+                    lastModified,
+                    changeFrequency: "monthly",
+                    priority: 0.6,
+                });
+            }
+
+            if (!nextCursor) break;
+            cursor = nextCursor;
+        }
+
+        return [...staticPages, ...blogPages];
+    } catch {
+        return staticPages;
+    }
 }

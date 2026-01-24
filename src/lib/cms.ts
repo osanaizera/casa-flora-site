@@ -60,6 +60,9 @@ export async function listPosts({
   type = "BLOG",
   includeContent = false,
 }: ListPostsParams = {}): Promise<ListPostsResponse> {
+  if (!baseUrl || !apiKey) {
+    return { data: [], nextCursor: undefined };
+  }
   const params = new URLSearchParams();
   params.set("limit", String(limit));
   params.set("type", type);

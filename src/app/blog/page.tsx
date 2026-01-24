@@ -13,9 +13,9 @@ export const metadata: Metadata = {
 };
 
 type PageProps = {
-  searchParams?: {
+  searchParams?: Promise<{
     cursor?: string | string[];
-  };
+  }>;
 };
 
 function mapPostToCard(post: CmsPost): BlogCardPost {
@@ -46,9 +46,10 @@ function mapPostToCard(post: CmsPost): BlogCardPost {
 }
 
 export default async function BlogPage({ searchParams }: PageProps) {
-  const cursor = Array.isArray(searchParams?.cursor)
-    ? searchParams?.cursor[0]
-    : searchParams?.cursor;
+  const resolvedSearchParams = searchParams ? await searchParams : undefined;
+  const cursor = Array.isArray(resolvedSearchParams?.cursor)
+    ? resolvedSearchParams?.cursor[0]
+    : resolvedSearchParams?.cursor;
 
   const { data, nextCursor } = await listPosts({
     limit: 10,

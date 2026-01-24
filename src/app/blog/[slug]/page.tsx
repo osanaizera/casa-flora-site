@@ -9,9 +9,9 @@ import NewsletterCTA from "@/components/blog/NewsletterCTA";
 import { getPostBySlug, type CmsPost } from "@/lib/cms";
 
 interface BlogPostPageProps {
-    params: {
+    params: Promise<{
         slug: string;
-    };
+    }>;
 }
 
 function getPostImage(post: CmsPost) {
@@ -32,7 +32,8 @@ function getPostDate(post: CmsPost) {
 
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
     try {
-        const post = await getPostBySlug(params.slug);
+        const { slug } = await params;
+        const post = await getPostBySlug(slug);
         const title = post.seoTitle || post.title;
         const description = post.seoDescription || post.excerpt || "";
         const image = getPostImage(post);
@@ -58,7 +59,8 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
     let post: CmsPost | null = null;
     try {
-        post = await getPostBySlug(params.slug);
+        const { slug } = await params;
+        post = await getPostBySlug(slug);
     } catch {
         post = null;
     }
@@ -75,7 +77,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         null;
     const author = (post as { author?: string }).author || null;
     const tags = Array.isArray((post as { tags?: string[] }).tags)
-        ? (post as { tags?: string[] }).tags
+        ? (post as { tags?: string[] }).tags ?? []
         : [];
 
     return (
