@@ -11,9 +11,11 @@
   "dependencies": {
     "@vercel/analytics": "^1.5.0",
     "framer-motion": "^12.23.0",
+    "marked": "latest",
     "next": "15.3.6",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "sanitize-html": "latest"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

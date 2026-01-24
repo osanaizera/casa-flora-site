@@ -1,44 +1,67 @@
-'use client';
+import Image from "next/image";
+import Link from "next/link";
 
-import Image from 'next/image';
-import Link from 'next/link';
-import { BlogPost } from '@/data/blog-posts';
+export type BlogCardPost = {
+    id: string;
+    slug: string;
+    title: string;
+    excerpt?: string | null;
+    imageUrl?: string | null;
+    date?: string | null;
+    category?: string | null;
+};
 
 interface BlogCardProps {
-    post: BlogPost;
+    post: BlogCardPost;
 }
 
 export default function BlogCard({ post }: BlogCardProps) {
+    const formattedDate = post.date
+        ? new Date(post.date).toLocaleDateString("pt-BR", {
+            day: "numeric",
+            month: "long",
+            year: "numeric",
+        })
+        : null;
+
     return (
         <Link href={`/blog/${post.slug}`} className="group block h-full">
             <article className="h-full flex flex-col bg-white rounded-2xl overflow-hidden border border-neutral-200 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
                 <div className="relative aspect-[4/3] overflow-hidden">
-                    <Image
-                        src={post.imageUrl}
-                        alt={post.title}
-                        fill
-                        className="object-cover transition-transform duration-700 group-hover:scale-105"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    />
-                    <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-medium uppercase tracking-wider text-neutral-800">
-                        {post.category}
-                    </div>
+                    {post.imageUrl ? (
+                        <Image
+                            src={post.imageUrl}
+                            alt={post.title}
+                            fill
+                            className="object-cover transition-transform duration-700 group-hover:scale-105"
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        />
+                    ) : (
+                        <div className="absolute inset-0 bg-gradient-to-br from-[var(--earth-200)] via-white to-[var(--earth-100)]" />
+                    )}
+                    {post.category ? (
+                        <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-medium uppercase tracking-wider text-neutral-800">
+                            {post.category}
+                        </div>
+                    ) : null}
                 </div>
 
                 <div className="p-6 flex flex-col flex-grow">
-                    <div className="flex items-center gap-3 text-xs text-neutral-500 mb-3 font-medium">
-                        <span>{new Date(post.date).toLocaleDateString('pt-BR', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
-                        <span className="w-1 h-1 bg-neutral-300 rounded-full"></span>
-                        <span>{post.readingTime} de leitura</span>
-                    </div>
+                    {formattedDate ? (
+                        <div className="flex items-center gap-3 text-xs text-neutral-500 mb-3 font-medium">
+                            <span>{formattedDate}</span>
+                        </div>
+                    ) : null}
 
                     <h3 className="text-xl font-display font-medium leading-tight mb-3 text-neutral-900 group-hover:text-[var(--earth-600)] transition-colors">
                         {post.title}
                     </h3>
 
-                    <p className="text-neutral-600 text-sm line-clamp-3 mb-6 flex-grow leading-relaxed">
-                        {post.excerpt}
-                    </p>
+                    {post.excerpt ? (
+                        <p className="text-neutral-600 text-sm line-clamp-3 mb-6 flex-grow leading-relaxed">
+                            {post.excerpt}
+                        </p>
+                    ) : null}
 
                     <div className="flex items-center text-[var(--earth-600)] text-sm font-semibold tracking-wide uppercase group-hover:gap-2 transition-all">
                         Ler artigo

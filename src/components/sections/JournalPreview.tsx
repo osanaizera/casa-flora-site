@@ -1,14 +1,42 @@
-'use client';
+import Link from "next/link";
+import BlogCard, { type BlogCardPost } from "@/components/blog/BlogCard";
+import { listPosts, type CmsPost } from "@/lib/cms";
 
-import Link from 'next/link';
-import BlogCard from '@/components/blog/BlogCard';
-import { blogPosts } from '@/data/blog-posts';
+function mapPostToCard(post: CmsPost): BlogCardPost {
+    const imageUrl =
+        post.seoImage ||
+        null;
 
-export default function JournalPreview() {
-    // Get the 3 latest posts
-    const latestPosts = [...blogPosts]
-        .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-        .slice(0, 3);
+    const date =
+        post.updatedAt ||
+        post.publishedAt ||
+        post.createdAt ||
+        null;
+
+    const category =
+        post.category ||
+        post.type ||
+        null;
+
+    return {
+        id: post.id,
+        slug: post.slug,
+        title: post.title,
+        excerpt: post.excerpt,
+        imageUrl,
+        date,
+        category,
+    };
+}
+
+export default async function JournalPreview() {
+    const { data } = await listPosts({
+        limit: 3,
+        type: "BLOG",
+        includeContent: false,
+    });
+
+    const latestPosts = data.map(mapPostToCard);
 
     return (
         <section className="py-24 bg-[var(--color-paper)]">
@@ -42,7 +70,7 @@ export default function JournalPreview() {
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {latestPosts.map((post) => (
-                        <BlogCard key={post.slug} post={post} />
+                        <BlogCard key={post.id} post={post} />
                     ))}
                 </div>
 

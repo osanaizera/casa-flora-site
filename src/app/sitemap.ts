@@ -1,8 +1,8 @@
-import { MetadataRoute } from 'next';
-import { blogPosts } from '@/data/blog-posts';
+import type { MetadataRoute } from "next";
+import { listPosts } from "@/lib/cms";
 
-export default function sitemap(): MetadataRoute.Sitemap {
-    const baseUrl = 'https://www.casaflora-brand.com.br';
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+    const baseUrl = "https://www.casaflora-brand.com.br";
 
     // Páginas estáticas
     const staticPages: MetadataRoute.Sitemap = [
@@ -68,14 +68,35 @@ export default function sitemap(): MetadataRoute.Sitemap {
         },
     ];
 
-    // Páginas dinâmicas do blog (geradas automaticamente)
-    const blogPages: MetadataRoute.Sitemap = blogPosts.map((post) => ({
-        url: `${baseUrl}/blog/${post.slug}`,
-        lastModified: new Date(post.date),
-        changeFrequency: 'monthly' as const,
-        priority: 0.6,
-    }));
+    const blogPages: MetadataRoute.Sitemap = [];
+    let cursor: string | undefined;
+
+    while (true) {
+        const { data, nextCursor } = await listPosts({
+            limit: 50,
+            type: "BLOG",
+            includeContent: false,
+            cursor,
+        });
+
+        for (const post of data) {
+            const lastModified =
+                post.updatedAt ||
+                post.publishedAt ||
+                post.createdAt ||
+                new Date().toISOString();
+
+            blogPages.push({
+                url: `${baseUrl}/blog/${post.slug}`,
+                lastModified,
+                changeFrequency: "monthly",
+                priority: 0.6,
+            });
+        }
+
+        if (!nextCursor) break;
+        cursor = nextCursor;
+    }
 
     return [...staticPages, ...blogPages];
 }
-

@@ -198,6 +198,34 @@
   font-weight: 400;
 }
 
+/* Blog content basics */
+.blog-content h1 {
+  font-size: 2.5rem;
+  margin: 2rem 0 1rem;
+}
+
+.blog-content h2 {
+  font-size: 2rem;
+  margin: 2rem 0 1rem;
+}
+
+.blog-content p {
+  line-height: 1.7;
+  margin: 1rem 0;
+}
+
+.blog-content ul {
+  padding-left: 1.5rem;
+  margin: 1rem 0;
+}
+
+.blog-content pre {
+  background: #0f172a;
+  color: #e2e8f0;
+  padding: 1rem;
+  overflow-x: auto;
+}
+
 .hero__title .outline {
   -webkit-text-stroke: 1px var(--color-ink);
   -webkit-text-fill-color: transparent;
