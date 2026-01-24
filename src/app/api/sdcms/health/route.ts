@@ -12,7 +12,7 @@ export async function GET() {
   }
 
   const response = await fetch(
-    `${baseUrl.replace(/\\/$/, "")}/api/content?limit=1&includeContent=false`,
+    `${baseUrl.replace(/\/$/, "")}/api/content?limit=1&includeContent=false`,
     {
       headers: { "x-api-key": apiKey },
       cache: "no-store",
