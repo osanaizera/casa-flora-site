@@ -209,9 +209,27 @@
   margin: 2rem 0 1rem;
 }
 
+.blog-content h3 {
+  font-size: 1.5rem;
+  margin: 1.5rem 0 0.75rem;
+}
+
+.blog-content h4 {
+  font-size: 1.125rem;
+  margin: 1.25rem 0 0.5rem;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+
 .blog-content p {
   line-height: 1.7;
   margin: 1rem 0;
+}
+
+.blog-content a {
+  color: var(--earth-600);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
 }
 
 .blog-content ul {
@@ -219,11 +237,41 @@
   margin: 1rem 0;
 }
 
+.blog-content ol {
+  padding-left: 1.5rem;
+  margin: 1rem 0;
+}
+
+.blog-content li {
+  margin: 0.4rem 0;
+}
+
+.blog-content blockquote {
+  border-left: 3px solid var(--earth-300);
+  padding-left: 1rem;
+  margin: 1.5rem 0;
+  color: var(--color-gray-600);
+}
+
+.blog-content img {
+  max-width: 100%;
+  height: auto;
+  margin: 1.5rem 0;
+  border-radius: 1rem;
+}
+
 .blog-content pre {
   background: #0f172a;
   color: #e2e8f0;
   padding: 1rem;
   overflow-x: auto;
+}
+
+.blog-content code {
+  background: #f1f5f9;
+  color: #0f172a;
+  padding: 0.15rem 0.35rem;
+  border-radius: 0.35rem;
 }
 
 .hero__title .outline {
