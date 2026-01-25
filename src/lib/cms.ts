@@ -75,7 +75,14 @@ export async function listPosts({
 }
 
 export async function getPostBySlug(slug: string): Promise<CmsPost> {
-  return cmsFetch(`/api/content/${encodeURIComponent(slug)}`, {
-    cache: "no-store",
-  });
+  const response = await cmsFetch(
+    `/api/content/${encodeURIComponent(slug)}?includeContent=true`,
+    {
+      cache: "no-store",
+    }
+  );
+  if (response && typeof response === "object" && "data" in response) {
+    return (response as { data: CmsPost }).data;
+  }
+  return response as CmsPost;
 }
