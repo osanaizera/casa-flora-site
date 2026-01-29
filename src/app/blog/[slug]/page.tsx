@@ -58,7 +58,10 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
         const post = await getPostBySlug(slug);
         const title = post.seoTitle || post.title;
         const description = post.seoDescription || post.excerpt || "";
-        const image = getPostImage(post);
+        
+        // Extract image from markdown if seoImage is not set
+        const { imageUrl: extractedImageUrl } = extractFirstImage(post.content || "");
+        const image = getPostImage(post, extractedImageUrl);
 
         return {
             title,

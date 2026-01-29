@@ -2,10 +2,10 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import BlogHeader from "@/components/blog/BlogHeader";
-import BlogCard, { type BlogCardPost } from "@/components/blog/BlogCard";
+import BlogCard from "@/components/blog/BlogCard";
 import NewsletterCTA from "@/components/blog/NewsletterCTA";
 import HeaderModern from "@/components/layout/HeaderModern";
-import { listPosts, type CmsPost, getPostBySlug } from "@/lib/cms";
+import { listPosts } from "@/lib/cms";
 
 export const metadata: Metadata = {
   title: "Journal | Casa Flora",
@@ -31,58 +31,43 @@ function extractFirstImageUrl(markdown: string): string | null {
   return match ? match[2] : null;
 }
 
-async function mapPostToCard(post: CmsPost): Promise<BlogCardPost> {
-  let imageUrl = post.seoImage;
-  
-  // If no seoImage, try to extract from content
-  if (!imageUrl) {
-    try {
-      // Fetch full post with content to extract image
-      const fullPost = await getPostBySlug(post.slug);
-      if (fullPost.content) {
-        imageUrl = extractFirstImageUrl(fullPost.content);
-      }
-    } catch {
-      // If fetch fails, continue without image
-    }
-  }
-
-  const date =
-    post.updatedAt ||
-    post.publishedAt ||
-    post.createdAt ||
-    null;
-
-  const category =
-    post.category ||
-    post.type ||
-    null;
-
-  return {
-    id: post.id,
-    slug: post.slug,
-    title: post.title,
-    excerpt: post.excerpt,
-    imageUrl,
-    date,
-    category,
-  };
-}
-
 export default async function BlogPage({ searchParams }: PageProps) {
   const resolvedSearchParams = searchParams ? await searchParams : undefined;
   const cursor = Array.isArray(resolvedSearchParams?.cursor)
     ? resolvedSearchParams?.cursor[0]
     : resolvedSearchParams?.cursor;
 
+  // Fetch posts WITH content to extract images efficiently
   const { data, nextCursor } = await listPosts({
     limit: 10,
     type: "BLOG",
-    includeContent: false,
+    includeContent: true, // Changed to true to get content in one request
     cursor,
   });
 
-  const posts = await Promise.all(data.map(mapPostToCard));
+  // Map posts with extracted images (no additional fetches needed)
+  const posts = data.map((post) => {
+    let imageUrl = post.seoImage;
+    
+    // If no seoImage, extract from content
+    if (!imageUrl && post.content) {
+      imageUrl = extractFirstImageUrl(post.content);
+    }
+
+    const date = post.updatedAt || post.publishedAt || post.createdAt || null;
+    const category = post.category || post.type || null;
+
+    return {
+      id: post.id,
+      slug: post.slug,
+      title: post.title,
+      excerpt: post.excerpt,
+      imageUrl,
+      date,
+      category,
+    };
+  });
+  
   const featuredPost = posts[0];
   const regularPosts = posts.slice(1);
 
