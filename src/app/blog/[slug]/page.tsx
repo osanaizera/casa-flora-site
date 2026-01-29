@@ -68,7 +68,34 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         notFound();
     }
 
-    const html = sanitizeHtml(marked.parse(post.content || "") as string);
+    // Configure marked for better parsing
+    marked.setOptions({
+        gfm: true,
+        breaks: true,
+    });
+
+    // Parse markdown to HTML
+    const rawHtml = marked.parse(post.content || "") as string;
+
+    // Sanitize HTML while allowing all necessary tags
+    const html = sanitizeHtml(rawHtml, {
+        allowedTags: [
+            'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
+            'p', 'br', 'hr',
+            'ul', 'ol', 'li',
+            'strong', 'em', 'b', 'i', 'u', 's', 'del',
+            'a', 'img',
+            'blockquote', 'pre', 'code',
+            'table', 'thead', 'tbody', 'tr', 'th', 'td',
+            'div', 'span',
+        ],
+        allowedAttributes: {
+            a: ['href', 'title', 'target', 'rel'],
+            img: ['src', 'alt', 'title', 'width', 'height'],
+            '*': ['class', 'id'],
+        },
+        allowedSchemes: ['http', 'https', 'mailto'],
+    });
     const image = getPostImage(post);
     const date = getPostDate(post);
     const category =
