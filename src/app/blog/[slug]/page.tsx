@@ -14,9 +14,31 @@ interface BlogPostPageProps {
     }>;
 }
 
-function getPostImage(post: CmsPost) {
+/**
+ * Extracts the first image from markdown content
+ * Returns both the image URL and the content without that image
+ */
+function extractFirstImage(markdown: string): { imageUrl: string | null; contentWithoutImage: string } {
+    if (!markdown) return { imageUrl: null, contentWithoutImage: markdown };
+    
+    // Match markdown image syntax: ![alt](url)
+    const imageRegex = /!\[([^\]]*)\]\(([^)]+)\)/;
+    const match = markdown.match(imageRegex);
+    
+    if (match) {
+        const imageUrl = match[2];
+        // Remove the first image from content
+        const contentWithoutImage = markdown.replace(imageRegex, '').trim();
+        return { imageUrl, contentWithoutImage };
+    }
+    
+    return { imageUrl: null, contentWithoutImage: markdown };
+}
+
+function getPostImage(post: CmsPost, extractedImageUrl?: string | null) {
     return (
         post.seoImage ||
+        extractedImageUrl ||
         null
     );
 }
@@ -68,14 +90,17 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         notFound();
     }
 
+    // Extract first image from markdown before processing
+    const { imageUrl: extractedImageUrl, contentWithoutImage } = extractFirstImage(post.content || "");
+
     // Configure marked for better parsing
     marked.setOptions({
         gfm: true,
         breaks: true,
     });
 
-    // Parse markdown to HTML
-    const rawHtml = marked.parse(post.content || "") as string;
+    // Parse markdown to HTML (using content without the first image)
+    const rawHtml = marked.parse(contentWithoutImage) as string;
 
     // Sanitize HTML while allowing all necessary tags
     const html = sanitizeHtml(rawHtml, {
@@ -96,7 +121,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         },
         allowedSchemes: ['http', 'https', 'mailto'],
     });
-    const image = getPostImage(post);
+    
+    const image = getPostImage(post, extractedImageUrl);
     const date = getPostDate(post);
     const category =
         post.category ||

@@ -5,7 +5,7 @@ import BlogHeader from "@/components/blog/BlogHeader";
 import BlogCard, { type BlogCardPost } from "@/components/blog/BlogCard";
 import NewsletterCTA from "@/components/blog/NewsletterCTA";
 import HeaderModern from "@/components/layout/HeaderModern";
-import { listPosts, type CmsPost } from "@/lib/cms";
+import { listPosts, type CmsPost, getPostBySlug } from "@/lib/cms";
 
 export const metadata: Metadata = {
   title: "Journal | Casa Flora",
@@ -18,10 +18,34 @@ type PageProps = {
   }>;
 };
 
-function mapPostToCard(post: CmsPost): BlogCardPost {
-  const imageUrl =
-    post.seoImage ||
-    null;
+/**
+ * Extracts the first image URL from markdown content
+ */
+function extractFirstImageUrl(markdown: string): string | null {
+  if (!markdown) return null;
+  
+  // Match markdown image syntax: ![alt](url)
+  const imageRegex = /!\[([^\]]*)\]\(([^)]+)\)/;
+  const match = markdown.match(imageRegex);
+  
+  return match ? match[2] : null;
+}
+
+async function mapPostToCard(post: CmsPost): Promise<BlogCardPost> {
+  let imageUrl = post.seoImage;
+  
+  // If no seoImage, try to extract from content
+  if (!imageUrl) {
+    try {
+      // Fetch full post with content to extract image
+      const fullPost = await getPostBySlug(post.slug);
+      if (fullPost.content) {
+        imageUrl = extractFirstImageUrl(fullPost.content);
+      }
+    } catch {
+      // If fetch fails, continue without image
+    }
+  }
 
   const date =
     post.updatedAt ||
@@ -58,7 +82,7 @@ export default async function BlogPage({ searchParams }: PageProps) {
     cursor,
   });
 
-  const posts = data.map(mapPostToCard);
+  const posts = await Promise.all(data.map(mapPostToCard));
   const featuredPost = posts[0];
   const regularPosts = posts.slice(1);
 
