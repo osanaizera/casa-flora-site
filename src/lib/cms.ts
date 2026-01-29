@@ -34,7 +34,7 @@ function getBaseUrl() {
   return baseUrl.replace(/\/$/, "");
 }
 
-async function cmsFetch(path: string, init?: RequestInit) {
+async function cmsFetch<T>(path: string, init?: RequestInit): Promise<T> {
   if (!baseUrl || !apiKey) {
     throw new Error("Missing CMS env vars");
   }
@@ -43,15 +43,18 @@ async function cmsFetch(path: string, init?: RequestInit) {
     ...init,
     headers: {
       "x-api-key": apiKey,
+      "content-type": "application/json",
       ...(init?.headers || {}),
     },
+    cache: "no-store",
   });
 
   if (!response.ok) {
-    throw new Error(`CMS request failed: ${response.status}`);
+    const body = await response.text().catch(() => "");
+    throw new Error(`CMS error ${response.status}: ${body}`);
   }
 
-  return response.json();
+  return response.json() as Promise<T>;
 }
 
 export async function listPosts({
@@ -69,20 +72,12 @@ export async function listPosts({
   params.set("includeContent", String(includeContent));
   if (cursor) params.set("cursor", cursor);
 
-  return cmsFetch(`/api/content?${params.toString()}`, {
-    cache: "no-store",
-  });
+  return cmsFetch<ListPostsResponse>(`/api/public/content?${params.toString()}`);
 }
 
 export async function getPostBySlug(slug: string): Promise<CmsPost> {
-  const response = await cmsFetch(
-    `/api/content/${encodeURIComponent(slug)}?includeContent=true`,
-    {
-      cache: "no-store",
-    }
+  const payload = await cmsFetch<{ data: CmsPost }>(
+    `/api/public/content/${encodeURIComponent(slug)}?includeContent=true`
   );
-  if (response && typeof response === "object" && "data" in response) {
-    return (response as { data: CmsPost }).data;
-  }
-  return response as CmsPost;
+  return payload.data ?? payload;
 }

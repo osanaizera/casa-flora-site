@@ -117,7 +117,7 @@ export default function CasesShowcase() {
                   </div>
                   <div className="cases-showcase__card-location">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-                      <path d="M21 10C21 17L12 21L3 10C3 5.029 7.029 1 12 1S21 5.029 21 10Z" stroke="currentColor" strokeWidth="2"/>
+                      <path d="M12 21C8 17.5 5 14.5 5 10a7 7 0 0 1 14 0c0 4.5-3 7.5-7 11Z" stroke="currentColor" strokeWidth="2"/>
                       <circle cx="12" cy="10" r="3" stroke="currentColor" strokeWidth="2"/>
                     </svg>
                     {caseItem.location}
