@@ -38,6 +38,11 @@ export default async function JournalPreview() {
 
     const latestPosts = data.map(mapPostToCard);
 
+    // Não renderizar se não houver posts
+    if (latestPosts.length === 0) {
+        return null;
+    }
+
     return (
         <section className="py-24 bg-[var(--color-paper)]">
             <div className="container mx-auto px-6">

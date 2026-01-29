@@ -163,7 +163,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
                 <div className="container mx-auto px-6 max-w-3xl mb-24">
                     <div
-                        className="blog-content prose prose-lg prose-neutral prose-headings:font-display prose-headings:font-medium prose-a:text-[var(--earth-600)] hover:prose-a:text-[var(--earth-400)] prose-img:rounded-xl"
+                        className="blog-content"
                         dangerouslySetInnerHTML={{ __html: html }}
                     />
 

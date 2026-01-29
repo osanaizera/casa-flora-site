@@ -666,19 +666,34 @@ export default async function BlogPostPage({ params }: PageProps) {
     notFound()
   }
 
-  // Configure marked for security and features
+  // Configure marked for better parsing
   marked.setOptions({
     gfm: true,        // GitHub Flavored Markdown
     breaks: true,     // Convert \n to <br>
   })
 
-  // Parse and sanitize HTML
-  const html = sanitizeHtml(marked.parse(post.content || "") as string, {
-    allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img", "h1", "h2"]),
+  // Parse markdown to HTML
+  const rawHtml = marked.parse(post.content || "") as string
+
+  // Sanitize HTML while allowing all necessary tags
+  // IMPORTANT: Default sanitizeHtml config is too restrictive and removes h1-h6, hr, etc.
+  const html = sanitizeHtml(rawHtml, {
+    allowedTags: [
+      'h1', 'h2', 'h3', 'h4', 'h5', 'h6',     // All heading levels
+      'p', 'br', 'hr',                         // Paragraphs and breaks
+      'ul', 'ol', 'li',                        // Lists
+      'strong', 'em', 'b', 'i', 'u', 's', 'del', // Text formatting
+      'a', 'img',                              // Links and images
+      'blockquote', 'pre', 'code',             // Quotes and code
+      'table', 'thead', 'tbody', 'tr', 'th', 'td', // Tables
+      'div', 'span',                           // Containers
+    ],
     allowedAttributes: {
-      ...sanitizeHtml.defaults.allowedAttributes,
-      img: ["src", "alt", "title", "width", "height"],
+      a: ['href', 'title', 'target', 'rel'],
+      img: ['src', 'alt', 'title', 'width', 'height'],
+      '*': ['class', 'id'],                    // Allow styling
     },
+    allowedSchemes: ['http', 'https', 'mailto'],
   })
 
   return (
@@ -974,15 +989,216 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
 ### 7. Blog Content Styles (`globals.css`)
 
+**CRITICAL:** These styles are essential for proper markdown rendering. Without them, content will appear cramped and headings won't be visible.
+
 ```css
-/* Blog content typography styles */
+/* Blog content typography - Required for proper markdown display */
 .blog-content {
-  @apply text-gray-800;
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: #374151;
 }
 
+/* Headings - Progressive visual hierarchy */
 .blog-content h1 {
-  @apply text-4xl font-bold mt-8 mb-4 text-gray-900;
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin: 3rem 0 1.5rem;
+  line-height: 1.2;
+  color: #111827;
 }
+
+.blog-content h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 2.5rem 0 1.25rem;
+  line-height: 1.3;
+  color: #111827;
+}
+
+.blog-content h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 2rem 0 1rem;
+  line-height: 1.4;
+  color: #111827;
+}
+
+.blog-content h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 1.5rem 0 0.75rem;
+  line-height: 1.5;
+  color: #111827;
+}
+
+.blog-content h5 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 1.25rem 0 0.5rem;
+  line-height: 1.5;
+  color: #111827;
+}
+
+.blog-content h6 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 1rem 0 0.5rem;
+  line-height: 1.5;
+  color: #374151;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Paragraphs and text */
+.blog-content p {
+  line-height: 1.8;
+  margin: 1.25rem 0;
+  color: #374151;
+}
+
+.blog-content strong,
+.blog-content b {
+  font-weight: 600;
+  color: #111827;
+}
+
+.blog-content em,
+.blog-content i {
+  font-style: italic;
+}
+
+/* Links */
+.blog-content a {
+  color: var(--earth-600, #92400e);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  transition: color 0.2s;
+}
+
+.blog-content a:hover {
+  color: var(--earth-700, #78350f);
+}
+
+/* Lists */
+.blog-content ul {
+  list-style-type: disc;
+  padding-left: 1.75rem;
+  margin: 1.5rem 0;
+}
+
+.blog-content ol {
+  list-style-type: decimal;
+  padding-left: 1.75rem;
+  margin: 1.5rem 0;
+}
+
+.blog-content li {
+  margin: 0.75rem 0;
+  line-height: 1.8;
+}
+
+.blog-content li > p {
+  margin: 0.5rem 0;
+}
+
+/* Horizontal rule (markdown ---) */
+.blog-content hr {
+  border: none;
+  border-top: 2px solid #e5e7eb;
+  margin: 3rem 0;
+}
+
+/* Blockquotes */
+.blog-content blockquote {
+  border-left: 4px solid var(--earth-400, #a16207);
+  padding-left: 1.5rem;
+  margin: 2rem 0;
+  color: #6b7280;
+  font-style: italic;
+}
+
+.blog-content blockquote p {
+  margin: 0.75rem 0;
+}
+
+/* Images */
+.blog-content img {
+  max-width: 100%;
+  height: auto;
+  margin: 2rem 0;
+  border-radius: 0.75rem;
+}
+
+/* Code blocks */
+.blog-content pre {
+  background: #1e293b;
+  color: #e2e8f0;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  margin: 2rem 0;
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+
+.blog-content code {
+  background: #f1f5f9;
+  color: #0f172a;
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.25rem;
+  font-size: 0.875em;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.blog-content pre code {
+  background: transparent;
+  padding: 0;
+  color: inherit;
+}
+
+/* Tables */
+.blog-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+}
+
+.blog-content th,
+.blog-content td {
+  border: 1px solid #e5e7eb;
+  padding: 0.75rem 1rem;
+  text-align: left;
+}
+
+.blog-content th {
+  background: #f9fafb;
+  font-weight: 600;
+}
+
+/* Spacing adjustments */
+.blog-content h1 + p,
+.blog-content h2 + p,
+.blog-content h3 + p,
+.blog-content h4 + p {
+  margin-top: 0.75rem;
+}
+
+.blog-content > *:last-child {
+  margin-bottom: 0;
+}
+
+.blog-content > *:first-child {
+  margin-top: 0;
+}
+```
+
+**Why these styles matter:**
+- Without proper margins, all content appears cramped
+- Heading hierarchy guides the reader through content structure  
+- Adequate spacing (1.8 line-height) improves readability
+- Color contrast (titles #111827, text #374151) ensures legibility
+- HR separators need explicit styling as they have no default height
 
 .blog-content h2 {
   @apply text-3xl font-bold mt-8 mb-4 text-gray-900;
@@ -1281,6 +1497,67 @@ pnpm install
 # Restart TypeScript server in VS Code
 # Cmd/Ctrl + Shift + P > "TypeScript: Restart TS Server"
 ```
+
+#### 7. Markdown Not Rendering Correctly (Headings/Spacing Missing)
+
+**Symptoms:**
+- Blog post content appears cramped with no spacing
+- Headings (h1, h2, h3) don't show or look like regular text
+- Horizontal rules (`---`) don't appear
+- Bullet points and formatting partially work
+
+**Cause:** Default `sanitizeHtml` configuration is too restrictive and removes essential HTML tags.
+
+**Solution:**
+
+1. **Update sanitizeHtml configuration** in `blog/[slug]/page.tsx`:
+
+```typescript
+// ❌ WRONG - Too restrictive
+const html = sanitizeHtml(marked.parse(content))
+
+// ✅ CORRECT - Allow all necessary tags
+const html = sanitizeHtml(rawHtml, {
+  allowedTags: [
+    'h1', 'h2', 'h3', 'h4', 'h5', 'h6',     // All heading levels
+    'p', 'br', 'hr',                         // Paragraphs and breaks
+    'ul', 'ol', 'li',                        // Lists
+    'strong', 'em', 'b', 'i', 'u', 's', 'del', // Text formatting
+    'a', 'img',                              // Links and images
+    'blockquote', 'pre', 'code',             // Quotes and code
+    'table', 'thead', 'tbody', 'tr', 'th', 'td', // Tables
+    'div', 'span',                           // Containers
+  ],
+  allowedAttributes: {
+    a: ['href', 'title', 'target', 'rel'],
+    img: ['src', 'alt', 'title', 'width', 'height'],
+    '*': ['class', 'id'],
+  },
+  allowedSchemes: ['http', 'https', 'mailto'],
+})
+```
+
+2. **Ensure CSS includes all heading styles** in `globals.css`:
+
+```css
+/* Must include all these for proper display */
+.blog-content h1 { font-size: 2.5rem; margin: 3rem 0 1.5rem; }
+.blog-content h2 { font-size: 2rem; margin: 2.5rem 0 1.25rem; }
+.blog-content h3 { font-size: 1.5rem; margin: 2rem 0 1rem; }
+.blog-content hr { border-top: 2px solid #e5e7eb; margin: 3rem 0; }
+.blog-content p { line-height: 1.8; margin: 1.25rem 0; }
+```
+
+3. **Configure marked options**:
+
+```typescript
+marked.setOptions({
+  gfm: true,    // GitHub Flavored Markdown
+  breaks: true, // Convert \n to <br>
+})
+```
+
+**Result:** Headings, spacing, and all markdown features will render correctly.
 
 ### Debug Mode
 
