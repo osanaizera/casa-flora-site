@@ -26,54 +26,55 @@ export default function BlogCard({ post }: BlogCardProps) {
 
     return (
         <Link href={`/blog/${post.slug}`} className="group block h-full">
-            <article className="h-full flex flex-col bg-white rounded-2xl overflow-hidden border border-neutral-200 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                <div className="relative aspect-[4/3] overflow-hidden">
+            <article className="blog-card">
+                {/* Background image */}
+                <div className="blog-card__bg">
                     {post.imageUrl ? (
                         <Image
                             src={post.imageUrl}
                             alt={post.title}
                             fill
-                            className="object-cover transition-transform duration-700 group-hover:scale-105"
+                            className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         />
                     ) : (
-                        <div className="absolute inset-0 bg-gradient-to-br from-[var(--earth-200)] via-white to-[var(--earth-100)]" />
+                        <div className="absolute inset-0 bg-gradient-to-br from-neutral-800 via-neutral-700 to-neutral-900" />
                     )}
-                    {post.category ? (
-                        <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-medium uppercase tracking-wider text-neutral-800">
-                            {post.category}
-                        </div>
-                    ) : null}
                 </div>
 
-                <div className="p-6 flex flex-col flex-grow">
-                    {formattedDate ? (
-                        <div className="flex items-center gap-3 text-xs text-neutral-500 mb-3 font-medium">
-                            <span>{formattedDate}</span>
+                {/* Overlay */}
+                <div className="blog-card__overlay">
+                    {/* Top: Category tag */}
+                    <div className="blog-card__top">
+                        {post.category && (
+                            <span className="blog-card__tag">
+                                {post.category}
+                            </span>
+                        )}
+                    </div>
+
+                    {/* Bottom: Content */}
+                    <div className="blog-card__content">
+                        {formattedDate && (
+                            <span className="blog-card__date">{formattedDate}</span>
+                        )}
+
+                        <h3 className="blog-card__title">
+                            {post.title}
+                        </h3>
+
+                        {post.excerpt && (
+                            <p className="blog-card__excerpt">
+                                {post.excerpt}
+                            </p>
+                        )}
+
+                        <div className="blog-card__cta">
+                            Ler artigo
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                                <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
                         </div>
-                    ) : null}
-
-                    <h3 className="text-xl font-display font-medium leading-tight mb-3 text-neutral-900 group-hover:text-[var(--earth-600)] transition-colors">
-                        {post.title}
-                    </h3>
-
-                    {post.excerpt ? (
-                        <p className="text-neutral-600 text-sm line-clamp-3 mb-6 flex-grow leading-relaxed">
-                            {post.excerpt}
-                        </p>
-                    ) : null}
-
-                    <div className="flex items-center text-[var(--earth-600)] text-sm font-semibold tracking-wide uppercase group-hover:gap-2 transition-all">
-                        Ler artigo
-                        <svg
-                            width="16"
-                            height="16"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            className="ml-1 transition-transform group-hover:translate-x-1"
-                        >
-                            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
                     </div>
                 </div>
             </article>

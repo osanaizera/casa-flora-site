@@ -16,60 +16,75 @@ export default function RelatedPosts({ posts }: RelatedPostsProps) {
           Leia também
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {posts.map((post) => (
             <Link
               key={post.slug}
               href={`/blog/${post.slug}`}
-              className="group block bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300"
+              className="group block h-full"
             >
-              <div className="relative aspect-[16/10] overflow-hidden">
-                {post.image && post.image !== "/images/blog-placeholder.svg" ? (
-                  <Image
-                    src={post.image}
-                    alt={post.title}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                  />
-                ) : (
-                  <div className="w-full h-full bg-neutral-200 flex items-center justify-center">
-                    <span className="text-neutral-400 text-sm">
-                      Sem imagem
-                    </span>
-                  </div>
-                )}
-              </div>
-
-              <div className="p-5">
-                {post.tags.length > 0 && (
-                  <span className="inline-block text-xs font-semibold uppercase tracking-wider text-[var(--earth-600)] mb-2">
-                    {post.tags[0]}
-                  </span>
-                )}
-
-                <h3 className="font-display text-lg font-medium text-neutral-900 leading-snug mb-2 group-hover:text-[var(--earth-700)] transition-colors line-clamp-2">
-                  {post.title}
-                </h3>
-
-                {post.excerpt && (
-                  <p className="text-sm text-neutral-500 leading-relaxed line-clamp-2">
-                    {post.excerpt}
-                  </p>
-                )}
-
-                <div className="mt-3 flex items-center gap-2 text-xs text-neutral-400">
-                  <time dateTime={post.date}>
-                    {new Date(post.date).toLocaleDateString("pt-BR", {
-                      day: "numeric",
-                      month: "short",
-                      year: "numeric",
-                    })}
-                  </time>
-                  <span className="w-1 h-1 bg-neutral-300 rounded-full" />
-                  <span>{post.readTime} de leitura</span>
+              <article className="blog-card">
+                {/* Background image */}
+                <div className="blog-card__bg">
+                  {post.image &&
+                  post.image !== "/images/blog-placeholder.svg" ? (
+                    <Image
+                      src={post.image}
+                      alt={post.title}
+                      fill
+                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
+                  ) : (
+                    <div className="absolute inset-0 bg-gradient-to-br from-neutral-800 via-neutral-700 to-neutral-900" />
+                  )}
                 </div>
-              </div>
+
+                {/* Overlay */}
+                <div className="blog-card__overlay">
+                  <div className="blog-card__top">
+                    {post.tags.length > 0 && (
+                      <span className="blog-card__tag">{post.tags[0]}</span>
+                    )}
+                  </div>
+
+                  <div className="blog-card__content">
+                    <span className="blog-card__date">
+                      {new Date(post.date).toLocaleDateString("pt-BR", {
+                        day: "numeric",
+                        month: "short",
+                        year: "numeric",
+                      })}
+                      {" · "}
+                      {post.readTime} de leitura
+                    </span>
+
+                    <h3 className="blog-card__title">{post.title}</h3>
+
+                    {post.excerpt && (
+                      <p className="blog-card__excerpt">{post.excerpt}</p>
+                    )}
+
+                    <div className="blog-card__cta">
+                      Ler artigo
+                      <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                      >
+                        <path
+                          d="M7 17L17 7M17 7H7M17 7V17"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </article>
             </Link>
           ))}
         </div>
