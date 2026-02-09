@@ -8874,3 +8874,148 @@
 .contact-cta__social-link svg {
   opacity: 0.9;
 }
+
+/* ─── SDCMS Lead Widget Styles ─────────────────────────────────── */
+/* When data-sdcms-no-style="1", the widget renders bare markup.   */
+/* We control all styling here to match the site design system.    */
+
+.sdcms-lead-embed .sdcms-lead {
+  width: 100%;
+  color: inherit;
+}
+
+.sdcms-lead-embed .sdcms-lead__card {
+  background: transparent;
+  border: 0;
+  padding: 0;
+}
+
+/* Hide widget title/description — the site section provides its own */
+.sdcms-lead-embed .sdcms-lead__title,
+.sdcms-lead-embed .sdcms-lead__desc {
+  display: none;
+}
+
+.sdcms-lead-embed .sdcms-lead__field {
+  margin-bottom: 1rem;
+}
+
+.sdcms-lead-embed .sdcms-lead__label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-ink, #374151);
+  margin-bottom: 0.5rem;
+}
+
+.sdcms-lead-embed .sdcms-lead__input,
+.sdcms-lead-embed .sdcms-lead__textarea,
+.sdcms-lead-embed .sdcms-lead__select {
+  width: 100%;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: #fff;
+  color: #111827;
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.sdcms-lead-embed .sdcms-lead__input:focus,
+.sdcms-lead-embed .sdcms-lead__textarea:focus,
+.sdcms-lead-embed .sdcms-lead__select:focus {
+  outline: none;
+  border-color: var(--earth-600, #8b7355);
+  box-shadow: 0 0 0 2px rgba(139, 115, 85, 0.15);
+}
+
+.sdcms-lead-embed .sdcms-lead__textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.sdcms-lead-embed .sdcms-lead__btn {
+  width: 100%;
+  background: #111827;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 0.75rem;
+  padding: 0.875rem 1.5rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.15s;
+  margin-top: 0.5rem;
+}
+
+.sdcms-lead-embed .sdcms-lead__btn:hover {
+  background: #374151;
+  transform: translateY(-1px);
+}
+
+.sdcms-lead-embed .sdcms-lead__btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.sdcms-lead-embed .sdcms-lead__error {
+  color: #dc2626;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+.sdcms-lead-embed .sdcms-lead__success {
+  color: #16a34a;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+.sdcms-lead-embed .sdcms-lead__hint {
+  color: #9ca3af;
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+/* Dark variant (for dark sections like newsletter CTA) */
+.sdcms-lead-embed--dark .sdcms-lead__label {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.sdcms-lead-embed--dark .sdcms-lead__input,
+.sdcms-lead-embed--dark .sdcms-lead__textarea,
+.sdcms-lead-embed--dark .sdcms-lead__select {
+  border-color: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+}
+
+.sdcms-lead-embed--dark .sdcms-lead__input::placeholder,
+.sdcms-lead-embed--dark .sdcms-lead__textarea::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.sdcms-lead-embed--dark .sdcms-lead__input:focus,
+.sdcms-lead-embed--dark .sdcms-lead__textarea:focus,
+.sdcms-lead-embed--dark .sdcms-lead__select:focus {
+  border-color: var(--earth-400, #b09a7a);
+  box-shadow: 0 0 0 2px rgba(176, 154, 122, 0.25);
+}
+
+.sdcms-lead-embed--dark .sdcms-lead__btn {
+  background: #fff;
+  color: #111827;
+}
+
+.sdcms-lead-embed--dark .sdcms-lead__btn:hover {
+  background: #f3f4f6;
+}
+
+.sdcms-lead-embed--dark .sdcms-lead__error {
+  color: #fca5a5;
+}
+
+.sdcms-lead-embed--dark .sdcms-lead__success {
+  color: #86efac;
+}

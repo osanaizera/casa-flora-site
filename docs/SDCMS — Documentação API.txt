@@ -1,0 +1,1014 @@
+# SDCMS — Documentação Completa de Integração
+
+> **Versão**: 1.0 · **Última atualização**: Fevereiro 2026
+>
+> Guia definitivo para integrar o **SDCMS** (Headless CMS) com um site Next.js. Cobre a API pública de conteúdo, webhooks, captura de leads, renderização de Markdown, SEO automatizado e a implementação de referência do client.
+
+---
+
+## Sumário
+
+1. [Arquitetura Geral](#1-arquitetura-geral)
+2. [Variáveis de Ambiente](#2-variáveis-de-ambiente)
+3. [Segurança e Autenticação](#3-segurança-e-autenticação)
+4. [API Pública de Conteúdo](#4-api-pública-de-conteúdo)
+   - 4.1 [Listar Conteúdo](#41-listar-conteúdo)
+   - 4.2 [Obter Post Único](#42-obter-post-único)
+   - 4.3 [Sitemap](#43-sitemap)
+5. [Webhooks de Atualização (ISR)](#5-webhooks-de-atualização-isr)
+6. [Lead Magnets — Captura de Leads](#6-lead-magnets--captura-de-leads)
+   - 6.1 [Widget Embeddable](#61-widget-embeddable)
+   - 6.2 [Captura Server-Side (API Route)](#62-captura-server-side-api-route)
+7. [Implementação de Referência (Next.js)](#7-implementação-de-referência-nextjs)
+   - 7.1 [Client CMS (`src/lib/cms.ts`)](#71-client-cms-srclibcmsts)
+   - 7.2 [Camada de Blog (`src/lib/blog.ts`)](#72-camada-de-blog-srclibblogts)
+   - 7.3 [Pipeline Markdown → HTML](#73-pipeline-markdown--html)
+   - 7.4 [Resolução de Assets (`src/lib/sdcms-assets.ts`)](#74-resolução-de-assets-srclibsdcms-assetsts)
+   - 7.5 [Webhook Receiver (`/api/sdcms/revalidate`)](#75-webhook-receiver-apisdcmsrevalidate)
+   - 7.6 [Healthcheck (`/api/sdcms/health`)](#76-healthcheck-apisdcmshealth)
+   - 7.7 [Formulário de Contato (`/api/contact`)](#77-formulário-de-contato-apicontact)
+   - 7.8 [Widget de Lead (`SdcmsLeadWidget`)](#78-widget-de-lead-sdcmsleadwidget)
+   - 7.9 [Sitemap Dinâmico (`sitemap.ts`)](#79-sitemap-dinâmico-sitemapts)
+   - 7.10 [Configuração `next.config.mjs`](#710-configuração-nextconfigmjs)
+   - 7.11 [CSS do Widget de Lead](#711-css-do-widget-de-lead)
+8. [Fluxo Completo — Diagrama](#8-fluxo-completo--diagrama)
+9. [Troubleshooting](#9-troubleshooting)
+
+---
+
+## 1. Arquitetura Geral
+
+```
+┌─────────────┐         ┌───────────────────┐         ┌─────────────────┐
+│  CMS Editor │────────▶│   SDCMS API       │◀────────│   Site (Next.js)│
+│  (Painel)   │         │ sdcms-web.vercel  │         │  salesdrive.com │
+└─────────────┘         └───────────────────┘         └─────────────────┘
+       │                        │  ▲                         │  ▲
+       │  Publica/Edita         │  │ x-api-key               │  │
+       │                        │  │ GET /api/public/content  │  │
+       │                        │  └─────────────────────────┘  │
+       │                        │                               │
+       │  Webhook POST ─────────┼──────────────────────────────▶│
+       │  (HMAC-SHA256)         │    /api/sdcms/revalidate      │
+       │                        │                               │
+       │                        │  Lead Capture ◀───────────────│
+       │                        │  POST /api/lead-magnets/…     │
+       └────────────────────────┘                               │
+                                                                │
+                                              Widget JS embed ──┘
+                                              /widget/lead.js
+```
+
+**Três pilares da integração:**
+
+| Pilar | Direção | Protocolo |
+|---|---|---|
+| **Conteúdo** | CMS → Site | REST + ISR (cache com revalidação) |
+| **Revalidação** | CMS → Site | Webhook POST com HMAC-SHA256 |
+| **Leads** | Site → CMS | Widget embed ou POST direto na API |
+
+---
+
+## 2. Variáveis de Ambiente
+
+### Server-side only (`.env`)
+
+| Variável | Obrigatória | Descrição |
+|---|---|---|
+| `CMS_BASE_URL` | Sim | URL base do SDCMS (ex: `https://sdcms-web.vercel.app`) |
+| `CMS_API_KEY` | Sim | Chave de API para autenticação nas chamadas server-side |
+| `CMS_WEBHOOK_SECRET` | Sim | Secret para validar assinatura HMAC dos webhooks |
+| `SITE_URL` | Sim | URL canônica do site (usada em sitemap, OG, JSON-LD) |
+| `SMTP_HOST` | Não | Host SMTP para notificação por e-mail (best-effort) |
+| `SMTP_PORT` | Não | Porta SMTP (default: 587) |
+| `SMTP_USER` | Não | Credenciais SMTP |
+| `SMTP_PASS` | Não | Credenciais SMTP |
+
+### Client-side (`NEXT_PUBLIC_*`)
+
+| Variável | Obrigatória | Descrição |
+|---|---|---|
+| `NEXT_PUBLIC_CMS_BASE_URL` | Sim | Mesma URL base — usada pelo widget de lead no browser |
+| `NEXT_PUBLIC_SDCMS_LEAD_PUBLIC_ID` | Não* | Public ID do Lead Magnet configurado no CMS |
+| `NEXT_PUBLIC_WHATSAPP_NUMBER` | Não | Número de WhatsApp para CTA |
+| `NEXT_PUBLIC_GTM_ID` | Não | Google Tag Manager ID |
+
+> \* Se não definido, o widget de lead não será renderizado e o CTA usa o formulário fallback local.
+
+### Exemplo `.env`
+
+```env
+CMS_BASE_URL=https://sdcms-web.vercel.app/
+CMS_API_KEY=cms_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CMS_WEBHOOK_SECRET=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+SITE_URL=https://www.salesdrive.com.br
+
+NEXT_PUBLIC_CMS_BASE_URL=https://sdcms-web.vercel.app/
+NEXT_PUBLIC_SDCMS_LEAD_PUBLIC_ID=KenwG4Q0LWEP
+```
+
+---
+
+## 3. Segurança e Autenticação
+
+### API Key (conteúdo)
+
+Toda chamada à API pública deve incluir o header:
+
+```http
+x-api-key: cms_xxxxxxxxxxxxx
+```
+
+A key é validada server-side. **Nunca exponha `CMS_API_KEY` no browser** — use `import "server-only"` nos módulos que a utilizam.
+
+### HMAC-SHA256 (webhooks)
+
+Os webhooks enviam dois headers:
+
+| Header | Conteúdo |
+|---|---|
+| `x-sdcms-timestamp` | Unix timestamp da emissão |
+| `x-sdcms-signature` | HMAC-SHA256 de `{timestamp}.{body}` usando `CMS_WEBHOOK_SECRET` |
+
+**Verificação (Node.js):**
+
+```ts
+import crypto from "crypto";
+
+function verifySignature(
+  secret: string,
+  signature: string,
+  timestamp: string,
+  body: string,
+): boolean {
+  const expected = crypto
+    .createHmac("sha256", secret)
+    .update(`${timestamp}.${body}`)
+    .digest("hex");
+
+  return crypto.timingSafeEqual(
+    Buffer.from(signature, "hex"),
+    Buffer.from(expected, "hex"),
+  );
+}
+```
+
+> Usa `timingSafeEqual` para prevenir timing attacks.
+
+### Rate Limiting
+
+- **Limite padrão:** ~300 req/min por site configurado.
+- **Headers de resposta:** `x-ratelimit-limit`, `x-ratelimit-remaining`, `x-ratelimit-reset`.
+
+### IP Allowlist (opcional)
+
+Configurável no painel do CMS — se ativada, apenas IPs da lista são aceitos.
+
+---
+
+## 4. API Pública de Conteúdo
+
+Base URL: `{CMS_BASE_URL}/api/public/content`
+
+Todas as respostas seguem o padrão:
+
+```json
+{ "data": <T>, "nextCursor": "..." }
+```
+
+### 4.1 Listar Conteúdo
+
+```
+GET /api/public/content
+```
+
+**Parâmetros (query string):**
+
+| Param | Tipo | Default | Descrição |
+|---|---|---|---|
+| `limit` | 1–50 | 20 | Itens por página |
+| `cursor` | string | — | Token de paginação (retornado no `nextCursor`) |
+| `type` | string | — | Filtrar por tipo: `BLOG`, `LINKEDIN`, etc. |
+| `lang` | string | — | Filtrar por idioma: `pt`, `en`, `pt-BR` |
+| `search` | string | — | Busca textual no título, resumo e conteúdo |
+| `tags` | string | — | Filtrar por tags (separar múltiplas por vírgula) |
+| `includeContent` | boolean | false | Incluir corpo Markdown na listagem |
+
+**Resposta (200):**
+
+```json
+{
+  "data": [
+    {
+      "id": "uuid",
+      "title": "Título do Post",
+      "slug": "titulo-do-post",
+      "lang": "pt",
+      "excerpt": "Resumo atraente para SEO...",
+      "authorName": "Nome do Autor",
+      "tags": ["Marketing", "Vendas"],
+      "publishedAt": "2024-02-08T20:00:00.000Z",
+      "updatedAt": "2024-02-09T10:00:00.000Z",
+      "seoTitle": "Título SEO Otimizado",
+      "seoDescription": "Meta descrição...",
+      "seoImage": "https://...supabase.co/storage/.../image.png",
+      "canonicalUrl": null,
+      "robots": null
+    }
+  ],
+  "nextCursor": "1707422400000|uuid"
+}
+```
+
+> **Nota:** O campo `content` (Markdown body) **não** é incluído na listagem por padrão. Use `includeContent=true` se necessário, mas prefira buscar o detalhe individual para performance.
+
+### 4.2 Obter Post Único
+
+```
+GET /api/public/content/:slug
+```
+
+**Resposta (200):**
+
+```json
+{
+  "data": {
+    "id": "uuid",
+    "title": "Título Completo",
+    "slug": "titulo-completo",
+    "type": "BLOG",
+    "lang": "pt",
+    "content": "# Introdução\n\nConteúdo em **Markdown**...\n\n![imagem](https://...)",
+    "excerpt": "Resumo...",
+    "authorName": "Autor",
+    "tags": ["Vendas"],
+    "publishedAt": "2024-02-08T20:00:00.000Z",
+    "seoTitle": "Meta Title",
+    "seoDescription": "Meta Description",
+    "seoImage": "https://...supabase.co/storage/.../og.png",
+    "canonicalUrl": "https://www.salesdrive.com.br/pt/blog/titulo-completo",
+    "robots": null,
+    "jsonLd": {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Título do Post",
+      "author": { "@type": "Person", "name": "Autor" }
+    }
+  }
+}
+```
+
+**Campos importantes:**
+
+| Campo | Uso |
+|---|---|
+| `content` | Markdown bruto. Renderizar no frontend com pipeline unified/rehype |
+| `seoImage` | URL absoluta para OG image e hero do post |
+| `jsonLd` | Structured data pronto — injetar como `<script type="application/ld+json">` |
+| `robots` | String como `"noindex, nofollow"` — respeitar no `<meta>` |
+| `canonicalUrl` | URL canônica — usar no `<link rel="canonical">` |
+
+### 4.3 Sitemap
+
+```
+GET /api/public/content/sitemap
+```
+
+Retorna apenas slugs, URLs canônicas e datas de atualização. Ideal para gerar `sitemap.xml` dinamicamente sem baixar o conteúdo completo.
+
+---
+
+## 5. Webhooks de Atualização (ISR)
+
+O CMS envia um POST para o site sempre que conteúdo é alterado, permitindo **revalidação instantânea** do cache ISR.
+
+### Endpoint no site
+
+Configure no painel do CMS:
+
+```
+https://seu-site.com/api/sdcms/revalidate
+```
+
+### Eventos
+
+| Evento | Quando |
+|---|---|
+| `content.published` | Novo post publicado |
+| `content.updated` | Post existente editado |
+| `content.unpublished` | Post revertido para rascunho |
+| `content.deleted` | Post removido |
+
+### Headers
+
+```http
+POST /api/sdcms/revalidate
+x-sdcms-event: content.published
+x-sdcms-timestamp: 1707422400
+x-sdcms-signature: a1b2c3d4e5f6...
+Content-Type: application/json
+```
+
+### Payload
+
+```json
+{
+  "event": "content.updated",
+  "emittedAt": "2024-02-08T20:00:00.000Z",
+  "clientId": "client-uuid",
+  "siteId": "site-uuid",
+  "post": {
+    "id": "post-uuid",
+    "slug": "titulo-do-post",
+    "title": "Título do Post",
+    "type": "BLOG",
+    "publishedAt": "2024-02-08T20:00:00.000Z",
+    "updatedAt": "2024-02-09T10:00:00.000Z",
+    "seoTitle": "...",
+    "seoDescription": "...",
+    "seoImage": "...",
+    "canonicalUrl": "..."
+  },
+  "previousSlug": "titulo-antigo"
+}
+```
+
+> O campo `previousSlug` só está presente quando o slug foi alterado — use-o para revalidar a URL antiga.
+
+---
+
+## 6. Lead Magnets — Captura de Leads
+
+O SDCMS oferece dois mecanismos para captura de leads:
+
+### 6.1 Widget Embeddable
+
+O CMS fornece um widget JavaScript que renderiza formulários dinamicamente com base na configuração do painel.
+
+**Embed:**
+
+```html
+<div data-sdcms-lead="PUBLIC_ID" data-sdcms-no-style="1"></div>
+<script src="https://sdcms-web.vercel.app/widget/lead.js" async></script>
+```
+
+**Atributos:**
+
+| Atributo | Descrição |
+|---|---|
+| `data-sdcms-lead` | Public ID do Lead Magnet (obrigatório) |
+| `data-sdcms-no-style` | `"1"` para desabilitar estilos do widget (o site controla o CSS) |
+
+**Fluxo do widget:**
+
+1. Busca configuração: `GET /api/lead-magnets/{publicId}` (sem auth)
+2. Renderiza campos dinamicamente com base no `formSchema.fields`
+3. Envia dados: `POST /api/lead-magnets/{publicId}/capture`
+
+**Resposta da configuração:**
+
+```json
+{
+  "ok": true,
+  "data": {
+    "publicId": "KenwG4Q0LWEP",
+    "title": "Formulario Principal",
+    "description": null,
+    "formSchema": {
+      "fields": [
+        { "key": "name", "type": "text", "label": "Nome", "required": true, "maxLength": 120 },
+        { "key": "email", "type": "email", "label": "E-mail", "required": true, "maxLength": 254 },
+        { "key": "field_xxx", "type": "text", "label": "Mensagem", "required": false, "maxLength": 800 }
+      ]
+    },
+    "delivery": {
+      "responseMessage": "Obrigado. Em instantes você receberá o material."
+    }
+  }
+}
+```
+
+**Tipos de campo suportados:** `text`, `email`, `phone`, `textarea`, `select`, `checkbox`.
+
+### 6.2 Captura Server-Side (API Route)
+
+Para formulários customizados, envie os dados diretamente para a API do CMS:
+
+```
+POST /api/lead-magnets/{publicId}/capture
+Content-Type: application/json
+```
+
+**Body:**
+
+```json
+{
+  "data": {
+    "name": "João Silva",
+    "email": "joao@empresa.com",
+    "field_xxx": "Mensagem opcional"
+  },
+  "hp": ""
+}
+```
+
+> O campo `hp` é um honeypot anti-spam. Envie sempre como string vazia.
+
+**Resposta (200):**
+
+```json
+{
+  "ok": true,
+  "message": "Obrigado. Em instantes você receberá o material."
+}
+```
+
+**Resposta de erro (400/422):**
+
+```json
+{
+  "ok": false,
+  "details": ["E-mail é obrigatório", "Nome é obrigatório"]
+}
+```
+
+> **Importante:** Os `key` dos campos são definidos no painel do CMS. Campos customizados têm keys no formato `field_{timestamp}`. Consulte o endpoint de configuração (`GET /api/lead-magnets/{publicId}`) para mapear as keys corretas.
+
+---
+
+## 7. Implementação de Referência (Next.js)
+
+Abaixo está a implementação completa usada no site Sales Drive LP, servindo como referência para qualquer projeto que integre com o SDCMS.
+
+### 7.1 Client CMS (`src/lib/cms.ts`)
+
+Módulo server-only que encapsula todas as chamadas ao CMS.
+
+```ts
+import "server-only";
+
+const baseUrl = (process.env.CMS_BASE_URL ?? "").replace(/\/$/, "");
+const apiKey  = process.env.CMS_API_KEY ?? "";
+
+// ─── Types ────────────────────────────────────
+
+/** Shape retornado por GET /api/public/content (item de lista) */
+export interface CMSContentItem {
+  id: string;
+  title: string;
+  slug: string;
+  excerpt: string;
+  seoImage: string | null;
+  publishedAt: string;
+  updatedAt?: string;
+  authorName?: string | null;
+  tags?: string[] | null;
+  lang?: string | null;
+  robots?: string | null;
+  seoTitle?: string | null;
+  seoDescription?: string | null;
+  canonicalUrl?: string | null;
+  content?: string; // só com includeContent=true
+}
+
+/** Shape retornado por GET /api/public/content/:slug */
+export interface CMSContentDetail extends CMSContentItem {
+  content: string;
+  type: string;
+  jsonLd?: Record<string, unknown> | null;
+}
+
+/** Payload do webhook */
+export interface CMSWebhookPayload {
+  event: "content.published" | "content.updated"
+       | "content.unpublished" | "content.deleted";
+  emittedAt: string;
+  clientId: string;
+  siteId: string;
+  post: {
+    id: string;
+    slug: string;
+    title: string;
+    type: string;
+    publishedAt: string;
+    updatedAt: string;
+    seoTitle: string | null;
+    seoDescription: string | null;
+    seoImage: string | null;
+    canonicalUrl: string | null;
+  };
+  previousSlug?: string;
+}
+
+// ─── Generic Fetch ────────────────────────────
+
+export async function cmsFetch<T>(
+  path: string,
+  init: RequestInit = {},
+): Promise<{ data: T; nextCursor?: string }> {
+  if (!baseUrl || !apiKey) {
+    throw new Error("SDCMS: Missing CMS_BASE_URL or CMS_API_KEY.");
+  }
+
+  const url = `${baseUrl}${path}`;
+  const response = await fetch(url, {
+    ...init,
+    headers: {
+      "x-api-key": apiKey,
+      "content-type": "application/json",
+      ...(init.headers ?? {}),
+    },
+    // ISR: cache com revalidação por tag via webhooks
+    next: { tags: ["cms-posts"], revalidate: 3600 },
+  });
+
+  if (!response.ok) {
+    throw new Error(`SDCMS fetch error ${response.status}: ${url}`);
+  }
+
+  return response.json();
+}
+
+// ─── Helpers ──────────────────────────────────
+
+/** Busca TODOS os posts BLOG (pagina internamente) */
+export async function listPosts(limit = 50): Promise<CMSContentItem[]> {
+  const all: CMSContentItem[] = [];
+  let cursor: string | undefined;
+
+  do {
+    const qs = new URLSearchParams({ type: "BLOG", limit: String(limit) });
+    if (cursor) qs.set("cursor", cursor);
+
+    const res = await cmsFetch<CMSContentItem[]>(
+      `/api/public/content?${qs.toString()}`,
+    );
+    all.push(...res.data);
+    cursor = res.nextCursor;
+  } while (cursor);
+
+  return all;
+}
+
+/** Busca um post com corpo Markdown completo */
+export async function getPost(slug: string): Promise<CMSContentDetail | null> {
+  try {
+    const res = await cmsFetch<CMSContentDetail>(
+      `/api/public/content/${encodeURIComponent(slug)}`,
+    );
+    return res.data;
+  } catch {
+    return null;
+  }
+}
+```
+
+**Pontos-chave:**
+
+- `import "server-only"` garante que a API key nunca vaza para o browser.
+- `next: { tags: ["cms-posts"], revalidate: 3600 }` configura ISR com fallback de 1h + revalidação on-demand via tag.
+- Paginação cursor-based: `listPosts()` percorre todas as páginas automaticamente.
+
+### 7.2 Camada de Blog (`src/lib/blog.ts`)
+
+Adapter que mapeia a resposta do CMS para o contrato interno `Post`, isolando o resto do codebase:
+
+```ts
+import { listPosts, getPost, type CMSContentItem, type CMSContentDetail } from "@/lib/cms";
+import { absolutizeCmsAssetUrl, getCmsBaseUrlForAssets } from "@/lib/sdcms-assets";
+
+export type Post = {
+  slug: string;
+  title: string;
+  excerpt: string;
+  date: string;         // YYYY-MM-DD
+  author: string;
+  readTime: string;     // "X min"
+  image: string;        // URL absoluta resolvida
+  tags: string[];
+  lang: Locale;
+  content: string;      // Markdown bruto
+  seoTitle?: string | null;
+  seoDescription?: string | null;
+  seoImage?: string | null;
+  canonicalUrl?: string | null;
+  robots?: string | null;
+  jsonLd?: Record<string, unknown> | null;
+};
+```
+
+**Resolução de imagem (prioridade):**
+
+```
+seoImage do CMS  →  primeira imagem no Markdown  →  /images/blog-placeholder.svg
+```
+
+A função `resolveImage()` usa `absolutizeCmsAssetUrl()` para garantir que URLs relativas do CMS (como `/storage/...`) sejam convertidas para absolutas.
+
+**API pública (contrato estável):**
+
+```ts
+getPostBySlug(slug)      → Post | null
+getAllPosts(lang?)        → Post[]
+getFeaturedPost(lang?)   → Post | undefined
+getAllSlugs()             → string[]
+```
+
+### 7.3 Pipeline Markdown → HTML
+
+O corpo dos posts vem como Markdown bruto. A conversão para HTML usa o `unified` com a seguinte chain:
+
+```
+remarkParse
+    ↓
+remarkRehype  { allowDangerousHtml: true }
+    ↓
+rehypeRaw          ← Processa tags HTML inline (<img>, <video>, etc.)
+    ↓
+rehypeSlug         ← Adiciona id="" nos headings
+    ↓
+rehypeSdcmsImages  ← Absolutiza URLs relativas de imagens do CMS
+    ↓
+rehypeStringify
+```
+
+**Plugin customizado — `rehypeSdcmsImages`:**
+
+```ts
+function rehypeSdcmsImages(cmsBaseUrl: string | null) {
+  return function transform(tree: any) {
+    function walk(node: any) {
+      if (node.type === "element" && node.tagName === "img") {
+        const props = (node.properties ??= {});
+        if (typeof props.src === "string") {
+          props.src = absolutizeCmsAssetUrl(props.src, cmsBaseUrl);
+        }
+      }
+      if (Array.isArray(node.children)) node.children.forEach(walk);
+    }
+    walk(tree);
+  };
+}
+```
+
+> Percorre toda a árvore HTML e converte `src` de `<img>` relativas para absolutas usando a base URL do CMS.
+
+**Por que `rehype-raw`?** O editor SDCMS pode inserir imagens como `<img src="...">` (HTML raw) além de `![alt](url)` (Markdown padrão). Sem `rehype-raw`, tags HTML raw são silenciosamente removidas pelo `remark-rehype`.
+
+**Renderização final:**
+
+```tsx
+<div
+  className="prose prose-invert prose-lg prose-img:rounded-xl max-w-none"
+  dangerouslySetInnerHTML={{ __html: contentHtml }}
+/>
+```
+
+### 7.4 Resolução de Assets (`src/lib/sdcms-assets.ts`)
+
+Utilitário para resolver URLs relativas de assets do CMS:
+
+```ts
+export function getCmsBaseUrlForAssets(): string | null {
+  const base = process.env.CMS_BASE_URL
+    ?? process.env.NEXT_PUBLIC_CMS_BASE_URL ?? "";
+  return base.replace(/\/+$/, "") || null;
+}
+
+/**
+ * Converte URLs relativas do CMS (/storage/...) em absolutas.
+ * URLs já absolutas (https://...) passam inalteradas.
+ */
+export function absolutizeCmsAssetUrl(url: string, cmsBaseUrl?: string | null): string {
+  const raw = (url ?? "").trim();
+  if (!raw) return raw;
+  if (raw.startsWith("http://") || raw.startsWith("https://")) return raw;
+  if (raw.startsWith("//")) return raw;
+
+  const base = cmsBaseUrl ?? getCmsBaseUrlForAssets();
+  if (!base) return raw;
+
+  return raw.startsWith("/") ? `${base}${raw}` : `${base}/${raw}`;
+}
+```
+
+**Usado em 2 lugares:**
+
+1. `blog.ts` → `resolveImage()` para thumbnails/OG images
+2. `rehypeSdcmsImages` → para `<img src>` inline no conteúdo Markdown
+
+### 7.5 Webhook Receiver (`/api/sdcms/revalidate`)
+
+Recebe notificações do CMS e invalida o cache ISR:
+
+```ts
+// src/app/api/sdcms/revalidate/route.ts
+export async function POST(req: NextRequest) {
+  // 1. Valida CMS_WEBHOOK_SECRET
+  // 2. Verifica HMAC-SHA256 (x-sdcms-signature + x-sdcms-timestamp)
+  // 3. Parseia payload
+  // 4. Revalida rotas afetadas
+}
+```
+
+**Rotas revalidadas para posts BLOG:**
+
+| Rota | Motivo |
+|---|---|
+| Tag `cms-posts` | Invalida todo cache ISR de conteúdo CMS |
+| `/pt/blog`, `/en/blog` | Índice do blog (ambos idiomas) |
+| `/pt/blog/{slug}`, `/en/blog/{slug}` | Post específico |
+| `/pt/blog/{previousSlug}`, `/en/blog/{previousSlug}` | Slug anterior (se renomeado) |
+| `/pt`, `/en` | Homepages (exibem últimos 3 posts) |
+| `/sitemap.xml` | Sitemap atualizado com novas URLs |
+
+### 7.6 Healthcheck (`/api/sdcms/health`)
+
+Endpoint para o CMS validar a conexão:
+
+```
+GET /api/sdcms/health
+```
+
+**Resposta:**
+
+```json
+{ "ok": true, "cmsOk": true, "message": "CMS reachable" }
+```
+
+Verifica: (1) variáveis de ambiente presentes, (2) CMS acessível com `x-api-key`.
+
+### 7.7 Formulário de Contato (`/api/contact`)
+
+Rota que combina captura de lead no SDCMS + notificação por email:
+
+```
+POST /api/contact
+Content-Type: application/json
+
+{
+  "name": "Carlos Silva",        // required, max 120 chars
+  "email": "carlos@empresa.com", // required, email válido
+  "message": "Como posso..."     // optional, max 800 chars
+}
+```
+
+**Fluxo interno:**
+
+```
+Validação Zod → Captura SDCMS (primário, bloqueia) → Email SMTP (fire-and-forget)
+```
+
+1. **Validação:** Schema Zod rejeita dados inválidos com 400.
+2. **SDCMS:** `POST /api/lead-magnets/{publicId}/capture` — salva o lead. Se falhar, retorna 500.
+3. **SMTP:** Envia email de notificação como best-effort. Se SMTP não configurado (credenciais placeholder), pula silenciosamente. **Nunca bloqueia o usuário.**
+
+**Mapeamento de campos para o SDCMS:**
+
+```ts
+{
+  data: {
+    name: name,
+    email: email,
+    field_1770582289672: message   // key do campo "Mensagem" no painel
+  },
+  hp: ""  // honeypot anti-spam
+}
+```
+
+> As keys dos campos customizados (como `field_xxx`) são específicas do Lead Magnet configurado no CMS. Consulte `GET /api/lead-magnets/{publicId}` para obter o `formSchema.fields` atual.
+
+### 7.8 Widget de Lead (`SdcmsLeadWidget`)
+
+Componente React que embeda o widget JavaScript do CMS:
+
+```tsx
+// src/components/SdcmsLeadWidget.tsx
+"use client";
+
+export default function SdcmsLeadWidget({ publicId, noStyle = true, className }) {
+  const base = process.env.NEXT_PUBLIC_CMS_BASE_URL;
+
+  if (!publicId || !base) return null; // fail-closed
+
+  return (
+    <>
+      <div
+        className={className}
+        data-sdcms-lead={publicId}
+        data-sdcms-no-style={noStyle ? "1" : undefined}
+      />
+      <Script src={`${base}/widget/lead.js`} strategy="afterInteractive" />
+    </>
+  );
+}
+```
+
+**Uso no CTA com fallback:**
+
+```tsx
+{hasSdcmsWidget ? (
+  <div className="sdcms-lead-embed">
+    <SdcmsLeadWidget publicId={publicId} noStyle />
+  </div>
+) : (
+  <form onSubmit={handleSubmit}>
+    {/* Formulário local que faz POST /api/contact */}
+  </form>
+)}
+```
+
+### 7.9 Sitemap Dinâmico (`sitemap.ts`)
+
+```ts
+// src/app/sitemap.ts
+export const dynamic = "force-dynamic";
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const entries = [];
+
+  // Páginas estáticas por locale
+  for (const lang of i18n.locales) {
+    entries.push(
+      { url: `${siteUrl}/${lang}`, priority: 1.0 },
+      { url: `${siteUrl}/${lang}/blog`, priority: 0.9 },
+      { url: `${siteUrl}/${lang}/solucoes`, priority: 0.8 },
+    );
+  }
+
+  // Posts do CMS
+  const posts = await listPosts();
+  for (const post of posts) {
+    for (const lang of i18n.locales) {
+      entries.push({
+        url: `${siteUrl}/${lang}/blog/${post.slug}`,
+        lastModified: new Date(post.publishedAt),
+        priority: 0.7,
+      });
+    }
+  }
+
+  return entries;
+}
+```
+
+### 7.10 Configuração `next.config.mjs`
+
+Imagens de posts ficam hospedadas no Supabase Storage do CMS. Configure `remotePatterns`:
+
+```js
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  images: {
+    remotePatterns: [
+      { protocol: "https", hostname: "images.unsplash.com" },
+      { protocol: "https", hostname: "**.supabase.co" },      // ← Imagens do CMS
+    ],
+  },
+};
+```
+
+> O wildcard `**.supabase.co` permite qualquer projeto Supabase. Se quiser restringir, use o hostname específico: `plqkfyjzulvdztmasyft.supabase.co`.
+
+### 7.11 CSS do Widget de Lead
+
+Quando `data-sdcms-no-style="1"` está ativo, o widget renderiza apenas markup sem CSS próprio. O site controla toda a estilização:
+
+```css
+@layer components {
+  .sdcms-lead-embed .sdcms-lead { width: 100%; color: #fff; }
+  .sdcms-lead-embed .sdcms-lead__card { background: transparent; border: 0; padding: 0; }
+
+  /* Oculta título/descrição do widget (a seção CTA já tem os seus) */
+  .sdcms-lead-embed .sdcms-lead__title,
+  .sdcms-lead-embed .sdcms-lead__desc { display: none; }
+
+  .sdcms-lead-embed .sdcms-lead__input,
+  .sdcms-lead-embed .sdcms-lead__textarea {
+    width: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 16px 24px;
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+  }
+
+  .sdcms-lead-embed .sdcms-lead__input:focus,
+  .sdcms-lead-embed .sdcms-lead__textarea:focus {
+    border-color: rgba(0, 228, 255, 0.5);
+    box-shadow: 0 0 0 1px rgba(0, 228, 255, 0.35);
+  }
+
+  .sdcms-lead-embed .sdcms-lead__btn {
+    width: 100%;
+    background: #fff;
+    color: #000;
+    font-weight: 800;
+    font-size: 18px;
+    border-radius: 12px;
+    padding: 16px 24px;
+  }
+
+  .sdcms-lead-embed .sdcms-lead__error { color: #fca5a5; }
+  .sdcms-lead-embed .sdcms-lead__success { color: #86efac; }
+}
+```
+
+**Classes do widget disponíveis para estilização:**
+
+| Classe | Elemento |
+|---|---|
+| `.sdcms-lead` | Container raiz |
+| `.sdcms-lead__card` | Card wrapper |
+| `.sdcms-lead__title` | Título |
+| `.sdcms-lead__desc` | Descrição |
+| `.sdcms-lead__field` | Wrapper de cada campo |
+| `.sdcms-lead__label` | Label do campo |
+| `.sdcms-lead__input` | Input text/email/phone |
+| `.sdcms-lead__textarea` | Textarea |
+| `.sdcms-lead__select` | Select/dropdown |
+| `.sdcms-lead__btn` | Botão de submit |
+| `.sdcms-lead__hint` | Texto auxiliar |
+| `.sdcms-lead__error` | Mensagem de erro |
+| `.sdcms-lead__success` | Mensagem de sucesso |
+
+---
+
+## 8. Fluxo Completo — Diagrama
+
+### Publicação de conteúdo
+
+```
+Editor publica post no CMS
+    │
+    ▼
+CMS salva no banco (Prisma + Supabase)
+    │
+    ├──▶ Upload de imagens → Supabase Storage (content-images bucket)
+    │
+    ▼
+CMS dispara webhook POST → /api/sdcms/revalidate
+    │
+    ├── Verifica HMAC-SHA256
+    ├── revalidateTag("cms-posts")
+    ├── revalidatePath("/pt/blog")
+    ├── revalidatePath("/pt/blog/{slug}")
+    ├── revalidatePath("/pt") ← homepage
+    └── revalidatePath("/sitemap.xml")
+    │
+    ▼
+Próximo visitante recebe página com conteúdo atualizado
+```
+
+### Captura de lead
+
+```
+Visitante preenche formulário (widget ou fallback)
+    │
+    ├── Widget: JS do CMS envia direto → POST /api/lead-magnets/{id}/capture
+    │
+    └── Fallback: Form envia → POST /api/contact (nosso server)
+                │
+                ├── Valida schema (Zod)
+                ├── POST /api/lead-magnets/{id}/capture (salva no CMS)
+                └── SMTP email (fire-and-forget, não bloqueia)
+    │
+    ▼
+Lead aparece no painel do CMS
+```
+
+---
+
+## 9. Troubleshooting
+
+### Imagens do blog não carregam
+
+| Sintoma | Causa | Solução |
+|---|---|---|
+| Hero image quebrada | Hostname não está em `remotePatterns` | Adicionar `**.supabase.co` no `next.config.mjs` |
+| Inline `<img>` sumindo | Falta `rehype-raw` no pipeline | Adicionar `.use(remarkRehype, { allowDangerousHtml: true }).use(rehypeRaw)` |
+| Imagem com URL relativa `/storage/...` | CMS retorna path relativo | Usar `absolutizeCmsAssetUrl()` ou o plugin `rehypeSdcmsImages` |
+
+### Webhook não revalida
+
+| Sintoma | Causa | Solução |
+|---|---|---|
+| 401 Unauthorized | `CMS_WEBHOOK_SECRET` incorreto | Verificar no painel do CMS e no `.env` |
+| 400 Missing signature | CMS não está enviando headers | Verificar configuração do webhook no painel |
+| Cache não atualiza | `revalidateTag` não funciona em dev | Testar em production build (`npm run build && npm start`) |
+
+### Widget de lead não renderiza
+
+| Sintoma | Causa | Solução |
+|---|---|---|
+| Componente retorna `null` | Falata `NEXT_PUBLIC_CMS_BASE_URL` ou `NEXT_PUBLIC_SDCMS_LEAD_PUBLIC_ID` | Configurar no `.env` |
+| "Form indisponivel" | `publicId` inválido ou Lead Magnet não existe | Verificar no painel do CMS |
+| Estilos não aplicam | Falta `.sdcms-lead-embed` no wrapper | Adicionar classe no `<div>` que contém o widget |
+
+### Formulário de contato falha
+
+| Sintoma | Causa | Solução |
+|---|---|---|
+| 400 Invalid form data | Campos obrigatórios ausentes | Enviar `name` (min 1 char) e `email` (válido) |
+| 500 Internal server error | SDCMS inacessível | Verificar `CMS_BASE_URL` e healthcheck |
+| Lead não aparece no CMS | `NEXT_PUBLIC_SDCMS_LEAD_PUBLIC_ID` ausente | Se não configurado, `captureToSdcms()` pula silenciosamente |

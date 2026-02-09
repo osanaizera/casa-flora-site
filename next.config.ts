@@ -22,15 +22,23 @@ if (cmsBaseUrl) {
   }
 }
 
-// Add Supabase Storage domain for CMS images
+// Add Supabase Storage domain for CMS images (wildcard for any project)
 remotePatterns.push({
   protocol: "https",
-  hostname: "plqkfyjzulvdztmasyft.supabase.co",
+  hostname: "**.supabase.co",
   pathname: "/storage/v1/object/public/**",
 });
 
+// Allow Unsplash images (commonly used in CMS content)
+remotePatterns.push({
+  protocol: "https",
+  hostname: "images.unsplash.com",
+});
+
 const nextConfig: NextConfig = {
-  images: remotePatterns.length ? { remotePatterns } : undefined,
+  images: {
+    remotePatterns,
+  },
 };
 
 export default nextConfig;

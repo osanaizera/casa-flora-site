@@ -6,10 +6,22 @@ import BlogCard from "@/components/blog/BlogCard";
 import NewsletterCTA from "@/components/blog/NewsletterCTA";
 import HeaderModern from "@/components/layout/HeaderModern";
 import { listPosts } from "@/lib/cms";
+import { absolutizeCmsAssetUrl, getCmsBaseUrlForAssets } from "@/lib/sdcms-assets";
 
 export const metadata: Metadata = {
   title: "Journal | Casa Flora",
-  description: "Insights sobre hospitalidade, design sensorial e arquitetura de marca para hotéis boutique e investidores visionários.",
+  description:
+    "Insights sobre hospitalidade, design sensorial e arquitetura de marca para hotéis boutique e investidores visionários.",
+  alternates: {
+    canonical: "https://www.casaflora-brand.com.br/blog",
+  },
+  openGraph: {
+    title: "Journal | Casa Flora Branding e Design",
+    description:
+      "Insights sobre hospitalidade, design sensorial e arquitetura de marca.",
+    url: "https://www.casaflora-brand.com.br/blog",
+    type: "website",
+  },
 };
 
 type PageProps = {
@@ -19,16 +31,23 @@ type PageProps = {
 };
 
 /**
- * Extracts the first image URL from markdown content
+ * Extracts the first image URL from markdown content and absolutizes CMS URLs
  */
 function extractFirstImageUrl(markdown: string): string | null {
   if (!markdown) return null;
-  
+  const cmsBase = getCmsBaseUrlForAssets();
+
   // Match markdown image syntax: ![alt](url)
-  const imageRegex = /!\[([^\]]*)\]\(([^)]+)\)/;
-  const match = markdown.match(imageRegex);
-  
-  return match ? match[2] : null;
+  const mdRegex = /!\[([^\]]*)\]\(([^)]+)\)/;
+  const mdMatch = markdown.match(mdRegex);
+  if (mdMatch) return absolutizeCmsAssetUrl(mdMatch[2], cmsBase);
+
+  // Match HTML img tags
+  const htmlRegex = /<img[^>]+src=["']([^"']+)["']/;
+  const htmlMatch = markdown.match(htmlRegex);
+  if (htmlMatch) return absolutizeCmsAssetUrl(htmlMatch[1], cmsBase);
+
+  return null;
 }
 
 export default async function BlogPage({ searchParams }: PageProps) {
@@ -46,9 +65,12 @@ export default async function BlogPage({ searchParams }: PageProps) {
   });
 
   // Map posts with extracted images (no additional fetches needed)
+  const cmsBase = getCmsBaseUrlForAssets();
   const posts = data.map((post) => {
-    let imageUrl = post.seoImage;
-    
+    let imageUrl = post.seoImage
+      ? absolutizeCmsAssetUrl(post.seoImage, cmsBase)
+      : null;
+
     // If no seoImage, extract from content
     if (!imageUrl && post.content) {
       imageUrl = extractFirstImageUrl(post.content);

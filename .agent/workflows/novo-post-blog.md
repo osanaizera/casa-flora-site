@@ -1,61 +1,89 @@
 ---
-description: Adicionar novo post ao blog Casa Flora
+description: Publicar novo post no blog Casa Flora via SDCMS
 ---
 
-# Adicionar Post ao Blog
+# Publicar Post no Blog (via CMS)
 
-// turbo-all
+> Posts são gerenciados pelo **SDCMS** (Headless CMS). Nenhuma alteração de código é necessária para publicar conteúdo novo.
 
-## 1. Preparar Imagem
-- Criar/escolher imagem de capa (mínimo 1200x630px, máximo ~500KB)
-- Salvar em: `public/images/blog/nome-descritivo.jpg`
+## Fluxo Normal (sem código)
 
-## 2. Editar Array de Posts
-Abrir `src/data/blog-posts.ts` e adicionar novo objeto ao array `blogPosts`:
+### 1. Criar Post no Painel CMS
+- Acesse: https://sdcms-web.vercel.app/
+- Crie um novo conteúdo do tipo **BLOG**
+- Preencha: título, slug, excerpt, conteúdo Markdown, tags, idioma
+- Faça upload da imagem de capa (mínimo 1200x630px)
+- Preencha os campos SEO: seoTitle (50-60 chars), seoDescription (120-160 chars), seoImage
 
-```typescript
-{
-  slug: 'url-amigavel-do-post',
-  title: 'Título SEO (50-60 chars)',
-  excerpt: 'Meta description (120-160 chars)',
-  content: `<p>HTML do artigo...</p>`,
-  author: 'Equipe Casa Flora',
-  date: 'YYYY-MM-DD',
-  category: 'Branding',
-  readingTime: 'X min',
-  imageUrl: '/images/blog/nome.jpg',
-  tags: ['Tag1', 'Tag2', 'Tag3'],
-},
-```
+### 2. Publicar
+- Clique em **Publicar** no painel CMS
+- O CMS dispara automaticamente um webhook para `/api/sdcms/revalidate`
+- O cache ISR é invalidado via `revalidateTag("cms-posts")`
+- Em segundos, o site exibe o novo post
 
-## 3. Verificar Local
-```bash
-npm run dev
-```
-- Acessar http://localhost:3000/blog
-- Verificar se post aparece e layout está correto
-
-## 4. Deploy
-```bash
-git add -A
-git commit -m "blog: add [título]"
-git push
-```
-
-## 5. Pós-Deploy (Opcional)
-- Verificar sitemap: https://www.casaflora-brand.com.br/sitemap.xml
-- Solicitar indexação no Google Search Console
+### 3. Verificar
+- Blog: https://www.casaflora-brand.com.br/blog
+- Post: https://www.casaflora-brand.com.br/blog/{slug}
+- Sitemap: https://www.casaflora-brand.com.br/sitemap.xml
 
 ---
 
-## Estrutura HTML do Content
+## Estrutura do Conteúdo Markdown
 
-```html
-<p>Introdução...</p>
+```markdown
+# Título Principal
 
-<h2>Subtítulo</h2>
-<p>Conteúdo...</p>
+Parágrafo de introdução...
 
-<h2>Conclusão</h2>
-<p>CTA...</p>
+![Imagem descritiva](url-da-imagem)
+
+## Subtítulo
+
+Conteúdo do artigo em **Markdown** completo.
+
+> Blockquotes para destaques
+
+## Conclusão
+
+Texto final com CTA.
 ```
+
+## Campos SEO no CMS
+
+| Campo | Uso | Exemplo |
+|---|---|---|
+| `seoTitle` | Tag `<title>` e OG title | "Como Criar uma Marca Memorável" (50-60 chars) |
+| `seoDescription` | Meta description e OG description | "Descubra as estratégias..." (120-160 chars) |
+| `seoImage` | OG image e hero do post | Upload no CMS (1200x630px) |
+| `canonicalUrl` | `<link rel="canonical">` | Deixar vazio para URL padrão |
+| `robots` | Meta robots | Deixar vazio (default: index, follow) |
+| `tags` | Categorização e filtros | ["Branding", "Hospitalidade"] |
+
+## Arquitetura Técnica (referência)
+
+| Arquivo | Função |
+|---|---|
+| `src/lib/cms.ts` | Client CMS (server-only, ISR com tags) |
+| `src/lib/blog.ts` | Adapter CMS → Post (contrato interno) |
+| `src/lib/markdown.ts` | Pipeline unified: remark → rehype → HTML |
+| `src/lib/sdcms-assets.ts` | Absolutização de URLs de assets do CMS |
+| `src/app/blog/[slug]/page.tsx` | Página do post (JSON-LD, OG, canonical) |
+| `src/app/api/sdcms/revalidate/route.ts` | Webhook receiver (HMAC-SHA256) |
+| `src/app/sitemap.ts` | Sitemap dinâmico com todos os posts |
+
+## Variáveis de Ambiente Necessárias
+
+```env
+CMS_BASE_URL=https://sdcms-web.vercel.app/
+CMS_API_KEY=cms_xxx
+CMS_WEBHOOK_SECRET=xxx
+SITE_URL=https://www.casaflora-brand.com.br
+NEXT_PUBLIC_CMS_BASE_URL=https://sdcms-web.vercel.app/
+NEXT_PUBLIC_SDCMS_LEAD_PUBLIC_ID=xxx  # opcional, para widget de lead
+```
+
+## Troubleshooting
+
+- **Post não aparece**: Verificar webhook no painel CMS → logs em `/api/sdcms/revalidate`
+- **Imagens quebradas**: Verificar `next.config.ts` → `remotePatterns` inclui `**.supabase.co`
+- **Cache ISR**: Em dev, ISR não funciona — testar com `npm run build && npm start`

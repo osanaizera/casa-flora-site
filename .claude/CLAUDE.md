@@ -85,11 +85,68 @@ Nossos serviços atendem negócios de produtos, serviços e hospitalidade que de
 ## Estrutura Técnica
 
 ### Stack Tecnológico
-- **Framework**: Next.js 14+ (App Router)
-- **Styling**: Tailwind CSS (utility-first)
+- **Framework**: Next.js 15.3.6 (App Router, React 19)
+- **Styling**: Tailwind CSS 4 (utility-first)
 - **Animações**: Framer Motion
-- **Imagens**: Next/Image com otimização
+- **Imagens**: Next/Image com otimização + `**.supabase.co` remote patterns
 - **Fonts**: Google Fonts ou fonts locais
+- **CMS**: SDCMS (Headless CMS) — https://sdcms-web.vercel.app/
+- **Analytics**: Vercel Analytics
+- **Validação**: Zod (formulários/API routes)
+
+### Integração SDCMS (Headless CMS)
+
+#### Arquitetura
+```
+CMS Editor → SDCMS API → Site (Next.js) via ISR
+                ↓              ↑
+           Webhook POST   revalidateTag("cms-posts")
+```
+
+#### Módulos Principais
+| Módulo | Caminho | Função |
+|---|---|---|
+| CMS Client | `src/lib/cms.ts` | Chamadas server-only à API (import "server-only") |
+| Blog Adapter | `src/lib/blog.ts` | Mapeia CMS → tipo `Post` interno |
+| Markdown Pipeline | `src/lib/markdown.ts` | unified: remark → rehype → HTML |
+| Asset URLs | `src/lib/sdcms-assets.ts` | Absolutiza URLs relativas do CMS |
+| Webhook | `src/app/api/sdcms/revalidate/route.ts` | Recebe eventos do CMS (HMAC-SHA256) |
+| Contact API | `src/app/api/contact/route.ts` | Zod + SDCMS lead capture + SMTP |
+| Lead Widget | `src/components/SdcmsLeadWidget.tsx` | Embed do widget JS do CMS |
+
+#### ISR & Cache
+- Fetch com `next: { tags: ["cms-posts"], revalidate: 3600 }`
+- Webhook invalida via `revalidateTag("cms-posts")`
+- Sitemap usa `force-dynamic` + `listAllPosts()` com paginação automática
+
+#### SEO Automatizado
+- JSON-LD (BlogPosting schema) por post
+- Canonical URLs, OG completo, Twitter cards
+- `robots` respeitado do CMS
+- `generateStaticParams()` para ISR
+- `<img>` com lazy loading e decoding async via rehype
+
+#### Variáveis de Ambiente
+```env
+# Server-only
+CMS_BASE_URL=https://sdcms-web.vercel.app/
+CMS_API_KEY=cms_xxx
+CMS_WEBHOOK_SECRET=xxx
+SITE_URL=https://www.casaflora-brand.com.br
+
+# Client-side
+NEXT_PUBLIC_CMS_BASE_URL=https://sdcms-web.vercel.app/
+NEXT_PUBLIC_SDCMS_LEAD_PUBLIC_ID=xxx
+```
+
+### Pre-Deploy Checklist
+1. **TypeScript**: `npx tsc --noEmit` — zero errors
+2. **Build**: `npm run build` — sem falhas
+3. **Env vars**: Verificar que todas as variáveis do `.env.example` estão no Vercel
+4. **Webhook**: Confirmar URL `/api/sdcms/revalidate` configurada no painel CMS
+5. **Remote patterns**: `next.config.ts` inclui `**.supabase.co` para imagens
+6. **Sitemap**: Verificar `/sitemap.xml` inclui posts do CMS
+7. **Lead widget**: Se `NEXT_PUBLIC_SDCMS_LEAD_PUBLIC_ID` configurado, testar formulário
 
 ### Padrões de Código
 - **Componentes**: Modulares, reutilizáveis
