@@ -148,6 +148,27 @@ export async function getFeaturedPost(lang?: string): Promise<Post | undefined> 
   return posts[0];
 }
 
+/** Get related posts (same tags, excluding current) */
+export async function getRelatedPosts(
+  currentSlug: string,
+  currentTags: string[],
+  limit = 3,
+): Promise<Post[]> {
+  const all = await getAllPosts();
+  const others = all.filter((p) => p.slug !== currentSlug);
+
+  if (currentTags.length === 0) return others.slice(0, limit);
+
+  // Score by number of matching tags
+  const scored = others.map((p) => ({
+    post: p,
+    score: p.tags.filter((t) => currentTags.includes(t)).length,
+  }));
+
+  scored.sort((a, b) => b.score - a.score);
+  return scored.slice(0, limit).map((s) => s.post);
+}
+
 /** Get all slugs (for static generation / sitemap) */
 export async function getAllSlugs(): Promise<string[]> {
   const items = await listAllPosts("BLOG");

@@ -4,7 +4,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import HeaderModern from "@/components/layout/HeaderModern";
 import NewsletterCTA from "@/components/blog/NewsletterCTA";
-import { getPostBySlug } from "@/lib/blog";
+import SocialShare from "@/components/blog/SocialShare";
+import RelatedPosts from "@/components/blog/RelatedPosts";
+import { getPostBySlug, getRelatedPosts } from "@/lib/blog";
 import { getAllSlugs } from "@/lib/blog";
 import { renderMarkdown, extractFirstImage } from "@/lib/markdown";
 
@@ -112,6 +114,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const tags = post.tags || [];
   const author = post.author;
   const readTime = post.readTime;
+  const articleUrl = `${SITE_URL}/blog/${slug}`;
+
+  // Fetch related posts (by matching tags)
+  const relatedPosts = await getRelatedPosts(slug, tags, 3);
 
   // Build JSON-LD structured data
   const jsonLd = post.jsonLd || {
@@ -218,9 +224,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             dangerouslySetInnerHTML={{ __html: contentHtml }}
           />
 
-          {tags.length > 0 && (
-            <div className="mt-16 pt-8 border-t border-neutral-200">
-              <div className="flex flex-wrap gap-2">
+          {/* Tags + Social Share */}
+          <div className="mt-16 pt-8 border-t border-neutral-200">
+            {tags.length > 0 && (
+              <div className="flex flex-wrap gap-2 mb-8">
                 {tags.map((tag) => (
                   <Link
                     key={tag}
@@ -231,35 +238,21 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                   </Link>
                 ))}
               </div>
-            </div>
-          )}
+            )}
+
+            <SocialShare
+              url={articleUrl}
+              title={post.seoTitle || post.title}
+              description={post.seoDescription || post.excerpt}
+            />
+          </div>
         </div>
       </article>
 
-      <NewsletterCTA />
+      {/* Related Posts */}
+      <RelatedPosts posts={relatedPosts} />
 
-      <div className="bg-white border-t border-neutral-200 py-12">
-        <div className="container mx-auto px-6 text-center">
-          <Link
-            href="/blog"
-            className="inline-flex items-center gap-2 text-neutral-500 hover:text-[var(--earth-600)] transition-colors font-medium"
-          >
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M19 12H5M12 19l-7-7 7-7" />
-            </svg>
-            Voltar para o Journal
-          </Link>
-        </div>
-      </div>
+      <NewsletterCTA />
     </div>
   );
 }
