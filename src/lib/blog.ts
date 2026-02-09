@@ -5,7 +5,6 @@
  * isolating page components from the CMS schema.
  */
 import {
-  listPosts,
   listAllPosts,
   getPost,
   type CMSContentItem,

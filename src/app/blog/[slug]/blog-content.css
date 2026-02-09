@@ -3,7 +3,7 @@
   Uses :global selectors so markup can keep className="blog-content".
 */
 
-:global(.blog-content) {
+.blog-content {
   font-size: 1.125rem;
   line-height: 1.8;
   color: #374151;
@@ -11,11 +11,11 @@
 }
 
 /* Remove first heading if it's duplicate */
-:global(.blog-content > h1:first-child) {
+.blog-content > h1:first-child {
   display: none;
 }
 
-:global(.blog-content h1) {
+.blog-content h1 {
   font-family: var(--font-display), 'Playfair Display', Georgia, serif;
   font-size: 2.5rem;
   font-weight: 600;
@@ -25,7 +25,7 @@
   letter-spacing: -0.02em;
 }
 
-:global(.blog-content h2) {
+.blog-content h2 {
   font-family: var(--font-display), 'Playfair Display', Georgia, serif;
   font-size: 2rem;
   font-weight: 600;
@@ -35,7 +35,7 @@
   letter-spacing: -0.01em;
 }
 
-:global(.blog-content h3) {
+.blog-content h3 {
   font-family: var(--font-display), 'Playfair Display', Georgia, serif;
   font-size: 1.5rem;
   font-weight: 600;
@@ -44,7 +44,7 @@
   color: #111827;
 }
 
-:global(.blog-content h4) {
+.blog-content h4 {
   font-size: 1.25rem;
   font-weight: 600;
   margin: 2rem 0 0.75rem;
@@ -52,7 +52,7 @@
   color: #111827;
 }
 
-:global(.blog-content h5) {
+.blog-content h5 {
   font-size: 1.125rem;
   font-weight: 600;
   margin: 1.5rem 0 0.5rem;
@@ -60,7 +60,7 @@
   color: #111827;
 }
 
-:global(.blog-content h6) {
+.blog-content h6 {
   font-size: 1rem;
   font-weight: 600;
   margin: 1.25rem 0 0.5rem;
@@ -70,24 +70,24 @@
   letter-spacing: 0.05em;
 }
 
-:global(.blog-content p) {
+.blog-content p {
   line-height: 1.8;
   margin: 1.5rem 0;
   color: #374151;
 }
 
-:global(.blog-content strong),
-:global(.blog-content b) {
+.blog-content strong,
+.blog-content b {
   font-weight: 600;
   color: #111827;
 }
 
-:global(.blog-content em),
-:global(.blog-content i) {
+.blog-content em,
+.blog-content i {
   font-style: italic;
 }
 
-:global(.blog-content a) {
+.blog-content a {
   color: var(--earth-600);
   text-decoration: underline;
   text-decoration-color: var(--earth-300);
@@ -95,25 +95,25 @@
   transition: all 0.2s ease;
 }
 
-:global(.blog-content a:hover) {
+.blog-content a:hover {
   color: var(--earth-700);
   text-decoration-color: var(--earth-600);
 }
 
-:global(.blog-content ul) {
+.blog-content ul {
   list-style-type: none;
   padding-left: 0;
   margin: 2rem 0;
 }
 
-:global(.blog-content ul li) {
+.blog-content ul li {
   position: relative;
   padding-left: 2rem;
   margin: 1rem 0;
   line-height: 1.8;
 }
 
-:global(.blog-content ul li::before) {
+.blog-content ul li::before {
   content: '•';
   position: absolute;
   left: 0.5rem;
@@ -122,14 +122,14 @@
   font-size: 1.2em;
 }
 
-:global(.blog-content ol) {
+.blog-content ol {
   list-style-type: none;
   counter-reset: item;
   padding-left: 0;
   margin: 2rem 0;
 }
 
-:global(.blog-content ol li) {
+.blog-content ol li {
   position: relative;
   padding-left: 2.5rem;
   margin: 1rem 0;
@@ -137,7 +137,7 @@
   counter-increment: item;
 }
 
-:global(.blog-content ol li::before) {
+.blog-content ol li::before {
   content: counter(item) '.';
   position: absolute;
   left: 0;
@@ -145,18 +145,18 @@
   font-weight: 600;
 }
 
-:global(.blog-content li > p) {
+.blog-content li > p {
   margin: 0.5rem 0;
 }
 
-:global(.blog-content hr) {
+.blog-content hr {
   border: none;
   border-top: 1px solid #e5e7eb;
   margin: 3rem 0;
   opacity: 0.6;
 }
 
-:global(.blog-content blockquote) {
+.blog-content blockquote {
   border-left: 4px solid var(--earth-400);
   padding: 1.5rem 1.5rem 1.5rem 2rem;
   margin: 2.5rem 0;
@@ -166,19 +166,19 @@
   border-radius: 0 0.5rem 0.5rem 0;
 }
 
-:global(.blog-content blockquote p) {
+.blog-content blockquote p {
   margin: 0.75rem 0;
 }
 
-:global(.blog-content blockquote p:first-child) {
+.blog-content blockquote p:first-child {
   margin-top: 0;
 }
 
-:global(.blog-content blockquote p:last-child) {
+.blog-content blockquote p:last-child {
   margin-bottom: 0;
 }
 
-:global(.blog-content img) {
+.blog-content img {
   max-width: 100%;
   height: auto;
   margin: 3rem auto;
@@ -187,7 +187,7 @@
   display: block;
 }
 
-:global(.blog-content pre) {
+.blog-content pre {
   background: #1e293b;
   color: #e2e8f0;
   padding: 1.5rem;
@@ -199,7 +199,7 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-:global(.blog-content code) {
+.blog-content code {
   background: #f1f5f9;
   color: #0f172a;
   padding: 0.2rem 0.5rem;
@@ -209,14 +209,14 @@
   border: 1px solid #e2e8f0;
 }
 
-:global(.blog-content pre code) {
+.blog-content pre code {
   background: transparent;
   padding: 0;
   color: inherit;
   border: none;
 }
 
-:global(.blog-content table) {
+.blog-content table {
   width: 100%;
   border-collapse: collapse;
   margin: 2.5rem 0;
@@ -225,44 +225,44 @@
   overflow: hidden;
 }
 
-:global(.blog-content th),
-:global(.blog-content td) {
+.blog-content th,
+.blog-content td {
   border: 1px solid #e5e7eb;
   padding: 0.875rem 1.25rem;
   text-align: left;
 }
 
-:global(.blog-content th) {
+.blog-content th {
   background: #f9fafb;
   font-weight: 600;
   color: #111827;
 }
 
-:global(.blog-content tbody tr:hover) {
+.blog-content tbody tr:hover {
   background: #f9fafb;
   transition: background 0.15s ease;
 }
 
 /* First paragraph after heading */
-:global(.blog-content h1 + p),
-:global(.blog-content h2 + p),
-:global(.blog-content h3 + p),
-:global(.blog-content h4 + p) {
+.blog-content h1 + p,
+.blog-content h2 + p,
+.blog-content h3 + p,
+.blog-content h4 + p {
   margin-top: 1rem;
 }
 
 /* Last element */
-:global(.blog-content > *:last-child) {
+.blog-content > *:last-child {
   margin-bottom: 0;
 }
 
 /* First element */
-:global(.blog-content > *:first-child) {
+.blog-content > *:first-child {
   margin-top: 0;
 }
 
 /* Drop cap for first paragraph (optional elegant touch) */
-:global(.blog-content > p:first-of-type:first-letter) {
+.blog-content > p:first-of-type:first-letter {
   font-size: 3.5em;
   line-height: 0.85;
   float: left;

@@ -8,7 +8,7 @@ import { getPostBySlug } from "@/lib/blog";
 import { getAllSlugs } from "@/lib/blog";
 import { renderMarkdown, extractFirstImage } from "@/lib/markdown";
 
-import "./blog-content.module.css";
+import "./blog-content.css";
 
 interface BlogPostPageProps {
   params: Promise<{
