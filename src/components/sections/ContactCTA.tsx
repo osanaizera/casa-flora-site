@@ -12,6 +12,7 @@ export default function ContactCTA() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [successMsg, setSuccessMsg] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -36,6 +37,7 @@ export default function ContactCTA() {
       const json = await res.json();
 
       if (res.ok && json.ok) {
+        setSuccessMsg(json.message || '');
         setIsSubmitted(true);
       } else {
         setErrorMsg(json.error || 'Erro ao enviar. Tente novamente.');
@@ -146,7 +148,7 @@ export default function ContactCTA() {
                   </svg>
                 </div>
                 <h4>Obrigado!</h4>
-                <p>Em breve você receberá nosso material rico de pesquisa no seu email.</p>
+                <p>{successMsg || 'Em breve você receberá nosso material rico de pesquisa no seu email.'}</p>
                 <Link href="/#cases" className="contact-cta__success-cta">
                   Ver nossos cases
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
