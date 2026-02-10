@@ -12,6 +12,7 @@ export default function ContactCTA() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('');
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -24,12 +25,26 @@ export default function ContactCTA() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    setIsSubmitted(true);
-    setIsSubmitting(false);
+    setErrorMsg('');
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      const json = await res.json();
+
+      if (res.ok && json.ok) {
+        setIsSubmitted(true);
+      } else {
+        setErrorMsg(json.error || 'Erro ao enviar. Tente novamente.');
+      }
+    } catch {
+      setErrorMsg('Erro de conexão. Tente novamente.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -119,6 +134,9 @@ export default function ContactCTA() {
                 >
                   {isSubmitting ? 'Enviando...' : 'Receber Material Rico'}
                 </button>
+                {errorMsg && (
+                  <p className="text-red-400 text-sm text-center mt-2">{errorMsg}</p>
+                )}
               </form>
             ) : (
               <div className="contact-cta__success">
