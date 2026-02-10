@@ -39,6 +39,7 @@ function FallbackForm() {
     const data = {
       name: formData.get("name") as string,
       email: formData.get("email") as string,
+      phone: formData.get("phone") as string,
       message: formData.get("message") as string,
     };
 
@@ -99,6 +100,24 @@ function FallbackForm() {
           maxLength={254}
           className="w-full px-4 py-3 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-[var(--earth-600)] focus:border-transparent transition-all"
           placeholder="seu@email.com"
+        />
+      </div>
+
+      <div>
+        <label
+          htmlFor="contact-phone"
+          className="block text-sm font-medium text-neutral-700 mb-2"
+        >
+          Telefone *
+        </label>
+        <input
+          type="tel"
+          id="contact-phone"
+          name="phone"
+          required
+          maxLength={50}
+          className="w-full px-4 py-3 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-[var(--earth-600)] focus:border-transparent transition-all"
+          placeholder="(21) 99999-9999"
         />
       </div>
 

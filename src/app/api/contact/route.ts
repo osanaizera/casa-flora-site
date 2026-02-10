@@ -12,6 +12,11 @@ const contactSchema = z.object({
     .string()
     .email("Email inválido")
     .max(254, "Email muito longo"),
+  phone: z
+    .string()
+    .max(50, "Telefone deve ter no máximo 50 caracteres")
+    .optional()
+    .default(""),
   message: z
     .string()
     .max(800, "Mensagem deve ter no máximo 800 caracteres")
@@ -24,6 +29,7 @@ const contactSchema = z.object({
 async function captureToSdcms(data: {
   name: string;
   email: string;
+  phone: string;
   message: string;
 }): Promise<{ ok: boolean; message?: string }> {
   const baseUrl = (process.env.CMS_BASE_URL ?? "").replace(/\/$/, "");
@@ -35,8 +41,14 @@ async function captureToSdcms(data: {
     return { ok: true, message: "Lead capture skipped (no config)" };
   }
 
-  // First, fetch the lead magnet config to get the correct field keys
-  let messageFieldKey = "message";
+  // Fetch lead magnet config to map field keys dynamically
+  const fieldMap: Record<string, string> = {
+    name: "name",
+    email: "email",
+    phone: "phone",
+    message: "message",
+  };
+
   try {
     const configRes = await fetch(
       `${baseUrl}/api/lead-magnets/${publicId}`,
@@ -45,17 +57,31 @@ async function captureToSdcms(data: {
     if (configRes.ok) {
       const config = await configRes.json();
       const fields = config?.data?.formSchema?.fields ?? [];
-      // Find a field that is NOT name/email — that's the message/custom field
-      const customField = fields.find(
-        (f: { key: string; type: string }) =>
-          f.key !== "name" && f.key !== "email",
-      );
-      if (customField) {
-        messageFieldKey = customField.key;
+      // Build a dynamic mapping from logical names to actual CMS keys
+      for (const f of fields as { key: string; type: string; label: string }[]) {
+        if (f.key === "name" || f.type === "text" && f.label.toLowerCase().includes("nome")) {
+          fieldMap.name = f.key;
+        } else if (f.key === "email" || f.type === "email") {
+          fieldMap.email = f.key;
+        } else if (f.key === "phone" || f.type === "phone") {
+          fieldMap.phone = f.key;
+        } else {
+          // Any other custom field gets the message
+          fieldMap.message = f.key;
+        }
       }
     }
   } catch {
-    // Use default "message" key
+    // Use default field keys
+  }
+
+  // Build payload with only the fields that exist in the schema
+  const payload: Record<string, string> = {};
+  if (data.name) payload[fieldMap.name] = data.name;
+  if (data.email) payload[fieldMap.email] = data.email;
+  if (data.phone) payload[fieldMap.phone] = data.phone;
+  if (data.message && fieldMap.message !== "message") {
+    payload[fieldMap.message] = data.message;
   }
 
   const captureRes = await fetch(
@@ -64,11 +90,7 @@ async function captureToSdcms(data: {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify({
-        data: {
-          name: data.name,
-          email: data.email,
-          [messageFieldKey]: data.message,
-        },
+        data: payload,
         hp: "", // honeypot anti-spam — always empty
       }),
     },
@@ -136,10 +158,10 @@ export async function POST(request: Request) {
     );
   }
 
-  const { name, email, message } = parsed.data;
+  const { name, email, phone, message } = parsed.data;
 
   // Primary: capture to SDCMS (blocking)
-  const capture = await captureToSdcms({ name, email, message });
+  const capture = await captureToSdcms({ name, email, phone, message });
   if (!capture.ok) {
     return NextResponse.json(
       { ok: false, error: capture.message },
