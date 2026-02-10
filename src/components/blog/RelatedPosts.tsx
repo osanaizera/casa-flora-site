@@ -32,7 +32,7 @@ export default function RelatedPosts({ posts }: RelatedPostsProps) {
                       src={post.image}
                       alt={post.title}
                       fill
-                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                      className="object-cover"
                       sizes="(max-width: 768px) 100vw, 33vw"
                     />
                   ) : (
