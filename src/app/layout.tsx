@@ -141,14 +141,14 @@ export default function RootLayout({
         <link rel="icon" href="/images/favicon.png" />
         {/* Google tag (gtag.js) */}
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-YYH25YQJRX"
+          src="https://www.googletagmanager.com/gtag/js?id=G-G1Q6ZLFQJ7"
           strategy="afterInteractive"
         />
         <Script id="gtag-init" strategy="afterInteractive">
           {`window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
-gtag('config', 'G-YYH25YQJRX');`}
+gtag('config', 'G-G1Q6ZLFQJ7');`}
         </Script>
         {/* Schema.org LocalBusiness JSON-LD for GMB association */}
         <script
