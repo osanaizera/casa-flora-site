@@ -28,9 +28,12 @@ function stripMarkdown(text: string) {
 function extractFaqItems(markdown?: string): FaqItem[] {
   if (!markdown) return [];
   const normalized = markdown.replace(/\r\n/g, "\n");
-  const sectionMatch = normalized.match(/##\s*(Perguntas frequentes|FAQ)\b([\s\S]*?)(?=^##\s+|\n##\s+|$)/im);
-  if (!sectionMatch) return [];
-  const section = sectionMatch[2].trim();
+  const headingMatch = normalized.match(/##\s*(Perguntas frequentes|FAQ)\b.*\n/i);
+  if (!headingMatch || headingMatch.index === undefined) return [];
+  const startIndex = headingMatch.index + headingMatch[0].length;
+  const rest = normalized.slice(startIndex);
+  const nextIndex = rest.search(/\n##\s+/);
+  const section = (nextIndex === -1 ? rest : rest.slice(0, nextIndex)).trim();
   const items: FaqItem[] = [];
 
   const headingRegex = /^###\s+(.+)\n([\s\S]*?)(?=^###\s+|^##\s+|$)/gm;
