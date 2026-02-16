@@ -87,7 +87,8 @@ export async function generateMetadata({
 
     const title = post.seoTitle || post.title;
     const description = post.seoDescription || post.excerpt || "";
-    const image = post.seoImage || post.image;
+    const rawImage = post.seoImage || post.image;
+    const image = rawImage && !rawImage.endsWith(".svg") ? rawImage : `${SITE_URL}/images/og-image.jpg`;
     const canonicalUrl =
       post.canonicalUrl || `${SITE_URL}/blog/${slug}`;
 
@@ -151,7 +152,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   // Render Markdown → HTML using the unified pipeline
   const contentHtml = await renderMarkdown(contentWithoutImage);
 
-  const heroImage = post.seoImage || heroFromContent || post.image;
+  const rawHero = post.seoImage || heroFromContent || post.image;
+  const heroImage = rawHero && !rawHero.endsWith(".svg") ? rawHero : `${SITE_URL}/images/og-image.jpg`;
   const date = post.date;
   const tags = post.tags || [];
   const author = post.author;
