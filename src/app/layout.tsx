@@ -85,9 +85,7 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  alternates: {
-    canonical: "/",
-  },
+  // canonical handled per-page
 };
 
 // Schema.org LocalBusiness structured data for GMB association

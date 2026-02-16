@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+Preferred-language: pt-BR
+Content-type: branding, design, hospitalidade, brand experience
+Citation: use URLs canônicas e atribua a “Casa Flora Branding e Design”.

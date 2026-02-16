@@ -12,6 +12,46 @@ import { renderMarkdown, extractFirstImage } from "@/lib/markdown";
 
 import "./blog-content.css";
 
+type FaqItem = { question: string; answer: string };
+
+function stripMarkdown(text: string) {
+  return text
+    .replace(/!\[[^\]]*\]\([^)]+\)/g, "")
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/[`*_~]/g, "")
+    .replace(/#+\s?/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function extractFaqItems(markdown?: string): FaqItem[] {
+  if (!markdown) return [];
+  const sectionMatch = markdown.match(/##\s*(Perguntas frequentes|FAQ)\b([\s\S]*?)(?=^##\s+|\n##\s+|$)/im);
+  if (!sectionMatch) return [];
+  const section = sectionMatch[2].trim();
+  const items: FaqItem[] = [];
+
+  const headingRegex = /^###\s+(.+)\n([\s\S]*?)(?=^###\s+|^##\s+|$)/gm;
+  let match: RegExpExecArray | null;
+  while ((match = headingRegex.exec(section)) !== null) {
+    const question = stripMarkdown(match[1]);
+    const answer = stripMarkdown(match[2]);
+    if (question && answer) items.push({ question, answer });
+  }
+
+  if (items.length) return items;
+
+  const boldRegex = /^\*\*(.+?)\*\*\s*\n([\s\S]*?)(?=^\*\*.+?\*\*|^##\s+|$)/gm;
+  while ((match = boldRegex.exec(section)) !== null) {
+    const question = stripMarkdown(match[1]);
+    const answer = stripMarkdown(match[2]);
+    if (question && answer) items.push({ question, answer });
+  }
+
+  return items;
+}
+
 interface BlogPostPageProps {
   params: Promise<{
     slug: string;
@@ -53,14 +93,12 @@ export async function generateMetadata({
       alternates: {
         canonical: canonicalUrl,
       },
-      ...(post.robots
+      robots: post.robots
         ? {
-            robots: {
-              index: !post.robots.includes("noindex"),
-              follow: !post.robots.includes("nofollow"),
-            },
+            index: !post.robots.includes("noindex"),
+            follow: !post.robots.includes("nofollow"),
           }
-        : {}),
+        : { index: true, follow: true },
       openGraph: {
         title,
         description,
@@ -114,10 +152,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const tags = post.tags || [];
   const author = post.author;
   const readTime = post.readTime;
-  const articleUrl = `${SITE_URL}/blog/${slug}`;
+  const articleUrl = canonicalUrl;
 
   // Fetch related posts (by matching tags)
   const relatedPosts = await getRelatedPosts(slug, tags, 3);
+
+  const canonicalUrl = post.canonicalUrl || `${SITE_URL}/blog/${slug}`;
 
   // Build JSON-LD structured data
   const jsonLd = post.jsonLd || {
@@ -142,9 +182,23 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": post.canonicalUrl || `${SITE_URL}/blog/${slug}`,
+      "@id": canonicalUrl,
     },
+    url: canonicalUrl,
   };
+
+  const faqItems = extractFaqItems(post.content);
+  const faqJsonLd = faqItems.length
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: faqItems.map((item) => ({
+          "@type": "Question",
+          name: item.question,
+          acceptedAnswer: { "@type": "Answer", text: item.answer },
+        })),
+      }
+    : null;
 
   return (
     <div className="bg-[var(--color-paper)] min-h-screen">
@@ -155,6 +209,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      {faqJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+      )}
 
       <article>
         <header className="pt-32 pb-12 md:pt-40 md:pb-20 container mx-auto px-6 max-w-5xl text-center">
