@@ -152,12 +152,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const tags = post.tags || [];
   const author = post.author;
   const readTime = post.readTime;
+  const canonicalUrl = post.canonicalUrl || `${SITE_URL}/blog/${slug}`;
   const articleUrl = canonicalUrl;
 
   // Fetch related posts (by matching tags)
   const relatedPosts = await getRelatedPosts(slug, tags, 3);
-
-  const canonicalUrl = post.canonicalUrl || `${SITE_URL}/blog/${slug}`;
 
   // Build JSON-LD structured data
   const jsonLd = post.jsonLd || {
