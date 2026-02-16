@@ -27,7 +27,8 @@ function stripMarkdown(text: string) {
 
 function extractFaqItems(markdown?: string): FaqItem[] {
   if (!markdown) return [];
-  const sectionMatch = markdown.match(/##\s*(Perguntas frequentes|FAQ)\b([\s\S]*?)(?=^##\s+|\n##\s+|$)/im);
+  const normalized = markdown.replace(/\r\n/g, "\n");
+  const sectionMatch = normalized.match(/##\s*(Perguntas frequentes|FAQ)\b([\s\S]*?)(?=^##\s+|\n##\s+|$)/im);
   if (!sectionMatch) return [];
   const section = sectionMatch[2].trim();
   const items: FaqItem[] = [];
