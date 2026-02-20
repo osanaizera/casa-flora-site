@@ -439,7 +439,7 @@ export default function WorkshopBrandingPage() {
               />
               <div className="bento-card__overlay" />
               <div className="bento-card__content">
-                <span className="wb-benefit-icon">📖</span>
+                <svg className="wb-benefit-svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
                 <h3 className="bento-card__title">Apostila completa</h3>
                 <p className="bento-card__desc" style={{ opacity: 0.85 }}>
                   Todo o conteúdo organizado para consulta permanente
@@ -450,7 +450,7 @@ export default function WorkshopBrandingPage() {
             {/* Benefit 2: Ferramentas — número grande */}
             <div className="bento-card bento-card--dark bento-card--tall">
               <div className="bento-card__content bento-card__content--center">
-                <span className="wb-benefit-icon wb-benefit-icon--lg">🛠</span>
+                <svg className="wb-benefit-svg wb-benefit-svg--lg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
                 <p className="bento-card__stat" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}>10+</p>
                 <h3 className="bento-card__title" style={{ textAlign: 'center' }}>
                   Ferramentas práticas
@@ -464,7 +464,7 @@ export default function WorkshopBrandingPage() {
             {/* Benefit 3: Construção ao vivo */}
             <div className="bento-card bento-card--text">
               <div className="bento-card__content" style={{ justifyContent: 'center', textAlign: 'center', alignItems: 'center' }}>
-                <span className="wb-benefit-icon wb-benefit-icon--lg">🎯</span>
+                <svg className="wb-benefit-svg wb-benefit-svg--lg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
                 <h3 className="bento-card__title" style={{ color: 'var(--neutral-900)' }}>
                   Construção ao vivo
                 </h3>
@@ -482,7 +482,7 @@ export default function WorkshopBrandingPage() {
               />
               <div className="bento-card__overlay" />
               <div className="bento-card__content">
-                <span className="wb-benefit-icon">💬</span>
+                <svg className="wb-benefit-svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
                 <h3 className="bento-card__title">Mentoria em grupo</h3>
                 <p className="bento-card__desc" style={{ opacity: 0.85 }}>
                   Sessões de perguntas e direcionamento
@@ -500,7 +500,7 @@ export default function WorkshopBrandingPage() {
                 gap: 24,
                 flexWrap: 'wrap',
               }}>
-                <span style={{ fontSize: '3rem' }}>🎥</span>
+                <svg className="wb-benefit-svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
                 <div>
                   <h3 className="bento-card__title">Acesso às gravações</h3>
                   <p className="bento-card__desc" style={{ opacity: 0.85 }}>
@@ -528,21 +528,21 @@ export default function WorkshopBrandingPage() {
             <div className="wb-invest__info">
               <div className="wb-invest__details">
                 <div className="wb-invest__detail">
-                  <span className="wb-invest__detail-icon">📅</span>
+                  <span className="wb-invest__detail-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span>
                   <div>
                     <strong>17 e 18 de março</strong>
                     <span>Terça e quarta-feira</span>
                   </div>
                 </div>
                 <div className="wb-invest__detail">
-                  <span className="wb-invest__detail-icon">🕖</span>
+                  <span className="wb-invest__detail-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
                   <div>
                     <strong>19h às 22h</strong>
                     <span>Horário de Brasília</span>
                   </div>
                 </div>
                 <div className="wb-invest__detail">
-                  <span className="wb-invest__detail-icon">💻</span>
+                  <span className="wb-invest__detail-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span>
                   <div>
                     <strong>Online, ao vivo</strong>
                     <span>Com acesso às gravações</span>

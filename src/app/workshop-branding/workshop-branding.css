@@ -583,6 +583,24 @@
   font-size: 3.2rem;
 }
 
+.wb-benefit-svg {
+  display: block;
+  margin-bottom: 16px;
+  opacity: 0.85;
+  stroke-width: 1.5;
+  transition: all 0.3s ease;
+}
+
+.wb-benefit-svg--lg {
+  margin-bottom: 20px;
+  opacity: 0.7;
+}
+
+.bento-card:hover .wb-benefit-svg {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
 /* ══════════════════════════════════════════════════════════
    SECTION 6 — INVESTIMENTO
    ══════════════════════════════════════════════════════════ */
