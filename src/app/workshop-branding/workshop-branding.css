@@ -1,0 +1,1010 @@
+/* ========================================
+   WORKSHOP BRANDING - LANDING PAGE
+   Design System Casa Flora
+   ======================================== */
+
+/* Hero Section */
+.workshop-hero {
+  min-height: 100vh;
+  background: var(--color-paper);
+  padding: 120px var(--space-xl) var(--space-2xl);
+  position: relative;
+  overflow: hidden;
+}
+
+.workshop-hero::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(139, 115, 85, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(60px);
+  pointer-events: none;
+}
+
+.workshop-hero__container {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: clamp(48px, 8vw, 120px);
+  align-items: center;
+}
+
+@media (max-width: 1024px) {
+  .workshop-hero__container {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+}
+
+.workshop-hero__content {
+  position: relative;
+  z-index: 2;
+}
+
+.workshop-hero__eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--earth-600);
+  display: block;
+  margin-bottom: 24px;
+}
+
+.workshop-hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  font-weight: 300;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+
+.workshop-hero__title-line {
+  display: block;
+}
+
+.workshop-hero__title-line--accent {
+  font-weight: 500;
+  font-style: italic;
+  color: var(--earth-600);
+}
+
+.workshop-hero__subtitle {
+  font-size: 1.25rem;
+  color: var(--neutral-600);
+  margin-bottom: 32px;
+  font-weight: 400;
+}
+
+.workshop-hero__highlight {
+  background: linear-gradient(135deg, rgba(139, 115, 85, 0.08), rgba(139, 115, 85, 0.04));
+  border-left: 3px solid var(--earth-600);
+  padding: 24px 28px;
+  margin-bottom: 40px;
+  border-radius: 0 8px 8px 0;
+}
+
+.workshop-hero__lead {
+  font-size: 1.3rem;
+  line-height: 1.5;
+  color: var(--neutral-800);
+  margin: 0;
+}
+
+.workshop-hero__lead strong {
+  font-weight: 600;
+  color: var(--earth-600);
+}
+
+.workshop-hero__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 40px;
+  background: var(--earth-600);
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(139, 115, 85, 0.25);
+  margin-bottom: 48px;
+}
+
+.workshop-hero__cta:hover {
+  background: var(--earth-400);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(139, 115, 85, 0.35);
+}
+
+.workshop-hero__cta svg {
+  transition: transform 0.3s ease;
+}
+
+.workshop-hero__cta:hover svg {
+  transform: translateX(4px);
+}
+
+.workshop-hero__info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 24px;
+}
+
+@media (max-width: 640px) {
+  .workshop-hero__info-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.workshop-hero__info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid var(--neutral-200);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+}
+
+.workshop-hero__info-icon {
+  flex-shrink: 0;
+  color: var(--earth-600);
+  margin-top: 2px;
+}
+
+.workshop-hero__info-item > div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.workshop-hero__info-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--neutral-600);
+  font-weight: 600;
+}
+
+.workshop-hero__info-value {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--neutral-900);
+}
+
+.workshop-hero__info-detail {
+  font-size: 0.875rem;
+  color: var(--neutral-600);
+}
+
+.workshop-hero__visual {
+  position: relative;
+  height: 620px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 1024px) {
+  .workshop-hero__visual {
+    height: 500px;
+  }
+}
+
+.workshop-hero__card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s ease;
+}
+
+.workshop-hero__card:hover {
+  transform: translateY(-8px) scale(1.02);
+}
+
+.workshop-hero__card-bg {
+  position: absolute;
+  inset: 0;
+  background: 
+    linear-gradient(135deg, rgba(139, 115, 85, 0.85), rgba(122, 132, 113, 0.75)),
+    url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1200&q=90');
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.6s ease;
+}
+
+.workshop-hero__card:hover .workshop-hero__card-bg {
+  transform: scale(1.08);
+}
+
+.workshop-hero__card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.1));
+  display: flex;
+  align-items: flex-end;
+  padding: 48px;
+}
+
+/* Workshop Sections */
+.workshop-section {
+  padding: clamp(80px, 12vw, 160px) var(--space-xl);
+  position: relative;
+}
+
+.workshop-section__container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.workshop-section__header {
+  text-align: center;
+  margin-bottom: clamp(48px, 8vw, 80px);
+}
+
+.workshop-section__eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--earth-600);
+  display: block;
+  margin-bottom: 16px;
+}
+
+.workshop-section__title {
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  font-weight: 300;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--neutral-900);
+  margin-bottom: 20px;
+}
+
+.workshop-section__title em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--earth-600);
+}
+
+.workshop-section__subtitle {
+  font-size: 1.2rem;
+  color: var(--neutral-600);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Proposta Section */
+.workshop-section--proposta {
+  background: linear-gradient(180deg, var(--color-paper) 0%, #fff 100%);
+}
+
+.workshop-section__content {
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.workshop-section__text-block {
+  background: #fff;
+  padding: clamp(36px, 6vw, 56px);
+  border-radius: 16px;
+  border: 1px solid var(--neutral-200);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+}
+
+.workshop-section__lead {
+  font-size: 1.4rem;
+  line-height: 1.6;
+  color: var(--neutral-900);
+  margin-bottom: 28px;
+  font-weight: 400;
+}
+
+.workshop-section__lead strong {
+  font-weight: 600;
+  color: var(--earth-600);
+}
+
+.workshop-section__body {
+  font-size: 1.1rem;
+  line-height: 1.75;
+  color: var(--neutral-700);
+  margin-bottom: 24px;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+}
+
+.workshop-section__body:last-child {
+  margin-bottom: 0;
+}
+
+.workshop-section__body strong {
+  font-weight: 600;
+  color: var(--neutral-900);
+}
+
+/* Olhar Casa Flora Section */
+.workshop-section--olhar {
+  background: #fff;
+}
+
+.workshop-pillars {
+  margin-bottom: 56px;
+}
+
+.workshop-pillars__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 24px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+@media (max-width: 640px) {
+  .workshop-pillars__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.workshop-pillars__item {
+  background: linear-gradient(135deg, #fff, rgba(250, 250, 249, 0.8));
+  border: 1px solid var(--neutral-200);
+  border-radius: 16px;
+  padding: 32px 24px;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.workshop-pillars__item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+  border-color: var(--earth-400);
+}
+
+.workshop-pillars__icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 16px;
+  background: linear-gradient(135deg, rgba(139, 115, 85, 0.12), rgba(139, 115, 85, 0.08));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--earth-600);
+  transition: all 0.3s ease;
+}
+
+.workshop-pillars__item:hover .workshop-pillars__icon {
+  background: var(--earth-600);
+  color: #fff;
+  transform: scale(1.1);
+}
+
+.workshop-pillars__title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--neutral-900);
+}
+
+.workshop-section__highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.workshop-highlight {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: #fff;
+  padding: 20px 24px;
+  border-radius: 12px;
+  border: 1px solid var(--neutral-200);
+  transition: all 0.3s ease;
+}
+
+.workshop-highlight:hover {
+  border-color: var(--earth-400);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  transform: translateX(8px);
+}
+
+.workshop-highlight__icon {
+  flex-shrink: 0;
+  color: var(--earth-600);
+  margin-top: 2px;
+}
+
+.workshop-highlight span {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--neutral-800);
+}
+
+.workshop-highlight strong {
+  font-weight: 600;
+  color: var(--neutral-900);
+}
+
+.workshop-highlight em {
+  font-style: italic;
+}
+
+/* Módulos Section */
+.workshop-section--modulos {
+  background: var(--color-paper);
+}
+
+.workshop-module {
+  background: #fff;
+  border: 1px solid var(--neutral-200);
+  border-radius: 20px;
+  padding: clamp(32px, 5vw, 48px);
+  margin-bottom: 32px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
+}
+
+.workshop-module:hover {
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.08);
+  transform: translateY(-4px);
+}
+
+.workshop-module--bonus {
+  background: linear-gradient(135deg, rgba(139, 115, 85, 0.06), rgba(139, 115, 85, 0.03));
+  border: 2px solid var(--earth-400);
+  position: relative;
+  overflow: hidden;
+}
+
+.workshop-module--bonus::before {
+  content: 'BÔNUS';
+  position: absolute;
+  top: 20px;
+  right: -35px;
+  background: var(--earth-600);
+  color: #fff;
+  padding: 6px 50px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  transform: rotate(45deg);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.workshop-module__header {
+  margin-bottom: 28px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--neutral-200);
+}
+
+.workshop-module__number {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--earth-600);
+  background: rgba(139, 115, 85, 0.1);
+  padding: 6px 14px;
+  border-radius: 20px;
+  margin-bottom: 12px;
+}
+
+.workshop-module__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3.5vw, 2rem);
+  font-weight: 500;
+  color: var(--neutral-900);
+  margin-bottom: 8px;
+  line-height: 1.25;
+}
+
+.workshop-module__subtitle {
+  font-size: 1.1rem;
+  color: var(--neutral-600);
+  font-weight: 400;
+}
+
+.workshop-module__content {
+  max-width: 820px;
+}
+
+.workshop-module__intro {
+  font-size: 1.1rem;
+  color: var(--neutral-700);
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.workshop-module__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.workshop-module__list li {
+  position: relative;
+  padding-left: 32px;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--neutral-700);
+}
+
+.workshop-module__list li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--earth-600);
+  font-weight: 600;
+  font-size: 1.2em;
+}
+
+.workshop-module__note {
+  margin-top: 28px;
+  padding: 20px 24px;
+  background: rgba(139, 115, 85, 0.05);
+  border-left: 3px solid var(--earth-600);
+  border-radius: 0 8px 8px 0;
+  font-size: 1.05rem;
+  color: var(--neutral-700);
+}
+
+.workshop-module__note em {
+  font-style: italic;
+  color: var(--neutral-800);
+}
+
+/* O que você vai receber */
+.workshop-section--receber {
+  background: #fff;
+}
+
+.workshop-benefits {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (max-width: 640px) {
+  .workshop-benefits {
+    grid-template-columns: 1fr;
+  }
+}
+
+.workshop-benefit {
+  background: linear-gradient(135deg, #fff, rgba(250, 250, 249, 0.6));
+  border: 1px solid var(--neutral-200);
+  border-radius: 16px;
+  padding: 36px 28px;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.workshop-benefit:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.1);
+  border-color: var(--earth-400);
+}
+
+.workshop-benefit__icon {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 20px;
+  background: linear-gradient(135deg, rgba(139, 115, 85, 0.12), rgba(139, 115, 85, 0.06));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--earth-600);
+  transition: all 0.3s ease;
+}
+
+.workshop-benefit:hover .workshop-benefit__icon {
+  background: var(--earth-600);
+  color: #fff;
+  transform: scale(1.1) rotate(5deg);
+}
+
+.workshop-benefit__title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--neutral-900);
+  margin-bottom: 12px;
+}
+
+.workshop-benefit__description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--neutral-600);
+}
+
+/* Investimento Section */
+.workshop-section--investimento {
+  background: linear-gradient(180deg, var(--color-paper) 0%, #fff 100%);
+  padding-bottom: 0;
+}
+
+.workshop-pricing {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+@media (max-width: 968px) {
+  .workshop-pricing {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+}
+
+.workshop-pricing__content {
+  padding: 40px;
+}
+
+.workshop-pricing__header {
+  margin-bottom: 32px;
+}
+
+.workshop-pricing__eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--earth-600);
+  display: block;
+  margin-bottom: 12px;
+}
+
+.workshop-pricing__title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400;
+  color: var(--neutral-900);
+}
+
+.workshop-pricing__info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.workshop-pricing__info-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px;
+  background: #fff;
+  border: 1px solid var(--neutral-200);
+  border-radius: 12px;
+}
+
+.workshop-pricing__info-row svg {
+  flex-shrink: 0;
+  color: var(--earth-600);
+  margin-top: 2px;
+}
+
+.workshop-pricing__info-row > div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.workshop-pricing__info-row strong {
+  font-size: 1.1rem;
+  color: var(--neutral-900);
+}
+
+.workshop-pricing__info-row span {
+  font-size: 0.95rem;
+  color: var(--neutral-600);
+}
+
+.workshop-pricing__cta-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.workshop-pricing__card {
+  background: linear-gradient(135deg, #fff, rgba(250, 250, 249, 0.9));
+  border: 2px solid var(--earth-400);
+  border-radius: 24px;
+  padding: 48px 40px;
+  text-align: center;
+  box-shadow: 0 16px 60px rgba(139, 115, 85, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.workshop-pricing__card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(139, 115, 85, 0.06), transparent 60%);
+  pointer-events: none;
+}
+
+.workshop-pricing__badge {
+  display: inline-block;
+  background: var(--earth-600);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 8px 20px;
+  border-radius: 20px;
+  margin-bottom: 24px;
+}
+
+.workshop-pricing__price-strike {
+  margin-bottom: 8px;
+}
+
+.workshop-pricing__old-price {
+  font-size: 1.5rem;
+  color: var(--neutral-400);
+  text-decoration: line-through;
+}
+
+.workshop-pricing__price {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.workshop-pricing__currency {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--neutral-900);
+}
+
+.workshop-pricing__amount {
+  font-family: var(--font-display);
+  font-size: 5rem;
+  font-weight: 700;
+  color: var(--earth-600);
+  line-height: 1;
+}
+
+@media (max-width: 640px) {
+  .workshop-pricing__amount {
+    font-size: 3.5rem;
+  }
+}
+
+.workshop-pricing__installment {
+  font-size: 1rem;
+  color: var(--neutral-600);
+  margin-bottom: 32px;
+}
+
+.workshop-pricing__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  padding: 20px 40px;
+  background: var(--earth-600);
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 24px rgba(139, 115, 85, 0.3);
+  margin-bottom: 16px;
+}
+
+.workshop-pricing__button:hover {
+  background: var(--earth-400);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(139, 115, 85, 0.4);
+}
+
+.workshop-pricing__button svg {
+  transition: transform 0.3s ease;
+}
+
+.workshop-pricing__button:hover svg {
+  transform: translateX(6px);
+}
+
+.workshop-pricing__note {
+  font-size: 0.85rem;
+  color: var(--neutral-600);
+  margin: 0;
+}
+
+.workshop-pricing__after-card {
+  text-align: center;
+  padding: 20px;
+  background: rgba(139, 115, 85, 0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(139, 115, 85, 0.15);
+}
+
+.workshop-pricing__after-text {
+  font-size: 0.95rem;
+  color: var(--neutral-700);
+  margin: 0;
+}
+
+.workshop-pricing__after-text strong {
+  color: var(--neutral-900);
+  font-weight: 600;
+}
+
+/* Footer CTA */
+.workshop-footer-cta {
+  background: linear-gradient(135deg, var(--earth-600), var(--sage-600));
+  padding: clamp(80px, 12vw, 120px) var(--space-xl);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.workshop-footer-cta::before {
+  content: '';
+  position: absolute;
+  top: -30%;
+  left: -20%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent 60%);
+  border-radius: 50%;
+  filter: blur(60px);
+}
+
+.workshop-footer-cta::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  right: -20%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.08), transparent 60%);
+  border-radius: 50%;
+  filter: blur(60px);
+}
+
+.workshop-footer-cta__container {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.workshop-footer-cta__title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 400;
+  line-height: 1.15;
+  color: #fff;
+  margin-bottom: 40px;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
+}
+
+.workshop-footer-cta__button {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 22px 48px;
+  background: #fff;
+  color: var(--earth-600);
+  text-decoration: none;
+  font-size: 1.15rem;
+  font-weight: 700;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  margin-bottom: 32px;
+}
+
+.workshop-footer-cta__button:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3);
+}
+
+.workshop-footer-cta__button svg {
+  transition: transform 0.3s ease;
+}
+
+.workshop-footer-cta__button:hover svg {
+  transform: translateX(6px);
+}
+
+.workshop-footer-cta__back {
+  margin: 0;
+}
+
+.workshop-footer-cta__back a {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  padding-bottom: 2px;
+}
+
+.workshop-footer-cta__back a:hover {
+  color: #fff;
+  border-bottom-color: #fff;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .workshop-hero {
+    padding: 100px var(--space-md) var(--space-xl);
+  }
+
+  .workshop-section {
+    padding: clamp(60px, 10vw, 100px) var(--space-md);
+  }
+
+  .workshop-hero__info-grid {
+    gap: 16px;
+  }
+
+  .workshop-module {
+    padding: 28px 24px;
+  }
+
+  .workshop-pricing__content {
+    padding: 0;
+  }
+
+  .workshop-pricing__card {
+    padding: 36px 28px;
+  }
+}
+
+/* Smooth Scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Print Styles */
+@media print {
+  .workshop-hero__cta,
+  .workshop-pricing__button,
+  .workshop-footer-cta {
+    display: none;
+  }
+}
