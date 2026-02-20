@@ -1,6 +1,5 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import Image from 'next/image';
 import './workshop-branding.css';
 
 export const metadata: Metadata = {
@@ -95,7 +94,7 @@ export default function WorkshopBrandingPage() {
           <div className="workshop-section__content">
             <div className="workshop-section__text-block">
               <p className="workshop-section__lead">
-                Não partimos do lugar de "professores", mas de quem <strong>vive o mercado</strong>, constrói, erra, ajusta e sustenta marcas reais.
+                Não partimos do lugar de &ldquo;professores&rdquo;, mas de quem <strong>vive o mercado</strong>, constrói, erra, ajusta e sustenta marcas reais.
               </p>
               <p className="workshop-section__body">
                 É um convite para abrir a nossa casa. Compartilhar processos, decisões, bastidores e aprendizados de quem atua diretamente com marcas de alto padrão — especialmente nos universos de <strong>experiência, hospitalidade e lifestyle</strong>.
@@ -286,7 +285,7 @@ export default function WorkshopBrandingPage() {
               <ul className="workshop-module__list">
                 <li>Por que personalidade não é estética</li>
                 <li>Como fugir da padronização</li>
-                <li>Como escolher quando "tudo pode"</li>
+                <li>Como escolher quando &ldquo;tudo pode&rdquo;</li>
                 <li>Arquétipos como ferramenta, não como rótulo</li>
                 <li>Como criamos marcas realmente originais</li>
                 <li>O que aprendemos depois de construir X projetos</li>
