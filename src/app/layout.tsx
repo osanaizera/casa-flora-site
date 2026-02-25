@@ -3,6 +3,7 @@ import Script from "next/script";
 import { Inter, Archivo } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
+import ConsentBanner from "@/components/ConsentBanner";
 
 const archivo = Archivo({
   subsets: ["latin"],
@@ -270,6 +271,7 @@ gtag('config', 'G-G1Q6ZLFQJ7');`}
       </head>
       <body className={`${archivo.variable} ${inter.variable} antialiased`}>
         {children}
+        <ConsentBanner />
         <Analytics />
       </body>
     </html>
