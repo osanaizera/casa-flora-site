@@ -304,95 +304,117 @@ export default function WorkshopBrandingPage() {
             </p>
           </div>
 
-          <div className="bento-grid bento-grid--3">
-            {/* Módulo 01 — tall */}
-            <div className="bento-card bento-card--img bento-card--tall">
+          <div className="wb-modulos__list">
+            {/* Módulo 01 */}
+            <div className="bento-card bento-card--img bento-card--full wb-modulos__card">
               <div
                 className="bento-card__bg"
                 style={{ backgroundImage: 'url(/images/experiencia.jpg)' }}
               />
-              <div className="bento-card__overlay" />
-              <div className="bento-card__content">
-                <span className="bento-card__num">Módulo 01</span>
-                <h3 className="bento-card__title">Comece por aqui</h3>
-                <p className="bento-card__sub">Por que branding é ativo de negócio</p>
+              <div className="bento-card__overlay bento-card__overlay--full" />
+              <div className="bento-card__content" style={{ maxWidth: 640 }}>
+                <span className="wb-pill" style={{ alignSelf: 'flex-start', marginBottom: 16 }}>
+                  Módulo 01
+                </span>
+                <h3 className="wb-modulos__title">Comece por aqui</h3>
+                <p className="bento-card__desc" style={{ opacity: 0.75 }}>
+                  Por que branding é ativo de negócio
+                </p>
               </div>
             </div>
 
             {/* Módulo 02 */}
-            <div className="bento-card bento-card--img">
+            <div className="bento-card bento-card--img bento-card--full wb-modulos__card">
               <div
                 className="bento-card__bg"
                 style={{ backgroundImage: 'url(/images/hospitalidade.jpg)' }}
               />
-              <div className="bento-card__overlay" />
-              <div className="bento-card__content">
-                <span className="bento-card__num">Módulo 02</span>
-                <h3 className="bento-card__title">Como treinamos nosso olhar</h3>
-                <p className="bento-card__sub">Referência, repertório e leitura de contexto</p>
+              <div className="bento-card__overlay bento-card__overlay--full" />
+              <div className="bento-card__content" style={{ maxWidth: 640 }}>
+                <span className="wb-pill" style={{ alignSelf: 'flex-start', marginBottom: 16 }}>
+                  Módulo 02
+                </span>
+                <h3 className="wb-modulos__title">Como treinamos nosso olhar</h3>
+                <p className="bento-card__desc" style={{ opacity: 0.75 }}>
+                  Referência, repertório e leitura de contexto
+                </p>
               </div>
             </div>
 
             {/* Módulo 03 */}
-            <div className="bento-card bento-card--img">
+            <div className="bento-card bento-card--img bento-card--full wb-modulos__card">
               <div
                 className="bento-card__bg"
                 style={{ backgroundImage: 'url(/images/raiz.jpg)' }}
               />
-              <div className="bento-card__overlay" />
-              <div className="bento-card__content">
-                <span className="bento-card__num">Módulo 03</span>
-                <h3 className="bento-card__title">Como fazemos o diagnóstico</h3>
-                <p className="bento-card__sub">O que olhar, cruzar e decidir</p>
+              <div className="bento-card__overlay bento-card__overlay--full" />
+              <div className="bento-card__content" style={{ maxWidth: 640 }}>
+                <span className="wb-pill" style={{ alignSelf: 'flex-start', marginBottom: 16 }}>
+                  Módulo 03
+                </span>
+                <h3 className="wb-modulos__title">Como fazemos o diagnóstico</h3>
+                <p className="bento-card__desc" style={{ opacity: 0.75 }}>
+                  O que olhar, cruzar e decidir
+                </p>
               </div>
             </div>
 
             {/* Módulo 04 */}
-            <div className="bento-card bento-card--img">
+            <div className="bento-card bento-card--img bento-card--full wb-modulos__card">
               <div
                 className="bento-card__bg"
                 style={{ backgroundImage: 'url(/images/garden.jpg)' }}
               />
-              <div className="bento-card__overlay" />
-              <div className="bento-card__content">
-                <span className="bento-card__num">Módulo 04</span>
-                <h3 className="bento-card__title">O que torna uma marca diferente</h3>
-                <p className="bento-card__sub">Posicionamento, personalidade e escolha</p>
+              <div className="bento-card__overlay bento-card__overlay--full" />
+              <div className="bento-card__content" style={{ maxWidth: 640 }}>
+                <span className="wb-pill" style={{ alignSelf: 'flex-start', marginBottom: 16 }}>
+                  Módulo 04
+                </span>
+                <h3 className="wb-modulos__title">O que torna uma marca diferente</h3>
+                <p className="bento-card__desc" style={{ opacity: 0.75 }}>
+                  Posicionamento, personalidade e escolha
+                </p>
               </div>
             </div>
 
-            {/* Módulo 05 — tall */}
-            <div className="bento-card bento-card--img bento-card--tall">
+            {/* Módulo 05 */}
+            <div className="bento-card bento-card--img bento-card--full wb-modulos__card">
               <div
                 className="bento-card__bg"
                 style={{ backgroundImage: 'url(/images/seiva.png)' }}
               />
-              <div className="bento-card__overlay" />
-              <div className="bento-card__content">
-                <span className="bento-card__num">Módulo 05</span>
-                <h3 className="bento-card__title">Como a marca ganha forma</h3>
-                <p className="bento-card__sub">Narrativa, identidade e experiência</p>
+              <div className="bento-card__overlay bento-card__overlay--full" />
+              <div className="bento-card__content" style={{ maxWidth: 640 }}>
+                <span className="wb-pill" style={{ alignSelf: 'flex-start', marginBottom: 16 }}>
+                  Módulo 05
+                </span>
+                <h3 className="wb-modulos__title">Como a marca ganha forma</h3>
+                <p className="bento-card__desc" style={{ opacity: 0.75 }}>
+                  Narrativa, identidade e experiência
+                </p>
               </div>
             </div>
 
             {/* Módulo 06 — Final */}
-            <div className="bento-card bento-card--img">
+            <div className="bento-card bento-card--img bento-card--full wb-modulos__card">
               <div
                 className="bento-card__bg"
                 style={{ backgroundImage: 'url(/images/ambar.png)' }}
               />
-              <div className="bento-card__overlay" />
-              <div className="bento-card__content">
-                <span className="bento-card__num">Módulo Final</span>
-                <h3 className="bento-card__title">Como sustentamos marcas</h3>
-                <p className="bento-card__sub">Gestão, experiência e encantamento</p>
+              <div className="bento-card__overlay bento-card__overlay--full" />
+              <div className="bento-card__content" style={{ maxWidth: 640 }}>
+                <span className="wb-pill" style={{ alignSelf: 'flex-start', marginBottom: 16 }}>
+                  Módulo Final
+                </span>
+                <h3 className="wb-modulos__title">Como sustentamos marcas</h3>
+                <p className="bento-card__desc" style={{ opacity: 0.75 }}>
+                  Gestão, experiência e encantamento
+                </p>
               </div>
             </div>
-          </div>
 
-          {/* Bônus — full width */}
-          <div className="wb-bonus">
-            <div className="bento-card bento-card--img bento-card--full" style={{ minHeight: 300 }}>
+            {/* Bônus */}
+            <div className="bento-card bento-card--img bento-card--full wb-modulos__card">
               <div
                 className="bento-card__bg"
                 style={{ backgroundImage: 'url(/images/form.jpeg)' }}
@@ -402,16 +424,7 @@ export default function WorkshopBrandingPage() {
                 <span className="wb-pill" style={{ alignSelf: 'flex-start', marginBottom: 16 }}>
                   Bônus exclusivo
                 </span>
-                <h3 style={{
-                  fontFamily: 'var(--font-display)',
-                  fontSize: 'clamp(1.6rem, 3.5vw, 2.2rem)',
-                  fontWeight: 400,
-                  color: '#fff',
-                  margin: '0 0 12px',
-                  lineHeight: 1.2,
-                }}>
-                  Como é a Casa Flora por dentro
-                </h3>
+                <h3 className="wb-modulos__title">Como é a Casa Flora por dentro</h3>
                 <p className="bento-card__desc" style={{ opacity: 0.75 }}>
                   Bastidores profissionais: briefing, entrega, orientação ao cliente e postura
                   com marcas de alto padrão.
@@ -431,24 +444,19 @@ export default function WorkshopBrandingPage() {
           </div>
 
           <div className="bento-grid">
-            {/* Benefit 1: Apostila — wide + imagem */}
-            <div className="bento-card bento-card--img bento-card--wide" style={{ minHeight: 280 }}>
-              <div
-                className="bento-card__bg"
-                style={{ backgroundImage: 'url(/images/cases/insolito/resultado0.jpeg)' }}
-              />
-              <div className="bento-card__overlay" />
+            {/* Benefit 1: Apostila */}
+            <div className="bento-card bento-card--dark bento-card--wide">
               <div className="bento-card__content">
                 <svg className="wb-benefit-svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
                 <h3 className="bento-card__title">Apostila completa</h3>
-                <p className="bento-card__desc" style={{ opacity: 0.85 }}>
+                <p className="bento-card__desc" style={{ opacity: 0.6 }}>
                   Todo o conteúdo organizado para consulta permanente
                 </p>
               </div>
             </div>
 
-            {/* Benefit 2: Ferramentas — número grande */}
-            <div className="bento-card bento-card--dark bento-card--tall">
+            {/* Benefit 2: Ferramentas */}
+            <div className="bento-card bento-card--earth bento-card--tall">
               <div className="bento-card__content bento-card__content--center">
                 <svg className="wb-benefit-svg wb-benefit-svg--lg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
                 <p className="bento-card__stat" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}>10+</p>
@@ -474,39 +482,25 @@ export default function WorkshopBrandingPage() {
               </div>
             </div>
 
-            {/* Benefit 4: Mentoria — imagem */}
-            <div className="bento-card bento-card--img" style={{ minHeight: 260 }}>
-              <div
-                className="bento-card__bg"
-                style={{ backgroundImage: 'url(/images/cases/insolito/resultados1.jpeg)' }}
-              />
-              <div className="bento-card__overlay" />
+            {/* Benefit 4: Acesso às gravações */}
+            <div className="bento-card bento-card--earth bento-card--wide">
               <div className="bento-card__content">
-                <svg className="wb-benefit-svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-                <h3 className="bento-card__title">Mentoria em grupo</h3>
+                <svg className="wb-benefit-svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+                <h3 className="bento-card__title">Acesso às gravações</h3>
                 <p className="bento-card__desc" style={{ opacity: 0.85 }}>
-                  Sessões de perguntas e direcionamento
+                  Reveja o conteúdo quando e onde quiser
                 </p>
               </div>
             </div>
 
-            {/* Benefit 5: Gravações — earth accent */}
-            <div className="bento-card bento-card--earth bento-card--wide">
-              <div className="bento-card__content" style={{
-                justifyContent: 'center',
-                alignItems: 'center',
-                textAlign: 'center',
-                flexDirection: 'row',
-                gap: 24,
-                flexWrap: 'wrap',
-              }}>
-                <svg className="wb-benefit-svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
-                <div>
-                  <h3 className="bento-card__title">Acesso às gravações</h3>
-                  <p className="bento-card__desc" style={{ opacity: 0.85 }}>
-                    Reveja o conteúdo quando e onde quiser
-                  </p>
-                </div>
+            {/* Benefit 5: Mentoria em grupo */}
+            <div className="bento-card bento-card--dark">
+              <div className="bento-card__content" style={{ justifyContent: 'center', textAlign: 'center', alignItems: 'center' }}>
+                <svg className="wb-benefit-svg wb-benefit-svg--lg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+                <h3 className="bento-card__title">Mentoria em grupo</h3>
+                <p className="bento-card__desc" style={{ opacity: 0.6 }}>
+                  Sessões de perguntas e direcionamento
+                </p>
               </div>
             </div>
           </div>
@@ -559,9 +553,9 @@ export default function WorkshopBrandingPage() {
                 <span className="wb-price-card__currency">R$</span>
                 <span className="wb-price-card__amount">997</span>
               </div>
-              <p className="wb-price-card__installment">ou 12× de R$ 97 via Hotmart</p>
+              <p className="wb-price-card__installment">ou 12× de R$ 97 via Kiwify</p>
               <a
-                href="https://pay.hotmart.com/XXXXXX"
+                href="https://pay.kiwify.com.br/AdKrQFo"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="wb-cta wb-cta--price"
@@ -578,7 +572,7 @@ export default function WorkshopBrandingPage() {
                 </svg>
               </a>
               <p className="wb-price-card__note">
-                Vagas limitadas · Pagamento seguro via Hotmart
+                Vagas limitadas · Pagamento seguro via Kiwify
               </p>
               <div className="wb-price-card__after">
                 <strong>Após as 5 primeiras:</strong> R$ 1.497

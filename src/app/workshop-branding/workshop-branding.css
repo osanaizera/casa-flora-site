@@ -537,7 +537,7 @@
 }
 
 /* ══════════════════════════════════════════════════════════
-   SECTION 4 — MÓDULOS (Bento Grid)
+   SECTION 4 — MÓDULOS (Lista sequencial)
    ══════════════════════════════════════════════════════════ */
 .wb-modulos {
   background: var(--color-paper, #FAF7F2);
@@ -548,17 +548,24 @@
   margin-bottom: 48px;
 }
 
-.wb-modulos .bento-card--img {
-  min-height: 320px;
+.wb-modulos__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--wb-gap, 16px);
 }
 
-.wb-modulos .bento-card--tall {
-  min-height: 660px;
+.wb-modulos__card {
+  min-height: 180px;
+  grid-column: unset;
 }
 
-/* Bonus card */
-.wb-bonus {
-  margin-top: var(--wb-gap);
+.wb-modulos__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+  font-weight: 400;
+  color: #fff;
+  margin: 0 0 12px;
+  line-height: 1.2;
 }
 
 /* ══════════════════════════════════════════════════════════
