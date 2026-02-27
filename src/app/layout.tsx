@@ -75,6 +75,9 @@ export const metadata: Metadata = {
     description: "Agência de design em Ipanema. Quebramos o óbvio criando marcas memoráveis.",
     images: ["/images/og-image.jpg"],
   },
+  verification: {
+    google: "g5ed_ta9h-aK8SJ86n2z2fkVRaTU7vwZgjoHlNhwz0I",
+  },
   robots: {
     index: true,
     follow: true,
