@@ -137,11 +137,16 @@ export async function listPosts(
   if (search) qs.set("search", search);
   if (tags) qs.set("tags", tags);
 
-  const res = await cmsFetch<CMSContentItem[]>(
-    `/api/public/content?${qs.toString()}`,
-  );
+  try {
+    const res = await cmsFetch<CMSContentItem[]>(
+      `/api/public/content?${qs.toString()}`,
+    );
 
-  return { data: res.data, nextCursor: res.nextCursor };
+    return { data: res.data, nextCursor: res.nextCursor };
+  } catch (error) {
+    console.warn("[CMS] listPosts failed, returning empty list:", error);
+    return { data: [], nextCursor: undefined };
+  }
 }
 
 /**
