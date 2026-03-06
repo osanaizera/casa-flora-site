@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import TrackedKiwifyCheckoutLink from '@/components/tracking/TrackedKiwifyCheckoutLink';
 import './workshop-branding.css';
 
 export const metadata: Metadata = {
@@ -554,10 +555,8 @@ export default function WorkshopBrandingPage() {
                 <span className="wb-price-card__amount">997</span>
               </div>
               <p className="wb-price-card__installment">ou 12× de R$ 97 via Kiwify</p>
-              <a
+              <TrackedKiwifyCheckoutLink
                 href="https://pay.kiwify.com.br/AdKrQFo"
-                target="_blank"
-                rel="noopener noreferrer"
                 className="wb-cta wb-cta--price"
               >
                 <span>Garantir vaga agora</span>
@@ -570,7 +569,7 @@ export default function WorkshopBrandingPage() {
                     strokeLinejoin="round"
                   />
                 </svg>
-              </a>
+              </TrackedKiwifyCheckoutLink>
               <p className="wb-price-card__note">
                 Vagas limitadas · Pagamento seguro via Kiwify
               </p>
