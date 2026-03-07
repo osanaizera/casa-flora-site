@@ -61,18 +61,18 @@ export async function listPosts(params: Record<string, string | number | boolean
   for (const [key, value] of Object.entries(params)) {
     if (value !== undefined) search.set(key, String(value))
   }
-  return cmsFetch<CmsListResponse<any>>(`/api/public/content?${search.toString()}`)
+  return cmsFetch<CmsListResponse<any>>(`/api/content?${search.toString()}`)
 }
 
 export async function getPostBySlug(slug: string) {
-  const payload = await cmsFetch<any>(`/api/public/content/${slug}?includeContent=true`)
+  const payload = await cmsFetch<any>(`/api/content/${slug}?includeContent=true`)
   return payload.data ?? payload
 }
 ```
 
 Important:
 - The CMS always wraps responses in `{ data: ... }`. Use `payload.data` (list responses include `data` + `nextCursor`).
-- The list endpoint returns `content: null` by design; fetch `/api/public/content/:slug?includeContent=true` for full body.
+- The list endpoint returns `content: null` by design; fetch `/api/content/:slug?includeContent=true` for full body.
 
 ## 4) Blog list page
 
@@ -186,7 +186,7 @@ export async function GET() {
     return NextResponse.json({ ok: false, cmsOk: false, message: "Missing CMS env vars" }, { status: 500 })
   }
 
-  const response = await fetch(`${baseUrl.replace(/\\/$/, "")}/api/public/content?limit=1&includeContent=false`, {
+  const response = await fetch(`${baseUrl.replace(/\\/$/, "")}/api/content?limit=1&includeContent=false`, {
     headers: { "x-api-key": apiKey },
     cache: "no-store",
   })

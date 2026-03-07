@@ -6,7 +6,7 @@ const apiKey = process.env.CMS_API_KEY ?? "";
 
 // ─── Types ────────────────────────────────────
 
-/** Shape returned by GET /api/public/content (list item) */
+/** Shape returned by GET /api/content (list item) */
 export interface CMSContentItem {
   id: string;
   title: string;
@@ -28,7 +28,7 @@ export interface CMSContentItem {
   content?: string; // only with includeContent=true
 }
 
-/** Shape returned by GET /api/public/content/:slug */
+/** Shape returned by GET /api/content/:slug */
 export interface CMSContentDetail extends CMSContentItem {
   content: string;
   type: string;
@@ -139,7 +139,7 @@ export async function listPosts(
 
   try {
     const res = await cmsFetch<CMSContentItem[]>(
-      `/api/public/content?${qs.toString()}`,
+      `/api/content?${qs.toString()}`,
     );
 
     return { data: res.data, nextCursor: res.nextCursor };
@@ -176,7 +176,7 @@ export async function getPost(
 ): Promise<CMSContentDetail | null> {
   try {
     const res = await cmsFetch<CMSContentDetail>(
-      `/api/public/content/${encodeURIComponent(slug)}`,
+      `/api/content/${encodeURIComponent(slug)}`,
     );
     return res.data;
   } catch {
